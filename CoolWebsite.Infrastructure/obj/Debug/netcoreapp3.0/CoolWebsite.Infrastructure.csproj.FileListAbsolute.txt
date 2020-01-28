@@ -1,0 +1,8 @@
+C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\obj\Debug\netcoreapp3.0\CoolWebsite.Infrastructure.csprojAssemblyReference.cache
+C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\obj\Debug\netcoreapp3.0\CoolWebsite.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\obj\Debug\netcoreapp3.0\CoolWebsite.Infrastructure.AssemblyInfo.cs
+C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\bin\Debug\netcoreapp3.0\CoolWebsite.Infrastructure.deps.json
+C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\bin\Debug\netcoreapp3.0\CoolWebsite.Infrastructure.dll
+C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\bin\Debug\netcoreapp3.0\CoolWebsite.Infrastructure.pdb
+C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\obj\Debug\netcoreapp3.0\CoolWebsite.Infrastructure.dll
+C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\obj\Debug\netcoreapp3.0\CoolWebsite.Infrastructure.pdb
