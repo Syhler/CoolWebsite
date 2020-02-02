@@ -8,21 +8,38 @@ a.navbar-brand {
 }
 
 /* Provide sufficient contrast against white background */
-a {
+.link {
   color: #0366d6;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+  /*color: #fff;*/
+  /*background-color: #1b6ec2;*/
+  /*border-color: #1861ac;*/
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+  /*color: #fff;*/
+  /*background-color: #1b6ec2;*/
+  /*border-color: #1861ac;*/
 }
+
+.navbar .nav-link {
+  border: none;
+}
+
+.nav-link {
+  color: #aaaaaa;
+}
+
+.custom-nav{
+  border: 1px solid rgba(0,0,0,0.6);
+}
+
+.sidebar{
+  float: left;
+}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -36,14 +53,19 @@ html {
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #aaaaaa;
 }
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #aaaaaa;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: .0rem .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.box-shadow-deep{
+  box-shadow: .0rem .25rem .75rem .25rem rgba(0, 0, 0, .15);
+
 }
 
 button.accept-policy {
@@ -62,10 +84,10 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
-}
+/*.footer {*/
+/*  position: absolute;*/
+/*  bottom: 0;*/
+/*  width: 100%;*/
+/*  white-space: nowrap;*/
+/*  line-height: 60px; !* Vertically center the text there *!*/
+/*}*/

@@ -1,6 +1,7 @@
 ﻿using System;
 using CoolWebsite.Infrastructure.Identity;
 using CoolWebsite.Infrastructure.Persistence;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
@@ -24,12 +25,23 @@ namespace CoolWebsite.Infrastructure
 
             services.AddScoped<ApplicationDbContext>();
             
-            //is instanced in startup in "coolwebsite" project
-            
-            // services.AddIdentityCore<ApplicationUser>()
-            //     .AddEntityFrameworkStores<ApplicationDbContext>();
-            
+            services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+                {
+                    options.Password.RequiredLength = 1;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireDigit = false;
+                })
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/auth/index";
+                options.LogoutPath = "/auth/index";
+            });
+ 
             return services;
         }
     }

@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Roles";
+    Layout = "_Layout";
+}
+
+<div class="wrapper">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">Roles</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#create-role">Create Role</a>
+    </li>
+  </ul>
+  <div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active show" id="home">
+     @Html.Partial("Roles")
+    </div>
+    <div class="tab-pane fade " id="create-role">
+      @Html.Partial("CreateRole")
+    </div>
+  </div>
+
+</div>

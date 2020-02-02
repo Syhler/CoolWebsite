@@ -1,45 +1,491 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="" />
+    <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/Common/Exceptions/IdentityObjectNotInitialized.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/bin/Debug/netcoreapp3.0/CoolWebsite.Application.deps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/bin/Debug/netcoreapp3.0/CoolWebsite.Application.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/bin/Debug/netcoreapp3.0/CoolWebsite.Application.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/bin/Debug/netcoreapp3.0/CoolWebsite.Domain.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/bin/Debug/netcoreapp3.0/CoolWebsite.Domain.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/obj/Debug/netcoreapp3.0/CoolWebsite.Application.csproj.CopyComplete" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/obj/Debug/netcoreapp3.0/CoolWebsite.Application.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/obj/Debug/netcoreapp3.0/CoolWebsite.Application.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/obj/Debug/netcoreapp3.0/CoolWebsite.Application.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Domain/bin/Debug/netcoreapp3.0/CoolWebsite.Domain.deps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Domain/bin/Debug/netcoreapp3.0/CoolWebsite.Domain.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Domain/bin/Debug/netcoreapp3.0/CoolWebsite.Domain.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Domain/obj/Debug/netcoreapp3.0/CoolWebsite.Domain.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Domain/obj/Debug/netcoreapp3.0/CoolWebsite.Domain.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Domain/obj/Debug/netcoreapp3.0/CoolWebsite.Domain.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/ApplicationRole.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/bin/Debug/netcoreapp3.0/CoolWebsite.Application.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/bin/Debug/netcoreapp3.0/CoolWebsite.Application.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/bin/Debug/netcoreapp3.0/CoolWebsite.Domain.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/bin/Debug/netcoreapp3.0/CoolWebsite.Domain.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.csproj.CopyComplete" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.UnitTest/CoolWebsite.UnitTest.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.UnitTest/UnitTest1.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.UnitTest/obj/CoolWebsite.UnitTest.csproj.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.UnitTest/obj/CoolWebsite.UnitTest.csproj.nuget.g.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.UnitTest/obj/CoolWebsite.UnitTest.csproj.nuget.g.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.UnitTest/obj/Debug/netcoreapp3.0/CoolWebsite.UnitTest.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.UnitTest/obj/Debug/netcoreapp3.0/CoolWebsite.UnitTest.csprojAssemblyReference.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.UnitTest/obj/project.assets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Controller/RolesController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/RoleViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/CreateRole.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/Roles.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/Controllers/AuthController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/Models/LoginViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/Views/Auth/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/Views/Shared/Sidebar.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.Application.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.Application.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.Domain.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.Domain.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/Microsoft.AspNetCore.Mvc.Razor.Extensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/Microsoft.AspNetCore.Razor.Language.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/Microsoft.CodeAnalysis.CSharp.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/Microsoft.CodeAnalysis.Razor.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/Microsoft.CodeAnalysis.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/cs/Microsoft.CodeAnalysis.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/de/Microsoft.CodeAnalysis.CSharp.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/de/Microsoft.CodeAnalysis.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/es/Microsoft.CodeAnalysis.CSharp.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/es/Microsoft.CodeAnalysis.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/fr/Microsoft.CodeAnalysis.CSharp.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/fr/Microsoft.CodeAnalysis.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/it/Microsoft.CodeAnalysis.CSharp.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/it/Microsoft.CodeAnalysis.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/ja/Microsoft.CodeAnalysis.CSharp.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/ja/Microsoft.CodeAnalysis.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/ko/Microsoft.CodeAnalysis.CSharp.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/ko/Microsoft.CodeAnalysis.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/pl/Microsoft.CodeAnalysis.CSharp.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/pl/Microsoft.CodeAnalysis.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/pt-BR/Microsoft.CodeAnalysis.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Antiforgery.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Authentication.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Authentication.Cookies.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Authentication.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Authentication.OAuth.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Authentication.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Authorization.Policy.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Authorization.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Components.Authorization.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Components.Forms.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Components.Server.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Components.Web.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Components.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Connections.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.CookiePolicy.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Cors.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Cryptography.Internal.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.DataProtection.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.DataProtection.Extensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.DataProtection.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Diagnostics.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Diagnostics.HealthChecks.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Diagnostics.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.HostFiltering.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Hosting.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Hosting.Server.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Hosting.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Html.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Http.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Http.Connections.Common.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Http.Connections.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Http.Extensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Http.Features.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Http.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.HttpOverrides.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.HttpsPolicy.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Identity.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Localization.Routing.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Localization.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Metadata.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Mvc.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Mvc.ApiExplorer.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Mvc.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Mvc.Cors.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Mvc.DataAnnotations.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Mvc.Formatters.Json.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Mvc.Formatters.Xml.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Mvc.Localization.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Mvc.Razor.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Mvc.RazorPages.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Mvc.TagHelpers.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Mvc.ViewFeatures.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Mvc.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Razor.Runtime.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Razor.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.ResponseCaching.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.ResponseCaching.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.ResponseCompression.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Rewrite.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Routing.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Routing.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Server.HttpSys.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Server.IIS.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Server.IISIntegration.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Server.Kestrel.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Server.Kestrel.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.Session.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.SignalR.Common.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.SignalR.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.SignalR.Protocols.Json.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.SignalR.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.StaticFiles.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.WebSockets.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.WebUtilities.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.AspNetCore.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.CSharp.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Caching.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Caching.Memory.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Configuration.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Configuration.Binder.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Configuration.CommandLine.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Configuration.EnvironmentVariables.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Configuration.FileExtensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Configuration.Ini.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Configuration.Json.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Configuration.KeyPerFile.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Configuration.UserSecrets.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Configuration.Xml.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Configuration.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.DependencyInjection.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.DependencyInjection.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Diagnostics.HealthChecks.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.FileProviders.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.FileProviders.Composite.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.FileProviders.Embedded.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.FileProviders.Physical.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.FileSystemGlobbing.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Hosting.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Hosting.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Http.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Identity.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Identity.Stores.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Localization.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Localization.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Logging.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Logging.Configuration.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Logging.Console.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Logging.Debug.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Logging.EventLog.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Logging.EventSource.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Logging.TraceSource.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Logging.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.ObjectPool.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Options.ConfigurationExtensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Options.DataAnnotations.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Options.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.Primitives.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Extensions.WebEncoders.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.JSInterop.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Net.Http.Headers.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.VisualBasic.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.VisualBasic.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Win32.Primitives.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/Microsoft.Win32.Registry.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.AppContext.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Buffers.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Collections.Concurrent.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Collections.Immutable.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Collections.NonGeneric.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Collections.Specialized.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Collections.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.ComponentModel.Annotations.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.ComponentModel.DataAnnotations.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.ComponentModel.EventBasedAsync.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.ComponentModel.Primitives.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.ComponentModel.TypeConverter.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.ComponentModel.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Configuration.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Console.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Data.Common.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Data.DataSetExtensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Data.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Diagnostics.Contracts.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Diagnostics.Debug.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Diagnostics.DiagnosticSource.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Diagnostics.EventLog.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Diagnostics.FileVersionInfo.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Diagnostics.Process.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Diagnostics.StackTrace.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Diagnostics.TextWriterTraceListener.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Diagnostics.Tools.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Diagnostics.TraceSource.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Diagnostics.Tracing.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Drawing.Primitives.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Drawing.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Dynamic.Runtime.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Globalization.Calendars.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Globalization.Extensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Globalization.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.IO.Compression.Brotli.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.IO.Compression.FileSystem.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.IO.Compression.ZipFile.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.IO.Compression.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.IO.FileSystem.DriveInfo.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.IO.FileSystem.Primitives.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.IO.FileSystem.Watcher.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.IO.FileSystem.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.IO.IsolatedStorage.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.IO.MemoryMappedFiles.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.IO.Pipelines.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.IO.Pipes.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.IO.UnmanagedMemoryStream.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.IO.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Linq.Expressions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Linq.Parallel.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Linq.Queryable.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Linq.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Memory.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.Http.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.HttpListener.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.Mail.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.NameResolution.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.NetworkInformation.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.Ping.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.Primitives.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.Requests.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.Security.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.ServicePoint.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.Sockets.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.WebClient.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.WebHeaderCollection.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.WebProxy.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.WebSockets.Client.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.WebSockets.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Net.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Numerics.Vectors.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Numerics.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.ObjectModel.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Reflection.DispatchProxy.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Reflection.Emit.ILGeneration.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Reflection.Emit.Lightweight.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Reflection.Emit.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Reflection.Extensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Reflection.Metadata.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Reflection.Primitives.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Reflection.TypeExtensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Reflection.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Resources.Reader.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Resources.ResourceManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Resources.Writer.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.CompilerServices.Unsafe.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.CompilerServices.VisualC.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.Extensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.Handles.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.InteropServices.RuntimeInformation.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.InteropServices.WindowsRuntime.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.InteropServices.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.Intrinsics.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.Loader.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.Numerics.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.Serialization.Formatters.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.Serialization.Json.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.Serialization.Primitives.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.Serialization.Xml.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.Serialization.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Runtime.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Security.AccessControl.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Security.Claims.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Security.Cryptography.Algorithms.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Security.Cryptography.Cng.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Security.Cryptography.Csp.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Security.Cryptography.Encoding.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Security.Cryptography.Primitives.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Security.Cryptography.X509Certificates.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Security.Cryptography.Xml.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Security.Permissions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Security.Principal.Windows.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Security.Principal.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Security.SecureString.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Security.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.ServiceModel.Web.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.ServiceProcess.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Text.Encoding.CodePages.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Text.Encoding.Extensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Text.Encoding.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Text.Encodings.Web.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Text.Json.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Text.RegularExpressions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Threading.Channels.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Threading.Overlapped.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Threading.Tasks.Dataflow.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Threading.Tasks.Extensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Threading.Tasks.Parallel.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Threading.Tasks.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Threading.Thread.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Threading.ThreadPool.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Threading.Timer.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Threading.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Transactions.Local.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Transactions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.ValueTuple.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Web.HttpUtility.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Web.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Windows.Extensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Windows.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Xml.Linq.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Xml.ReaderWriter.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Xml.Serialization.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Xml.XDocument.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Xml.XPath.XDocument.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Xml.XPath.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Xml.XmlDocument.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Xml.XmlSerializer.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.Xml.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/System.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/WindowsBase.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/mscorlib.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/refs/netstandard.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/ru/Microsoft.CodeAnalysis.CSharp.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/ru/Microsoft.CodeAnalysis.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/tr/Microsoft.CodeAnalysis.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/Razor/Areas/UserManagement/Views/Roles/Index.cshtml.g.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/Razor/Views/Auth/Index.cshtml.g.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/Sidebar.cshtml.g.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/MainLayout.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/Sidebar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/navbar-fixed-left.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/lib/bootstrap/dist/css/bootstrapDark.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IIdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IIdentityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/obj/Debug/netcoreapp3.0/CoolWebsite.Application.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/obj/Debug/netcoreapp3.0/CoolWebsite.Application.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/CoolWebsite.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/CoolWebsite.Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityResultExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityResultExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/bin/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/bin/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/bin/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/bin/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/bin/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/bin/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/CoolWebsite.Infrastructure.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/CoolWebsite.Infrastructure.csproj.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/CoolWebsite.Infrastructure.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/CoolWebsite.Infrastructure.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.sln" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/bin/Debug/netcoreapp3.0/CoolWebsite.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/CoolWebsite.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/CoolWebsite.csproj.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/CoolWebsite.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/CoolWebsite.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/CoolWebsite.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/CoolWebsite.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/CoolWebsite.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/CoolWebsite.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.MvcApplicationPartsAssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.RazorAssemblyInfo.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.RazorAssemblyInfo.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.RazorAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.RazorAssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.RazorCoreGenerate.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/CoolWebsite.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/Razor/Views/Home/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/Razor/Views/Home/Index.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/js/site.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/lib/bootstrap/dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/lib/bootstrap/dist/css/bootstrapStandard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/lib/bootstrap/dist/css/bootstrapStandard.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/lib/bootstrap/dist/css/bootstrapStandard.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/lib/bootstrap/dist/css/bootstrapStandard.min.css.map" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Controller/RolesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1E566733-E6C2-4253-BBE9-2F663252FF50/F3/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7D47BE26-C19F-4853-94F7-3062D26330AD/F/SignInManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Shared/Sidebar.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityResultExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/20200127210652_TestMigration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Models/Result.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Models/LoginViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite.UnitTest/UnitTest1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IApplicationDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/ICurrentUserService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/ApplicationDbContextModelSnapshot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IIdentityService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Exceptions/IdentityObjectNotInitialized.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Auth/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/ApplicationRole.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Shared/_LoginPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Domain/Entities/TestEntity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Home/Privacy.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Controllers/AuthController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Shared/_ValidationScriptsPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/Configuration/TestEntityConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Shared/Error.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/ApplicationDbContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/RoleViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/Roles.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/obj/Debug/netcoreapp3.0/CoolWebsite.Infrastructure.AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E475FC9F-57ED-43C2-A74C-4B5E924CC2D6/8/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/CreateRole.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/947CFA9E-93C5-4D21-8EE6-CD975672A1F8/1E0/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -53,32 +499,59 @@
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/TestEntity.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Views/Shared/_LoginPartial.cshtml" />
         <option value="$PROJECT_DIR$/TestProject/Class1.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Views/Home/Index.cshtml" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Startup.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Class1.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Domain/Class1.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/ApplicationUser.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/ApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Models/Result.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IIdentityService.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityResultExtensions.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/Identity.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Pages/Index/Index.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Views/Index/Index.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Controllers/IndexController.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Models/LoginViewModel.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Views/Auth/Index.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IIdentityService.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Controllers/AuthController.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/MainLayout.css" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Views/Shared/Sidebar.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/Sidebar.css" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Views/Home/Index.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/js/site.js" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Views/Shared/_Layout.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/MainLayout.css" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/CreateRole.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/Roles.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/Index.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/ApplicationUser.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Startup.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/RoleViewModel.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Exceptions/IdentityObjectNotInitialized.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityService.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.UnitTest/UnitTest1.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Controller/RolesController.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1Wzeo0oOjS62XT1zXs26JJsRcyR" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TWShift.4" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -144,6 +617,10 @@
       <workItem from="1580157025008" duration="250000" />
       <workItem from="1580157324342" duration="5753000" />
       <workItem from="1580205273649" duration="1354000" />
+      <workItem from="1580223717492" duration="10382000" />
+      <workItem from="1580471088673" duration="12008000" />
+      <workItem from="1580553500617" duration="1799000" />
+      <workItem from="1580642629828" duration="1765000" />
     </task>
     <servers />
   </component>
@@ -165,130 +642,120 @@
       </map>
     </option>
   </component>
-  <component name="WindowStateProjectService">
-    <state width="457" height="466" key="DebuggerActiveHint" timestamp="1580162048537">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="457" height="466" key="DebuggerActiveHint/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580162048537" />
-    <state width="2517" height="401" key="GridCell.Tab.0.bottom" timestamp="1580163684597">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684597" />
-    <state width="2517" height="401" key="GridCell.Tab.0.center" timestamp="1580163684596">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684596" />
-    <state width="2517" height="401" key="GridCell.Tab.0.left" timestamp="1580163684596">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684596" />
-    <state width="2517" height="401" key="GridCell.Tab.0.right" timestamp="1580163684596">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684596" />
-    <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1580163684594">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684594" />
-    <state width="2517" height="492" key="GridCell.Tab.1.center" timestamp="1580163684593">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684593" />
-    <state width="2517" height="492" key="GridCell.Tab.1.left" timestamp="1580163684593">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684593" />
-    <state width="2517" height="492" key="GridCell.Tab.1.right" timestamp="1580163684593">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684593" />
-    <state width="2517" height="492" key="GridCell.Tab.2.bottom" timestamp="1580163684594">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.2.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684594" />
-    <state width="2517" height="492" key="GridCell.Tab.2.center" timestamp="1580163684594">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.2.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684594" />
-    <state width="2517" height="492" key="GridCell.Tab.2.left" timestamp="1580163684594">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.2.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684594" />
-    <state width="2517" height="492" key="GridCell.Tab.2.right" timestamp="1580163684594">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.2.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684594" />
-    <state width="2517" height="492" key="GridCell.Tab.3.bottom" timestamp="1580163684594">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.3.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684594" />
-    <state width="2517" height="492" key="GridCell.Tab.3.center" timestamp="1580163684594">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.3.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684594" />
-    <state width="2517" height="492" key="GridCell.Tab.3.left" timestamp="1580163684594">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.3.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684594" />
-    <state width="2517" height="492" key="GridCell.Tab.3.right" timestamp="1580163684594">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.3.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684594" />
-    <state width="2517" height="492" key="GridCell.Tab.4.bottom" timestamp="1580163684594">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.4.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684594" />
-    <state width="2517" height="492" key="GridCell.Tab.4.center" timestamp="1580163684594">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.4.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684594" />
-    <state width="2517" height="492" key="GridCell.Tab.4.left" timestamp="1580163684594">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.4.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684594" />
-    <state width="2517" height="492" key="GridCell.Tab.4.right" timestamp="1580163684594">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="492" key="GridCell.Tab.4.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580163684594" />
-    <state x="766" y="431" key="Rider.ProjectTemplateDialog.Size" timestamp="1580205515871">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="766" y="431" key="Rider.ProjectTemplateDialog.Size/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580205515871" />
-    <state x="781" y="342" key="SettingsEditor" timestamp="1580205294827">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="781" y="342" key="SettingsEditor/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580205294827" />
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs</url>
-          <line>59</line>
-          <properties documentPath="$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" initialLine="59">
-            <startOffsets>
-              <option value="1956" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1957" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs</url>
-          <line>69</line>
-          <properties documentPath="$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" initialLine="69">
-            <startOffsets>
-              <option value="2235" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2236" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="WindowStateProjectService">
+    <state width="457" height="466" key="DebuggerActiveHint" timestamp="1580239985048">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="457" height="466" key="DebuggerActiveHint/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580239985048" />
+    <state width="2517" height="401" key="GridCell.Tab.0.bottom" timestamp="1580514845028">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580514845028" />
+    <state width="2517" height="401" key="GridCell.Tab.0.center" timestamp="1580514845028">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580514845028" />
+    <state width="2517" height="401" key="GridCell.Tab.0.left" timestamp="1580514845027">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580514845027" />
+    <state width="2517" height="401" key="GridCell.Tab.0.right" timestamp="1580514845028">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580514845028" />
+    <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1580257424216">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.1.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424216" />
+    <state width="2517" height="492" key="GridCell.Tab.1.center" timestamp="1580257424215">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.1.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424215" />
+    <state width="2517" height="492" key="GridCell.Tab.1.left" timestamp="1580257424215">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.1.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424215" />
+    <state width="2517" height="492" key="GridCell.Tab.1.right" timestamp="1580257424216">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.1.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424216" />
+    <state width="2517" height="492" key="GridCell.Tab.2.bottom" timestamp="1580257424216">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.2.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424216" />
+    <state width="2517" height="492" key="GridCell.Tab.2.center" timestamp="1580257424216">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.2.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424216" />
+    <state width="2517" height="492" key="GridCell.Tab.2.left" timestamp="1580257424216">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.2.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424216" />
+    <state width="2517" height="492" key="GridCell.Tab.2.right" timestamp="1580257424216">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.2.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424216" />
+    <state width="2517" height="492" key="GridCell.Tab.3.bottom" timestamp="1580257424217">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.3.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424217" />
+    <state width="2517" height="492" key="GridCell.Tab.3.center" timestamp="1580257424216">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.3.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424216" />
+    <state width="2517" height="492" key="GridCell.Tab.3.left" timestamp="1580257424216">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.3.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424216" />
+    <state width="2517" height="492" key="GridCell.Tab.3.right" timestamp="1580257424216">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.3.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424216" />
+    <state width="2517" height="492" key="GridCell.Tab.4.bottom" timestamp="1580257424217">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.4.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424217" />
+    <state width="2517" height="492" key="GridCell.Tab.4.center" timestamp="1580257424217">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.4.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424217" />
+    <state width="2517" height="492" key="GridCell.Tab.4.left" timestamp="1580257424217">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.4.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424217" />
+    <state width="2517" height="492" key="GridCell.Tab.4.right" timestamp="1580257424217">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.4.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580257424217" />
+    <state x="766" y="431" key="Rider.ProjectTemplateDialog.Size" timestamp="1580644000832">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="766" y="431" key="Rider.ProjectTemplateDialog.Size/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580644000832" />
+    <state x="1054" y="390" key="RiderGenerateDialog" timestamp="1580226202206">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1054" y="390" key="RiderGenerateDialog/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580226202206" />
+    <state x="781" y="342" key="SettingsEditor" timestamp="1580223981546">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="781" y="342" key="SettingsEditor/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580223981546" />
+    <state x="1018" y="69" width="1110" height="1388" key="dock-window-1" timestamp="1580642662682">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1018" y="69" width="1110" height="1388" key="dock-window-1/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580642662682" />
+    <state x="-1176" y="0" width="1192" height="1388" key="dock-window-2" timestamp="1580642662682">
+      <screen x="-2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="-1176" y="0" width="1192" height="1388" key="dock-window-2/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580642662682" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1580642719061">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1580642719061" />
   </component>
 </project>

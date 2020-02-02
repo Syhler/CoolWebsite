@@ -1,0 +1,23 @@
+﻿@model LoginViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = null;
+}
+
+
+
+<form asp-action="Login" asp-controller="Auth" method="post">
+    <label asp-for="Email">Email:</label>
+    <input type="text" asp-for="Email"/>
+    <br/>
+    <label asp-for="Password"></label>
+    <input type="password" asp-for="Password"/>
+    <br/>
+    <label asp-for="Persistence">Keep logged in</label>
+    <input type="checkbox" asp-for="Persistence"/>
+    <br/>
+    
+    <button type="submit">Log in</button>
+</form>
+<h2>title</h2>

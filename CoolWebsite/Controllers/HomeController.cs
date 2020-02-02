@@ -9,6 +9,7 @@ using CoolWebsite.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CoolWebsite.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -46,30 +47,11 @@ namespace CoolWebsite.Controllers
             return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
         }
 
-        public async Task<IActionResult> CreateAccount()
-        {
-            var user = new ApplicationUser
-            {
-                UserName = "morten.syhler@gmail.com",
-                Email = "morten.syhler@gmail.com",
-                Color = "green"
-            };
-
-            var result = await _userManager.CreateAsync(user, "test");
-            return RedirectToAction("Index");
-        }
-
-        public async Task<RedirectToActionResult> Login()
-        {
-            await _signInManager.PasswordSignInAsync("morten.syhler@gmail.com", "test", false, false);
-            return RedirectToAction("Index");
-        }
-
-
         public string GetCurrentUser()
         {
             var user = HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
             return user;
         }
+      
     }
 }

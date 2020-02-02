@@ -6,3 +6,8 @@ C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\bin\Debug
 C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\bin\Debug\netcoreapp3.0\CoolWebsite.Infrastructure.pdb
 C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\obj\Debug\netcoreapp3.0\CoolWebsite.Infrastructure.dll
 C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\obj\Debug\netcoreapp3.0\CoolWebsite.Infrastructure.pdb
+C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\bin\Debug\netcoreapp3.0\CoolWebsite.Application.dll
+C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\bin\Debug\netcoreapp3.0\CoolWebsite.Domain.dll
+C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\bin\Debug\netcoreapp3.0\CoolWebsite.Application.pdb
+C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\bin\Debug\netcoreapp3.0\CoolWebsite.Domain.pdb
+C:\Users\morte\Documents\GitHub\CoolWebsite\CoolWebsite.Infrastructure\obj\Debug\netcoreapp3.0\CoolWebsite.Infrastructure.csproj.CopyComplete
