@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoolWebsite.Application;
 using CoolWebsite.Application.Common.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -13,6 +14,7 @@ using CoolWebsite.Infrastructure;
 using CoolWebsite.Infrastructure.Identity;
 using CoolWebsite.Infrastructure.Persistence;
 using CoolWebsite.Services;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -40,9 +42,13 @@ namespace CoolWebsite
             
             
             services.AddInfrastructure(Configuration);
+            services.AddApplication();
 
             services.AddControllersWithViews()
-                .AddRazorRuntimeCompilation();
+                .AddRazorRuntimeCompilation()
+                .AddFluentValidation(x => 
+                    x.RegisterValidatorsFromAssemblyContaining<IApplicationDbContext>());
+            
             services.AddRazorPages();
 
             services.AddHttpContextAccessor();

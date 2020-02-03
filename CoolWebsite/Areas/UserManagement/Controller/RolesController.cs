@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
+using CoolWebsite.Application.DatabaseAccess.TestEntities.Commands.CreateTestEntity;
 using CoolWebsite.Infrastructure.Identity;
 using CoolWebsite.Services;
 using Microsoft.AspNetCore.Http;
@@ -10,15 +11,15 @@ namespace CoolWebsite.Areas.UserManagement.Controller
 {
     
     [Area("UserManagement")]
-    public class RolesController : Microsoft.AspNetCore.Mvc.Controller
+    public class RolesController : MediatorController
     {
-        private readonly IdentityService _identityService;
+        private readonly IIdentityService _identityService;
         private readonly CurrentUserService _currentUserService;
 
-        public RolesController(ICurrentUserService service, IHttpContextAccessor accessor)
+        public RolesController(IHttpContextAccessor accessor, IIdentityService identityService)
         {
             _currentUserService = new CurrentUserService(accessor);
-            //_identityService = new IdentityService(userManager, roleManager);
+            _identityService = identityService;
         }
         
         // GET
@@ -31,6 +32,18 @@ namespace CoolWebsite.Areas.UserManagement.Controller
         public async Task<IActionResult> CreateRole()
         {
             return PartialView("_Layout");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddEntity()
+        {
+            var command = new CreateTestEntityCommand
+            {
+                Name = "TestName"
+            };
+            await Mediator.Send(command);
+            
+            return RedirectToAction("Index");
         }
     }
 }

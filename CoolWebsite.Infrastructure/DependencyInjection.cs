@@ -25,7 +25,7 @@ namespace CoolWebsite.Infrastructure
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
             });
 
-            services.AddScoped<ApplicationDbContext>();
+            services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
           
             
             

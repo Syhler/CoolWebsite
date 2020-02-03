@@ -4,7 +4,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Domain.Common;
+using CoolWebsite.Domain.Entities;
 using CoolWebsite.Infrastructure.Identity;
+using CoolWebsite.Infrastructure.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,10 +18,10 @@ namespace CoolWebsite.Infrastructure.Persistence
         private ICurrentUserService _currentUserService;
         private IDateTime _dateTime;
         
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDateTime dateTime, ICurrentUserService currentUserService) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDateTime dateTime, IHttpContextAccessor accessor) : base(options)
         {
             _dateTime = dateTime;
-            _currentUserService = currentUserService;
+            _currentUserService = new CurrentUserService(accessor);
         }
 
         public DbSet<TestEntity> TestEntities { get; set; }
@@ -29,7 +32,7 @@ namespace CoolWebsite.Infrastructure.Persistence
             base.OnModelCreating(builder);
         }
 
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)
         {
 
             foreach (var entry in ChangeTracker.Entries<AudibleEntity>())
@@ -38,6 +41,7 @@ namespace CoolWebsite.Infrastructure.Persistence
                 {
                     case EntityState.Added:
                         entry.Entity.CreatedBy = _currentUserService.UserID;
+                        entry.Entity.Created = _dateTime.Now;
                         break;
                     case EntityState.Deleted:
                         break;
@@ -46,6 +50,8 @@ namespace CoolWebsite.Infrastructure.Persistence
                     case EntityState.Unchanged:
                         break;
                     case EntityState.Modified:
+                        entry.Entity.LastModified = _dateTime.Now;
+                        entry.Entity.LastModifiedBy = _currentUserService.UserID;
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

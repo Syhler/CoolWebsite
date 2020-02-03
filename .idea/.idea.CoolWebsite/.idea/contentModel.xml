@@ -26,6 +26,7 @@
               <e p="RoleViewModel.cs" t="Include" />
             </e>
             <e p="Views" t="Include">
+              <e p="_ViewImports.cshtml" t="Include" />
               <e p="Roles" t="Include">
                 <e p="CreateRole.cshtml" t="Include" />
                 <e p="Index.cshtml" t="Include" />
@@ -58,6 +59,7 @@
         </e>
         <e p="Services" t="Include">
           <e p="CurrentUserService.cs" t="Include" />
+          <e p="MediatorController.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
         <e p="Views" t="Include">
@@ -164,7 +166,18 @@
           </e>
         </e>
         <e p="CoolWebsite.Application.csproj" t="IncludeRecursive" />
-        <e p="DatabaseAcess" t="Include" />
+        <e p="DatabaseAccess" t="Include">
+          <e p="TestEntities" t="Include">
+            <e p="Commands" t="Include">
+              <e p="CreateTestEntity" t="Include">
+                <e p="CreateTestEntityCommand.cs" t="Include" />
+                <e p="CreateTestEntityCommandValidator.cs" t="Include" />
+              </e>
+              <e p="UpdateTestEntity" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="DependencyInjection.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
@@ -206,6 +219,8 @@
           <e p="20200127210652_TestMigration.Designer.cs" t="Include" />
           <e p="20200127211149_AddedTestEntity.cs" t="Include" />
           <e p="20200127211149_AddedTestEntity.Designer.cs" t="Include" />
+          <e p="20200203221959_AddedAudtiableToTestEntity.cs" t="Include" />
+          <e p="20200203221959_AddedAudtiableToTestEntity.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -222,6 +237,7 @@
           </e>
         </e>
         <e p="Services" t="Include">
+          <e p="CurrentUserService.cs" t="Include" />
           <e p="DateTimeService.cs" t="Include" />
         </e>
       </e>

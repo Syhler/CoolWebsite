@@ -1,6 +1,6 @@
 ﻿using CoolWebsite.Domain.Common;
 
-namespace CoolWebsite.Infrastructure.Persistence
+namespace CoolWebsite.Domain.Entities
 {
     public class TestEntity : AudibleEntity
     {

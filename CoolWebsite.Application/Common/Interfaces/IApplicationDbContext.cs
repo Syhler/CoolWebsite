@@ -1,4 +1,6 @@
-﻿using CoolWebsite.Infrastructure.Persistence;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using CoolWebsite.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoolWebsite.Application.Common.Interfaces
@@ -7,5 +9,7 @@ namespace CoolWebsite.Application.Common.Interfaces
     {
         DbSet<TestEntity> TestEntities { get; set; }
         
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+
     }
 }
