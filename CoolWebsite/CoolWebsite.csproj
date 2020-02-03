@@ -22,7 +22,6 @@
     <ItemGroup>
       <ProjectReference Include="..\CoolWebsite.Application\CoolWebsite.Application.csproj" />
       <ProjectReference Include="..\CoolWebsite.Infrastructure\CoolWebsite.Infrastructure.csproj" />
-      <ProjectReference Include="..\TestProject\TestProject.csproj" />
     </ItemGroup>
 
     <ItemGroup>
