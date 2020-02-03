@@ -56,6 +56,9 @@
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
+        <e p="Services" t="Include">
+          <e p="CurrentUserService.cs" t="Include" />
+        </e>
         <e p="Startup.cs" t="Include" />
         <e p="Views" t="Include">
           <e p="_ViewImports.cshtml" t="Include" />
@@ -153,6 +156,7 @@
           <e p="Interfaces" t="Include">
             <e p="IApplicationDbContext.cs" t="Include" />
             <e p="ICurrentUserService.cs" t="Include" />
+            <e p="IDateTime.cs" t="Include" />
             <e p="IIdentityService.cs" t="Include" />
           </e>
           <e p="Models" t="Include">
@@ -160,6 +164,7 @@
           </e>
         </e>
         <e p="CoolWebsite.Application.csproj" t="IncludeRecursive" />
+        <e p="DatabaseAcess" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
@@ -170,10 +175,14 @@
       </e>
       <e p="CoolWebsite.Domain" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Common" t="Include">
+          <e p="AudibleEntity.cs" t="Include" />
+        </e>
         <e p="CoolWebsite.Domain.csproj" t="IncludeRecursive" />
         <e p="Entities" t="Include">
           <e p="TestEntity.cs" t="Include" />
         </e>
+        <e p="Enums" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
@@ -211,6 +220,9 @@
           <e p="Configuration" t="Include">
             <e p="TestEntityConfiguration.cs" t="Include" />
           </e>
+        </e>
+        <e p="Services" t="Include">
+          <e p="DateTimeService.cs" t="Include" />
         </e>
       </e>
       <e p="CoolWebsite.sln" t="IncludeFlat" />

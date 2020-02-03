@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Infrastructure.Identity;
 using CoolWebsite.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -9,11 +10,11 @@ namespace CoolWebsite.Controllers
 {
     public class AuthController : Controller
     {
-        private readonly IdentityService _identityService;
+        private readonly IIdentityService _identityService;
 
-        public AuthController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
+        public AuthController(IIdentityService identityService)
         {
-            _identityService = new IdentityService(userManager, signInManager);
+            _identityService = identityService;
         }
     
     
@@ -29,7 +30,7 @@ namespace CoolWebsite.Controllers
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {
             var result = await _identityService.LoginUser(model.Email, model.Password);
-
+            
             if (result.Succeeded)
             {
                 if (Url.IsLocalUrl(returnUrl))
@@ -47,7 +48,7 @@ namespace CoolWebsite.Controllers
 
         public RedirectToActionResult Logout()
         {
-            _identityService.Logout();
+             _identityService.Logout();
             return RedirectToAction("Index");
         }
     }

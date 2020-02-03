@@ -15,27 +15,30 @@ namespace CoolWebsite.Infrastructure.Identity
         private UserManager<ApplicationUser> _userManager;
         private RoleManager<ApplicationRole> _roleManager;
 
-        public IdentityService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public IdentityService(UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
+            RoleManager<ApplicationRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
         } 
         
-        public IdentityService(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)
-        {
-            _userManager = userManager;
-            _roleManager = roleManager;
-        }
-
-        public IdentityService(RoleManager<ApplicationRole> roleManager)
-        {
-            _roleManager = roleManager;
-        }
-
-        public IdentityService(UserManager<ApplicationUser> userManager)
-        {
-            _userManager = userManager;
-        }
+        // public IdentityService(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)
+        // {
+        //     _userManager = userManager;
+        //     _roleManager = roleManager;
+        // }
+        //
+        // public IdentityService(RoleManager<ApplicationRole> roleManager)
+        // {
+        //     _roleManager = roleManager;
+        // }
+        //
+        // public IdentityService(UserManager<ApplicationUser> userManager)
+        // {
+        //     _userManager = userManager;
+        // }
 
 
         public async Task<string> GetUserNameAsync(string userID)

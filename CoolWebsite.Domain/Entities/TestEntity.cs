@@ -1,6 +1,8 @@
-﻿namespace CoolWebsite.Infrastructure.Persistence
+﻿using CoolWebsite.Domain.Common;
+
+namespace CoolWebsite.Infrastructure.Persistence
 {
-    public class TestEntity
+    public class TestEntity : AudibleEntity
     {
         public string Id { get; set; }
         public string Name { get; set; }

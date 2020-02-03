@@ -1,6 +1,8 @@
 ﻿using System;
+using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Infrastructure.Identity;
 using CoolWebsite.Infrastructure.Persistence;
+using CoolWebsite.Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +26,8 @@ namespace CoolWebsite.Infrastructure
             });
 
             services.AddScoped<ApplicationDbContext>();
+          
+            
             
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
                 {
@@ -36,6 +40,9 @@ namespace CoolWebsite.Infrastructure
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddTransient<IDateTime, DateTimeService>();
+            services.AddTransient<IIdentityService, IdentityService>();
+            
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = "/auth/index";

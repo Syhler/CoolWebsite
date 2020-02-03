@@ -1,5 +1,8 @@
 ﻿using System.Threading.Tasks;
+using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Infrastructure.Identity;
+using CoolWebsite.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,10 +13,12 @@ namespace CoolWebsite.Areas.UserManagement.Controller
     public class RolesController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly IdentityService _identityService;
+        private readonly CurrentUserService _currentUserService;
 
-        public RolesController(RoleManager<ApplicationRole> roleManager, UserManager<ApplicationUser> userManager)
+        public RolesController(ICurrentUserService service, IHttpContextAccessor accessor)
         {
-            _identityService = new IdentityService(userManager, roleManager);
+            _currentUserService = new CurrentUserService(accessor);
+            //_identityService = new IdentityService(userManager, roleManager);
         }
         
         // GET
