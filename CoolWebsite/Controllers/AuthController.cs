@@ -11,10 +11,12 @@ namespace CoolWebsite.Controllers
     public class AuthController : Controller
     {
         private readonly IIdentityService _identityService;
+        private readonly ICurrentUserService _currentUserService;
 
-        public AuthController(IIdentityService identityService)
+        public AuthController(IIdentityService identityService, ICurrentUserService currentUserService)
         {
             _identityService = identityService;
+            _currentUserService = currentUserService;
         }
     
     
@@ -22,6 +24,10 @@ namespace CoolWebsite.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
+            if (_currentUserService.UserID != null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
