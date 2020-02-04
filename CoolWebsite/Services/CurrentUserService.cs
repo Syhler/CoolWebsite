@@ -1,6 +1,8 @@
 ﻿using System.Security.Claims;
 using CoolWebsite.Application.Common.Interfaces;
+using CoolWebsite.Infrastructure.Identity;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace CoolWebsite.Services
 {
@@ -10,7 +12,9 @@ namespace CoolWebsite.Services
         {
             UserID = httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
 
+            // var test = manager.GetUserAsync(httpContextAccessor.HttpContext?.User);
+
         }
         public string UserID { get; set; }
     }
-}
+}    

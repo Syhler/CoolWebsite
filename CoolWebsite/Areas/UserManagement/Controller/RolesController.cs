@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Security.Claims;
+using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.DatabaseAccess.TestEntities.Commands.CreateTestEntity;
 using CoolWebsite.Infrastructure.Identity;
@@ -14,12 +15,13 @@ namespace CoolWebsite.Areas.UserManagement.Controller
     public class RolesController : MediatorController
     {
         private readonly IIdentityService _identityService;
-        private readonly CurrentUserService _currentUserService;
+        private readonly ICurrentUserService _currentUserService;
 
-        public RolesController(IHttpContextAccessor accessor, IIdentityService identityService)
+        public RolesController(IIdentityService identityService, ICurrentUserService currentUserService, IHttpContextAccessor accessor)
         {
-            _currentUserService = new CurrentUserService(accessor);
+            _currentUserService = currentUserService;
             _identityService = identityService;
+            var userId = accessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
         }
         
         // GET

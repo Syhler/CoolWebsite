@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using CoolWebsite.Application;
 using CoolWebsite.Application.Common.Interfaces;
@@ -51,9 +52,9 @@ namespace CoolWebsite
             
             services.AddRazorPages();
 
-            services.AddHttpContextAccessor();
+            services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
             
-            services.AddScoped<ICurrentUserService, CurrentUserService>();
+            services.AddTransient<ICurrentUserService, CurrentUserService>();
             
             services.AddMvc(options =>
                 {

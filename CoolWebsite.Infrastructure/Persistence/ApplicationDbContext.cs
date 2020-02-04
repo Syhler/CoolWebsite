@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Reflection;
+using System.Security.Claims;
+using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
@@ -8,6 +10,7 @@ using CoolWebsite.Domain.Entities;
 using CoolWebsite.Infrastructure.Identity;
 using CoolWebsite.Infrastructure.Services;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,10 +21,14 @@ namespace CoolWebsite.Infrastructure.Persistence
         private ICurrentUserService _currentUserService;
         private IDateTime _dateTime;
         
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDateTime dateTime, IHttpContextAccessor accessor) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, 
+            IDateTime dateTime, ICurrentUserService currentUserService, IHttpContextAccessor accessor) : base(options)
         {
             _dateTime = dateTime;
-            _currentUserService = new CurrentUserService(accessor);
+            _currentUserService = currentUserService;
+            var userId = accessor.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            
+
         }
 
         public DbSet<TestEntity> TestEntities { get; set; }
