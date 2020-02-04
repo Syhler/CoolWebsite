@@ -41,7 +41,7 @@ namespace CoolWebsite.Areas.UserManagement.Controller
         {
             var command = new CreateTestEntityCommand
             {
-                Name = "TestName"
+                Name = "TestName910"
             };
             await Mediator.Send(command);
             

@@ -247,7 +247,9 @@
       </e>
       <e p="CoolWebsite.sln" t="IncludeFlat" />
       <e p="CoolWebsite.UnitTest" t="IncludeRecursive">
+        <e p="ApplicationDbFactory.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="CommandTestBase.cs" t="Include" />
         <e p="CoolWebsite.UnitTest.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -256,7 +258,17 @@
             </e>
           </e>
         </e>
-        <e p="UnitTest1.cs" t="Include" />
+        <e p="Services" t="Include">
+          <e p="CurrentUserServiceTemp.cs" t="Include" />
+        </e>
+        <e p="TestEntities" t="Include">
+          <e p="CreateTestEntity" t="Include">
+            <e p="CreateTestEntityCommandTest.cs" t="Include" />
+          </e>
+          <e p="UpdateTestEntity" t="Include">
+            <e p="UpdateTestEntityCommandTest.cs" t="Include" />
+          </e>
+        </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="Tests" t="Include" />
