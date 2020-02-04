@@ -3,6 +3,7 @@ using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Infrastructure.Identity;
 using CoolWebsite.Infrastructure.Persistence;
 using CoolWebsite.Infrastructure.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,12 +22,11 @@ namespace CoolWebsite.Infrastructure
 
             services.AddDbContext<ApplicationDbContext>(builder =>
             {
-                builder.UseMySql(configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
+                builder.UseMySql(configuration.GetConnectionString("DefaultConnection"));
             });
 
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
-          
+
             
             
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>

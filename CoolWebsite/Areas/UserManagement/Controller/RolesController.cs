@@ -17,11 +17,10 @@ namespace CoolWebsite.Areas.UserManagement.Controller
         private readonly IIdentityService _identityService;
         private readonly ICurrentUserService _currentUserService;
 
-        public RolesController(IIdentityService identityService, ICurrentUserService currentUserService, IHttpContextAccessor accessor)
+        public RolesController(IIdentityService identityService, ICurrentUserService currentUserService)
         {
             _currentUserService = currentUserService;
             _identityService = identityService;
-            var userId = accessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
         }
         
         // GET

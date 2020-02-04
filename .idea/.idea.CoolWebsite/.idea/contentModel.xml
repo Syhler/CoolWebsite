@@ -237,7 +237,7 @@
           </e>
         </e>
         <e p="Services" t="Include">
-          <e p="CurrentUserService.cs" t="Include" />
+          <e p="CurrentUserServiceWOOOW.cs" t="Include" />
           <e p="DateTimeService.cs" t="Include" />
         </e>
       </e>

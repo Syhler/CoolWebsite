@@ -15,9 +15,10 @@ namespace CoolWebsite.Application.DatabaseAccess.TestEntities.Commands.CreateTes
         {
             private readonly IApplicationDbContext _context;
 
-            public CreateTestEntityCommandHandler(IApplicationDbContext context)
+            public CreateTestEntityCommandHandler(IApplicationDbContext context, ICurrentUserService userService)
             {
                 _context = context;
+                
             }
 
             public async Task<string> Handle(CreateTestEntityCommand request, CancellationToken cancellationToken)

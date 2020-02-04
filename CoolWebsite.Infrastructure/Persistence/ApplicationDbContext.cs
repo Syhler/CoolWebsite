@@ -8,7 +8,6 @@ using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Domain.Common;
 using CoolWebsite.Domain.Entities;
 using CoolWebsite.Infrastructure.Identity;
-using CoolWebsite.Infrastructure.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

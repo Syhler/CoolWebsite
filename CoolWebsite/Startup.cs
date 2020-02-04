@@ -40,7 +40,9 @@ namespace CoolWebsite
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            services.AddHttpContextAccessor();
+            services.AddTransient<ICurrentUserService, CurrentUserService>();
+
             
             services.AddInfrastructure(Configuration);
             services.AddApplication();
@@ -52,10 +54,6 @@ namespace CoolWebsite
             
             services.AddRazorPages();
 
-            services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
-            
-            services.AddTransient<ICurrentUserService, CurrentUserService>();
-            
             services.AddMvc(options =>
                 {
                     options.MaxModelValidationErrors = 50;
