@@ -8,6 +8,7 @@ using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Domain.Common;
 using CoolWebsite.Domain.Entities;
+using CoolWebsite.Domain.Entities.Identity;
 using CoolWebsite.Infrastructure.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -23,10 +24,10 @@ namespace CoolWebsite.Infrastructure.Persistence
         public string UserId { get; set; }
         
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, 
-            IDateTime dateTime, ICurrentUserService currentUserService) : base(options)
+            IDateTime dateTime) : base(options)
         {
             _dateTime = dateTime;
-            _currentUserService = currentUserService;
+            //_currentUserService = currentUserService;
             
 
         }

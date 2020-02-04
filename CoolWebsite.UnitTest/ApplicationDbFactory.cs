@@ -26,7 +26,7 @@ namespace CoolWebsite.UnitTest
             currentUserService.Setup(x => x.UserID)
                 .Returns(Guid.Empty.ToString);
             
-            var context = new ApplicationDbContext(options, dateTimeMock.Object, currentUserService.Object);
+            var context = new ApplicationDbContext(options, dateTimeMock.Object);
             context.UserId = currentUserService.Object.UserID; //Because of the funcky implementation of currentUserService. shall be removed in the furture
 
             context.Database.EnsureCreated();

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.Common.Models;
+using CoolWebsite.Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
 
 namespace CoolWebsite.Infrastructure.Identity
@@ -22,25 +23,7 @@ namespace CoolWebsite.Infrastructure.Identity
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
-        } 
-        
-        // public IdentityService(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)
-        // {
-        //     _userManager = userManager;
-        //     _roleManager = roleManager;
-        // }
-        //
-        // public IdentityService(RoleManager<ApplicationRole> roleManager)
-        // {
-        //     _roleManager = roleManager;
-        // }
-        //
-        // public IdentityService(UserManager<ApplicationUser> userManager)
-        // {
-        //     _userManager = userManager;
-        // }
-
-
+        }
         public async Task<string> GetUserNameAsync(string userID)
         {
             throw new System.NotImplementedException();
@@ -103,13 +86,14 @@ namespace CoolWebsite.Infrastructure.Identity
 
         }
 
-        public  IQueryable<ApplicationRole> GetRoles()
+        public IQueryable<ApplicationRole> GetRoles()
         {
             if (_roleManager == null)
             {
                 throw new IdentityObjectNotInitialized("RoleManager");
             }
-            
+
+
             return _roleManager.Roles;
         }
     }

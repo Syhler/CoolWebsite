@@ -1,5 +1,6 @@
 ﻿using System;
 using CoolWebsite.Application.Common.Interfaces;
+using CoolWebsite.Domain.Entities.Identity;
 using CoolWebsite.Infrastructure.Identity;
 using CoolWebsite.Infrastructure.Persistence;
 using CoolWebsite.Infrastructure.Services;
@@ -27,8 +28,8 @@ namespace CoolWebsite.Infrastructure
 
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 
-            
-            
+
+
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
                 {
                     options.Password.RequiredLength = 1;
@@ -39,7 +40,7 @@ namespace CoolWebsite.Infrastructure
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-
+            
             services.AddTransient<IDateTime, DateTimeService>();
             services.AddTransient<IIdentityService, IdentityService>();
             

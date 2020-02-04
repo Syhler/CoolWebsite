@@ -1,33 +1,59 @@
-﻿using System.Security.Claims;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using CoolWebsite.Application.Common.Interfaces;
-using CoolWebsite.Application.DatabaseAccess.TestEntities.Commands.CreateTestEntity;
+using CoolWebsite.Application.Common.Mapping;
 using CoolWebsite.Application.DatabaseAccess.TestEntities.Commands.UpdateTestEntity;
-using CoolWebsite.Infrastructure.Identity;
+using CoolWebsite.Areas.UserManagement.Models;
+using CoolWebsite.Domain.Entities.Identity;
 using CoolWebsite.Services;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace CoolWebsite.Areas.UserManagement.Controller
 {
     
     [Area("UserManagement")]
+    [Authorize(Roles = "Admin")]
     public class RolesController : MediatorController
     {
         private readonly IIdentityService _identityService;
         private readonly ICurrentUserService _currentUserService;
+        private readonly IMapper _mapper;
 
-        public RolesController(IIdentityService identityService, ICurrentUserService currentUserService)
+        public RolesController(IIdentityService identityService, ICurrentUserService currentUserService, IMapper mapper)
         {
             _currentUserService = currentUserService;
+            _mapper = mapper;
             _identityService = identityService;
         }
         
         // GET
-        public IActionResult Index()
+        public IActionResult Index() 
         {
-            return View();
+        
+            var test = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<ApplicationRole, RoleViewModel>();
+            });
+
+            
+            var roles = _identityService.GetRoles();
+
+            var result = roles.ProjectTo<RoleViewModel>(test);
+           
+            var model = new List<RoleViewModel>();
+
+            
+            foreach (var role in roles)
+            {
+                model.Add(new RoleViewModel());
+            }
+            
+            return View(model);
         }
 
         [HttpPost]
@@ -39,11 +65,7 @@ namespace CoolWebsite.Areas.UserManagement.Controller
         [HttpPost]
         public async Task<IActionResult> AddEntity()
         {
-            var command = new CreateTestEntityCommand
-            {
-                Name = "TestName910"
-            };
-            await Mediator.Send(command);
+            await _identityService.CreateRole("TestRole");
             
             return RedirectToAction("Index");
         }

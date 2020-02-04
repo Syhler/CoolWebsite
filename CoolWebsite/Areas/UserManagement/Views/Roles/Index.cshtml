@@ -1,4 +1,6 @@
-﻿
+﻿@model List<CoolWebsite.Areas.UserManagement.Models.RoleViewModel>
+
+
 @{
     ViewBag.Title = "Roles";
     Layout = "_Layout";
@@ -15,7 +17,7 @@
   </ul>
   <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade active show" id="home">
-     @Html.Partial("Roles")
+     @Html.Partial("Roles", @Model)
     </div>
     <div class="tab-pane fade " id="create-role">
       @Html.Partial("CreateRole")

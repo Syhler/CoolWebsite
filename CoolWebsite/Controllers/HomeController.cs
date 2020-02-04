@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using CoolWebsite.Domain.Entities.Identity;
 using CoolWebsite.Infrastructure.Identity;
 using CoolWebsite.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +37,7 @@ namespace CoolWebsite.Controllers
             return View();
         }
 
+        [Authorize(Roles = "nope")]
         public IActionResult Privacy()
         {
             return View();

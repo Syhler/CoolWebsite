@@ -163,6 +163,10 @@
             <e p="IDateTime.cs" t="Include" />
             <e p="IIdentityService.cs" t="Include" />
           </e>
+          <e p="Mapping" t="Include">
+            <e p="IMapFrom.cs" t="Include" />
+            <e p="MappingProfile.cs" t="Include" />
+          </e>
           <e p="Models" t="Include">
             <e p="Result.cs" t="Include" />
           </e>
@@ -197,6 +201,10 @@
         </e>
         <e p="CoolWebsite.Domain.csproj" t="IncludeRecursive" />
         <e p="Entities" t="Include">
+          <e p="Identity" t="Include">
+            <e p="ApplicationRole.cs" t="Include" />
+            <e p="ApplicationUser.cs" t="Include" />
+          </e>
           <e p="TestEntity.cs" t="Include" />
         </e>
         <e p="Enums" t="Include" />
@@ -213,8 +221,6 @@
         <e p="CoolWebsite.Infrastructure.csproj" t="IncludeRecursive" />
         <e p="DependencyInjection.cs" t="Include" />
         <e p="Identity" t="Include">
-          <e p="ApplicationRole.cs" t="Include" />
-          <e p="ApplicationUser.cs" t="Include" />
           <e p="IdentityResultExtensions.cs" t="Include" />
           <e p="IdentityService.cs" t="Include" />
         </e>
