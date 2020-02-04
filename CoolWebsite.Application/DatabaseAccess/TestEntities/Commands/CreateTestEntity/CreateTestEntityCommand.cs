@@ -18,7 +18,7 @@ namespace CoolWebsite.Application.DatabaseAccess.TestEntities.Commands.CreateTes
             public CreateTestEntityCommandHandler(IApplicationDbContext context, ICurrentUserService userService)
             {
                 _context = context;
-                
+                _context.UserId = userService.UserID;
             }
 
             public async Task<string> Handle(CreateTestEntityCommand request, CancellationToken cancellationToken)

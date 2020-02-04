@@ -11,5 +11,7 @@ namespace CoolWebsite.Application.Common.Interfaces
         
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 
+        public string UserId { get; set; }
+
     }
 }

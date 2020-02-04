@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
+using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Domain.Common;
 using CoolWebsite.Domain.Entities;
@@ -19,13 +20,13 @@ namespace CoolWebsite.Infrastructure.Persistence
     {
         private ICurrentUserService _currentUserService;
         private IDateTime _dateTime;
+        public string UserId { get; set; }
         
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, 
-            IDateTime dateTime, ICurrentUserService currentUserService, IHttpContextAccessor accessor) : base(options)
+            IDateTime dateTime, ICurrentUserService currentUserService) : base(options)
         {
             _dateTime = dateTime;
             _currentUserService = currentUserService;
-            var userId = accessor.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             
 
         }
@@ -46,7 +47,11 @@ namespace CoolWebsite.Infrastructure.Persistence
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        entry.Entity.CreatedBy = _currentUserService.UserID;
+                        if (UserId == null)
+                        {
+                            throw new IdentityCurrentUserIdNotSet();
+                        }
+                        entry.Entity.CreatedBy = UserId;
                         entry.Entity.Created = _dateTime.Now;
                         break;
                     case EntityState.Deleted:
@@ -56,8 +61,12 @@ namespace CoolWebsite.Infrastructure.Persistence
                     case EntityState.Unchanged:
                         break;
                     case EntityState.Modified:
+                        if (UserId == null)
+                        {
+                            throw new IdentityCurrentUserIdNotSet();
+                        }
                         entry.Entity.LastModified = _dateTime.Now;
-                        entry.Entity.LastModifiedBy = _currentUserService.UserID;
+                        entry.Entity.LastModifiedBy = UserId;
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

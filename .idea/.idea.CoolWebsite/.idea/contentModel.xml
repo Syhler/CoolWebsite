@@ -153,6 +153,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Common" t="Include">
           <e p="Exceptions" t="Include">
+            <e p="IdentityCurrentUserIdNotSet.cs" t="Include" />
             <e p="IdentityObjectNotInitialized.cs" t="Include" />
           </e>
           <e p="Interfaces" t="Include">
