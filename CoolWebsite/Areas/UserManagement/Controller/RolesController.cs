@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.DatabaseAccess.TestEntities.Commands.CreateTestEntity;
+using CoolWebsite.Application.DatabaseAccess.TestEntities.Commands.UpdateTestEntity;
 using CoolWebsite.Infrastructure.Identity;
 using CoolWebsite.Services;
 using Microsoft.AspNetCore.Http;
@@ -44,6 +45,19 @@ namespace CoolWebsite.Areas.UserManagement.Controller
             };
             await Mediator.Send(command);
             
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateEntity()
+        {
+            var command = new UpdateTestEntityCommand
+            {
+                Name = "new name",
+                Id = "d3a6d43e-e473-4b4e-a9df-d910e254597e"
+            };
+            await Mediator.Send(command);
+
             return RedirectToAction("Index");
         }
     }

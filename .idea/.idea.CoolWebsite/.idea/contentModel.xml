@@ -155,6 +155,7 @@
           <e p="Exceptions" t="Include">
             <e p="IdentityCurrentUserIdNotSet.cs" t="Include" />
             <e p="IdentityObjectNotInitialized.cs" t="Include" />
+            <e p="NotFoundException.cs" t="Include" />
           </e>
           <e p="Interfaces" t="Include">
             <e p="IApplicationDbContext.cs" t="Include" />
@@ -174,7 +175,9 @@
                 <e p="CreateTestEntityCommand.cs" t="Include" />
                 <e p="CreateTestEntityCommandValidator.cs" t="Include" />
               </e>
-              <e p="UpdateTestEntity" t="Include" />
+              <e p="UpdateTestEntity" t="Include">
+                <e p="UpdateTestEntityCommand.cs" t="Include" />
+              </e>
             </e>
           </e>
         </e>
