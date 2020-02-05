@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -8,6 +9,7 @@ using CoolWebsite.Application.DatabaseAccess.TestEntities.Commands.UpdateTestEnt
 using CoolWebsite.Areas.UserManagement.Models;
 using CoolWebsite.Domain.Entities.Identity;
 using CoolWebsite.Services;
+using CoolWebsite.Services.Mapping;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -37,23 +39,16 @@ namespace CoolWebsite.Areas.UserManagement.Controller
         
             var test = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ApplicationRole, RoleViewModel>();
+                //cfg.CreateMap<ApplicationRole, RoleViewModel>();
+                cfg.AddProfile(new VMMappingProfile());
             });
 
             
             var roles = _identityService.GetRoles();
 
-            var result = roles.ProjectTo<RoleViewModel>(test);
-           
-            var model = new List<RoleViewModel>();
-
+            var result = roles.ProjectTo<RoleViewModel>(_mapper.ConfigurationProvider).ToList();
             
-            foreach (var role in roles)
-            {
-                model.Add(new RoleViewModel());
-            }
-            
-            return View(model);
+            return View(result);
         }
 
         [HttpPost]

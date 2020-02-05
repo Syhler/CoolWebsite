@@ -59,6 +59,9 @@
         </e>
         <e p="Services" t="Include">
           <e p="CurrentUserService.cs" t="Include" />
+          <e p="Mapping" t="Include">
+            <e p="VMMappingProfile.cs" t="Include" />
+          </e>
           <e p="MediatorController.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
@@ -164,8 +167,8 @@
             <e p="IIdentityService.cs" t="Include" />
           </e>
           <e p="Mapping" t="Include">
+            <e p="DTOMappingProfile.cs" t="Include" />
             <e p="IMapFrom.cs" t="Include" />
-            <e p="MappingProfile.cs" t="Include" />
           </e>
           <e p="Models" t="Include">
             <e p="Result.cs" t="Include" />

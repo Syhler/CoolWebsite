@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using AutoMapper;
-using CoolWebsite.Application.Common.Mapping;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,7 +11,17 @@ namespace CoolWebsite.Application
         public static IServiceCollection AddApplication(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddMediatR(Assembly.GetExecutingAssembly());
-            serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());
+            //serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());
+          
+            // var configuration = new MapperConfiguration(cfg =>
+            // {
+            //     cfg.AddProfile(new MappingProfile());
+            // });
+            //
+            // //serviceCollection.AddSingleton<IMapper>(sp => configuration.CreateMapper());
+            
+            
+            
             
             return serviceCollection;
         }

@@ -2,15 +2,18 @@
 using System.Linq;
 using System.Reflection;
 using AutoMapper;
+using CoolWebsite.Application.Common.Mapping;
 
-namespace CoolWebsite.Application.Common.Mapping
+namespace CoolWebsite.Services.Mapping
 {
-    public class MappingProfile : Profile
+    public class VMMappingProfile : Profile
     {
-        public MappingProfile()
+        public VMMappingProfile()
         {
             ApplyMappingsFromAssembly(Assembly.GetExecutingAssembly());
+            //CreateMap<ApplicationRole, RoleViewModel>();
         }
+        
 
         private void ApplyMappingsFromAssembly(Assembly assembly)
         {

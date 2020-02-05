@@ -13,8 +13,6 @@ namespace CoolWebsite.Areas.UserManagement.Models
 
         public void Mapping(Profile profile)
         {
-
-
             profile.CreateMap<ApplicationRole, RoleViewModel>()
                 .ForMember(x => x.Id,
                     opt => opt.MapFrom(s => s.Id))

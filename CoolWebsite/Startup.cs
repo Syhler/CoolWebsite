@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Security.Principal;
 using System.Threading.Tasks;
+using AutoMapper;
 using CoolWebsite.Application;
 using CoolWebsite.Application.Common.Interfaces;
+using CoolWebsite.Application.Common.Mapping;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -15,7 +18,9 @@ using CoolWebsite.Infrastructure;
 using CoolWebsite.Infrastructure.Identity;
 using CoolWebsite.Infrastructure.Persistence;
 using CoolWebsite.Services;
+using CoolWebsite.Services.Mapping;
 using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -64,8 +69,8 @@ namespace CoolWebsite
                     options.Filters.Add(new AuthorizeFilter(policy));
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-
             
+            services.AddAutoMapper(typeof(VMMappingProfile), typeof(DTOMappingProfile));
         }
         
         //index/index
