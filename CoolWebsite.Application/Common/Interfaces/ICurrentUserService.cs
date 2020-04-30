@@ -1,4 +1,6 @@
-﻿namespace CoolWebsite.Application.Common.Interfaces
+﻿using System.Security.Claims;
+
+namespace CoolWebsite.Application.Common.Interfaces
 {
     public interface ICurrentUserService
     {

@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace CoolWebsite.Infrastructure.Services
 {
-    public class CurrentUserServiceWOOOW : ICurrentUserService
+    public class CurrentUserService : ICurrentUserService
     {
-        public CurrentUserServiceWOOOW(IHttpContextAccessor httpContextAccessor)
+        public CurrentUserService(IHttpContextAccessor httpContextAccessor)
         {
             UserID = httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
 
@@ -14,5 +14,6 @@ namespace CoolWebsite.Infrastructure.Services
         
     
         public string UserID { get; set; }
+        public ClaimsPrincipal UserClaims { get; set; }
     }
 }

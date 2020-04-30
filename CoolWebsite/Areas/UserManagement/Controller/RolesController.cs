@@ -1,19 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using CoolWebsite.Application.Common.Interfaces;
-using CoolWebsite.Application.Common.Mapping;
 using CoolWebsite.Application.DatabaseAccess.TestEntities.Commands.UpdateTestEntity;
 using CoolWebsite.Areas.UserManagement.Models;
-using CoolWebsite.Domain.Entities.Identity;
 using CoolWebsite.Services;
-using CoolWebsite.Services.Mapping;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace CoolWebsite.Areas.UserManagement.Controller
 {
@@ -34,23 +30,42 @@ namespace CoolWebsite.Areas.UserManagement.Controller
         }
         
         // GET
-        public IActionResult Index() 
+        public async Task<IActionResult> Index() 
         {
-        
-            var test = new MapperConfiguration(cfg =>
-            {
-                //cfg.CreateMap<ApplicationRole, RoleViewModel>();
-                cfg.AddProfile(new VMMappingProfile());
-            });
-
             
             var roles = _identityService.GetRoles();
-
-            var result = roles.ProjectTo<RoleViewModel>(_mapper.ConfigurationProvider).ToList();
             
-            return View(result);
+
+            var roleViewModels = roles.ProjectTo<RoleViewModel>(_mapper.ConfigurationProvider).ToList();
+
+            foreach (var role in roleViewModels)
+            {
+                var users = await _identityService.GetUsersByRole(role.Name);
+
+                role.Users = users.ProjectTo<UserModel>(_mapper.ConfigurationProvider).ToList();
+
+            }
+            
+            
+            return View(roleViewModels);
         }
 
+        
+        public IActionResult DeleteRole(string id)
+        {
+            Console.WriteLine("delete role : " + id);
+            
+            var result = _identityService.DeleteRole(id).Result;
+
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Privacy", "Home", new {area=""});
+
+        }
+        
         [HttpPost]
         public async Task<IActionResult> CreateRole()
         {
@@ -60,7 +75,7 @@ namespace CoolWebsite.Areas.UserManagement.Controller
         [HttpPost]
         public async Task<IActionResult> AddEntity()
         {
-            await _identityService.CreateRole("TestRole");
+            await _identityService.CreateRole("asdasd");
             
             return RedirectToAction("Index");
         }
@@ -77,5 +92,7 @@ namespace CoolWebsite.Areas.UserManagement.Controller
 
             return RedirectToAction("Index");
         }
+
+     
     }
 }

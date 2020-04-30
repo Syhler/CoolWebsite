@@ -14,48 +14,7 @@
 <body>
 <header>
   
-    <nav class="navbar navbar-expand navbar-dark bg-dark fixed-left ">
-        <a class="navbar-brand" href="#">Cool Website</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse top-div " id="navbarColor02">
-            <ul class="navbar-nav mr-auto ">
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="Index" asp-area="" asp-controller="Home">Home<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="Privacy" asp-area="" asp-controller="Home">Privacy</a>
-                </li>
-          
-                <li class="nav-item">
-                    <a class="nav-link nav-dropdown-activator" >User mangenment</a>
-                    <ul hidden="" class="dropdown-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="UserManagement" asp-action="Index" asp-controller="Roles">Roles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link">Users</a>
-                        </li>
-                    </ul>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-              
-            </ul>
-        </div>
-        <div class="bottom-div">
-            <ul class="navbar-nav mr-auto bottom-div-list">
-                <li class="bottom-div-list">
-                    <a class="nav-link text-danger"  asp-area="" asp-controller="Auth" asp-action="Logout">Log out</a>
-                </li>
-                
-            </ul>
-        </div>
-    </nav>
+   @Html.Partial("Sidebar")
  
 </header>
 
@@ -65,12 +24,13 @@
     </div>
 </div>
 
-
+@*
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2020 - CoolWebsite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

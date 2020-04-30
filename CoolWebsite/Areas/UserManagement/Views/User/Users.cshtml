@@ -1,0 +1,39 @@
+﻿@model List<CoolWebsite.Areas.UserManagement.Models.UserModel>
+
+
+<h1>The title says it all omegualul ahahah</h1>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">First Role</th>
+        <th scope="col">Email confirmed</th>
+        <th scope="col">Two Factor Enabled</th>
+        <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.FirstName @user.LastName</td>
+            <td>@user.Email</td>
+            @if (@user.RoleNames.Count > 0)
+            {
+                <td>@user.RoleNames[0]</td>
+            }
+            else
+            {
+                <td>NONE</td>
+            }
+            <td>@user.EmailConfirmed</td>
+            <td>@user.TwoFactorEnabled</td>
+            <td><a asp-action="DeleteUser" asp-controller="User" asp-route-id="@user.Id" asp-area="UserManagement" 
+                   style="color: red">Delete</a></td>
+        </tr>
+    }
+    </tbody>
+</table> 
+

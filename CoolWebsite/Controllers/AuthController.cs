@@ -36,20 +36,18 @@ namespace CoolWebsite.Controllers
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {
             var result = await _identityService.LoginUser(model.Email, model.Password);
+
+            if (!result.Succeeded) return RedirectToAction("Index");
             
-            if (result.Succeeded)
+            if (Url.IsLocalUrl(returnUrl))
             {
-                if (Url.IsLocalUrl(returnUrl))
-                {
-                    return Redirect(returnUrl);
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home");
-                }
+                return Redirect(returnUrl);
             }
-            
-            return RedirectToAction("Index");
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
         }
 
         public RedirectToActionResult Logout()

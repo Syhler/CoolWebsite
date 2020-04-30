@@ -21,9 +21,13 @@
           <e p="UserManagement" t="Include">
             <e p="Controller" t="Include">
               <e p="RolesController.cs" t="Include" />
+              <e p="UsersController.cs" t="Include" />
             </e>
             <e p="Models" t="Include">
+              <e p="CreateUserViewModel.cs" t="Include" />
               <e p="RoleViewModel.cs" t="Include" />
+              <e p="UserModel.cs" t="Include" />
+              <e p="UsersViewModel.cs" t="Include" />
             </e>
             <e p="Views" t="Include">
               <e p="_ViewImports.cshtml" t="Include" />
@@ -31,6 +35,11 @@
                 <e p="CreateRole.cshtml" t="Include" />
                 <e p="Index.cshtml" t="Include" />
                 <e p="Roles.cshtml" t="Include" />
+              </e>
+              <e p="User" t="Include">
+                <e p="CreateUser.cshtml" t="Include" />
+                <e p="Index.cshtml" t="Include" />
+                <e p="Users.cshtml" t="Include" />
               </e>
             </e>
           </e>
@@ -176,6 +185,9 @@
         </e>
         <e p="CoolWebsite.Application.csproj" t="IncludeRecursive" />
         <e p="DatabaseAccess" t="Include">
+          <e p="ASPnetRoles" t="Include">
+            <e p="Commands" t="Include" />
+          </e>
           <e p="TestEntities" t="Include">
             <e p="Commands" t="Include">
               <e p="CreateTestEntity" t="Include">
@@ -234,6 +246,8 @@
           <e p="20200127211149_AddedTestEntity.Designer.cs" t="Include" />
           <e p="20200203221959_AddedAudtiableToTestEntity.cs" t="Include" />
           <e p="20200203221959_AddedAudtiableToTestEntity.Designer.cs" t="Include" />
+          <e p="20200425073725_UpdatedApplicationUserField.cs" t="Include" />
+          <e p="20200425073725_UpdatedApplicationUserField.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -250,7 +264,7 @@
           </e>
         </e>
         <e p="Services" t="Include">
-          <e p="CurrentUserServiceWOOOW.cs" t="Include" />
+          <e p="CurrentUserService.cs" t="Include" />
           <e p="DateTimeService.cs" t="Include" />
         </e>
       </e>

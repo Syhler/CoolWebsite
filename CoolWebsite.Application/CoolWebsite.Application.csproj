@@ -17,4 +17,8 @@
       <ProjectReference Include="..\CoolWebsite.Domain\CoolWebsite.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="DatabaseAccess\ASPNetRoles\Commands" />
+    </ItemGroup>
+
 </Project>

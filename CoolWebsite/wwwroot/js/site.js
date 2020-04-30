@@ -35,4 +35,6 @@ $(document).ready(function () {
             element.attr("hidden", true)
         }
     })
+    
+    
 });

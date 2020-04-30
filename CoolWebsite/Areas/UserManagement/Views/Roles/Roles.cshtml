@@ -9,9 +9,30 @@
             <div class="card-body">
                 <h4 class="card-title">@role.Name</h4>
                 <button type="button" class="btn btn-outline-success">Add user to role</button>
-                <button type="button" class="btn btn-outline-danger">Delete role</button>
+                <a class="btn btn-outline-danger"
+                   asp-action="DeleteRole" asp-controller="Roles" asp-route-id="@role.Id" asp-area="UserManagement">Delete role</a>
             </div>
+             <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var user in role.Users)
+                        {
+                            <tr>
+                                <th scope="row">@user.Id</th>
+                                <td>@user.FirstName @user.LastName</td>
+                                <td>@user.Email</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table> 
         </div>
+       
     }
 
 </div>
