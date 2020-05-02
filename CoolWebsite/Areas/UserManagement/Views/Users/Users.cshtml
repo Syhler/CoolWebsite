@@ -11,6 +11,7 @@
         <th scope="col">First Role</th>
         <th scope="col">Email confirmed</th>
         <th scope="col">Two Factor Enabled</th>
+        <th scope="col">Edit</th>
         <th scope="col">Delete</th>
     </tr>
     </thead>
@@ -30,7 +31,8 @@
             }
             <td>@user.EmailConfirmed</td>
             <td>@user.TwoFactorEnabled</td>
-            <td><a asp-action="DeleteUser" asp-controller="User" asp-route-id="@user.Id" asp-area="UserManagement" 
+            <td><a href="#" style="color: green" data="@user.Id" id="edit-user">Edit</a></td>
+            <td><a asp-action="DeleteUser" asp-controller="Users" asp-route-id="@user.Id" asp-area="UserManagement" 
                    style="color: red">Delete</a></td>
         </tr>
     }

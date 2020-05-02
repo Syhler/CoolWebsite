@@ -2,35 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/20200425073725_UpdatedApplicationUserField.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/20200425073725_UpdatedApplicationUserField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Controller/UsersController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/CreateUserViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/UserModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/UsersViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/User/CreateUser.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/User/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/User/Users.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/UpdateUser.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/js/usermangement/users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/ICurrentUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/ICurrentUserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IIdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IIdentityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/CoolWebsite.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/CoolWebsite.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Identity/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Identity/ApplicationUser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Services/CurrentUserServiceWOOOW.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Services/CurrentUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.UnitTest/Services/CurrentUserServiceTemp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.UnitTest/Services/CurrentUserServiceTemp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Controller/RolesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Controller/RolesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/RoleViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/RoleViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/Roles.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/Roles.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Controllers/AuthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Services/CurrentUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Services/CurrentUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Controller/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Controller/UsersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/CreateUserViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/CreateUpdateUserViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/UsersViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/UsersViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/User/CreateUser.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/CreateUser.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/User/Index.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/User/Users.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/Users.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Services/Mapping/VMMappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Services/Mapping/VMMappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Views/Shared/Error.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Views/Shared/Error.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite/Views/Shared/Sidebar.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Views/Shared/Sidebar.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/js/site.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +67,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -85,20 +75,24 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/20200425073725_UpdatedApplicationUserField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/UpdateUser.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E407D4BA-C36C-45DA-982B-FD389A659F31/16/Profile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.UnitTest/TestEntities/UpdateTestEntity/UpdateTestEntityCommandTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/UserModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/20200425073725_UpdatedApplicationUserField.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Controller/UsersController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/appsettings.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E407D4BA-C36C-45DA-982B-FD389A659F31/26/Extensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/647CCDFF-6E85-4DCE-AE9F-7CB0FE40D3E0/19/7288e0f2/Unit.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Mapping/IMapFrom.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Mapping/DTOMappingProfile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/TestEntities/Commands/CreateTestEntity/CreateTestEntityCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/TestEntities/Commands/CreateTestEntity/CreateTestEntityCommandValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E1923457-5447-4A29-8D32-151357F70EBE/A/AuthorizeAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E407D4BA-C36C-45DA-982B-FD389A659F31/0/IMapper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/20200127210652_TestMigration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Services/Mapping/VMMappingProfile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.UnitTest/CommandTestBase.cs" root0="FORCE_HIGHLIGHTING" />
@@ -114,12 +108,12 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C1145444-6779-4A63-BCEE-2095A5074818/1D/UserManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Domain/Entities/TestEntity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Home/Privacy.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Home/Privacy.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Models/ErrorViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Shared/_ValidationScriptsPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/194DD9DD-DB84-4C2B-A540-DA5238C5A003/ac/c9645948/UIHintAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/947CFA9E-93C5-4D21-8EE6-CD975672A1F8/30/RuntimeType.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Shared/_ValidationScriptsPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/Configuration/TestEntityConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Shared/Error.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -130,24 +124,23 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E475FC9F-57ED-43C2-A74C-4B5E924CC2D6/8/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/CreateRole.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/98F3989C-E2F6-452E-8A56-40727CC0C34E/6/AuthenticationMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/CreateUserViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/CreateUpdateUserViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Controller/RolesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/UsersViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1E566733-E6C2-4253-BBE9-2F663252FF50/F3/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7D47BE26-C19F-4853-94F7-3062D26330AD/F/SignInManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/User/CreateUser.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1E566733-E6C2-4253-BBE9-2F663252FF50/F3/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/CreateUser.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Domain/Entities/Identity/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1E566733-E6C2-4253-BBE9-2F663252FF50/153/ControllerFactoryProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E475FC9F-57ED-43C2-A74C-4B5E924CC2D6/C/CallSiteFactory.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/User/Users.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/Users.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Services/CurrentUserService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Services/DateTimeService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Shared/Sidebar.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IDateTime.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Exceptions/IdentityCurrentUserIdNotSet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IDateTime.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1E566733-E6C2-4253-BBE9-2F663252FF50/11C/ResourceInvoker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Domain/Common/AudibleEntity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/A44CB129-487D-457B-857E-B46B956846DC/13/EndpointMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
@@ -157,33 +150,27 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Models/LoginViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1E566733-E6C2-4253-BBE9-2F663252FF50/0f/036167f6/ControllerFactoryProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/ICurrentUserService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IIdentityService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Auth/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DependencyInjection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Auth/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Controllers/AuthController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30506A01-0BFC-4443-BB49-984EBC055942/73/78f439bd/IRequest`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4A3FFEB2-3BC4-461D-8989-E86C9363B041/F/RazorPageOfT.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/ApplicationDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Exceptions/NotFoundException.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4A3FFEB2-3BC4-461D-8989-E86C9363B041/F/RazorPageOfT.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/TestEntities/Commands/UpdateTestEntity/UpdateTestEntityCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.UnitTest/Services/CurrentUserServiceTemp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/01AECD38-E25A-496C-A820-CFB8703152F5/3/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.UnitTest/TestEntities/CreateTestEntity/CreateTestEntityCommandTest.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/User/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/947CFA9E-93C5-4D21-8EE6-CD975672A1F8/1E0/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.UnitTest/ApplicationDbFactory.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/CreateRole.cshtml" />
-        <option value="$PROJECT_DIR$/CoolWebsite.UnitTest/UnitTest1.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.UnitTest/CommandTestBase.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.UnitTest/TestEntites/CreateTestEntityCommandTest.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.UnitTest/TestEntities/CreateTestEntityCommandTest.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.UnitTest/TestEntities/UpdateTestEntity/UpdateTestEntityCommandTest.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.UnitTest/TestEntities/CreateTestEntity/CreateTestEntityCommandTest.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/ApplicationDbContext.cs" />
@@ -197,8 +184,6 @@
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Mapping/MappingProfile.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Mapping/DTOMappingProfile.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Services/Mapping/DTOMappingProfile.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Services/Mapping/VMMappingProfile.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Startup.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Domain/Common/AudibleEntity.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Program.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Services/CurrentUserService.cs" />
@@ -213,21 +198,29 @@
         <option value="$PROJECT_DIR$/CoolWebsite/Views/Shared/Sidebar.cshtml" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/910d2575-ea33-4b16-a38d-64355143b272/console.sql" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/RoleViewModel.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/Roles.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/UserViewModel.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/UsersViewModel.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/User/CreateUser.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/CreateUserViewModel.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Identity/ApplicationUser.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Services/CurrentUserService.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/UserModel.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Views/Shared/_Layout.cshtml" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/User/Index.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/Index.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/Controllers/AuthController.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Roles/Roles.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/User/Users.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/User/CreateUser.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/User/Index.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Startup.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Services/Mapping/VMMappingProfile.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/User/UpdateUser.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Views/Shared/Error.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/Index.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/Users.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/js/usermangement/users.js" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IIdentityService.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityService.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/CreateUpdateUserViewModel.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Controller/UsersController.cs" />
       </list>
     </option>
@@ -332,7 +325,8 @@
       <workItem from="1587800079588" duration="4114000" />
       <workItem from="1587833232783" duration="886000" />
       <workItem from="1588012407100" duration="2349000" />
-      <workItem from="1588275900833" duration="1098000" />
+      <workItem from="1588275900833" duration="9270000" />
+      <workItem from="1588343467154" duration="3637000" />
     </task>
     <servers />
   </component>
@@ -365,94 +359,94 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="872" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1587678030462" />
-    <state width="891" height="679" key="DebuggerActiveHint" timestamp="1587802901891">
+    <state width="891" height="679" key="DebuggerActiveHint" timestamp="1588284013546">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="891" height="679" key="DebuggerActiveHint/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1587802901891" />
+    <state width="891" height="679" key="DebuggerActiveHint/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588284013546" />
     <state x="1008" y="619" width="554" height="161" key="GitCloneDialog" timestamp="1588275934269">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1008" y="619" width="554" height="161" key="GitCloneDialog/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588275934269" />
-    <state width="2517" height="361" key="GridCell.Tab.0.bottom" timestamp="1588277013787">
+    <state width="2517" height="359" key="GridCell.Tab.0.bottom" timestamp="1588365683548">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.0.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013787" />
-    <state width="2517" height="361" key="GridCell.Tab.0.center" timestamp="1588277013787">
+    <state width="2517" height="359" key="GridCell.Tab.0.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683548" />
+    <state width="2517" height="359" key="GridCell.Tab.0.center" timestamp="1588365683548">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.0.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013787" />
-    <state width="2517" height="361" key="GridCell.Tab.0.left" timestamp="1588277013787">
+    <state width="2517" height="359" key="GridCell.Tab.0.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683548" />
+    <state width="2517" height="359" key="GridCell.Tab.0.left" timestamp="1588365683548">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.0.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013787" />
-    <state width="2517" height="361" key="GridCell.Tab.0.right" timestamp="1588277013787">
+    <state width="2517" height="359" key="GridCell.Tab.0.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683548" />
+    <state width="2517" height="359" key="GridCell.Tab.0.right" timestamp="1588365683548">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.0.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013787" />
-    <state width="2517" height="361" key="GridCell.Tab.1.bottom" timestamp="1588277013787">
+    <state width="2517" height="359" key="GridCell.Tab.0.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683548" />
+    <state width="2517" height="359" key="GridCell.Tab.1.bottom" timestamp="1588365683549">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.1.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013787" />
-    <state width="2517" height="361" key="GridCell.Tab.1.center" timestamp="1588277013787">
+    <state width="2517" height="359" key="GridCell.Tab.1.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683549" />
+    <state width="2517" height="359" key="GridCell.Tab.1.center" timestamp="1588365683548">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.1.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013787" />
-    <state width="2517" height="361" key="GridCell.Tab.1.left" timestamp="1588277013787">
+    <state width="2517" height="359" key="GridCell.Tab.1.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683548" />
+    <state width="2517" height="359" key="GridCell.Tab.1.left" timestamp="1588365683548">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.1.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013787" />
-    <state width="2517" height="361" key="GridCell.Tab.1.right" timestamp="1588277013787">
+    <state width="2517" height="359" key="GridCell.Tab.1.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683548" />
+    <state width="2517" height="359" key="GridCell.Tab.1.right" timestamp="1588365683548">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.1.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013787" />
-    <state width="2517" height="361" key="GridCell.Tab.2.bottom" timestamp="1588277013787">
+    <state width="2517" height="359" key="GridCell.Tab.1.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683548" />
+    <state width="2517" height="359" key="GridCell.Tab.2.bottom" timestamp="1588365683549">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.2.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013787" />
-    <state width="2517" height="361" key="GridCell.Tab.2.center" timestamp="1588277013787">
+    <state width="2517" height="359" key="GridCell.Tab.2.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683549" />
+    <state width="2517" height="359" key="GridCell.Tab.2.center" timestamp="1588365683549">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.2.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013787" />
-    <state width="2517" height="361" key="GridCell.Tab.2.left" timestamp="1588277013787">
+    <state width="2517" height="359" key="GridCell.Tab.2.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683549" />
+    <state width="2517" height="359" key="GridCell.Tab.2.left" timestamp="1588365683549">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.2.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013787" />
-    <state width="2517" height="361" key="GridCell.Tab.2.right" timestamp="1588277013787">
+    <state width="2517" height="359" key="GridCell.Tab.2.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683549" />
+    <state width="2517" height="359" key="GridCell.Tab.2.right" timestamp="1588365683549">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.2.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013787" />
-    <state width="2517" height="361" key="GridCell.Tab.3.bottom" timestamp="1588277013788">
+    <state width="2517" height="359" key="GridCell.Tab.2.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683549" />
+    <state width="2517" height="359" key="GridCell.Tab.3.bottom" timestamp="1588365683550">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.3.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013788" />
-    <state width="2517" height="361" key="GridCell.Tab.3.center" timestamp="1588277013787">
+    <state width="2517" height="359" key="GridCell.Tab.3.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683550" />
+    <state width="2517" height="359" key="GridCell.Tab.3.center" timestamp="1588365683549">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.3.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013787" />
-    <state width="2517" height="361" key="GridCell.Tab.3.left" timestamp="1588277013787">
+    <state width="2517" height="359" key="GridCell.Tab.3.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683549" />
+    <state width="2517" height="359" key="GridCell.Tab.3.left" timestamp="1588365683549">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.3.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013787" />
-    <state width="2517" height="361" key="GridCell.Tab.3.right" timestamp="1588277013788">
+    <state width="2517" height="359" key="GridCell.Tab.3.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683549" />
+    <state width="2517" height="359" key="GridCell.Tab.3.right" timestamp="1588365683550">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.3.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013788" />
-    <state width="2517" height="361" key="GridCell.Tab.4.bottom" timestamp="1588277013788">
+    <state width="2517" height="359" key="GridCell.Tab.3.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683550" />
+    <state width="2517" height="359" key="GridCell.Tab.4.bottom" timestamp="1588365683550">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.4.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013788" />
-    <state width="2517" height="361" key="GridCell.Tab.4.center" timestamp="1588277013788">
+    <state width="2517" height="359" key="GridCell.Tab.4.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683550" />
+    <state width="2517" height="359" key="GridCell.Tab.4.center" timestamp="1588365683550">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.4.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013788" />
-    <state width="2517" height="361" key="GridCell.Tab.4.left" timestamp="1588277013788">
+    <state width="2517" height="359" key="GridCell.Tab.4.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683550" />
+    <state width="2517" height="359" key="GridCell.Tab.4.left" timestamp="1588365683550">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.4.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013788" />
-    <state width="2517" height="361" key="GridCell.Tab.4.right" timestamp="1588277013788">
+    <state width="2517" height="359" key="GridCell.Tab.4.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683550" />
+    <state width="2517" height="359" key="GridCell.Tab.4.right" timestamp="1588365683550">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="361" key="GridCell.Tab.4.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588277013788" />
+    <state width="2517" height="359" key="GridCell.Tab.4.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683550" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1587678059873">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -473,6 +467,14 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="781" y="342" key="SettingsEditor/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1587735754430" />
+    <state x="1019" y="404" key="VCS.ChangeListViewerDialog" timestamp="1588280165313">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1019" y="404" key="VCS.ChangeListViewerDialog/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588280165313" />
+    <state x="1127" y="615" key="VCS.ChangelistChooser" timestamp="1588280164641">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1127" y="615" key="VCS.ChangelistChooser/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588280164641" />
     <state width="1288" height="708" key="XDebugger.FullValuePopup" timestamp="1587679846690">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -481,18 +483,18 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="841" y="435" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588276259049" />
-    <state x="2615" y="14" width="1110" height="1388" key="dock-window-1" timestamp="1588275974994">
+    <state x="2615" y="14" width="1110" height="1388" key="dock-window-1" timestamp="1588343484599">
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
-    <state x="2615" y="14" width="1110" height="1388" key="dock-window-1/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588275974994" />
-    <state x="-1176" y="0" width="1192" height="1388" key="dock-window-2" timestamp="1588275974994">
+    <state x="2615" y="14" width="1110" height="1388" key="dock-window-1/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588343484599" />
+    <state x="-1176" y="0" width="1192" height="1388" key="dock-window-2" timestamp="1588343484599">
       <screen x="-2560" y="0" width="2560" height="1440" />
     </state>
-    <state x="-1176" y="0" width="1192" height="1388" key="dock-window-2/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588275974994" />
-    <state x="943" y="315" width="672" height="676" key="search.everywhere.popup" timestamp="1588276426799">
+    <state x="-1176" y="0" width="1192" height="1388" key="dock-window-2/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588343484599" />
+    <state x="943" y="315" width="672" height="676" key="search.everywhere.popup" timestamp="1588345088296">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="943" y="315" width="672" height="676" key="search.everywhere.popup/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588276426799" />
+    <state x="943" y="315" width="672" height="676" key="search.everywhere.popup/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588345088296" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2256,10 +2258,11 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="LaunchSettings">
-        <watch expression="accessor.HttpContext.User.Identity.Name" language="C#" custom="RiderImportsList:" />
-        <watch expression="result.ToList()" language="C#" custom="RiderImportsList:System.Linq" />
-        <watch expression="$exception" />
-        <watch expression="createdUser.userId" language="C#" custom="RiderImportsList:" />
+        <watch expression="new IQueryable&lt;ApplicationRole&gt;(user)" language="C#" custom="RiderImportsList:" />
+        <watch expression="new List&lt;ApplicationUser&gt;{user}.AsQueryable().ProjectTo&lt;ApplicationUser&gt;()" language="C#" custom="RiderImportsList:" />
+        <watch expression="new List&lt;ApplicationUser&gt;{user}.AsQueryable().ProjectTo&lt;CreateUpdateUserViewModel&gt;(_mapper.ConfigurationProvider);" language="C#" custom="RiderImportsList:" />
+        <watch expression="test.FirstOrDefault()" language="C#" custom="RiderImportsList:" />
+        <watch expression="_mapper.Map&lt;ApplicationUser, CreateUpdateUserViewModel&gt;(user, new CreateUpdateUserViewModel())" language="C#" custom="RiderImportsList:" />
       </configuration>
     </watches-manager>
   </component>

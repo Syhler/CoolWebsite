@@ -1,0 +1,37 @@
+﻿@model CoolWebsite.Areas.UserManagement.Models.UsersViewModel
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "_Layout";
+}
+
+<div class="wrapper">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" id="user-tab" data-toggle="tab" href="#home">Users</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" id="create-tab" href="#create-user">Create new user</a>
+        </li>
+          <li class="nav-item">
+              <a class="nav-link d-none" id="edit-tab" data-toggle="tab" href="#edit-user-pane">Requested users</a>
+              </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active show" id="home">
+            @Html.Partial("Users", @Model.Users)
+        </div>
+        <div class="tab-pane fade " id="create-user">
+            @Html.Partial("CreateUser", @Model.CreateUpdateUserViewModel)
+        </div> 
+        <div class="tab-pane fade " id="edit-user-pane">
+        </div>
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <script src="~/js/usermangement/users.js" type="text/javascript" asp-append-version="true"></script>
+}
+

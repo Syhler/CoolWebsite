@@ -1,6 +1,6 @@
-﻿@model CoolWebsite.Areas.UserManagement.Models.CreateUserViewModel
+﻿@model CoolWebsite.Areas.UserManagement.Models.CreateUpdateUserViewModel
 
-<form method="post" asp-controller="User" asp-action="CreateUser" asp-area="UserManagement">
+<form method="post" asp-controller="Users" asp-action="CreateUser" asp-area="UserManagement" autocomplete="off">
     
     <div class="form-row mt-3" >
         <div class="form-group col-md-5">
@@ -16,11 +16,11 @@
     <div class="form-row mt-3" >
         <div class="form-group col-md-5">
             <label asp-for="Email" for="inputEmail4">Email</label>
-            <input asp-for="Email" type="email" class="form-control" id="inputEmail4" placeholder="Email">
+            <input asp-for="Email" type="email" class="form-control" id="inputEmail4" placeholder="Email" autocomplete="none">
         </div>
         <div class="form-group col-md-5">
             <label asp-for="Password">Password</label>
-            <input asp-for="Password" type="password" class="form-control" placeholder="Password">
+            <input asp-for="Password" type="password" class="form-control" placeholder="Password" autocomplete="new-password">
         </div>
     </div>
 

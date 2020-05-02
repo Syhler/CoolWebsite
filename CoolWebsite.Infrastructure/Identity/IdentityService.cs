@@ -193,5 +193,29 @@ namespace CoolWebsite.Infrastructure.Identity
 
             return result.ToApplicationResult();
         }
+
+        public async Task<ApplicationUser> GetUserById(string id)
+        {
+            if (_userManager == null)
+            {
+                throw new IdentityObjectNotInitialized("UserManager");
+            }
+
+            var user = await _userManager.FindByIdAsync(id);
+
+            return user;
+        }
+
+        public async Task<Result> UpdateUser(ApplicationUser applicationUser)
+        {
+            if (_userManager == null)
+            {
+                throw new IdentityObjectNotInitialized("UserManager");
+            }
+            
+            var result = await _userManager.UpdateAsync(applicationUser);
+
+            return result.ToApplicationResult();
+        }
     }
 }

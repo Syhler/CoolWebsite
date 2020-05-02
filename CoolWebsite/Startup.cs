@@ -59,6 +59,15 @@ namespace CoolWebsite
             
             services.AddRazorPages();
 
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new VMMappingProfile());
+                mc.AddProfile(new DTOMappingProfile());
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+            
             services.AddMvc(options =>
                 {
                     options.MaxModelValidationErrors = 50;
@@ -70,7 +79,8 @@ namespace CoolWebsite
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             
-            services.AddAutoMapper(typeof(VMMappingProfile), typeof(DTOMappingProfile));
+                
+                //services.AddAutoMapper(typeof(VMMappingProfile), typeof(DTOMappingProfile));
         }
         
         //index/index

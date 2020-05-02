@@ -30,5 +30,7 @@ namespace CoolWebsite.Application.Common.Interfaces
         Task<IQueryable<ApplicationUser>> GetUsersByRole(string name);
         IQueryable<ApplicationUser> GetUsers();
         Task<Result> DeleteUser(string id);
+        Task<ApplicationUser> GetUserById(string id);
+        Task<Result> UpdateUser(ApplicationUser applicationUser);
     }
 }

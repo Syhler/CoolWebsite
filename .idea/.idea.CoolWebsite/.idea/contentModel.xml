@@ -24,7 +24,7 @@
               <e p="UsersController.cs" t="Include" />
             </e>
             <e p="Models" t="Include">
-              <e p="CreateUserViewModel.cs" t="Include" />
+              <e p="CreateUpdateUserViewModel.cs" t="Include" />
               <e p="RoleViewModel.cs" t="Include" />
               <e p="UserModel.cs" t="Include" />
               <e p="UsersViewModel.cs" t="Include" />
@@ -36,9 +36,10 @@
                 <e p="Index.cshtml" t="Include" />
                 <e p="Roles.cshtml" t="Include" />
               </e>
-              <e p="User" t="Include">
+              <e p="Users" t="Include">
                 <e p="CreateUser.cshtml" t="Include" />
                 <e p="Index.cshtml" t="Include" />
+                <e p="UpdateUser.cshtml" t="Include" />
                 <e p="Users.cshtml" t="Include" />
               </e>
             </e>
@@ -104,6 +105,9 @@
           <e p="favicon.ico" t="Include" />
           <e p="js" t="Include">
             <e p="site.js" t="Include" />
+            <e p="usermangement" t="Include">
+              <e p="users.js" t="Include" />
+            </e>
           </e>
           <e p="lib" t="Include">
             <e p="bootstrap" t="Include">

@@ -3,6 +3,8 @@ using System.Linq;
 using System.Reflection;
 using AutoMapper;
 using CoolWebsite.Application.Common.Mapping;
+using CoolWebsite.Areas.UserManagement.Models;
+using CoolWebsite.Domain.Entities.Identity;
 
 namespace CoolWebsite.Services.Mapping
 {
@@ -11,7 +13,6 @@ namespace CoolWebsite.Services.Mapping
         public VMMappingProfile()
         {
             ApplyMappingsFromAssembly(Assembly.GetExecutingAssembly());
-            //CreateMap<ApplicationRole, RoleViewModel>();
         }
         
 
