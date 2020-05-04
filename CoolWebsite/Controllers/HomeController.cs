@@ -41,6 +41,8 @@ namespace CoolWebsite.Controllers
         public async Task<IActionResult> Index()
         {
             //await _identityService.AddRoleToUser("Admin");
+            
+            
             return View();
         }
 

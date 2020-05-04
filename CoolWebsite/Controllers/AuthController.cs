@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
+using CoolWebsite.Domain.Entities.Identity;
 using CoolWebsite.Infrastructure.Identity;
 using CoolWebsite.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -24,6 +25,7 @@ namespace CoolWebsite.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
+            
             if (_currentUserService.UserID != null)
             {
                 return RedirectToAction("Index", "Home");
