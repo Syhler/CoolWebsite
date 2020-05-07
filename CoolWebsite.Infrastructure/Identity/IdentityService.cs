@@ -28,7 +28,7 @@ namespace CoolWebsite.Infrastructure.Identity
             _roleManager = roleManager;
             _currentUserService = currentUserService;
         }
-        public async Task<string> GetUserNameAsync(string userID)
+        public async Task<string> GetUserNameAsync(string userId)
         {
             throw new System.NotImplementedException();
         }
@@ -206,14 +206,33 @@ namespace CoolWebsite.Infrastructure.Identity
             return user;
         }
 
-        public async Task<Result> UpdateUser(ApplicationUser applicationUser)
+        public async Task<Result> UpdateUser(UserUpdate userUpdate)
         {
             if (_userManager == null)
             {
                 throw new IdentityObjectNotInitialized("UserManager");
             }
+
+            var user = await _userManager.FindByIdAsync(userUpdate.Id);
+            user.FirstName = userUpdate.FirstName;
+            user.LastName = userUpdate.LastName;
+            user.Email = userUpdate.Email;
+            user.UserName = userUpdate.Email;
+
+            if (!string.IsNullOrWhiteSpace(userUpdate.Password))
+            {
+                var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+                await _userManager.ResetPasswordAsync(user, token, userUpdate.Password);
+            }
+
+            if (!string.IsNullOrWhiteSpace(userUpdate.RoleName))
+            {
+                await _userManager.AddToRoleAsync(user, userUpdate.RoleName);
+
+            }
             
-            var result = await _userManager.UpdateAsync(applicationUser);
+            var result = await _userManager.UpdateAsync(user);
 
             return result.ToApplicationResult();
         }

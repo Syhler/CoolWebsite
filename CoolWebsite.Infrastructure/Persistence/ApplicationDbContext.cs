@@ -28,12 +28,18 @@ namespace CoolWebsite.Infrastructure.Persistence
         {
             _dateTime = dateTime;
             //_currentUserService = currentUserService;
-            
+
 
         }
 
         public DbSet<TestEntity> TestEntities { get; set; }
-        
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

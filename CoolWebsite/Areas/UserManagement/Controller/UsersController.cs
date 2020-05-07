@@ -98,18 +98,21 @@ namespace CoolWebsite.Areas.UserManagement.Controller
 
             
             var roleName = await _identityService.GetRolesByUser(user.Id);
+            var roles =  _identityService.GetRoles();
             
-            var mapped = _mapper.Map<CreateUpdateUserViewModel>(user);
-            mapped.RoleName = roleName.FirstOrDefault();
+            var mappedUser = _mapper.Map<CreateUpdateUserViewModel>(user);
+            var mappedRoles = roles.ProjectTo<RoleViewModel>(_mapper.ConfigurationProvider).ToList();
+            mappedUser.RoleName = roleName.FirstOrDefault();
+            mappedUser.Roles = CreateSelectedList(mappedRoles);
             
-            return PartialView(mapped);
+            return PartialView(mappedUser);
         }
         
         [HttpPost]
         public async Task<IActionResult> UpdateUserPost(CreateUpdateUserViewModel updateUserViewModel)
         {
 
-            var user = _mapper.Map<ApplicationUser>(updateUserViewModel);
+            var user = _mapper.Map<UserUpdate>(updateUserViewModel);
             
             var result = await _identityService.UpdateUser(user);
 

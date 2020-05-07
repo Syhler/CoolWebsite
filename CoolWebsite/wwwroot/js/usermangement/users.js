@@ -36,6 +36,7 @@
             },
             success: function (data) {
                 console.log(data);
+                $("#update-user").remove();
                 $("#edit-user-pane").append(data);
             },
             error: function (jqxhr, status, exception) {

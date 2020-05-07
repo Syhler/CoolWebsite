@@ -23,7 +23,7 @@ namespace CoolWebsite.Controllers
     
         // GET
         [AllowAnonymous]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             
             if (_currentUserService.UserID != null)
