@@ -15,6 +15,11 @@
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="Areas" t="Include">
+          <e p="Financial" t="Include">
+            <e p="Controller" t="Include" />
+            <e p="Models" t="Include" />
+            <e p="Views" t="Include" />
+          </e>
           <e p="UserManagement" t="Include">
             <e p="Controller" t="Include">
               <e p="RolesController.cs" t="Include" />
@@ -165,10 +170,14 @@
       <e p="CoolWebsite.Application" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Common" t="Include">
+          <e p="Behaviours" t="Include">
+            <e p="ValidationBehavior.cs" t="Include" />
+          </e>
           <e p="Exceptions" t="Include">
             <e p="IdentityCurrentUserIdNotSet.cs" t="Include" />
             <e p="IdentityObjectNotInitialized.cs" t="Include" />
             <e p="NotFoundException.cs" t="Include" />
+            <e p="ValidationException.cs" t="Include" />
           </e>
           <e p="Interfaces" t="Include">
             <e p="IApplicationDbContext.cs" t="Include" />
@@ -186,8 +195,45 @@
         </e>
         <e p="CoolWebsite.Application.csproj" t="IncludeRecursive" />
         <e p="DatabaseAccess" t="Include">
-          <e p="ASPNetRoles" t="Include">
-            <e p="Commands" t="Include" />
+          <e p="Financial" t="Include">
+            <e p="FinancialProject" t="Include">
+              <e p="Commands" t="Include">
+                <e p="CreateFinancialProject" t="Include">
+                  <e p="CreateFinancialProjectCommand.cs" t="Include" />
+                  <e p="CreateFinancialProjectCommandValidator.cs" t="Include" />
+                </e>
+                <e p="DeleteFinancialProject" t="Include">
+                  <e p="DeleteFinancialProjectCommand.cs" t="Include" />
+                  <e p="DeleteFinancialProjectCommandValidator.cs" t="Include" />
+                </e>
+                <e p="UpdateFinancialProject" t="Include">
+                  <e p="UpdateFinancialProjectCommand.cs" t="Include" />
+                  <e p="UpdateFinancialProjectValidator.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Queries" t="Include">
+                <e p="GetFinancialProjects" t="Include">
+                  <e p="FinancialProjectDto.cs" t="Include" />
+                  <e p="FinancialProjectsVm.cs" t="Include" />
+                  <e p="GetFinancialProjectsByUserQuery.cs" t="Include" />
+                  <e p="ReceiptsDto.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Receipts" t="Include">
+              <e p="Command" t="Include">
+                <e p="CreateReceipts" t="Include">
+                  <e p="CreateReceiptsCommand.cs" t="Include" />
+                </e>
+                <e p="DeleteReceipts" t="Include">
+                  <e p="DeleteReceiptsCommand.cs" t="Include" />
+                </e>
+                <e p="UpdateReceipts" t="Include">
+                  <e p="UpdateReceiptsCommand.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Queries" t="Include" />
+            </e>
           </e>
           <e p="TestEntities" t="Include">
             <e p="Commands" t="Include">
@@ -217,6 +263,12 @@
         </e>
         <e p="CoolWebsite.Domain.csproj" t="IncludeRecursive" />
         <e p="Entities" t="Include">
+          <e p="Financial" t="Include">
+            <e p="FinancialProject.cs" t="Include" />
+            <e p="FinancialProjectApplicationUser.cs" t="Include" />
+            <e p="IndividualReceipt.cs" t="Include" />
+            <e p="Receipt.cs" t="Include" />
+          </e>
           <e p="Identity" t="Include">
             <e p="ApplicationRole.cs" t="Include" />
             <e p="ApplicationUser.cs" t="Include" />
@@ -250,6 +302,10 @@
           <e p="20200203221959_AddedAudtiableToTestEntity.Designer.cs" t="Include" />
           <e p="20200425073725_UpdatedApplicationUserField.cs" t="Include" />
           <e p="20200425073725_UpdatedApplicationUserField.Designer.cs" t="Include" />
+          <e p="20200508150114_addedFinancialTables.cs" t="Include" />
+          <e p="20200508150114_addedFinancialTables.Designer.cs" t="Include" />
+          <e p="20200508150952_AddedNameToFinancialProject.cs" t="Include" />
+          <e p="20200508150952_AddedNameToFinancialProject.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -275,7 +331,37 @@
         <e p="ApplicationDbFactory.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="CommandTestBase.cs" t="Include" />
+        <e p="Common" t="Include">
+          <e p="Testing.cs" t="Include" />
+        </e>
         <e p="CoolWebsite.UnitTest.csproj" t="IncludeRecursive" />
+        <e p="database" t="Include">
+          <e p="Financial" t="Include">
+            <e p="FinancialProject" t="Include">
+              <e p="Commands" t="Include">
+                <e p="CreateFinancialProjectTests.cs" t="Include" />
+                <e p="DeleteFinancialProjectTests.cs" t="Include" />
+                <e p="UpdateFinancialProjectTests.cs" t="Include" />
+              </e>
+              <e p="Queries" t="Include">
+                <e p="GetFinancialProjectsByUserTest.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Receipts" t="Include">
+              <e p="CreateReceiptsTests.cs" t="Include" />
+              <e p="DeleteReceiptsTests.cs" t="Include" />
+              <e p="UpdateReceiptsTests.cs" t="Include" />
+            </e>
+          </e>
+          <e p="TestEntities" t="Include">
+            <e p="CreateTestEntity" t="Include">
+              <e p="CreateTestEntityCommandTest.cs" t="Include" />
+            </e>
+            <e p="UpdateTestEntity" t="Include">
+              <e p="UpdateTestEntityCommandTest.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
@@ -284,15 +370,7 @@
           </e>
         </e>
         <e p="Services" t="Include">
-          <e p="CurrentUserServiceTemp.cs" t="Include" />
-        </e>
-        <e p="TestEntities" t="Include">
-          <e p="CreateTestEntity" t="Include">
-            <e p="CreateTestEntityCommandTest.cs" t="Include" />
-          </e>
-          <e p="UpdateTestEntity" t="Include">
-            <e p="UpdateTestEntityCommandTest.cs" t="Include" />
-          </e>
+          <e p="CurrentUserService.cs" t="Include" />
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />

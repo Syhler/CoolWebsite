@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.Collections.Generic;
+using CoolWebsite.Domain.Entities.Financial;
+using Microsoft.AspNetCore.Identity;
 
 namespace CoolWebsite.Domain.Entities.Identity
 {
@@ -6,5 +8,8 @@ namespace CoolWebsite.Domain.Entities.Identity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        
+        public ICollection<FinancialProjectApplicationUser> FinancialProjectApplicationUsers { get; set; }
+
     }
 }

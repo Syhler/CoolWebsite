@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="DatabaseAccess\ASPNetRoles\Commands" />
+      <Folder Include="DatabaseAccess\Financial\Receipts\Queries" />
     </ItemGroup>
 
 </Project>

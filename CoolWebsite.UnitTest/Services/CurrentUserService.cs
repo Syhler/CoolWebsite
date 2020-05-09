@@ -4,9 +4,9 @@ using CoolWebsite.Application.Common.Interfaces;
 
 namespace CoolWebsite.UnitTest.Services
 {
-    public class CurrentUserServiceTemp : ICurrentUserService
+    public class CurrentUserService : ICurrentUserService
     {
-        public CurrentUserServiceTemp()
+        public CurrentUserService()
         {
             UserID = Guid.Empty.ToString();
         }

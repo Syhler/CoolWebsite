@@ -3,14 +3,16 @@ using System;
 using CoolWebsite.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CoolWebsite.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200508150114_addedFinancialTables")]
+    partial class addedFinancialTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,9 +34,6 @@ namespace CoolWebsite.Infrastructure.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("LastModifiedBy")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
@@ -364,7 +363,7 @@ namespace CoolWebsite.Infrastructure.Migrations
 
             modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.IndividualReceipt", b =>
                 {
-                    b.HasOne("CoolWebsite.Domain.Entities.Financial.Receipt", "Receipt")
+                    b.HasOne("CoolWebsite.Domain.Entities.Financial.Receipt", null)
                         .WithMany("Receptors")
                         .HasForeignKey("ReceiptId");
 

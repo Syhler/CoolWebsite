@@ -21,4 +21,8 @@
       <ProjectReference Include="..\CoolWebsite.Infrastructure\CoolWebsite.Infrastructure.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="database" />
+    </ItemGroup>
+
 </Project>

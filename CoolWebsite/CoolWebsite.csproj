@@ -27,4 +27,10 @@
       <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ViewStart.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Areas\Financial\Controller" />
+      <Folder Include="Areas\Financial\Models" />
+      <Folder Include="Areas\Financial\Views" />
+    </ItemGroup>
+
 </Project>

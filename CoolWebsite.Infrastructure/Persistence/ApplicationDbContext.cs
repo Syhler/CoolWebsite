@@ -8,6 +8,7 @@ using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Domain.Common;
 using CoolWebsite.Domain.Entities;
+using CoolWebsite.Domain.Entities.Financial;
 using CoolWebsite.Domain.Entities.Identity;
 using CoolWebsite.Infrastructure.Identity;
 using Microsoft.AspNetCore.Http;
@@ -33,6 +34,10 @@ namespace CoolWebsite.Infrastructure.Persistence
         }
 
         public DbSet<TestEntity> TestEntities { get; set; }
+        public DbSet<FinancialProject> FinancialProjects { get; set; }
+        public DbSet<IndividualReceipt> IndividualReceipts { get; set; }
+        public DbSet<FinancialProjectApplicationUser> FinancialProjectApplicationUsers { get; set; }
+        public DbSet<Receipt> Receipts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -43,6 +48,11 @@ namespace CoolWebsite.Infrastructure.Persistence
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            
+            builder.Entity<FinancialProjectApplicationUser>()
+                .HasKey(x => new {x.UserId, x.FinancialProjectId});
+            
+            
             base.OnModelCreating(builder);
         }
 

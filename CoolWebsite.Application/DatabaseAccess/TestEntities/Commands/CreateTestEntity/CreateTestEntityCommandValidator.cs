@@ -8,7 +8,7 @@ namespace CoolWebsite.Application.DatabaseAccess.TestEntities.Commands.CreateTes
         {
             RuleFor(x => x.Name)
                 .NotEmpty()
-                .MaximumLength(10);
+                .MaximumLength(10).WithMessage("Max 10 length");
         }
     }
 }

@@ -20,7 +20,7 @@ namespace CoolWebsite.UnitTest.TestEntities.UpdateTestEntity
                 Name = "First name"
             };
             
-            var createHandler = new CreateTestEntityCommand.CreateTestEntityCommandHandler(Context, new CurrentUserServiceTemp());
+            var createHandler = new CreateTestEntityCommand.CreateTestEntityCommandHandler(Context, new CurrentUserService());
 
             var result = await createHandler.Handle(createCommand, CancellationToken.None);
             
@@ -30,7 +30,7 @@ namespace CoolWebsite.UnitTest.TestEntities.UpdateTestEntity
                 Id = result
             };
             
-            var updateHandler = new UpdateTestEntityCommand.UpdateTestEntityCommandHandler(Context, new CurrentUserServiceTemp());
+            var updateHandler = new UpdateTestEntityCommand.UpdateTestEntityCommandHandler(Context, new CurrentUserService());
 
             await updateHandler.Handle(updateCommand, CancellationToken.None);
 
@@ -50,7 +50,7 @@ namespace CoolWebsite.UnitTest.TestEntities.UpdateTestEntity
                 Name = "bla"
             };
 
-            var handler = new UpdateTestEntityCommand.UpdateTestEntityCommandHandler(Context, new CurrentUserServiceTemp());
+            var handler = new UpdateTestEntityCommand.UpdateTestEntityCommandHandler(Context, new CurrentUserService());
             
             
             Should.ThrowAsync<NotFoundException>(() => handler.Handle(command, CancellationToken.None));

@@ -2,6 +2,7 @@
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Moq;
 
@@ -14,7 +15,9 @@ namespace CoolWebsite.UnitTest
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
                 .Options;
-
+            
+            var services = new ServiceCollection();
+            
             
             // Sets default datetime when testing time
             var dateTimeMock = new Mock<IDateTime>();
