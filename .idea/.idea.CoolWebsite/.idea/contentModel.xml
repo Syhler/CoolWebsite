@@ -27,6 +27,9 @@
               <e p="DeleteFinancialProjectTests.cs" t="Include" />
               <e p="UpdateFinancialProjectTests.cs" t="Include" />
             </e>
+            <e p="Queries" t="Include">
+              <e p="GetFinancialProjectsByUserTests.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -243,7 +246,8 @@
                 <e p="GetFinancialProjects" t="Include">
                   <e p="FinancialProjectDto.cs" t="Include" />
                   <e p="FinancialProjectsVm.cs" t="Include" />
-                  <e p="GetFinancialProjectsByUserQuery.cs" t="Include" />
+                  <e p="GetFinancialProjectByUserQueryValidator.cs" t="Include" />
+                  <e p="GetFinancialProjectsByUserQueryVm.cs" t="Include" />
                   <e p="ReceiptsDto.cs" t="Include" />
                 </e>
               </e>

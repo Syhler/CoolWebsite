@@ -8,6 +8,8 @@ namespace Application.IntegrationTests.Common
     using static Testing;
     public abstract class FinancialTestBase : TestBase
     {
+        private string _projectName = "Create";
+
 
         protected async Task<string> CreateFinancialProject()
         {
@@ -16,7 +18,7 @@ namespace Application.IntegrationTests.Common
             
             var createCommand = new CreateFinancialProjectCommand
             {
-                Name = "Create",
+                Name = _projectName,
                 Users = new List<ApplicationUser>
                 {
                     user

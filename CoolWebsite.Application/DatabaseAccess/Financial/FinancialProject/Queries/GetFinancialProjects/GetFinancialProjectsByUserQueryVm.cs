@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +33,12 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Quer
                     x.FinancialProjectApplicationUsers.Any(user => user.UserId == request.UserId))
                 .Include(x => x.Receipts)
                 .Include(x => x.FinancialProjectApplicationUsers);
+
+            if (projects == null || projects.ToList().Count <= 0)
+            {
+                throw new NotFoundException(nameof(Domain.Entities.Financial.FinancialProject), request.UserId);
+            }
+            
             
             return new FinancialProjectsVm
             {
