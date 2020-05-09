@@ -4,12 +4,40 @@
     <e p="C:\Users\morte\.nuget\packages\microsoft.net.test.sdk\16.2.0\build\netcoreapp1.0" t="Include">
       <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
     </e>
+    <e p="C:\Users\morte\.nuget\packages\nunit3testadapter\3.13.0\build\netcoreapp1.0\nunit.engine.netstandard.dll" t="Include" />
+    <e p="C:\Users\morte\.nuget\packages\nunit3testadapter\3.13.0\build\netcoreapp1.0\NUnit3.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\morte\.nuget\packages\nunit3testadapter\3.13.0\build\netcoreapp1.0\NUnit3.TestAdapter.pdb" t="Include" />
     <e p="C:\Users\morte\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.reporters.netcoreapp10.dll" t="Include" />
     <e p="C:\Users\morte\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.utility.netcoreapp10.dll" t="Include" />
     <e p="C:\Users\morte\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
     <e p="C:\Users\morte\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
     <e p="C:\Users\morte\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_CoolWebsite.609162593.00" t="ExcludeRecursive" />
     <e p="C:\Users\morte\Documents\GitHub\C#_Project\CoolWebsite" t="IncludeFlat">
+      <e p="Application.IntegrationTests" t="IncludeRecursive">
+        <e p="Application.IntegrationTests.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Common" t="Include">
+          <e p="FinancialTestBase.cs" t="Include" />
+          <e p="TestBase.cs" t="Include" />
+        </e>
+        <e p="Financial" t="Include">
+          <e p="FinancialProject" t="Include">
+            <e p="Commands" t="Include">
+              <e p="CreateFinancialProjectTests.cs" t="Include" />
+              <e p="DeleteFinancialProjectTests.cs" t="Include" />
+              <e p="UpdateFinancialProjectTests.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="Application.IntegrationTests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Testing.cs" t="Include" />
+      </e>
       <e p="CoolWebsite" t="IncludeRecursive">
         <e p="app.db" t="Include" />
         <e p="appsettings.Development.json" t="Include" />

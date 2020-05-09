@@ -1,8 +1,13 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
+using CoolWebsite.Domain.Entities.Financial;
+using CoolWebsite.Domain.Entities.Identity;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Commands.UpdateFinancialProject
 {
@@ -10,6 +15,9 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Comm
     {
         public string Id { get; set; }
         public string Name { get; set; }
+
+        public List<ApplicationUser> Users { get; set; }
+        
         
         public class UpdateFinancialProjectCommandHandler : IRequestHandler<UpdateFinancialProjectCommand>
         {
@@ -24,14 +32,29 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Comm
 
             public async Task<Unit> Handle(UpdateFinancialProjectCommand request, CancellationToken cancellationToken)
             {
-                var entity = await _context.FinancialProjects.FindAsync(request.Id);
+                var entity = _context.FinancialProjects
+                    .Include(x=>x.FinancialProjectApplicationUsers).FirstOrDefault(e => e.Id ==request.Id);
 
                 if (entity == null)
                 {
                     throw new NotFoundException(nameof(Domain.Entities.Financial.FinancialProject), request.Id);
                 }
 
+                var users = new List<FinancialProjectApplicationUser>();
+
+                foreach (var applicationUser in request.Users)
+                {
+                    users.Add(new FinancialProjectApplicationUser
+                    {
+                        FinancialProjectId = entity.Id,
+                        UserId = applicationUser.Id
+                    });
+                }
+                
+                
                 entity.Name = request.Name;
+                entity.FinancialProjectApplicationUsers = users;
+                
 
                 await _context.SaveChangesAsync(cancellationToken);
                 
