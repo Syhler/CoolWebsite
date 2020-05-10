@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Commands.CreateFinancialProject;
+using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.CreateReceipts;
 using CoolWebsite.Domain.Entities.Identity;
 
 namespace Application.IntegrationTests.Common
@@ -13,6 +14,14 @@ namespace Application.IntegrationTests.Common
 
         protected async Task<string> CreateFinancialProject()
         {
+            /*
+            var user = new ApplicationUser()
+            {
+                UserName = "Dummy@Dummy",
+                Email = "Dummy@Dummy",
+                PasswordHash = "asdahashed!"
+            };
+            */
             var user = await RunAsDefaultUserAsync();
             await AddAsync(user);
             
@@ -23,6 +32,30 @@ namespace Application.IntegrationTests.Common
                 {
                     user
                 }
+            };
+
+            return await SendAsync(createCommand);
+        }
+
+        protected async Task<string> CreateReceipt(string projectID)
+        {
+            var createCommand = new CreateReceiptsCommand
+            {
+                FinancialProjectId = projectID,
+                Total = 0,
+            };
+
+            return await SendAsync(createCommand);
+        }
+        
+        protected async Task<string> CreateReceipt()
+        {
+            var projectID = await CreateFinancialProject();
+            
+            var createCommand = new CreateReceiptsCommand
+            {
+                FinancialProjectId = projectID,
+                Total = 0,
             };
 
             return await SendAsync(createCommand);

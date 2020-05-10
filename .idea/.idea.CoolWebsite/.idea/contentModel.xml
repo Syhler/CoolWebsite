@@ -31,6 +31,13 @@
               <e p="GetFinancialProjectsByUserTests.cs" t="Include" />
             </e>
           </e>
+          <e p="Receipts" t="Include">
+            <e p="Commands" t="Include">
+              <e p="CreateReceiptsTests.cs" t="Include" />
+              <e p="DeleteReceiptsTests.cs" t="Include" />
+              <e p="UpdateReceiptsTests.cs" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -256,15 +263,17 @@
               <e p="Command" t="Include">
                 <e p="CreateReceipts" t="Include">
                   <e p="CreateReceiptsCommand.cs" t="Include" />
+                  <e p="CreateReceiptsCommandValidator.cs" t="Include" />
                 </e>
                 <e p="DeleteReceipts" t="Include">
                   <e p="DeleteReceiptsCommand.cs" t="Include" />
+                  <e p="DeleteReceiptsCommandValidator.cs" t="Include" />
                 </e>
                 <e p="UpdateReceipts" t="Include">
                   <e p="UpdateReceiptsCommand.cs" t="Include" />
+                  <e p="UpdateReceiptsCommandValidator.cs" t="Include" />
                 </e>
               </e>
-              <e p="Queries" t="Include" />
             </e>
           </e>
           <e p="TestEntities" t="Include">

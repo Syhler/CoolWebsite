@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
@@ -12,6 +13,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.Upda
         public string Id { get; set; }
         public double Total { get; set; }
         public string FinancialProjectId { get; set; }
+
     }
 
     public class UpdateReceiptsCommandHandler : IRequestHandler<UpdateReceiptsCommand>
@@ -34,7 +36,11 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.Upda
             }
             
             entity.Total = request.Total;
-            entity.FinancialProjectId = request.FinancialProjectId;
+            
+            if (!string.IsNullOrWhiteSpace(request.FinancialProjectId))
+            {
+                entity.FinancialProjectId = request.FinancialProjectId;
+            }
 
             await _context.SaveChangesAsync(cancellationToken);
             

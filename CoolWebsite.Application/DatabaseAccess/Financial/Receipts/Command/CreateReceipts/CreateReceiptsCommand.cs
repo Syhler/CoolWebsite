@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
@@ -11,6 +12,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.Crea
     {
         public double Total { get; set; }
         public string FinancialProjectId { get; set; }
+
+        public List<IndividualReceipt> Receiptors { get; set; }
     }
 
     public class CreateReceiptsCommandHandler : IRequestHandler<CreateReceiptsCommand, string>
@@ -26,11 +29,13 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.Crea
 
         public async Task<string> Handle(CreateReceiptsCommand request, CancellationToken cancellationToken)
         {
+            
             var entity = new Receipt
             {
                 Total = request.Total,
                 FinancialProjectId = request.FinancialProjectId,
-                Id = Guid.NewGuid().ToString()
+                Id = Guid.NewGuid().ToString(),
+                Receptors = request.Receiptors ?? new List<IndividualReceipt>()
             };
 
             await _context.Receipts.AddAsync(entity, cancellationToken);

@@ -17,8 +17,4 @@
       <ProjectReference Include="..\CoolWebsite.Domain\CoolWebsite.Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="DatabaseAccess\Financial\Receipts\Queries" />
-    </ItemGroup>
-
 </Project>

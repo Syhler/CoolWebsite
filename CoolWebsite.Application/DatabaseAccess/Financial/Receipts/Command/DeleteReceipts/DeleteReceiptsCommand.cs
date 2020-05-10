@@ -24,7 +24,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.Dele
 
         public async Task<Unit> Handle(DeleteReceiptsCommand request, CancellationToken cancellationToken)
         {
-            var entity = _context.Receipts.Find(request.Id);
+            var entity = await _context.Receipts.FindAsync(request.Id);
 
             if (entity == null)
             {
