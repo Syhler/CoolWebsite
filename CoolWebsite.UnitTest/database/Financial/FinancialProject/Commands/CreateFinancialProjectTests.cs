@@ -24,7 +24,7 @@ namespace CoolWebsite.UnitTest.database.Financial.FinancialProject.Commands
             
             var createCommand = new CreateFinancialProjectCommand
             {
-                Name = "First Project",
+                Title = "First Project",
                 Users = new List<ApplicationUser>
                 {
                    user
@@ -39,7 +39,7 @@ namespace CoolWebsite.UnitTest.database.Financial.FinancialProject.Commands
             
             
             entity.ShouldNotBeNull();
-            entity.Name.ShouldBe(createCommand.Name);
+            entity.Title.ShouldBe(createCommand.Title);
             entity.FinancialProjectApplicationUsers.First().UserId.ShouldBe(user.Id);
         }
         

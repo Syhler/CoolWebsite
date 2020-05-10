@@ -6,12 +6,16 @@ using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Domain.Entities.Financial;
 using MediatR;
 
-namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.CreateReceipts
+namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts
 {
     public class CreateReceiptsCommand : IRequest<string>
     {
         public double Total { get; set; }
         public string FinancialProjectId { get; set; }
+
+        public string Title { get; set; }
+
+        public DateTime BoughtAt { get; set; }
 
         public List<IndividualReceipt> Receiptors { get; set; }
     }
@@ -35,6 +39,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.Crea
                 Total = request.Total,
                 FinancialProjectId = request.FinancialProjectId,
                 Id = Guid.NewGuid().ToString(),
+                BoughtAt = request.BoughtAt,
+                Title = request.Title,
                 Receptors = request.Receiptors ?? new List<IndividualReceipt>()
             };
 

@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Commands.CreateFinancialProject;
 using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Queries.GetFinancialProjects;
+using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Domain.Entities.Identity;
 using FluentAssertions;
 using NUnit.Framework;
@@ -25,14 +27,24 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
             
             var createCommand = new CreateFinancialProjectCommand
             {
-                Name = "Create",
+                Title = "Create",
                 Users = new List<ApplicationUser>
                 {
                     user
                 }
             };
 
-            await SendAsync(createCommand);
+            var id = await SendAsync(createCommand);
+            
+            var createReceipt = new CreateReceiptsCommand
+            {
+                Total = 2000,
+                FinancialProjectId = id,
+                Title = "Title",
+                BoughtAt = DateTime.Now
+            };
+
+            var receiptId = await SendAsync(createReceipt);
 
             var query = new GetFinancialProjectsByUserQuery
             {
@@ -41,9 +53,11 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
 
             var model = await SendAsync(query);
 
+            
             model.Should().NotBeNull();
             model.FinancialProjects.First().Users.First().Id.Should().Be(user.Id);
-            model.FinancialProjects.First().Title.Should().Be(createCommand.Name);
+            model.FinancialProjects.First().Title.Should().Be(createCommand.Title);
+            model.FinancialProjects.First().Receipts.First().Id.Should().Be(receiptId);
         }
 
         [Test]
@@ -54,7 +68,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
             
             var createCommand = new CreateFinancialProjectCommand
             {
-                Name = "Create",
+                Title = "Create",
                 Users = new List<ApplicationUser>
                 {
                     user

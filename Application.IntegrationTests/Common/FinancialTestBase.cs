@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Commands.CreateFinancialProject;
-using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.CreateReceipts;
+using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Domain.Entities.Identity;
 
 namespace Application.IntegrationTests.Common
@@ -27,7 +28,7 @@ namespace Application.IntegrationTests.Common
             
             var createCommand = new CreateFinancialProjectCommand
             {
-                Name = _projectName,
+                Title = _projectName,
                 Users = new List<ApplicationUser>
                 {
                     user
@@ -43,6 +44,8 @@ namespace Application.IntegrationTests.Common
             {
                 FinancialProjectId = projectID,
                 Total = 0,
+                Title = "Title",
+                BoughtAt = DateTime.Now
             };
 
             return await SendAsync(createCommand);
@@ -56,6 +59,8 @@ namespace Application.IntegrationTests.Common
             {
                 FinancialProjectId = projectID,
                 Total = 0,
+                Title = "Title",
+                BoughtAt = DateTime.Now
             };
 
             return await SendAsync(createCommand);

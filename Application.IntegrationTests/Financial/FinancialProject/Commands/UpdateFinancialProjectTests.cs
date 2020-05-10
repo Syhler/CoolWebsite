@@ -28,7 +28,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             
             var createCommand = new CreateFinancialProjectCommand
             {
-                Name = "First",
+                Title = "First",
                 Users = new List<ApplicationUser>
                 {
                     user
@@ -55,7 +55,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
                 .First(x => x.Id == id);
             
             entity.Should().NotBeNull();
-            entity.Name.Should().Be(updateCommand.Name);
+            entity.Title.Should().Be(updateCommand.Name);
             entity.FinancialProjectApplicationUsers.First().UserId.Should().Be(newUser.Id);
             entity.LastModified.Should().NotBeNull();
             entity.LastModified.Should().BeCloseTo(DateTime.Now, 10000);
@@ -133,7 +133,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             
             var createCommand = new CreateFinancialProjectCommand
             {
-                Name = "Create",
+                Title = "Create",
                 Users = new List<ApplicationUser>
                 {
                     user

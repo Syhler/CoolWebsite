@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.CreateReceipts
+namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts
 {
     public class CreateReceiptsCommandValidator : AbstractValidator<CreateReceiptsCommand>
     {
@@ -11,6 +11,13 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.Crea
 
             RuleFor(x => x.FinancialProjectId)
                 .NotEmpty().WithMessage("FinancialProjectID is required");
+
+            RuleFor(x => x.Title)
+                .NotEmpty().WithMessage("Title is required")
+                .MaximumLength(100);
+
+            RuleFor(x => x.BoughtAt)
+                .NotEmpty().WithMessage("BoughtAt is required");
         }
     }
 }

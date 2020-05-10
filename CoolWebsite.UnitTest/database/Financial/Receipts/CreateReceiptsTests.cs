@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.CreateReceipts;
+using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
 using CoolWebsite.UnitTest.Services;
 using Shouldly;
 using Xunit;

@@ -11,7 +11,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Comm
 {
     public class CreateFinancialProjectCommand : IRequest<string>
     {
-        public string Name { get; set; }
+        public string Title { get; set; }
         public IList<ApplicationUser> Users { get; set; }
     }
     
@@ -30,7 +30,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Comm
             var entity = new Domain.Entities.Financial.FinancialProject
             {
                 Id = Guid.NewGuid().ToString(),
-                Name = request.Name
+                Title = request.Title
             };
             
             var users = new List<FinancialProjectApplicationUser>();

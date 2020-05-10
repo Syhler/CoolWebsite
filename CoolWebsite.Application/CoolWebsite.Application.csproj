@@ -17,4 +17,11 @@
       <ProjectReference Include="..\CoolWebsite.Domain\CoolWebsite.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="DatabaseAccess\Financial\InvidualReceipts\Commands\CreateInvidualReceipt" />
+      <Folder Include="DatabaseAccess\Financial\InvidualReceipts\Commands\DeleteInvidualReceipt" />
+      <Folder Include="DatabaseAccess\Financial\InvidualReceipts\Commands\UpdateInvidualReceipt" />
+      <Folder Include="DatabaseAccess\Financial\InvidualReceipts\Queries" />
+    </ItemGroup>
+
 </Project>

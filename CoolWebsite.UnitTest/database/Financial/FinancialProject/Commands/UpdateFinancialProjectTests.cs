@@ -17,7 +17,7 @@ namespace CoolWebsite.UnitTest.database.Financial.FinancialProject.Commands
         {
             var createCommand = new CreateFinancialProjectCommand
             {
-                Name = "First Project"
+                Title = "First Project"
             };
             
             var createHandler = new CreateFinancialProjectCommandHandler(Context, new CurrentUserService());
@@ -37,7 +37,7 @@ namespace CoolWebsite.UnitTest.database.Financial.FinancialProject.Commands
             var entity = await Context.FinancialProjects.FindAsync(id);
             
             entity.ShouldNotBeNull();
-            entity.Name.ShouldBe(updateCommand.Name);
+            entity.Title.ShouldBe(updateCommand.Name);
         }
 
         [Fact]

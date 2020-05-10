@@ -52,7 +52,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Comm
                 }
                 
                 
-                entity.Name = request.Name;
+                entity.Title = request.Name;
                 entity.FinancialProjectApplicationUsers = users;
                 
 

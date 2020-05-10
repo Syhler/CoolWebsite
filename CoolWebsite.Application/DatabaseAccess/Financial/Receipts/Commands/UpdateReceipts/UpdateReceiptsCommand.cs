@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Exceptions;
@@ -13,6 +14,10 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.Upda
         public string Id { get; set; }
         public double Total { get; set; }
         public string FinancialProjectId { get; set; }
+        
+        public string Title { get; set; }
+
+        public DateTime BoughtAt { get; set; }
 
     }
 
@@ -36,6 +41,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.Upda
             }
             
             entity.Total = request.Total;
+            entity.Title = request.Title;
+            entity.BoughtAt = request.BoughtAt;
             
             if (!string.IsNullOrWhiteSpace(request.FinancialProjectId))
             {

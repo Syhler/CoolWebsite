@@ -22,7 +22,7 @@ namespace CoolWebsite.UnitTest.database.Financial.FinancialProject.Queries
             
             var command = new CreateFinancialProjectCommand
             {
-                Name = "test",
+                Title = "test",
                 Users = new List<ApplicationUser>
                 {
                     user

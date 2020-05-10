@@ -16,7 +16,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Quer
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Domain.Entities.Financial.FinancialProject, FinancialProjectDto>()
-                .ForMember(x => x.Title, opt => opt.MapFrom(s => s.Name))
+                .ForMember(x => x.Title, opt => opt.MapFrom(s => s.Title))
                 .ForMember(x => x.Users, opt => 
                     opt.MapFrom(s => s.FinancialProjectApplicationUsers.Select(x => x.User)));
         }

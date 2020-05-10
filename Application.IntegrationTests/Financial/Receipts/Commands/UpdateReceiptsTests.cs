@@ -25,7 +25,9 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             {
                 Id = id,
                 Total = 134534.4324,
-                FinancialProjectId = projectId
+                FinancialProjectId = projectId,
+                Title = "Title",
+                BoughtAt = DateTime.Now
             };
 
             await SendAsync(command);
@@ -37,6 +39,8 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             entity.FinancialProjectId.Should().Be(command.FinancialProjectId);
             entity.LastModified.Should().BeCloseTo(DateTime.Now, 1000);
             entity.LastModifiedBy.Should().Be(user.Id);
+            entity.BoughtAt.Should().BeCloseTo(DateTime.Now, 1000);
+            entity.Title.Should().Be(command.Title);
         }
 
         [Test]
@@ -50,6 +54,8 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             {
                 Id = id,
                 Total = 134534.4324,
+                Title = "Title",
+                BoughtAt = DateTime.Now
             };
 
             await SendAsync(command);
@@ -61,6 +67,8 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             entity.FinancialProjectId.Should().Be(projectId);
             entity.LastModified.Should().BeCloseTo(DateTime.Now, 1000);
             entity.LastModifiedBy.Should().Be(user.Id);
+            entity.BoughtAt.Should().BeCloseTo(DateTime.Now, 1000);
+            entity.Title.Should().Be(command.Title);
         }
 
         [Test]
@@ -69,7 +77,9 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             var command = new UpdateReceiptsCommand
             {
                 Total = 2341.3,
-                Id = "nah"
+                Id = "nah",
+                Title = "Title",
+                BoughtAt = DateTime.Now
             };
 
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<NotFoundException>();
@@ -81,7 +91,9 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             var command = new UpdateReceiptsCommand
             {
                 Total = 2341.3,
-                Id = ""
+                Id = "",
+                Title = "Title",
+                BoughtAt = DateTime.Now
             };
 
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
@@ -94,7 +106,52 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             var command = new UpdateReceiptsCommand
             {
                 Total = -5,
-                Id = "asdadas"
+                Id = "asdadas",
+                Title = "Title",
+                BoughtAt = DateTime.Now
+            };
+
+            FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
+        }
+        
+        [Test]
+        public async Task Handle_BoughtAtEmpty_ShouldThrowValidationException()
+        {
+            var command = new UpdateReceiptsCommand
+            {
+                Total = 5,
+                Id = "asdadas",
+                Title = "Title",
+            };
+            
+            FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
+
+        }
+
+        [Test]
+        public async Task Handle_TitleEmpty_ShouldThrowValidationException()
+        {
+            var command = new UpdateReceiptsCommand
+            {
+                Total = 123,
+                Id = "asdadas",
+                BoughtAt = DateTime.Now,
+                Title = ""
+            };
+
+            FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
+        }
+
+        [Test]
+        public async Task Handle_TitleAboveMaxLength_ShouldThrowValidationException()
+        {
+            var command = new UpdateReceiptsCommand
+            {
+                Total = 123,
+                Id = "asdadas",
+                Title = "dafhdsugjhsfdosjdfjiodsfoijdsfjiosdfsdfdfsdfsdfsdfsfsdfsdfsdf" +
+                        "dfgdfgdfgojifdsjoifsdjoisdfojisdfjoisdfjoifsojdijoisdfjoifsdoij",
+                BoughtAt = DateTime.Now
             };
 
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();

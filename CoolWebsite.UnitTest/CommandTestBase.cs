@@ -33,7 +33,7 @@ namespace CoolWebsite.UnitTest
         {
             var command = new CreateFinancialProjectCommand
             {
-                Name = "test",
+                Title = "test",
                 Users = new List<ApplicationUser>
                 {
                     new ApplicationUser

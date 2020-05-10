@@ -6,7 +6,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Comm
     {
         public CreateFinancialProjectCommandValidator()
         {
-            RuleFor(x => x.Name)
+            RuleFor(x => x.Title)
                 .NotEmpty().WithMessage("Title is required")
                 .MaximumLength(100);
 

@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Exceptions;
-using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.CreateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.DeleteReceipts;
+using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Infrastructure.Services;
 using CoolWebsite.UnitTest.Services;
 using Shouldly;

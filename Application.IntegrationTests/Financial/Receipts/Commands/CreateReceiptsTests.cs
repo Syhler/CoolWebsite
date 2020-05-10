@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
-using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.CreateReceipts;
+using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Domain.Entities.Financial;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
@@ -30,7 +30,9 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             {
                 FinancialProjectId = id,
                 Total = 100,
-                Receiptors = new List<IndividualReceipt>()
+                Receiptors = new List<IndividualReceipt>(),
+                BoughtAt = DateTime.Now,
+                Title = "Title"
             };
 
             var receiptsId = await SendAsync(command);
@@ -46,6 +48,8 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             entity.FinancialProjectId.Should().Be(command.FinancialProjectId);
             entity.Created.Should().BeCloseTo(DateTime.Now, 10000);
             entity.CreatedBy.Should().Be(user.Id);
+            entity.Title.Should().Be(command.Title);
+            entity.BoughtAt.Should().BeCloseTo(DateTime.Now, 1000);
 
         }
 
@@ -60,6 +64,8 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             {
                 FinancialProjectId = id,
                 Total = 100,
+                BoughtAt = DateTime.Now,
+                Title = "Title"
             };
 
             var receiptsId = await SendAsync(command);
@@ -73,8 +79,10 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             entity.Total.Should().Be(command.Total);
             entity.Receptors.Should().BeEmpty();
             entity.FinancialProjectId.Should().Be(command.FinancialProjectId);
-            entity.Created.Should().BeCloseTo(DateTime.Now, 10000);
+            entity.Created.Should().BeCloseTo(DateTime.Now, 1000);
             entity.CreatedBy.Should().Be(user.Id);
+            entity.BoughtAt.Should().BeCloseTo(DateTime.Now, 1000);
+            entity.Title.Should().Be(command.Title);
         }
         
         [Test]
@@ -86,6 +94,8 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             {
                 FinancialProjectId = id,
                 Total = -5,
+                BoughtAt = DateTime.Now,
+                Title = "Title"
             };
 
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
@@ -97,9 +107,55 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             var command = new CreateReceiptsCommand
             {
                 Total = 100,
+                BoughtAt = DateTime.Now,
+                Title = "Title",
+                FinancialProjectId = ""
             };
 
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
         }
+
+        [Test]
+        public async Task Handle_BoughtAtEmpty_ShouldThrowValidationException()
+        {
+            var command = new CreateReceiptsCommand
+            {
+                Total = 100,
+                Title = "Title",
+                FinancialProjectId = "sad"
+            };
+
+            FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
+        }
+
+        [Test]
+        public async Task Handle_TitleEmpty_ShouldThrowValidationException()
+        {
+            var command = new CreateReceiptsCommand
+            {
+                Total = 100,
+                BoughtAt = DateTime.Now,
+                Title = "",
+                FinancialProjectId = "asd"
+            };
+
+            FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
+        }
+
+        [Test]
+        public async Task Handle_TitleAboveMaxLength_ShouldThrowValidationException()
+        {
+            var command = new CreateReceiptsCommand
+            {
+                Total = 100,
+                BoughtAt = DateTime.Now,
+                Title = "dsfsfsdfijpsdkjfpsdkfpodskofkdsokposfkpospkofsdkpofsdkpofsdkposdfpkokfpsdkfspdopk" +
+                        "ogfddgfopkfgdkppkdgfopkogdfkpogdfkpodgfkpogdfkpogdfkpogdfkpofgdpkokpgfdopk",
+                FinancialProjectId = "asd"
+            };
+
+            FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
+        }
+        
     }
 }

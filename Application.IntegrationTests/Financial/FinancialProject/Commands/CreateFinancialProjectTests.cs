@@ -21,7 +21,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
         {
            var command = new CreateFinancialProjectCommand
            {
-               Name = "",
+               Title = "",
                Users = new List<ApplicationUser>
                {
                    await RunAsDefaultUserAsync()
@@ -36,7 +36,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
         {
             var command = new CreateFinancialProjectCommand
             {
-                Name = "asdaohsfgdouhdsfgouhifgdoijgfdojifdgoijfgdjoifdgojifgdjoigdfjoiogjfdiojigdfjfodgoidfjogidfjoigjiodfjgodfoigjodfigiodfiogjdiofgiodfgjdfo",
+                Title = "asdaohsfgdouhdsfgouhifgdoijgfdojifdgoijfgdjoifdgojifgdjoigdfjoiogjfdiojigdfjfodgoidfjogidfjoigjiodfjgodfoigjodfigiodfiogjdiofgiodfgjdfo",
                 Users = new List<ApplicationUser>
                 {
                     await RunAsDefaultUserAsync()
@@ -63,7 +63,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             
             var command = new CreateFinancialProjectCommand
             {
-                Name = "Wooow",
+                Title = "Wooow",
                 Users = new List<ApplicationUser>
                 {
                     user
@@ -81,7 +81,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             
 
             entity.Should().NotBeNull();
-            entity.Name.Should().Be(command.Name);
+            entity.Title.Should().Be(command.Title);
             entity.FinancialProjectApplicationUsers.First().UserId.Should().Be(user.Id);
             entity.CreatedBy.Should().Be(user.Id);
             entity.Created.Should().BeCloseTo(DateTime.Now, 10000);

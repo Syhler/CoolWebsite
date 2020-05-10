@@ -259,8 +259,16 @@
                 </e>
               </e>
             </e>
+            <e p="InvidualReceipts" t="Include">
+              <e p="Commands" t="Include">
+                <e p="CreateInvidualReceipt" t="Include" />
+                <e p="DeleteInvidualReceipt" t="Include" />
+                <e p="UpdateInvidualReceipt" t="Include" />
+              </e>
+              <e p="Queries" t="Include" />
+            </e>
             <e p="Receipts" t="Include">
-              <e p="Command" t="Include">
+              <e p="Commands" t="Include">
                 <e p="CreateReceipts" t="Include">
                   <e p="CreateReceiptsCommand.cs" t="Include" />
                   <e p="CreateReceiptsCommandValidator.cs" t="Include" />
@@ -347,6 +355,8 @@
           <e p="20200508150114_addedFinancialTables.Designer.cs" t="Include" />
           <e p="20200508150952_AddedNameToFinancialProject.cs" t="Include" />
           <e p="20200508150952_AddedNameToFinancialProject.Designer.cs" t="Include" />
+          <e p="20200510104403_addedColumnsToReceiptAndFinancialProject.cs" t="Include" />
+          <e p="20200510104403_addedColumnsToReceiptAndFinancialProject.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

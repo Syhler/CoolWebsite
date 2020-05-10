@@ -19,7 +19,7 @@ namespace CoolWebsite.UnitTest.database.Financial.FinancialProject.Commands
         {
             var createCommand = new CreateFinancialProjectCommand
             {
-                Name = "Delete me"
+                Title = "Delete me"
             };
             
             var createHandler = new CreateFinancialProjectCommandHandler(Context, new CurrentUserService());
