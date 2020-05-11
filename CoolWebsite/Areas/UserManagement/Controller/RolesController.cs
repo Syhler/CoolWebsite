@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using CoolWebsite.Application.Common.Interfaces;
-using CoolWebsite.Application.DatabaseAccess.TestEntities.Commands.UpdateTestEntity;
 using CoolWebsite.Areas.UserManagement.Models;
 using CoolWebsite.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -83,12 +82,7 @@ namespace CoolWebsite.Areas.UserManagement.Controller
         [HttpPost]
         public async Task<IActionResult> UpdateEntity()
         {
-            var command = new UpdateTestEntityCommand
-            {
-                Name = "new name",
-                Id = "d3a6d43e-e473-4b4e-a9df-d910e254597e"
-            };
-            await Mediator.Send(command);
+            
 
             return RedirectToAction("Index");
         }

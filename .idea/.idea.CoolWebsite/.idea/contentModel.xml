@@ -301,17 +301,6 @@
               </e>
             </e>
           </e>
-          <e p="TestEntities" t="Include">
-            <e p="Commands" t="Include">
-              <e p="CreateTestEntity" t="Include">
-                <e p="CreateTestEntityCommand.cs" t="Include" />
-                <e p="CreateTestEntityCommandValidator.cs" t="Include" />
-              </e>
-              <e p="UpdateTestEntity" t="Include">
-                <e p="UpdateTestEntityCommand.cs" t="Include" />
-              </e>
-            </e>
-          </e>
         </e>
         <e p="DependencyInjection.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
@@ -340,7 +329,6 @@
             <e p="ApplicationUser.cs" t="Include" />
             <e p="UserUpdate.cs" t="Include" />
           </e>
-          <e p="TestEntity.cs" t="Include" />
         </e>
         <e p="Enums" t="Include" />
         <e p="obj" t="ExcludeRecursive">
@@ -374,6 +362,8 @@
           <e p="20200508150952_AddedNameToFinancialProject.Designer.cs" t="Include" />
           <e p="20200510104403_addedColumnsToReceiptAndFinancialProject.cs" t="Include" />
           <e p="20200510104403_addedColumnsToReceiptAndFinancialProject.Designer.cs" t="Include" />
+          <e p="20200511212303_removeTestEntity.cs" t="Include" />
+          <e p="20200511212303_removeTestEntity.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -419,14 +409,6 @@
               <e p="CreateReceiptsTests.cs" t="Include" />
               <e p="DeleteReceiptsTests.cs" t="Include" />
               <e p="UpdateReceiptsTests.cs" t="Include" />
-            </e>
-          </e>
-          <e p="TestEntities" t="Include">
-            <e p="CreateTestEntity" t="Include">
-              <e p="CreateTestEntityCommandTest.cs" t="Include" />
-            </e>
-            <e p="UpdateTestEntity" t="Include">
-              <e p="UpdateTestEntityCommandTest.cs" t="Include" />
             </e>
           </e>
         </e>

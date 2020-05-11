@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Commands.CreateFinancialProject;
 using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Queries.GetFinancialProjects;
-using CoolWebsite.Application.DatabaseAccess.TestEntities.Commands.CreateTestEntity;
 using CoolWebsite.Domain.Entities.Identity;
 using CoolWebsite.Infrastructure.Identity;
 using CoolWebsite.Infrastructure.Persistence;

@@ -18,7 +18,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CoolWebsite.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>, IApplicationDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>,
+        IApplicationDbContext
     {
         private ICurrentUserService _currentUserService;
         private IDateTime _dateTime;
@@ -32,10 +33,9 @@ namespace CoolWebsite.Infrastructure.Persistence
 
 
         }
-
-        public DbSet<TestEntity> TestEntities { get; set; }
         public DbSet<FinancialProject> FinancialProjects { get; set; }
         public DbSet<IndividualReceipt> IndividualReceipts { get; set; }
+        
         public DbSet<FinancialProjectApplicationUser> FinancialProjectApplicationUsers { get; set; }
         public DbSet<Receipt> Receipts { get; set; }
 

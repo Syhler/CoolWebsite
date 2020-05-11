@@ -8,8 +8,6 @@ namespace CoolWebsite.Application.Common.Interfaces
 {
     public interface IApplicationDbContext
     {
-        DbSet<TestEntity> TestEntities { get; set; }
-        
         DbSet<FinancialProject> FinancialProjects { get; set; }
         
         DbSet<Receipt> Receipts { get; set; }
