@@ -24,6 +24,10 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
                 Id = id
             };
 
+            var notDeleted = await FindAsync<Receipt>(command.Id);
+
+            notDeleted.Should().NotBeNull();
+            
             await SendAsync(command);
 
             var entity = await FindAsync<Receipt>(command.Id);

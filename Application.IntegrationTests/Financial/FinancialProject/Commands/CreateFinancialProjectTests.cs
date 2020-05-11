@@ -85,6 +85,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             entity.FinancialProjectApplicationUsers.First().UserId.Should().Be(user.Id);
             entity.CreatedBy.Should().Be(user.Id);
             entity.Created.Should().BeCloseTo(DateTime.Now, 10000);
+            entity.FinancialProjectApplicationUsers.First().FinancialProjectId.Should().Be(id);
         }
     }
 }

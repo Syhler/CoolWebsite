@@ -10,7 +10,11 @@ namespace CoolWebsite.Domain.Entities.Financial
         public double Total { get; set; }
         
         public ApplicationUser User { get; set; }
+
+        public string UserId { get; set; }
         
         public Receipt Receipt { get; set; }
+
+        public string  ReceiptId { get; set; }
     }
 }

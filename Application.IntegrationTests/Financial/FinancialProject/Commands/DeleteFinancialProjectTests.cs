@@ -24,6 +24,10 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
                 Id = id
             };
 
+            var notDeleted = await FindAsync<CoolWebsite.Domain.Entities.Financial.FinancialProject>(id);
+
+            notDeleted.Should().NotBeNull();
+
             await SendAsync(command);
 
             var entity = await FindAsync<CoolWebsite.Domain.Entities.Financial.FinancialProject>(id);

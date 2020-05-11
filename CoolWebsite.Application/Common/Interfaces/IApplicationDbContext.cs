@@ -14,6 +14,8 @@ namespace CoolWebsite.Application.Common.Interfaces
         
         DbSet<Receipt> Receipts { get; set; }
 
+        public DbSet<IndividualReceipt> IndividualReceipts { get; set; }
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 
         public string UserId { get; set; }

@@ -22,4 +22,8 @@
       <ProjectReference Include="..\CoolWebsite\CoolWebsite.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Financial\IndividualReceipts\Queries" />
+    </ItemGroup>
+
 </Project>
