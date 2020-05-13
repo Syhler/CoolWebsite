@@ -28,6 +28,7 @@
               <e p="UpdateFinancialProjectTests.cs" t="Include" />
             </e>
             <e p="Queries" t="Include">
+              <e p="GetAllFinancialProjectsTests.cs" t="Include" />
               <e p="GetFinancialProjectsByUserTests.cs" t="Include" />
             </e>
           </e>
@@ -65,9 +66,15 @@
         <e p="appsettings.json" t="Include" />
         <e p="Areas" t="Include">
           <e p="Financial" t="Include">
-            <e p="Controller" t="Include" />
+            <e p="Controller" t="Include">
+              <e p="IndexController.cs" t="Include" />
+            </e>
             <e p="Models" t="Include" />
-            <e p="Views" t="Include" />
+            <e p="Views" t="Include">
+              <e p="Index" t="Include">
+                <e p="Index.cshtml" t="Include" />
+              </e>
+            </e>
           </e>
           <e p="UserManagement" t="Include">
             <e p="Controller" t="Include">
@@ -264,6 +271,7 @@
                 <e p="GetFinancialProjects" t="Include">
                   <e p="FinancialProjectDto.cs" t="Include" />
                   <e p="FinancialProjectsVm.cs" t="Include" />
+                  <e p="GetAllFinancialProjectQuery.cs" t="Include" />
                   <e p="GetFinancialProjectByUserQueryValidator.cs" t="Include" />
                   <e p="GetFinancialProjectsByUserQueryVm.cs" t="Include" />
                   <e p="ReceiptsDto.cs" t="Include" />

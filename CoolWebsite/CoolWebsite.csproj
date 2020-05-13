@@ -28,7 +28,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Areas\Financial\Controller" />
       <Folder Include="Areas\Financial\Models" />
       <Folder Include="Areas\Financial\Views" />
     </ItemGroup>

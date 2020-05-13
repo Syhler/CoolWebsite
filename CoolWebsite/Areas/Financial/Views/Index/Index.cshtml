@@ -1,0 +1,23 @@
+﻿@model CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Queries.GetFinancialProjects.FinancialProjectsVm
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+@{
+    foreach (var financialProject in @Model.FinancialProjects)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">@financialProject.Title</h4>
+                <h6>users: @financialProject.Users.Count | Receipts @financialProject.Receipts.Count</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="card-link green">Enter</a>
+                <a href="#" class="card-link red">Delete</a>
+            </div>
+        </div>
+    }
+}
+

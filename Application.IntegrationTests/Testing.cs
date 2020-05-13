@@ -16,12 +16,16 @@ using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using NUnit.Framework;
 using Respawn;
+using MySql.Data.MySqlClient;
 
 namespace Application.IntegrationTests
 {
+    
+    
     [SetUpFixture]
     public class Testing
     {
+       
         private static IConfigurationRoot _configuration;
         private static IServiceScopeFactory _scopeFactory;
         private static Checkpoint _checkpoint;
@@ -41,9 +45,9 @@ namespace Application.IntegrationTests
             
             var services = new ServiceCollection();
 
+
             services.AddSingleton(Mock.Of<IWebHostEnvironment>(w => w.EnvironmentName == "Development" &&
                                                                     w.ApplicationName == "CoolWebsite"));
-
             services.AddLogging();
             
             startup.ConfigureServices(services);
@@ -60,12 +64,26 @@ namespace Application.IntegrationTests
             
             _checkpoint = new Checkpoint
             {
-                TablesToIgnore = new []{"__EFMigrationsHistory"}
+                DbAdapter = DbAdapter.MySql,
+                WithReseed = true,
+                TablesToIgnore = new []{"__EFMigrationsHistory"},
             };
+            
             
             
             EnsureDatabase();
         }
+        
+        public static async Task ResetState()
+        {
+            using (var con = new MySqlConnection("Server=127.0.0.1;Database=cool_website;port=3306;uid=root;password=Localdb123!;"))
+            {
+                con.Open();
+                await _checkpoint.Reset(con);
+
+            }
+        }
+
 
         private static void EnsureDatabase()
         {
@@ -105,10 +123,7 @@ namespace Application.IntegrationTests
             return user;
         }
 
-        public static async Task ResetState()
-        {
-            await _checkpoint.Reset(_configuration.GetConnectionString("DefaultConnection"));
-        }
+       
 
         public static async Task<TEntity> FindAsync<TEntity>(string id) where TEntity : class
         {

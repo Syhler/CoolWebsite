@@ -21,11 +21,20 @@ namespace CoolWebsite.Infrastructure
             IConfiguration configuration)
         {
 
+            /*
+            services.AddDbContext<MySqlApplicationDbContext>(builder =>
+            {
+                builder.UseMySql(configuration.GetConnectionString("DefaultConnectionMySQL"));
+            });
+            */
+            
             services.AddDbContext<ApplicationDbContext>(builder =>
             {
-                builder.UseMySql(configuration.GetConnectionString("DefaultConnection"));
+                builder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
 
+            
+            
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 
 

@@ -1,25 +1,18 @@
 ﻿using System;
 using System.Reflection;
-using System.Security.Claims;
-using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Domain.Common;
-using CoolWebsite.Domain.Entities;
 using CoolWebsite.Domain.Entities.Financial;
 using CoolWebsite.Domain.Entities.Identity;
-using CoolWebsite.Infrastructure.Identity;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoolWebsite.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>,
-        IApplicationDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>, IApplicationDbContext
     {
         private ICurrentUserService _currentUserService;
         private IDateTime _dateTime;
