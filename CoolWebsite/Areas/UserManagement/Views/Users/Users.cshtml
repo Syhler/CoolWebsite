@@ -30,7 +30,7 @@
             }
             <td>@user.EmailConfirmed</td>
             <td>@user.TwoFactorEnabled</td>
-            <td><a href="#" style="color: green" data="@user.Id" id="edit-user">Edit</a></td>
+            <td><a href="#" style="color: green" data="@user.Id" class="edit-user">Edit</a></td>
             <td><a asp-action="DeleteUser" asp-controller="Users" asp-route-id="@user.Id" asp-area="UserManagement" 
                    style="color: red">Delete</a></td>
         </tr>

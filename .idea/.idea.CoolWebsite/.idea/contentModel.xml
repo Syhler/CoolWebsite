@@ -380,6 +380,7 @@
           </e>
         </e>
         <e p="Persistence" t="Include">
+          <e p="ApplicationDbContextSeed.cs" t="Include" />
           <e p="Configuration" t="Include">
             <e p="TestEntityConfiguration.cs" t="Include" />
           </e>

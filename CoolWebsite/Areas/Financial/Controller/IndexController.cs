@@ -1,4 +1,5 @@
-﻿using CoolWebsite.Application.Common.Interfaces;
+﻿using System.Threading.Tasks;
+using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Queries.GetFinancialProjects;
 using CoolWebsite.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -19,11 +20,11 @@ namespace CoolWebsite.Areas.Financial.Controller
 
 
         // GET
-        public IActionResult Index()
+        public async Task<ViewResult> Index()
         {
-            //var vm = new GetFinancialProjectsByUserQuery{UserId = _currentUserService.UserID};
+            var vm = await Mediator.Send(new GetAllFinancialProjectQuery());
             
-            return View();
+            return View(vm);
         }
     }
 }

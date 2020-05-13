@@ -44,28 +44,6 @@ namespace CoolWebsite.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //await _identityService.AddRoleToUser("Admin");
-            var user = await _identityService.GetUserById(_currentUserService.UserID);
-            /*
-            var test = new CreateFinancialProjectCommand
-            {
-                Name = "First thing",
-                Users = new List<ApplicationUser>
-                {
-                    user
-                }
-            };
-
-            await Mediator.Send(test);
-            
-            */
-            var query = new GetFinancialProjectsByUserQuery
-            {
-                UserId = _currentUserService.UserID
-            };
-
-            var hey = await Mediator.Send(query);
-            
             
             return View();
         }

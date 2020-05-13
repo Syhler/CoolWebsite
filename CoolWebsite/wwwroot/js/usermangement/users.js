@@ -5,7 +5,7 @@
         getUpdateViewPartial: "/UserManagement/Users/UpdateUser"
     };
     
-    $("#edit-user").click(function () 
+    $(".edit-user").click(function () 
     {
         console.log("ehheheh we shilling");
         
