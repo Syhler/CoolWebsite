@@ -19,15 +19,13 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
         [Test]
         public async Task Handle_ValidUserId_ShouldReturnProject()
         {
-            var user = await RunAsDefaultUserAsync();
-            await AddAsync(user);
             
             var createCommand = new CreateFinancialProjectCommand
             {
                 Title = "Create",
                 Users = new List<ApplicationUser>
                 {
-                    user
+                    User
                 }
             };
 

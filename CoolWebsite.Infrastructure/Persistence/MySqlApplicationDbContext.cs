@@ -12,13 +12,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CoolWebsite.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>, IApplicationDbContext
+   public class MySqlApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>, IApplicationDbContext
     {
         private ICurrentUserService _currentUserService;
         private IDateTime _dateTime;
         public string UserId { get; set; }
         
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, 
+        public MySqlApplicationDbContext(DbContextOptions<MySqlApplicationDbContext> options, 
             IDateTime dateTime) : base(options)
         {
             _dateTime = dateTime;

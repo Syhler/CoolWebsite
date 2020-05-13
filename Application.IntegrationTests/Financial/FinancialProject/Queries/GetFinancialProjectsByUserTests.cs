@@ -21,15 +21,12 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
         [Test]
         public async Task Handle_ValidUserId_ShouldReturnProject()
         {
-            var user = await RunAsDefaultUserAsync();
-            await AddAsync(user);
-            
             var createCommand = new CreateFinancialProjectCommand
             {
                 Title = "Create",
                 Users = new List<ApplicationUser>
                 {
-                    user
+                    User
                 }
             };
 
@@ -47,14 +44,14 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
 
             var query = new GetFinancialProjectsByUserQuery
             {
-                UserId = user.Id
+                UserId = User.Id
             };
 
             var model = await SendAsync(query);
 
             
             model.Should().NotBeNull();
-            model.FinancialProjects.First().Users.First().Id.Should().Be(user.Id);
+            model.FinancialProjects.First().Users.First().Id.Should().Be(User.Id);
             model.FinancialProjects.First().Title.Should().Be(createCommand.Title);
             model.FinancialProjects.First().Receipts.First().Id.Should().Be(receiptId);
             model.FinancialProjects.First().Id.Should().Be(id);
@@ -67,15 +64,12 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
         [Test]
         public async Task Handle_InvalidUserId_ShouldThrowNotFoundException()
         {
-            var user = await RunAsDefaultUserAsync();
-            await AddAsync(user);
-            
             var createCommand = new CreateFinancialProjectCommand
             {
                 Title = "Create",
                 Users = new List<ApplicationUser>
                 {
-                    user
+                    User
                 }
             };
 

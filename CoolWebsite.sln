@@ -10,8 +10,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolWebsite.Domain", "CoolW
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3F0FE538-7AD8-4F6F-998C-4EF256D6A2D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolWebsite.UnitTest", "CoolWebsite.UnitTest\CoolWebsite.UnitTest.csproj", "{A3630AEA-B3E8-4C09-9A84-2B816667DC8B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.IntegrationTests", "Application.IntegrationTests\Application.IntegrationTests.csproj", "{B761F57B-5D44-4CCD-9C48-9669A4824A4A}"
 EndProject
 Global
@@ -36,17 +34,12 @@ Global
 		{3F237986-2FFD-4C89-92C3-BC7DBD58FA88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F237986-2FFD-4C89-92C3-BC7DBD58FA88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F237986-2FFD-4C89-92C3-BC7DBD58FA88}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A3630AEA-B3E8-4C09-9A84-2B816667DC8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3630AEA-B3E8-4C09-9A84-2B816667DC8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3630AEA-B3E8-4C09-9A84-2B816667DC8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3630AEA-B3E8-4C09-9A84-2B816667DC8B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B761F57B-5D44-4CCD-9C48-9669A4824A4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B761F57B-5D44-4CCD-9C48-9669A4824A4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B761F57B-5D44-4CCD-9C48-9669A4824A4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B761F57B-5D44-4CCD-9C48-9669A4824A4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A3630AEA-B3E8-4C09-9A84-2B816667DC8B} = {3F0FE538-7AD8-4F6F-998C-4EF256D6A2D7}
 		{B761F57B-5D44-4CCD-9C48-9669A4824A4A} = {3F0FE538-7AD8-4F6F-998C-4EF256D6A2D7}
 	EndGlobalSection
 EndGlobal

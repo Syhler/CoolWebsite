@@ -15,23 +15,20 @@ using ValidationException = CoolWebsite.Application.Common.Exceptions.Validation
 namespace Application.IntegrationTests.Financial.FinancialProject.Commands
 {
     using static Testing;
-    public class UpdateFinancialProjectTests : TestBase
+    public class UpdateFinancialProjectTests : FinancialTestBase
     {
         [Test]
         public async Task Handle_ValidFields_ShouldUpdate()
         {
             var newUser = await RunAsUserAsync("new@new", "TESTING!123a");
-            var user = await RunAsDefaultUserAsync();
             
-            await AddAsync(user);
-            await AddAsync(newUser);
             
             var createCommand = new CreateFinancialProjectCommand
             {
                 Title = "First",
                 Users = new List<ApplicationUser>
                 {
-                    user
+                    User
                 }
             };
 
@@ -60,7 +57,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             entity.LastModified.Should().NotBeNull();
             entity.LastModified.Should().BeCloseTo(DateTime.Now, 10000);
             entity.LastModifiedBy.Should().NotBeNull();
-            entity.LastModifiedBy.Should().Be(user.Id);
+            entity.LastModifiedBy.Should().Be(newUser.Id);
         }
         
 
@@ -126,22 +123,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<NotFoundException>();
         }
 
-        private async Task<string> CreateFinancialProject()
-        {
-            var user = await RunAsDefaultUserAsync();
-            await AddAsync(user);
-            
-            var createCommand = new CreateFinancialProjectCommand
-            {
-                Title = "Create",
-                Users = new List<ApplicationUser>
-                {
-                    user
-                }
-            };
-
-            return await SendAsync(createCommand);
-        }
+       
         
         
         

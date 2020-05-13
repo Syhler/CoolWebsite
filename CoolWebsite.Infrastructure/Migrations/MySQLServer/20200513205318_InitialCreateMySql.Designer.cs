@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace CoolWebsite.Infrastructure.Migrations
+namespace CoolWebsite.Infrastructure.Migrations.MySQLServer
 {
-    [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200203221959_AddedAudtiableToTestEntity")]
-    partial class AddedAudtiableToTestEntity
+    [DbContext(typeof(MySqlApplicationDbContext))]
+    [Migration("20200513205318_InitialCreateMySql")]
+    partial class InitialCreateMySql
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,7 +19,7 @@ namespace CoolWebsite.Infrastructure.Migrations
                 .HasAnnotation("ProductVersion", "3.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("CoolWebsite.Domain.Entities.TestEntity", b =>
+            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.FinancialProject", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
@@ -36,17 +36,101 @@ namespace CoolWebsite.Infrastructure.Migrations
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("varchar(100) CHARACTER SET utf8mb4")
-                        .HasMaxLength(100);
+                    b.Property<string>("Title")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
 
-                    b.ToTable("TestEntities");
+                    b.ToTable("FinancialProjects");
                 });
 
-            modelBuilder.Entity("CoolWebsite.Infrastructure.Identity.ApplicationRole", b =>
+            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.FinancialProjectApplicationUser", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.Property<string>("FinancialProjectId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.HasKey("UserId", "FinancialProjectId");
+
+                    b.HasIndex("FinancialProjectId");
+
+                    b.ToTable("FinancialProjectApplicationUsers");
+                });
+
+            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.IndividualReceipt", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("ReceiptId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.Property<double>("Total")
+                        .HasColumnType("double");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReceiptId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("IndividualReceipts");
+                });
+
+            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.Receipt", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("BoughtAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("FinancialProjectId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<double>("Total")
+                        .HasColumnType("double");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FinancialProjectId");
+
+                    b.ToTable("Receipts");
+                });
+
+            modelBuilder.Entity("CoolWebsite.Domain.Entities.Identity.ApplicationRole", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
@@ -72,16 +156,13 @@ namespace CoolWebsite.Infrastructure.Migrations
                     b.ToTable("AspNetRoles");
                 });
 
-            modelBuilder.Entity("CoolWebsite.Infrastructure.Identity.ApplicationUser", b =>
+            modelBuilder.Entity("CoolWebsite.Domain.Entities.Identity.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
-
-                    b.Property<string>("Color")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -93,6 +174,12 @@ namespace CoolWebsite.Infrastructure.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("tinyint(1)");
@@ -241,9 +328,42 @@ namespace CoolWebsite.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.FinancialProjectApplicationUser", b =>
+                {
+                    b.HasOne("CoolWebsite.Domain.Entities.Financial.FinancialProject", "FinancialProject")
+                        .WithMany("FinancialProjectApplicationUsers")
+                        .HasForeignKey("FinancialProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CoolWebsite.Domain.Entities.Identity.ApplicationUser", "User")
+                        .WithMany("FinancialProjectApplicationUsers")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.IndividualReceipt", b =>
+                {
+                    b.HasOne("CoolWebsite.Domain.Entities.Financial.Receipt", "Receipt")
+                        .WithMany("Receptors")
+                        .HasForeignKey("ReceiptId");
+
+                    b.HasOne("CoolWebsite.Domain.Entities.Identity.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.Receipt", b =>
+                {
+                    b.HasOne("CoolWebsite.Domain.Entities.Financial.FinancialProject", "FinancialProject")
+                        .WithMany("Receipts")
+                        .HasForeignKey("FinancialProjectId");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("CoolWebsite.Infrastructure.Identity.ApplicationRole", null)
+                    b.HasOne("CoolWebsite.Domain.Entities.Identity.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -252,7 +372,7 @@ namespace CoolWebsite.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("CoolWebsite.Infrastructure.Identity.ApplicationUser", null)
+                    b.HasOne("CoolWebsite.Domain.Entities.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -261,7 +381,7 @@ namespace CoolWebsite.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("CoolWebsite.Infrastructure.Identity.ApplicationUser", null)
+                    b.HasOne("CoolWebsite.Domain.Entities.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -270,13 +390,13 @@ namespace CoolWebsite.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("CoolWebsite.Infrastructure.Identity.ApplicationRole", null)
+                    b.HasOne("CoolWebsite.Domain.Entities.Identity.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CoolWebsite.Infrastructure.Identity.ApplicationUser", null)
+                    b.HasOne("CoolWebsite.Domain.Entities.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -285,7 +405,7 @@ namespace CoolWebsite.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("CoolWebsite.Infrastructure.Identity.ApplicationUser", null)
+                    b.HasOne("CoolWebsite.Domain.Entities.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

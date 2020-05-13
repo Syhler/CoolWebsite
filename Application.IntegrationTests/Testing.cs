@@ -16,7 +16,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using NUnit.Framework;
 using Respawn;
-using MySql.Data.MySqlClient;
 
 namespace Application.IntegrationTests
 {
@@ -64,8 +63,6 @@ namespace Application.IntegrationTests
             
             _checkpoint = new Checkpoint
             {
-                DbAdapter = DbAdapter.MySql,
-                WithReseed = true,
                 TablesToIgnore = new []{"__EFMigrationsHistory"},
             };
             
@@ -76,12 +73,7 @@ namespace Application.IntegrationTests
         
         public static async Task ResetState()
         {
-            using (var con = new MySqlConnection("Server=127.0.0.1;Database=cool_website;port=3306;uid=root;password=Localdb123!;"))
-            {
-                con.Open();
-                await _checkpoint.Reset(con);
-
-            }
+            await _checkpoint.Reset(_configuration.GetConnectionString("DefaultConnection"));
         }
 
 
@@ -89,7 +81,7 @@ namespace Application.IntegrationTests
         {
             using var scope = _scopeFactory.CreateScope();
 
-            var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
+            var context = scope.ServiceProvider.GetService<SqlApplicationDbContext>();
             
             context.Database.Migrate();
         }
@@ -129,24 +121,24 @@ namespace Application.IntegrationTests
         {
             using var scope = _scopeFactory.CreateScope();
 
-            var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
+            var context = scope.ServiceProvider.GetService<SqlApplicationDbContext>();
 
             
             return await context.FindAsync<TEntity>(id);
             
         }
 
-        public static ApplicationDbContext Context()
+        public static SqlApplicationDbContext Context()
         {
             var scope = _scopeFactory.CreateScope();
-            return scope.ServiceProvider.GetService<ApplicationDbContext>();
+            return scope.ServiceProvider.GetService<SqlApplicationDbContext>();
         }
 
         public static async Task AddAsync<TEntity>(TEntity entity)
         {
             using var scope = _scopeFactory.CreateScope();
 
-            var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
+            var context = scope.ServiceProvider.GetService<SqlApplicationDbContext>();
 
             await context.AddAsync(entity);
 

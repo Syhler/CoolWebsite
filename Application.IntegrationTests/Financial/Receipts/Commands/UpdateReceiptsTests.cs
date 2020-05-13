@@ -19,7 +19,7 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
         {
             var projectId = await CreateFinancialProject();
             var id = await CreateReceipt();
-            var user = await RunAsDefaultUserAsync();
+            var user = await RunAsUserAsync("newuse@d","password123!");
             
             var command = new UpdateReceiptsCommand
             {

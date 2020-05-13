@@ -7,9 +7,6 @@
     <e p="C:\Users\morte\.nuget\packages\nunit3testadapter\3.13.0\build\netcoreapp1.0\nunit.engine.netstandard.dll" t="Include" />
     <e p="C:\Users\morte\.nuget\packages\nunit3testadapter\3.13.0\build\netcoreapp1.0\NUnit3.TestAdapter.dll" t="Include" />
     <e p="C:\Users\morte\.nuget\packages\nunit3testadapter\3.13.0\build\netcoreapp1.0\NUnit3.TestAdapter.pdb" t="Include" />
-    <e p="C:\Users\morte\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.reporters.netcoreapp10.dll" t="Include" />
-    <e p="C:\Users\morte\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.utility.netcoreapp10.dll" t="Include" />
-    <e p="C:\Users\morte\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
     <e p="C:\Users\morte\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
     <e p="C:\Users\morte\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_CoolWebsite.609162593.00" t="ExcludeRecursive" />
     <e p="C:\Users\morte\Documents\GitHub\C#_Project\CoolWebsite" t="IncludeFlat">
@@ -364,23 +361,16 @@
           <e p="IdentityService.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20200127210652_TestMigration.cs" t="Include" />
-          <e p="20200127210652_TestMigration.Designer.cs" t="Include" />
-          <e p="20200127211149_AddedTestEntity.cs" t="Include" />
-          <e p="20200127211149_AddedTestEntity.Designer.cs" t="Include" />
-          <e p="20200203221959_AddedAudtiableToTestEntity.cs" t="Include" />
-          <e p="20200203221959_AddedAudtiableToTestEntity.Designer.cs" t="Include" />
-          <e p="20200425073725_UpdatedApplicationUserField.cs" t="Include" />
-          <e p="20200425073725_UpdatedApplicationUserField.Designer.cs" t="Include" />
-          <e p="20200508150114_addedFinancialTables.cs" t="Include" />
-          <e p="20200508150114_addedFinancialTables.Designer.cs" t="Include" />
-          <e p="20200508150952_AddedNameToFinancialProject.cs" t="Include" />
-          <e p="20200508150952_AddedNameToFinancialProject.Designer.cs" t="Include" />
-          <e p="20200510104403_addedColumnsToReceiptAndFinancialProject.cs" t="Include" />
-          <e p="20200510104403_addedColumnsToReceiptAndFinancialProject.Designer.cs" t="Include" />
-          <e p="20200511212303_removeTestEntity.cs" t="Include" />
-          <e p="20200511212303_removeTestEntity.Designer.cs" t="Include" />
-          <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
+          <e p="MySQLServer" t="Include">
+            <e p="20200513205318_InitialCreateMySql.cs" t="Include" />
+            <e p="20200513205318_InitialCreateMySql.Designer.cs" t="Include" />
+            <e p="MySqlApplicationDbContextModelSnapshot.cs" t="Include" />
+          </e>
+          <e p="SQLServer" t="Include">
+            <e p="20200513205353_InitialCreateSql.cs" t="Include" />
+            <e p="20200513205353_InitialCreateSql.Designer.cs" t="Include" />
+            <e p="SqlApplicationDbContextModelSnapshot.cs" t="Include" />
+          </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -390,10 +380,11 @@
           </e>
         </e>
         <e p="Persistence" t="Include">
-          <e p="ApplicationDbContext.cs" t="Include" />
           <e p="Configuration" t="Include">
             <e p="TestEntityConfiguration.cs" t="Include" />
           </e>
+          <e p="MySqlApplicationDbContext.cs" t="Include" />
+          <e p="SqlApplicationDbContext.cs" t="Include" />
         </e>
         <e p="Services" t="Include">
           <e p="CurrentUserService.cs" t="Include" />
@@ -401,44 +392,6 @@
         </e>
       </e>
       <e p="CoolWebsite.sln" t="IncludeFlat" />
-      <e p="CoolWebsite.UnitTest" t="IncludeRecursive">
-        <e p="ApplicationDbFactory.cs" t="Include" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="CommandTestBase.cs" t="Include" />
-        <e p="Common" t="Include">
-          <e p="Testing.cs" t="Include" />
-        </e>
-        <e p="CoolWebsite.UnitTest.csproj" t="IncludeRecursive" />
-        <e p="database" t="Include">
-          <e p="Financial" t="Include">
-            <e p="FinancialProject" t="Include">
-              <e p="Commands" t="Include">
-                <e p="CreateFinancialProjectTests.cs" t="Include" />
-                <e p="DeleteFinancialProjectTests.cs" t="Include" />
-                <e p="UpdateFinancialProjectTests.cs" t="Include" />
-              </e>
-              <e p="Queries" t="Include">
-                <e p="GetFinancialProjectsByUserTest.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Receipts" t="Include">
-              <e p="CreateReceiptsTests.cs" t="Include" />
-              <e p="DeleteReceiptsTests.cs" t="Include" />
-              <e p="UpdateReceiptsTests.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp3.0" t="Include">
-              <e p="CoolWebsite.UnitTest.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="Services" t="Include">
-          <e p="CurrentUserService.cs" t="Include" />
-        </e>
-      </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="Tests" t="Include" />
     </e>

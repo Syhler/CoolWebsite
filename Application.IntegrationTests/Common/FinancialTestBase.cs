@@ -4,8 +4,10 @@ using System.Threading.Tasks;
 using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Commands.CreateFinancialProject;
 using CoolWebsite.Application.DatabaseAccess.Financial.IndividualReceipts.Commands.CreateIndividualReceipt;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
+using CoolWebsite.Areas.UserManagement.Models;
 using CoolWebsite.Domain.Entities.Financial;
 using CoolWebsite.Domain.Entities.Identity;
+using NUnit.Framework;
 
 namespace Application.IntegrationTests.Common
 {
@@ -14,18 +16,23 @@ namespace Application.IntegrationTests.Common
     {
         private string _projectName = "Create";
 
+        protected ApplicationUser User;
+
+        [SetUp]
+        public async Task CreateUser()
+        {
+            User = await RunAsDefaultUserAsync();
+        }
 
         protected async Task<string> CreateFinancialProject()
         {
-            var user = await RunAsDefaultUserAsync();
-            await AddAsync(user);
             
             var createCommand = new CreateFinancialProjectCommand
             {
                 Title = _projectName,
                 Users = new List<ApplicationUser>
                 {
-                    user
+                    User
                 }
             };
 
@@ -63,15 +70,12 @@ namespace Application.IntegrationTests.Common
         
         protected async Task<string> CreateIndividualReceipt(string receiptId)
         {
-            var user = await RunAsUserAsync("test@test", "tesada123!");
 
-            await AddAsync(user);
-            
             var createCommand = new CreateIndividualReceiptCommand
             {
                 Total = 0,
                 ReceiptId = receiptId,
-                UserId = user.Id
+                UserId = User.Id
             };
 
             return await SendAsync(createCommand);
@@ -80,15 +84,12 @@ namespace Application.IntegrationTests.Common
         protected async Task<IndividualReceipt> CreateIndividualReceipt()
         {
             var receiptId = await CreateReceipt();
-            var user = await RunAsUserAsync("test@test", "tesada123!");
 
-            await AddAsync(user);
-            
             var createCommand = new CreateIndividualReceiptCommand
             {
                 Total = 0,
                 ReceiptId = receiptId,
-                UserId = user.Id
+                UserId = User.Id
             };
 
             var id = await SendAsync(createCommand);

@@ -3,16 +3,14 @@ using System;
 using CoolWebsite.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace CoolWebsite.Infrastructure.Migrations
+namespace CoolWebsite.Infrastructure.Migrations.MySQLServer
 {
-    [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200508150952_AddedNameToFinancialProject")]
-    partial class AddedNameToFinancialProject
+    [DbContext(typeof(MySqlApplicationDbContext))]
+    partial class MySqlApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,7 +34,7 @@ namespace CoolWebsite.Infrastructure.Migrations
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Title")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
@@ -99,6 +97,9 @@ namespace CoolWebsite.Infrastructure.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
+                    b.Property<DateTime>("BoughtAt")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime(6)");
 
@@ -112,6 +113,9 @@ namespace CoolWebsite.Infrastructure.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("LastModifiedBy")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Title")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<double>("Total")
@@ -218,33 +222,6 @@ namespace CoolWebsite.Infrastructure.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("CoolWebsite.Domain.Entities.TestEntity", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<DateTime?>("LastModified")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("varchar(100) CHARACTER SET utf8mb4")
-                        .HasMaxLength(100);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TestEntities");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

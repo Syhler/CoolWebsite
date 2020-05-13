@@ -21,34 +21,8 @@ namespace CoolWebsite.Infrastructure
             IConfiguration configuration)
         {
 
-            /*
-            services.AddDbContext<MySqlApplicationDbContext>(builder =>
-            {
-                builder.UseMySql(configuration.GetConnectionString("DefaultConnectionMySQL"));
-            });
-            */
-            
-            services.AddDbContext<ApplicationDbContext>(builder =>
-            {
-                builder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
-            });
-
-            
-            
-            services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
-
-
-
-            services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
-                {
-                    options.Password.RequiredLength = 1;
-                    options.Password.RequireLowercase = false;
-                    options.Password.RequireUppercase = false;
-                    options.Password.RequireNonAlphanumeric = false;
-                    options.Password.RequireDigit = false;
-                })
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+            SetupDatabase<SqlApplicationDbContext>(services, configuration);
+           
             
             services.AddTransient<IDateTime, DateTimeService>();
             services.AddTransient<IIdentityService, IdentityService>();
@@ -60,6 +34,38 @@ namespace CoolWebsite.Infrastructure
             });
  
             return services;
+        }
+
+
+        private static void SetupDatabase<T>(IServiceCollection services, IConfiguration configuration) where T : DbContext, IApplicationDbContext
+        {
+            if (typeof(T) == typeof(MySqlApplicationDbContext))
+            {
+                services.AddDbContext<T>(builder =>
+                {
+                    builder.UseMySql(configuration.GetConnectionString("DefaultConnectionMySQL"));
+                });
+            }
+            else if (typeof(T) == typeof(SqlApplicationDbContext))
+            {
+                services.AddDbContext<T>(builder =>
+                {
+                    builder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+                });
+            }
+            
+            services.AddScoped<IApplicationDbContext>(provider => provider.GetService<T>());
+
+            services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+                {
+                    options.Password.RequiredLength = 1;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireDigit = false;
+                })
+                .AddEntityFrameworkStores<T>()
+                .AddDefaultTokenProviders();
         }
     }
 }

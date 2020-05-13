@@ -23,21 +23,19 @@ namespace CoolWebsite.Controllers
     public class HomeController : MediatorController
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ApplicationDbContext _context;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IIdentityService _identityService;
         private readonly ICurrentUserService _currentUserService;
 
         
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, 
+        public HomeController(ILogger<HomeController> logger, 
             SignInManager<ApplicationUser> signInManager,
             UserManager<ApplicationUser> userManager,
             IIdentityService identityService,
             ICurrentUserService currentUserService)
         {
             _logger = logger;
-            _context = context;
             _signInManager = signInManager;
             _userManager = userManager;
             _identityService = identityService;

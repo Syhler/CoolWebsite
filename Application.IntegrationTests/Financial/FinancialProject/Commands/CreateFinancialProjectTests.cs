@@ -59,8 +59,6 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
         {
             var user = await RunAsDefaultUserAsync();
 
-            await AddAsync(user);
-            
             var command = new CreateFinancialProjectCommand
             {
                 Title = "Wooow",
