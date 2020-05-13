@@ -1,9 +1,11 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.DataProtection.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Commands.DeleteFinancialProject
 {
@@ -24,12 +26,35 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Comm
 
         public async Task<Unit> Handle(DeleteFinancialProjectCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _context.FinancialProjects.FindAsync(request.Id);
+            var entity = _context.FinancialProjects
+                .Include(x => x.Receipts)
+                .Include(x => x.FinancialProjectApplicationUsers)
+                .Include("Receipts.Receptors")
+                .FirstOrDefault(x => x.Id == request.Id);
 
             if (entity == null)
             {
                 throw new NotFoundException(nameof(Domain.Entities.Financial.FinancialProject), request.Id);
             }
+            
+            var receipts = entity.Receipts;
+            
+            foreach (var receipt in receipts)
+            {
+                foreach (var individualReceipt in receipt.Receptors)
+                {
+                    _context.IndividualReceipts.Remove(individualReceipt);
+                }
+
+                _context.Receipts.Remove(receipt);
+            }
+            var users = entity.FinancialProjectApplicationUsers;
+            
+            foreach (var financialProjectApplicationUser in users)
+            {
+                _context.FinancialProjectApplicationUsers.Remove(financialProjectApplicationUser);
+            }
+
 
             _context.FinancialProjects.Remove(entity);
 

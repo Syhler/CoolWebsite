@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using CoolWebsite.Application.Common.Mapping;
 using CoolWebsite.Domain.Entities.Financial;
@@ -13,6 +14,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Quer
         public String Title { get; set; }
 
         public DateTime BoughtAt { get; set; }
+
 
         public void Mapping(Profile profile)
         {

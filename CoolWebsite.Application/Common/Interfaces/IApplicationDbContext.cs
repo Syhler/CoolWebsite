@@ -12,11 +12,13 @@ namespace CoolWebsite.Application.Common.Interfaces
         
         DbSet<Receipt> Receipts { get; set; }
 
-        public DbSet<IndividualReceipt> IndividualReceipts { get; set; }
+        DbSet<IndividualReceipt> IndividualReceipts { get; set; }
+        
+        DbSet<FinancialProjectApplicationUser> FinancialProjectApplicationUsers { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 
-        public string UserId { get; set; }
+        string UserId { get; set; }
 
     }
 }

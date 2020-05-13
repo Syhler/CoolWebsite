@@ -45,6 +45,9 @@
               <e p="DeleteReceiptsTests.cs" t="Include" />
               <e p="UpdateReceiptsTests.cs" t="Include" />
             </e>
+            <e p="Queries" t="Include">
+              <e p="GetReceiptByIdQueryTests.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -282,7 +285,6 @@
                   <e p="UpdateIndividualReceiptCommandValidator.cs" t="Include" />
                 </e>
               </e>
-              <e p="Queries" t="Include" />
             </e>
             <e p="Receipts" t="Include">
               <e p="Commands" t="Include">
@@ -298,6 +300,12 @@
                   <e p="UpdateReceiptsCommand.cs" t="Include" />
                   <e p="UpdateReceiptsCommandValidator.cs" t="Include" />
                 </e>
+              </e>
+              <e p="Queries" t="Include">
+                <e p="GetReceiptByIdQueryValidator.cs" t="Include" />
+                <e p="GetReceiptByIdQueryVm.cs" t="Include" />
+                <e p="IndividualReceiptDto.cs" t="Include" />
+                <e p="ReceiptVm.cs" t="Include" />
               </e>
             </e>
           </e>

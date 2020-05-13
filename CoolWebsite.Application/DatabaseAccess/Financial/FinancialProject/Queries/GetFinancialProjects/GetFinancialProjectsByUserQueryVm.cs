@@ -7,6 +7,7 @@ using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Queries.GetFinancialProjects
 {
@@ -19,11 +20,13 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Quer
     {
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IIdentityService _service;
 
-        public GetFinancialProjectsByUserQueryHandler(IApplicationDbContext context, IMapper mapper, ICurrentUserService currentUserService)
+        public GetFinancialProjectsByUserQueryHandler(IApplicationDbContext context, IMapper mapper, ICurrentUserService currentUserService, IIdentityService service)
         {
             _context = context;
             _mapper = mapper;
+            _service = service;
             _context.UserId = currentUserService.UserID;
         }
 

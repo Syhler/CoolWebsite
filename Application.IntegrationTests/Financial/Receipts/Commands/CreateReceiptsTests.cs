@@ -17,8 +17,6 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
     public class CreateReceiptsTests : FinancialTestBase
     {
 
-        //TODO(revist this when done implemting invidualReceipt)
-        
         [Test]
         public async Task Handle_ValidFields_ShouldCreateEntity()
         {
@@ -37,6 +35,9 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
 
             var receiptsId = await SendAsync(command);
 
+            var individualReceiptId = await CreateIndividualReceipt(receiptsId);
+            
+            
             var context = Context();
 
             var entity = context.Receipts.Include(x => x.Receptors)
@@ -44,7 +45,8 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
 
             entity.Should().NotBeNull();
             entity.Total.Should().Be(command.Total);
-            entity.Receptors.Should().BeEmpty(); //TODO(REDO)
+            entity.Receptors.First().Id.Should().Be(individualReceiptId);
+            entity.Receptors.First().ReceiptId.Should().Be(receiptsId);
             entity.FinancialProjectId.Should().Be(command.FinancialProjectId);
             entity.Created.Should().BeCloseTo(DateTime.Now, 10000);
             entity.CreatedBy.Should().Be(user.Id);

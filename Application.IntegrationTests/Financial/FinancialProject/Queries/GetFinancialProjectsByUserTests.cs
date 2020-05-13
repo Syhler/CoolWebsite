@@ -17,7 +17,6 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
     using static Testing;
     public class GetFinancialProjectsByUserTests : FinancialTestBase
     {
-        //TODO(needs be check if recipets gets returned aswell. DO this after implementing test for reciepts)
         
         [Test]
         public async Task Handle_ValidUserId_ShouldReturnProject()

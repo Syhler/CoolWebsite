@@ -38,7 +38,7 @@ namespace CoolWebsite.UnitTest.database.Financial.FinancialProject.Queries
                 UserId = user.Id
             };
             
-            var queryHandler = new GetFinancialProjectsByUserQueryHandler(Context, null, new CurrentUserService());
+            var queryHandler = new GetFinancialProjectsByUserQueryHandler(Context, null, new CurrentUserService(), null);
 
         }
     }
