@@ -1,0 +1,33 @@
+﻿@model CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models.FinancialProjectsVm
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="mt-5">
+    <button class="btn btn-block btn-primary" data-toggle="modal" id="test"
+            data-target="#create-financial-project-modal">
+        CREATE PROJECT
+    </button>
+    <div id="project-cards">
+    @{
+        foreach (var financialProject in @Model.FinancialProjects)
+        {
+            @await Html.PartialAsync("Partial/FinancialProjectCard", financialProject)
+        }
+    }
+    </div>
+</div>
+
+<div class="modal" id="create-financial-project-modal">
+    @*
+    gets loaded from javascript - /financial/home.js
+*@
+</div>
+
+
+@section Scripts
+{
+    <script src="~/js/financial/home.js" type="text/javascript" asp-append-version="true"></script>
+}

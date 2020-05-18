@@ -1,0 +1,44 @@
+﻿@model CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.ReceiptsDto
+
+
+@*
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">@Model.Title</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Total: @Model.Total</h6>
+        <p>Some quick example text to.</p>
+        <p class="card-text">Some quick example text to.</p>
+        <p class="card-text">Some quick example text to.</p>
+        <a href="#" class="card-link green">Open</a>
+        <a href="#" class="card-link red">Delete</a>
+    </div>
+</div>
+*@
+
+<div class="card mb-3">
+    <h3 class="card-header">Receipt</h3>
+    <div class="card-body">
+        <h5 class="card-title">Netto</h5>
+        <h6 class="card-subtitle text-muted">Total: 152.31</h6>
+    </div>
+    <div class="card-body">
+        <p>Date: @DateTime.Now</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+    <div class="card-body">
+        
+         <a href="#" class="card-link green">Open</a>
+                <a href="#" class="card-link red">Delete</a>
+    @*
+       <button type="button" class="btn btn-outline-success">Open</button>
+        <button type="button" class="btn btn-outline-danger">Delete</button>
+        *@
+    </div>
+    <div class="card-footer text-muted">
+        2 days ago
+    </div>
+</div>

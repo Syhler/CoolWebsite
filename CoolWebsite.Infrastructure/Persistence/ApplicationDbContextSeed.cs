@@ -14,7 +14,9 @@ namespace CoolWebsite.Infrastructure.Persistence
             var defaultUser = new ApplicationUser
             {
                 UserName = "morten.syhler@gmail.com",
-                Email = "morten.syhler@gmail.com"
+                Email = "morten.syhler@gmail.com",
+                FirstName = "Morten",
+                LastName = "Syhler"
             };
 
             if (userManager.Users.All(u => u.UserName != defaultUser.UserName))

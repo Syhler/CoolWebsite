@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Commands.CreateFinancialProject;
 using CoolWebsite.Application.DatabaseAccess.Financial.IndividualReceipts.Commands.CreateIndividualReceipt;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
+using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.CreateFinancialProject;
 using CoolWebsite.Areas.UserManagement.Models;
 using CoolWebsite.Domain.Entities.Financial;
 using CoolWebsite.Domain.Entities.Identity;
@@ -36,7 +36,9 @@ namespace Application.IntegrationTests.Common
                 }
             };
 
-            return await SendAsync(createCommand);
+            var result = await SendAsync(createCommand);
+            
+            return result.Id;
         }
 
         protected async Task<string> CreateReceipt(string projectId)

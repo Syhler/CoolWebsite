@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
-using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Commands.CreateFinancialProject;
-using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Commands.UpdateFinancialProject;
+using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.CreateFinancialProject;
+using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.UpdateFinancialProject;
 using CoolWebsite.Domain.Entities.Identity;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
@@ -32,11 +32,11 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
                 }
             };
 
-            var id = await SendAsync(createCommand);
+            var project = await SendAsync(createCommand);
 
             var updateCommand = new UpdateFinancialProjectCommand
             {
-                Id = id,
+                Id = project.Id,
                 Name = "Second",
                 Users = new List<ApplicationUser>
                 {
@@ -49,7 +49,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             var context = Context();
 
             var entity = context.FinancialProjects.Include(x => x.FinancialProjectApplicationUsers)
-                .First(x => x.Id == id);
+                .First(x => x.Id == project.Id);
             
             entity.Should().NotBeNull();
             entity.Title.Should().Be(updateCommand.Name);

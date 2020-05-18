@@ -206,6 +206,23 @@ namespace CoolWebsite.Infrastructure.Identity
             return user;
         }
 
+        public async Task<IList<ApplicationUser>> GetUsersByIds(IList<string> ids)
+        {
+            if (_userManager == null)
+            {
+                throw new IdentityObjectNotInitialized("UserManager");
+
+            }
+            var users = new List<ApplicationUser>();
+
+            foreach (var id in ids)
+            {
+                users.Add(await _userManager.FindByIdAsync(id));
+            }
+
+            return users;
+        }
+
         public async Task<Result> UpdateUser(UserUpdate userUpdate)
         {
             if (_userManager == null)

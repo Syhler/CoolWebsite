@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
-using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Commands.CreateFinancialProject;
 using CoolWebsite.Application.DatabaseAccess.Financial.IndividualReceipts.Commands.CreateIndividualReceipt;
 using CoolWebsite.Application.DatabaseAccess.Financial.IndividualReceipts.Commands.UpdateIndividualReceipt;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
+using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.CreateFinancialProject;
 using CoolWebsite.Domain.Entities.Financial;
 using CoolWebsite.Domain.Entities.Identity;
 using FluentAssertions;
@@ -60,11 +60,11 @@ namespace Application.IntegrationTests.Financial.IndividualReceipts.Commands
                 }
             };
 
-            var projectId = await SendAsync(createFinancialProjectCommandCommand);
+            var project = await SendAsync(createFinancialProjectCommandCommand);
             
             var createReceiptsCommand = new CreateReceiptsCommand
             {
-                FinancialProjectId = projectId,
+                FinancialProjectId = project.Id,
                 Total = 0,
                 Title = "Title",
                 BoughtAt = DateTime.Now

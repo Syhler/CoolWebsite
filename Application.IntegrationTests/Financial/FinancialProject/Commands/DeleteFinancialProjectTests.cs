@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
-using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Commands.DeleteFinancialProject;
+using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.DeleteFinancialProject;
 using FluentAssertions;
 using NUnit.Framework;
 using CoolWebsite.Domain.Entities.Financial;

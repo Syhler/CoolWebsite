@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
-using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Commands.CreateFinancialProject;
+using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.CreateFinancialProject;
 using CoolWebsite.Domain.Entities.Identity;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
@@ -68,12 +68,12 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
                 }
             };
 
-            var id = await SendAsync(command);
+            var project = await SendAsync(command);
 
             var context = Context();
             
             var entity = context.FinancialProjects.Include(x => x.FinancialProjectApplicationUsers)
-                .FirstOrDefault(x => x.Id == id);
+                .FirstOrDefault(x => x.Id == project.Id);
             
             await context.DisposeAsync();
             
@@ -83,7 +83,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             entity.FinancialProjectApplicationUsers.First().UserId.Should().Be(user.Id);
             entity.CreatedBy.Should().Be(user.Id);
             entity.Created.Should().BeCloseTo(DateTime.Now, 10000);
-            entity.FinancialProjectApplicationUsers.First().FinancialProjectId.Should().Be(id);
+            entity.FinancialProjectApplicationUsers.First().FinancialProjectId.Should().Be(project.Id);
         }
     }
 }

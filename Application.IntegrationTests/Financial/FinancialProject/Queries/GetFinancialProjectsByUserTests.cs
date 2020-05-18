@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
-using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Commands.CreateFinancialProject;
-using CoolWebsite.Application.DatabaseAccess.Financial.FinancialProject.Queries.GetFinancialProjects;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
+using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.CreateFinancialProject;
+using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects;
 using CoolWebsite.Domain.Entities.Identity;
 using FluentAssertions;
 using NUnit.Framework;
@@ -30,12 +30,12 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
                 }
             };
 
-            var id = await SendAsync(createCommand);
+            var project = await SendAsync(createCommand);
             
             var createReceipt = new CreateReceiptsCommand
             {
                 Total = 2000,
-                FinancialProjectId = id,
+                FinancialProjectId = project.Id,
                 Title = "Title",
                 BoughtAt = DateTime.Now
             };
@@ -54,7 +54,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
             model.FinancialProjects.First().Users.First().Id.Should().Be(User.Id);
             model.FinancialProjects.First().Title.Should().Be(createCommand.Title);
             model.FinancialProjects.First().Receipts.First().Id.Should().Be(receiptId);
-            model.FinancialProjects.First().Id.Should().Be(id);
+            model.FinancialProjects.First().Id.Should().Be(project.Id);
             model.FinancialProjects.First().Receipts.First().Total.Should().Be(createReceipt.Total);
             model.FinancialProjects.First().Receipts.First().Title.Should().Be(createReceipt.Title);
             model.FinancialProjects.First().Receipts.First().BoughtAt.Should().BeCloseTo(DateTime.Now, 1000);

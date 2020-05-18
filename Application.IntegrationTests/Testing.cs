@@ -106,7 +106,7 @@ namespace Application.IntegrationTests
 
             var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
             
-            var user = new ApplicationUser{UserName = username, Email = username};
+            var user = new ApplicationUser{UserName = username, Email = username, FirstName = "TEST", LastName = "TEST"};
 
             await userManager.CreateAsync(user, password);
 

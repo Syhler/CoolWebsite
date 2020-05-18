@@ -31,6 +31,7 @@ namespace CoolWebsite.Application.Common.Interfaces
         IQueryable<ApplicationUser> GetUsers();
         Task<Result> DeleteUser(string id);
         Task<ApplicationUser> GetUserById(string id);
+        Task<IList<ApplicationUser>> GetUsersByIds(IList<string> ids);
         Task<Result> UpdateUser(UserUpdate userUpdate);
     }
 }
