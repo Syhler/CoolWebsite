@@ -11,6 +11,8 @@ namespace CoolWebsite.Application.Common.Interfaces
         DbSet<FinancialProject> FinancialProjects { get; set; }
         
         DbSet<Receipt> Receipts { get; set; }
+
+        DbSet<ReceiptItem> ReceiptItems { get; set; }
         
         DbSet<FinancialProjectApplicationUser> FinancialProjectApplicationUsers { get; set; }
 

@@ -17,4 +17,9 @@
       <ProjectReference Include="..\CoolWebsite.Domain\CoolWebsite.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="DatabaseAccess\Financials\ReceiptItems\Commands\DeleteReceiptItems" />
+      <Folder Include="DatabaseAccess\Financials\ReceiptItems\Commands\UpdateReceiptItems" />
+    </ItemGroup>
+
 </Project>

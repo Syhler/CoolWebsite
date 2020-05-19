@@ -30,6 +30,11 @@
               <e p="GetFinancialProjectsByUserTests.cs" t="Include" />
             </e>
           </e>
+          <e p="ReceiptItems" t="Include">
+            <e p="Commands" t="Include">
+              <e p="CreateReceiptItemsTests.cs" t="Include" />
+            </e>
+          </e>
           <e p="Receipts" t="Include">
             <e p="Commands" t="Include">
               <e p="CreateReceiptsTests.cs" t="Include" />
@@ -241,6 +246,7 @@
             <e p="IdentityCurrentUserIdNotSet.cs" t="Include" />
             <e p="IdentityObjectNotInitialized.cs" t="Include" />
             <e p="NotFoundException.cs" t="Include" />
+            <e p="ParentObjectNotFoundException.cs" t="Include" />
             <e p="ValidationException.cs" t="Include" />
           </e>
           <e p="Interfaces" t="Include">
@@ -288,6 +294,16 @@
                     <e p="ReceiptsDto.cs" t="Include" />
                   </e>
                 </e>
+              </e>
+            </e>
+            <e p="ReceiptItems" t="Include">
+              <e p="Commands" t="Include">
+                <e p="CreateReceiptItems" t="Include">
+                  <e p="CreateReceiptItemCommand.cs" t="Include" />
+                  <e p="CreateReceiptItemValidator.cs" t="Include" />
+                </e>
+                <e p="DeleteReceiptItems" t="Include" />
+                <e p="UpdateReceiptItems" t="Include" />
               </e>
             </e>
             <e p="Receipts" t="Include">
@@ -372,6 +388,8 @@
             <e p="20200519163419_AddedConfigurationToFinancial.Designer.cs" t="Include" />
             <e p="20200519164507_RemovedIndividualReceiptEntity.cs" t="Include" />
             <e p="20200519164507_RemovedIndividualReceiptEntity.Designer.cs" t="Include" />
+            <e p="20200519180731_AddedReceiptIdToReceiptItem.cs" t="Include" />
+            <e p="20200519180731_AddedReceiptIdToReceiptItem.Designer.cs" t="Include" />
             <e p="SqlApplicationDbContextModelSnapshot.cs" t="Include" />
           </e>
         </e>

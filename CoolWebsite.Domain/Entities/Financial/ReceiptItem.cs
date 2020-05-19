@@ -12,7 +12,11 @@ namespace CoolWebsite.Domain.Entities.Financial
 
         public int Count { get; set; }
 
-        public Double Price { get; set; }
+        public double Price { get; set; }
+
+        public string ReceiptId { get; set; }
+        
+        public Receipt Receipt { get; set; }
 
         public ItemGroup ItemGroup { get; set; }
         
