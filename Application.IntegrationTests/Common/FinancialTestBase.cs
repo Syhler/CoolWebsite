@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CoolWebsite.Application.DatabaseAccess.Financial.IndividualReceipts.Commands.CreateIndividualReceipt;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.CreateFinancialProject;
 using CoolWebsite.Areas.UserManagement.Models;
@@ -68,41 +67,6 @@ namespace Application.IntegrationTests.Common
 
             return await SendAsync(createCommand);
         }
-
         
-        protected async Task<string> CreateIndividualReceipt(string receiptId)
-        {
-
-            var createCommand = new CreateIndividualReceiptCommand
-            {
-                Total = 0,
-                ReceiptId = receiptId,
-                UserId = User.Id
-            };
-
-            return await SendAsync(createCommand);
-        }
-        
-        protected async Task<IndividualReceiptObsolete> CreateIndividualReceipt()
-        {
-            var receiptId = await CreateReceipt();
-
-            var createCommand = new CreateIndividualReceiptCommand
-            {
-                Total = 0,
-                ReceiptId = receiptId,
-                UserId = User.Id
-            };
-
-            var id = await SendAsync(createCommand);
-            
-            return new IndividualReceiptObsolete()
-            {
-                Id = id,
-                Total = createCommand.Total,
-                ReceiptId = createCommand.ReceiptId,
-                UserId = createCommand.UserId
-            };
-        }
     }
 }

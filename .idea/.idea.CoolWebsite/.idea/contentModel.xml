@@ -30,14 +30,6 @@
               <e p="GetFinancialProjectsByUserTests.cs" t="Include" />
             </e>
           </e>
-          <e p="IndividualReceipts" t="Include">
-            <e p="Commands" t="Include">
-              <e p="CreateIndividualReceiptTests.cs" t="Include" />
-              <e p="DeleteIndividualReceiptTests.cs" t="Include" />
-              <e p="UpdateIndividualReceiptTests.cs" t="Include" />
-            </e>
-            <e p="Queries" t="Include" />
-          </e>
           <e p="Receipts" t="Include">
             <e p="Commands" t="Include">
               <e p="CreateReceiptsTests.cs" t="Include" />
@@ -298,22 +290,6 @@
                 </e>
               </e>
             </e>
-            <e p="IndividualReceipts" t="Include">
-              <e p="Commands" t="Include">
-                <e p="CreateIndividualReceipt" t="Include">
-                  <e p="CreateIndividualReceiptCommand.cs" t="Include" />
-                  <e p="CreateIndividualReceiptCommandValidator.cs" t="Include" />
-                </e>
-                <e p="DeleteIndividualReceipt" t="Include">
-                  <e p="DeleteIndividualReceiptCommand.cs" t="Include" />
-                  <e p="DeleteIndividualReceiptCommandValidator.cs" t="Include" />
-                </e>
-                <e p="UpdateIndividualReceipt" t="Include">
-                  <e p="UpdateIndividualReceiptCommand.cs" t="Include" />
-                  <e p="UpdateIndividualReceiptCommandValidator.cs" t="Include" />
-                </e>
-              </e>
-            </e>
             <e p="Receipts" t="Include">
               <e p="Commands" t="Include">
                 <e p="CreateReceipts" t="Include">
@@ -332,7 +308,6 @@
               <e p="Queries" t="Include">
                 <e p="GetReceiptByIdQueryValidator.cs" t="Include" />
                 <e p="GetReceiptByIdQueryVm.cs" t="Include" />
-                <e p="IndividualReceiptDto.cs" t="Include" />
                 <e p="ReceiptVm.cs" t="Include" />
               </e>
             </e>
@@ -361,7 +336,6 @@
             <e p="ApplicationUserReceiptItem.cs" t="Include" />
             <e p="FinancialProject.cs" t="Include" />
             <e p="FinancialProjectApplicationUser.cs" t="Include" />
-            <e p="IndividualReceiptOBSOLETE.cs" t="Include" />
             <e p="Receipt.cs" t="Include" />
             <e p="ReceiptItem.cs" t="Include" />
           </e>
@@ -396,6 +370,8 @@
             <e p="20200519162638_UpdatedFinancialDomainEntites.Designer.cs" t="Include" />
             <e p="20200519163419_AddedConfigurationToFinancial.cs" t="Include" />
             <e p="20200519163419_AddedConfigurationToFinancial.Designer.cs" t="Include" />
+            <e p="20200519164507_RemovedIndividualReceiptEntity.cs" t="Include" />
+            <e p="20200519164507_RemovedIndividualReceiptEntity.Designer.cs" t="Include" />
             <e p="SqlApplicationDbContextModelSnapshot.cs" t="Include" />
           </e>
         </e>
@@ -414,7 +390,6 @@
               <e p="ReceiptConfiguration.cs" t="Include" />
               <e p="ReceiptItemConfiguration.cs" t="Include" />
             </e>
-            <e p="TestEntityConfiguration.cs" t="Include" />
           </e>
           <e p="SqlApplicationDbContext.cs" t="Include" />
         </e>

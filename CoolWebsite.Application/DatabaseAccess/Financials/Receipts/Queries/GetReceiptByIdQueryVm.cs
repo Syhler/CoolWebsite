@@ -1,17 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
-using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries;
-using CoolWebsite.Domain.Entities.Financial;
+using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Queries;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
-namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Queries
+namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries
 {
     public class GetReceiptByIdQueryVm : IRequest<ReceiptVm>
     {
@@ -36,6 +30,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Queries
 
         public async Task<ReceiptVm> Handle(GetReceiptByIdQueryVm request, CancellationToken cancellationToken)
         {
+            //TODO(NEEDS TO BE LOOKED AT)
             /*
             var entity = _context.Receipts
                 .Include(x => x.Receptors)

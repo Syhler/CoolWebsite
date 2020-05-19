@@ -17,7 +17,6 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.Cre
 
         public DateTime BoughtAt { get; set; }
 
-        public List<IndividualReceiptObsolete> Receiptors { get; set; }
     }
 
     public class CreateReceiptsCommandHandler : IRequestHandler<CreateReceiptsCommand, string>
@@ -36,12 +35,10 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.Cre
             
             var entity = new Receipt
             {
-                //Total = request.Total,
                 FinancialProjectId = request.FinancialProjectId,
                 Id = Guid.NewGuid().ToString(),
                 DateVisited = request.BoughtAt,
                 Location = request.Title,
-                //Receptors = request.Receiptors ?? new List<IndividualReceiptObsolete>()
             };
 
             await _context.Receipts.AddAsync(entity, cancellationToken);

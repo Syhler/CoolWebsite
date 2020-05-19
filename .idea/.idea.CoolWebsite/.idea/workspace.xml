@@ -20,45 +20,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Enums/ItemGroup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/ApplicationUserReceiptItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/ReceiptItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200519162638_UpdatedFinancialDomainEntites.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200519162638_UpdatedFinancialDomainEntites.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200519163419_AddedConfigurationToFinancial.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200519163419_AddedConfigurationToFinancial.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/Configuration/Financial/FinancialProjectConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/Configuration/Financial/ReceiptConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/Configuration/Financial/ReceiptItemConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200519164507_RemovedIndividualReceiptEntity.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200519164507_RemovedIndividualReceiptEntity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Application.IntegrationTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Application.IntegrationTests.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Common/FinancialTestBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Common/FinancialTestBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Commands/DeleteFinancialProjectTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Commands/DeleteFinancialProjectTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/IndividualReceipts/Commands/DeleteIndividualReceiptTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/IndividualReceipts/Commands/DeleteIndividualReceiptTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/IndividualReceipts/Commands/UpdateIndividualReceiptTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/IndividualReceipts/Commands/UpdateIndividualReceiptTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetAllFinancialProjectsTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetAllFinancialProjectsTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetFinancialProjectsByUserTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetFinancialProjectsByUserTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/IndividualReceipts/Commands/CreateIndividualReceiptTests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/IndividualReceipts/Commands/DeleteIndividualReceiptTests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/IndividualReceipts/Commands/UpdateIndividualReceiptTests.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/CreateReceiptsTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/CreateReceiptsTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/UpdateReceiptsTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/UpdateReceiptsTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Queries/GetReceiptByIdQueryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Queries/GetReceiptByIdQueryTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IApplicationDbContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/DeleteFinancialProject/DeleteFinancialProjectCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/DeleteFinancialProject/DeleteFinancialProjectCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/ReceiptsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/ReceiptsDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/CreateIndividualReceipt/CreateIndividualReceiptCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/CreateIndividualReceipt/CreateIndividualReceiptCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/DeleteIndividualReceipt/DeleteIndividualReceiptCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/DeleteIndividualReceipt/DeleteIndividualReceiptCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/UpdateIndividualReceipt/UpdateIndividualReceiptCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/UpdateIndividualReceipt/UpdateIndividualReceiptCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/CreateIndividualReceipt/CreateIndividualReceiptCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/CreateIndividualReceipt/CreateIndividualReceiptCommandValidator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/DeleteIndividualReceipt/DeleteIndividualReceiptCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/DeleteIndividualReceipt/DeleteIndividualReceiptCommandValidator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/UpdateIndividualReceipt/UpdateIndividualReceiptCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/UpdateIndividualReceipt/UpdateIndividualReceiptCommandValidator.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/CreateReceipts/CreateReceiptsCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/CreateReceipts/CreateReceiptsCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/UpdateReceipts/UpdateReceiptsCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/UpdateReceipts/UpdateReceiptsCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/GetReceiptByIdQueryValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/GetReceiptByIdQueryValidator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/GetReceiptByIdQueryVm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/GetReceiptByIdQueryVm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/IndividualReceiptDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/IndividualReceiptDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/FinancialProject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/FinancialProject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/IndividualReceipt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/IndividualReceiptOBSOLETE.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/Receipt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/Receipt.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/MySQLServer/20200513205318_InitialCreateMySql.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/MySQLServer/20200513205318_InitialCreateMySql.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/MySQLServer/MySqlApplicationDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200513205353_InitialCreateSql.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200513205353_InitialCreateSql.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/IndividualReceiptDto.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/ReceiptVm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/ReceiptVm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/IndividualReceiptOBSOLETE.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/SqlApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/SqlApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/MySqlApplicationDbContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/Configuration/TestEntityConfiguration.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/SqlApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/SqlApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ProjectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ProjectController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/ReceiptCard.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/ReceiptCard.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,15 +142,13 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectByIdQueryValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectByIdQuery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/CreateUpdateUserViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Financial/IndividualReceipts/Commands/CreateIndividualReceiptTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Services/MediatorController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Financial/IndividualReceipts/Commands/DeleteIndividualReceiptTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Services/CurrentUserService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Financial/IndividualReceipts/Commands/UpdateIndividualReceiptTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Controllers/AuthController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6B489A92-E2A4-446D-A3E6-5EB322E4C7BD/14/5799a3a1/DbConnection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56C1FBAA-ADF8-426A-91DB-87B46E8C8EAF/86/c046d871/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29F30F0C-1BEC-4E45-9E6D-DB6D3F784536/2/IdentityDbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Domain/Common/AudibleEntity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6F7983DF-5846-436F-8E9C-B779867785C7/13/DbUpdateException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Domain/Entities/Identity/UserUpdate.cs" root0="FORCE_HIGHLIGHTING" />
@@ -197,11 +190,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/01AECD38-E25A-496C-A820-CFB8703152F5/3/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/DeleteReceipts/DeleteReceiptsCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/SqlApplicationDbContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/Configuration/TestEntityConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/Receipt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/UpdateReceipts/UpdateReceiptsCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/IndividualReceiptOBSOLETE.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/ApplicationDbContextSeed.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Home/Partial/FinancialProjectCard.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Commands/DeleteFinancialProjectTests.cs" root0="FORCE_HIGHLIGHTING" />
@@ -217,7 +208,6 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/Configuration/Financial/ReceiptConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/Configuration/Financial/FinancialProjectConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Mapping/DTOMappingProfile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/IndividualReceiptDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Domain/Entities/Identity/ApplicationRole.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/GetReceiptByIdQueryVm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/GetReceiptByIdQueryValidator.cs" root0="FORCE_HIGHLIGHTING" />
@@ -229,13 +219,7 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Queries/GetReceiptByIdQueryTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Home/Partial/CreateFinancialProjectModal.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/CreateIndividualReceipt/CreateIndividualReceiptCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/DeleteIndividualReceipt/DeleteIndividualReceiptCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/UpdateIndividualReceipt/UpdateIndividualReceiptCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/UpdateIndividualReceipt/UpdateIndividualReceiptCommandValidator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/DeleteIndividualReceipt/DeleteIndividualReceiptCommandValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/CreateFinancialProjectModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/IndividualReceipts/Commands/CreateIndividualReceipt/CreateIndividualReceiptCommandValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Services/Mapping/VMMappingProfile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/ReceiptCard.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Common/FinancialTestBase.cs" root0="FORCE_HIGHLIGHTING" />
@@ -264,19 +248,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetFinancialProjectsByUserTests.cs" />
-        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/IndividualReceipts/Commands/UpdateIndividualReceiptTests.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/CreateFinancialProject/CreateFinancialProjectCommand.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/ApplicationDbContextSeed.cs" />
-        <option value="$PROJECT_DIR$/Application.IntegrationTests/Testing.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Home/Partial/CreateFinancialProjectModal.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/TempNameLMAOVm.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Home/Index.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/HomeController.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/FinancialProjectDto.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Areas/Financial/Pages/Project/Index.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/ReceiptsDto.cs" />
-        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetAllFinancialProjectsTests.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GEtFinancialProjectByIdQuery.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectByIdQueryValidator.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/IndividualReceiptDto.cs" />
@@ -297,14 +274,8 @@
         <option value="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/ApplicationUserReceiptItem.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/ReceiptItem.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Enums/ItemGroup.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/DeleteFinancialProject/DeleteFinancialProjectCommand.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/ReceiptsDto.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/CreateReceipts/CreateReceiptsCommand.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/UpdateReceipts/UpdateReceiptsCommand.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/GetReceiptByIdQueryVm.cs" />
-        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/CreateReceiptsTests.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/UpdateReceiptsTests.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/SqlApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/MySqlApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200513205353_InitialCreateSql.cs" />
@@ -315,6 +286,19 @@
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/Configuration/Financial/FinancialProjectConfiguration.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/Configuration/Financial/ReceiptConfiguration.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/Configuration/Financial/ReceiptItemConfiguration.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/SqlApplicationDbContext.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IApplicationDbContext.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/CreateReceipts/CreateReceiptsCommand.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/ReceiptVm.cs" />
+        <option value="$PROJECT_DIR$/Application.IntegrationTests/Common/FinancialTestBase.cs" />
+        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Queries/GetReceiptByIdQueryTests.cs" />
+        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/CreateReceiptsTests.cs" />
+        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Commands/DeleteFinancialProjectTests.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/GetReceiptByIdQueryVm.cs" />
+        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetFinancialProjectsByUserTests.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/ReceiptsDto.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/DeleteFinancialProject/DeleteFinancialProjectCommand.cs" />
+        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetAllFinancialProjectsTests.cs" />
       </list>
     </option>
   </component>
@@ -432,7 +416,7 @@
       <workItem from="1589535149589" duration="12076000" />
       <workItem from="1589810681905" duration="946000" />
       <workItem from="1589838213627" duration="765000" />
-      <workItem from="1589904194399" duration="2049000" />
+      <workItem from="1589904194399" duration="2741000" />
     </task>
     <servers />
   </component>
@@ -660,10 +644,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="841" y="435" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588276259049" />
-    <state x="-1610" y="23" width="1382" height="1387" key="dock-window-1" timestamp="1589904282592">
+    <state x="-1610" y="23" width="1382" height="1387" key="dock-window-1" timestamp="1589906289359">
       <screen x="-2560" y="0" width="2560" height="1440" />
     </state>
-    <state x="-1610" y="23" width="1382" height="1387" key="dock-window-1/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1589904282592" />
+    <state x="-1610" y="23" width="1382" height="1387" key="dock-window-1/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1589906289359" />
     <state x="2615" y="14" width="1110" height="1388" key="dock-window-1/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588343484599" />
     <state x="2580" y="8" width="1950" height="1387" key="dock-window-2" timestamp="1589904234534">
       <screen x="2560" y="0" width="2560" height="1440" />

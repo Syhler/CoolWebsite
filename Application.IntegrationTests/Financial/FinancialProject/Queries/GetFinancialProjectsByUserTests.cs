@@ -55,9 +55,8 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
             model.FinancialProjects.First().Title.Should().Be(createCommand.Title);
             model.FinancialProjects.First().Receipts.First().Id.Should().Be(receiptId);
             model.FinancialProjects.First().Id.Should().Be(project.Id);
-            model.FinancialProjects.First().Receipts.First().Total.Should().Be(createReceipt.Total);
-            model.FinancialProjects.First().Receipts.First().Title.Should().Be(createReceipt.Title);
-            model.FinancialProjects.First().Receipts.First().BoughtAt.Should().BeCloseTo(DateTime.Now, 1000);
+            model.FinancialProjects.First().Receipts.First().Location.Should().Be(createReceipt.Title);
+            model.FinancialProjects.First().Receipts.First().DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
 
         }
 

@@ -28,7 +28,6 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
             var entity = _context.FinancialProjects
                 .Include(x => x.Receipts)
                 .Include(x => x.FinancialProjectApplicationUsers)
-                .Include("Receipts.Receptors")
                 .FirstOrDefault(x => x.Id == request.Id);
 
             if (entity == null)
@@ -37,17 +36,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
             }
             
             var receipts = entity.Receipts;
-            /*
-            foreach (var receipt in receipts)
-            {
-                foreach (var individualReceipt in receipt.Receptors)
-                {
-                    _context.IndividualReceipts.Remove(individualReceipt);
-                }
-
-                _context.Receipts.Remove(receipt);
-            }
-            */
+            //TODO(NEEDS TO BE UPDATED)
+            
             var users = entity.FinancialProjectApplicationUsers;
             
             foreach (var financialProjectApplicationUser in users)

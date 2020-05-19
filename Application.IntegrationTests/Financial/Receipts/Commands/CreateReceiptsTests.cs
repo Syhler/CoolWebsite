@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Domain.Entities.Financial;
 using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
-namespace Application.IntegrationTests.Financial.Reciepts.Commands
+namespace Application.IntegrationTests.Financial.Receipts.Commands
 {
     using static Testing;
     
@@ -22,38 +19,25 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
         {
             var id = await CreateFinancialProject();
             
-            var user = await RunAsDefaultUserAsync();
-
             var command = new CreateReceiptsCommand
             {
                 FinancialProjectId = id,
                 Total = 100,
-                Receiptors = new List<IndividualReceiptObsolete>(),
                 BoughtAt = DateTime.Now,
                 Title = "Title"
             };
 
             var receiptsId = await SendAsync(command);
 
-            var individualReceiptId = await CreateIndividualReceipt(receiptsId);
-            
-            
-            var context = Context();
-/*
-            var entity = context.Receipts.Include(x => x.Receptors)
-                .FirstOrDefault(y => y.Id == receiptsId);
+            var entity = await FindAsync<Receipt>(receiptsId);
 
             entity.Should().NotBeNull();
-            entity.Total.Should().Be(command.Total);
-            entity.Receptors.First().Id.Should().Be(individualReceiptId);
-            entity.Receptors.First().ReceiptId.Should().Be(receiptsId);
             entity.FinancialProjectId.Should().Be(command.FinancialProjectId);
         
             entity.Created.Should().BeCloseTo(DateTime.Now, 10000);
-            entity.CreatedBy.Should().Be(user.Id);
+            entity.CreatedBy.Should().Be(User.Id);
             entity.Location.Should().Be(command.Title);
             entity.DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
-                */
 
         }
 
@@ -74,21 +58,14 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
 
             var receiptsId = await SendAsync(command);
 
-            var context = Context();
-
-            /*
-            var entity = context.Receipts.Include(x => x.Receptors)
-                .FirstOrDefault(y => y.Id == receiptsId);
+            var entity = await FindAsync<Receipt>(receiptsId);
 
             entity.Should().NotBeNull();
-            entity.Total.Should().Be(command.Total);
-            entity.Receptors.Should().BeEmpty();
             entity.FinancialProjectId.Should().Be(command.FinancialProjectId);
             entity.Created.Should().BeCloseTo(DateTime.Now, 1000);
             entity.CreatedBy.Should().Be(user.Id);
             entity.DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
             entity.Location.Should().Be(command.Title);
-            */
         }
         
         [Test]

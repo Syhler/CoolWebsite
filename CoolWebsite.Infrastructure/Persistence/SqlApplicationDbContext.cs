@@ -28,8 +28,6 @@ namespace CoolWebsite.Infrastructure.Persistence
         }
         public DbSet<FinancialProject> FinancialProjects { get; set; }
         
-        public DbSet<IndividualReceiptObsolete> IndividualReceipts { get; set; }
-        
         public DbSet<FinancialProjectApplicationUser> FinancialProjectApplicationUsers { get; set; }
 
         public DbSet<ApplicationUserReceiptItem> ApplicationUserReceiptItems { get; set; }
