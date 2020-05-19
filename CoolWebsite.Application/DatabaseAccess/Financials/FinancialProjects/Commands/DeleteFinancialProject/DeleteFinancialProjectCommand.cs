@@ -37,7 +37,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
             }
             
             var receipts = entity.Receipts;
-            
+            /*
             foreach (var receipt in receipts)
             {
                 foreach (var individualReceipt in receipt.Receptors)
@@ -47,6 +47,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
 
                 _context.Receipts.Remove(receipt);
             }
+            */
             var users = entity.FinancialProjectApplicationUsers;
             
             foreach (var financialProjectApplicationUser in users)

@@ -16,5 +16,7 @@ namespace CoolWebsite.Domain.Entities.Financial
 
         public ICollection<FinancialProjectApplicationUser> FinancialProjectApplicationUsers { get; set; }
 
+        public string Description { get; set; }
+
     }
 }

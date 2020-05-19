@@ -8,15 +8,20 @@ namespace CoolWebsite.Domain.Entities.Financial
     {
         public string Id { get; set; }
 
-        public string Title { get; set; }
+        public string Location { get; set; }
         
-        public double Total { get; set; }
+        //public double Total { get; set; }
 
-        public DateTime BoughtAt { get; set; }
+        public string Note { get; set; }
         
-        public ICollection<IndividualReceipt> Receptors { get; set; }
+        public DateTime DateVisited { get; set; }
+        
+        //public ICollection<IndividualReceiptObsolete> Receptors { get; set; }
         
         public string FinancialProjectId { get; set; }
         public FinancialProject FinancialProject { get; set; }
+
+        public ICollection<ReceiptItem> Items { get; set; }
+        
     }
 }

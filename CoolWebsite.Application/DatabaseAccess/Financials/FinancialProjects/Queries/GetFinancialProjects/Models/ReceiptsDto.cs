@@ -22,9 +22,11 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 
         public void Mapping(Profile profile)
         {
+            /*
             profile.CreateMap<Receipt, ReceiptsDto>()
                 .ForMember(x => x.IndividualReceipts, opt =>
                     opt.MapFrom(x => x.Receptors));
+                    */
         }
     }
 }

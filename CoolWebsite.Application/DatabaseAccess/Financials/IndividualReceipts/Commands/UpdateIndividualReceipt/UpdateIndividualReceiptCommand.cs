@@ -35,7 +35,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.IndividualReceipts.Co
 
             if (entity == null)
             {
-                throw new NotFoundException(nameof(IndividualReceipt), request.Id);
+                throw new NotFoundException(nameof(IndividualReceiptObsolete), request.Id);
             }
 
             entity.Total = request.Total;

@@ -27,9 +27,15 @@ namespace CoolWebsite.Infrastructure.Persistence
 
         }
         public DbSet<FinancialProject> FinancialProjects { get; set; }
-        public DbSet<IndividualReceipt> IndividualReceipts { get; set; }
+        
+        public DbSet<IndividualReceiptObsolete> IndividualReceipts { get; set; }
         
         public DbSet<FinancialProjectApplicationUser> FinancialProjectApplicationUsers { get; set; }
+
+        public DbSet<ApplicationUserReceiptItem> ApplicationUserReceiptItems { get; set; }
+
+        public DbSet<ReceiptItem> ReceiptItems { get; set; }
+        
         public DbSet<Receipt> Receipts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -45,7 +51,10 @@ namespace CoolWebsite.Infrastructure.Persistence
             builder.Entity<FinancialProjectApplicationUser>()
                 .HasKey(x => new {x.UserId, x.FinancialProjectId});
 
-            
+            builder.Entity<ApplicationUserReceiptItem>()
+                .HasKey(x => new {x.ApplicationUserId, x.ReceiptItemId});
+
+
             base.OnModelCreating(builder);
         }
 

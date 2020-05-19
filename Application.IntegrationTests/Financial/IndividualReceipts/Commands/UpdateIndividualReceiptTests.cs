@@ -35,7 +35,7 @@ namespace Application.IntegrationTests.Financial.IndividualReceipts.Commands
 
             await SendAsync(command);
 
-            var entity = await FindAsync<IndividualReceipt>(command.Id);
+            var entity = await FindAsync<IndividualReceiptObsolete>(command.Id);
 
             entity.Should().NotBeNull();
             entity.UserId.Should().Be(command.UserId);
@@ -91,7 +91,7 @@ namespace Application.IntegrationTests.Financial.IndividualReceipts.Commands
 
             await SendAsync(command);
 
-            var entity = await FindAsync<IndividualReceipt>(command.Id);
+            var entity = await FindAsync<IndividualReceiptObsolete>(command.Id);
 
             entity.Should().NotBeNull();
             entity.UserId.Should().Be(command.UserId);
@@ -118,7 +118,7 @@ namespace Application.IntegrationTests.Financial.IndividualReceipts.Commands
 
             await SendAsync(command);
 
-            var entity = await FindAsync<IndividualReceipt>(command.Id);
+            var entity = await FindAsync<IndividualReceiptObsolete>(command.Id);
 
             entity.Should().NotBeNull();
             entity.UserId.Should().Be(individualReceipt.UserId);

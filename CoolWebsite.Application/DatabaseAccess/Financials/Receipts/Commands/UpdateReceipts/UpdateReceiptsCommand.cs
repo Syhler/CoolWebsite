@@ -40,9 +40,9 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.Upda
                 throw new NotFoundException(nameof(Receipt), request.Id);
             }
             
-            entity.Total = request.Total;
-            entity.Title = request.Title;
-            entity.BoughtAt = request.BoughtAt;
+            //entity.Total = request.Total;
+            entity.Location = request.Title;
+            entity.DateVisited = request.BoughtAt;
             
             if (!string.IsNullOrWhiteSpace(request.FinancialProjectId))
             {

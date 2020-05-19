@@ -354,11 +354,16 @@
         </e>
         <e p="CoolWebsite.Domain.csproj" t="IncludeRecursive" />
         <e p="Entities" t="Include">
+          <e p="Enums" t="Include">
+            <e p="ItemGroup.cs" t="Include" />
+          </e>
           <e p="Financial" t="Include">
+            <e p="ApplicationUserReceiptItem.cs" t="Include" />
             <e p="FinancialProject.cs" t="Include" />
             <e p="FinancialProjectApplicationUser.cs" t="Include" />
-            <e p="IndividualReceipt.cs" t="Include" />
+            <e p="IndividualReceiptOBSOLETE.cs" t="Include" />
             <e p="Receipt.cs" t="Include" />
+            <e p="ReceiptItem.cs" t="Include" />
           </e>
           <e p="Identity" t="Include">
             <e p="ApplicationRole.cs" t="Include" />
@@ -384,14 +389,13 @@
           <e p="IdentityService.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="MySQLServer" t="Include">
-            <e p="20200513205318_InitialCreateMySql.cs" t="Include" />
-            <e p="20200513205318_InitialCreateMySql.Designer.cs" t="Include" />
-            <e p="MySqlApplicationDbContextModelSnapshot.cs" t="Include" />
-          </e>
           <e p="SQLServer" t="Include">
             <e p="20200513205353_InitialCreateSql.cs" t="Include" />
             <e p="20200513205353_InitialCreateSql.Designer.cs" t="Include" />
+            <e p="20200519162638_UpdatedFinancialDomainEntites.cs" t="Include" />
+            <e p="20200519162638_UpdatedFinancialDomainEntites.Designer.cs" t="Include" />
+            <e p="20200519163419_AddedConfigurationToFinancial.cs" t="Include" />
+            <e p="20200519163419_AddedConfigurationToFinancial.Designer.cs" t="Include" />
             <e p="SqlApplicationDbContextModelSnapshot.cs" t="Include" />
           </e>
         </e>
@@ -405,9 +409,13 @@
         <e p="Persistence" t="Include">
           <e p="ApplicationDbContextSeed.cs" t="Include" />
           <e p="Configuration" t="Include">
+            <e p="Financial" t="Include">
+              <e p="FinancialProjectConfiguration.cs" t="Include" />
+              <e p="ReceiptConfiguration.cs" t="Include" />
+              <e p="ReceiptItemConfiguration.cs" t="Include" />
+            </e>
             <e p="TestEntityConfiguration.cs" t="Include" />
           </e>
-          <e p="MySqlApplicationDbContext.cs" t="Include" />
           <e p="SqlApplicationDbContext.cs" t="Include" />
         </e>
         <e p="Services" t="Include">

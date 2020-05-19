@@ -28,7 +28,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
 
             var notDeleted = await FindAsync<CoolWebsite.Domain.Entities.Financial.FinancialProject>(id);
             var notDeletedReceipt = await FindAsync<Receipt>(receiptId);
-            var notDeletedIndividualReceipt = await FindAsync<IndividualReceipt>(individualReceiptId);
+            var notDeletedIndividualReceipt = await FindAsync<IndividualReceiptObsolete>(individualReceiptId);
 
             notDeleted.Should().NotBeNull();
             notDeletedReceipt.Should().NotBeNull();
@@ -38,7 +38,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
 
             var entity = await FindAsync<CoolWebsite.Domain.Entities.Financial.FinancialProject>(id);
             var receiptEntity = await FindAsync<Receipt>(receiptId);
-            var individualReceiptEntity = await FindAsync<IndividualReceipt>(individualReceiptId);
+            var individualReceiptEntity = await FindAsync<IndividualReceiptObsolete>(individualReceiptId);
 
             entity.Should().BeNull();
             receiptEntity.Should().BeNull();

@@ -6,7 +6,7 @@ using CoolWebsite.Domain.Entities.Identity;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries
 {
-    public class IndividualReceiptDto : IMapFrom<IndividualReceipt>
+    public class IndividualReceiptDto : IMapFrom<IndividualReceiptObsolete>
     {
 
         public string Id { get; set; }
@@ -19,7 +19,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries
         
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<IndividualReceipt, IndividualReceiptDto>()
+            profile.CreateMap<IndividualReceiptObsolete, IndividualReceiptDto>()
                 .ForMember(x => x.User, memberOptions
                     => memberOptions.MapFrom(x => x.User))
                 .ForMember(x => x.Receipt, opt => 

@@ -3,7 +3,7 @@ using CoolWebsite.Domain.Entities.Identity;
 
 namespace CoolWebsite.Domain.Entities.Financial
 {
-    public class IndividualReceipt : AudibleEntity
+    public class IndividualReceiptObsolete : AudibleEntity
     {
         public string Id { get; set; }
         

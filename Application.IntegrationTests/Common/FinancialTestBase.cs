@@ -83,7 +83,7 @@ namespace Application.IntegrationTests.Common
             return await SendAsync(createCommand);
         }
         
-        protected async Task<IndividualReceipt> CreateIndividualReceipt()
+        protected async Task<IndividualReceiptObsolete> CreateIndividualReceipt()
         {
             var receiptId = await CreateReceipt();
 
@@ -96,7 +96,7 @@ namespace Application.IntegrationTests.Common
 
             var id = await SendAsync(createCommand);
             
-            return new IndividualReceipt()
+            return new IndividualReceiptObsolete()
             {
                 Id = id,
                 Total = createCommand.Total,

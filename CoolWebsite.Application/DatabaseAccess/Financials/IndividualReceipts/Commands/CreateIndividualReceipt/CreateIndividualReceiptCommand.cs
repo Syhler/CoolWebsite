@@ -30,7 +30,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.IndividualReceipts.Co
         
         public async Task<string> Handle(CreateIndividualReceiptCommand request, CancellationToken cancellationToken)
         {
-            var entity = new IndividualReceipt
+            var entity = new IndividualReceiptObsolete
             {
                 ReceiptId = request.ReceiptId,
                 UserId = request.UserId,

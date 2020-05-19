@@ -12,7 +12,7 @@ namespace CoolWebsite.Application.Common.Interfaces
         
         DbSet<Receipt> Receipts { get; set; }
 
-        DbSet<IndividualReceipt> IndividualReceipts { get; set; }
+        DbSet<IndividualReceiptObsolete> IndividualReceipts { get; set; }
         
         DbSet<FinancialProjectApplicationUser> FinancialProjectApplicationUsers { get; set; }
 

@@ -36,6 +36,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Queries
 
         public async Task<ReceiptVm> Handle(GetReceiptByIdQueryVm request, CancellationToken cancellationToken)
         {
+            /*
             var entity = _context.Receipts
                 .Include(x => x.Receptors)
                 .FirstOrDefault(x => x.Id == request.ReceiptId);
@@ -54,7 +55,9 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Queries
             {
                 IndividualReceipts = entity.Receptors.AsQueryable().ProjectTo<IndividualReceiptDto>(_mapper.ConfigurationProvider).ToList()
             };
-            
+            */
+            return null;
+
         }
     }
 }

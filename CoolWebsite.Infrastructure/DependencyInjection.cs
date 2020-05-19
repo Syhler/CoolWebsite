@@ -39,6 +39,7 @@ namespace CoolWebsite.Infrastructure
 
         private static void SetupDatabase<T>(IServiceCollection services, IConfiguration configuration) where T : DbContext, IApplicationDbContext
         {
+            /*
             if (typeof(T) == typeof(MySqlApplicationDbContext))
             {
                 services.AddDbContext<T>(builder =>
@@ -46,7 +47,8 @@ namespace CoolWebsite.Infrastructure
                     builder.UseMySql(configuration.GetConnectionString("DefaultConnectionMySQL"));
                 });
             }
-            else if (typeof(T) == typeof(SqlApplicationDbContext))
+            */
+            if (typeof(T) == typeof(SqlApplicationDbContext))
             {
                 services.AddDbContext<T>(builder =>
                 {

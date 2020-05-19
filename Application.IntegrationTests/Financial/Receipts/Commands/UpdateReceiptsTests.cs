@@ -35,12 +35,12 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             var entity = await FindAsync<Receipt>(command.Id);
 
             entity.Should().NotBeNull();
-            entity.Total.Should().Be(command.Total);
+            //entity.Total.Should().Be(command.Total);
             entity.FinancialProjectId.Should().Be(command.FinancialProjectId);
             entity.LastModified.Should().BeCloseTo(DateTime.Now, 1000);
             entity.LastModifiedBy.Should().Be(user.Id);
-            entity.BoughtAt.Should().BeCloseTo(DateTime.Now, 1000);
-            entity.Title.Should().Be(command.Title);
+            entity.DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
+            entity.Location.Should().Be(command.Title);
         }
 
         [Test]
@@ -63,12 +63,12 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             var entity = await FindAsync<Receipt>(command.Id);
 
             entity.Should().NotBeNull();
-            entity.Total.Should().Be(command.Total);
+            //entity.Total.Should().Be(command.Total);
             entity.FinancialProjectId.Should().Be(projectId);
             entity.LastModified.Should().BeCloseTo(DateTime.Now, 1000);
             entity.LastModifiedBy.Should().Be(user.Id);
-            entity.BoughtAt.Should().BeCloseTo(DateTime.Now, 1000);
-            entity.Title.Should().Be(command.Title);
+            entity.DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
+            entity.Location.Should().Be(command.Title);
         }
 
         [Test]

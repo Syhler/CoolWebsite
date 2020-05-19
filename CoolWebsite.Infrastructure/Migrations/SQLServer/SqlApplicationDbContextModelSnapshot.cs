@@ -19,6 +19,21 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.ApplicationUserReceiptItem", b =>
+                {
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ReceiptItemId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("ApplicationUserId", "ReceiptItemId");
+
+                    b.HasIndex("ReceiptItemId");
+
+                    b.ToTable("ApplicationUserReceiptItems");
+                });
+
             modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.FinancialProject", b =>
                 {
                     b.Property<string>("Id")
@@ -30,6 +45,10 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)")
+                        .HasMaxLength(9999);
+
                     b.Property<DateTime?>("LastModified")
                         .HasColumnType("datetime2");
 
@@ -37,7 +56,9 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("Id");
 
@@ -59,7 +80,7 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                     b.ToTable("FinancialProjectApplicationUsers");
                 });
 
-            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.IndividualReceipt", b =>
+            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.IndividualReceiptObsolete", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -99,16 +120,17 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime>("BoughtAt")
-                        .HasColumnType("datetime2");
-
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("DateVisited")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("FinancialProjectId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("LastModified")
@@ -117,17 +139,47 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("Location")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Total")
-                        .HasColumnType("float");
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
 
                     b.HasKey("Id");
 
                     b.HasIndex("FinancialProjectId");
 
                     b.ToTable("Receipts");
+                });
+
+            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.ReceiptItem", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ItemGroup")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ReceiptId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReceiptId");
+
+                    b.ToTable("ReceiptItems");
                 });
 
             modelBuilder.Entity("CoolWebsite.Domain.Entities.Identity.ApplicationRole", b =>
@@ -332,6 +384,21 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.ApplicationUserReceiptItem", b =>
+                {
+                    b.HasOne("CoolWebsite.Domain.Entities.Identity.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CoolWebsite.Domain.Entities.Financial.ReceiptItem", "ReceiptItem")
+                        .WithMany("Users")
+                        .HasForeignKey("ReceiptItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.FinancialProjectApplicationUser", b =>
                 {
                     b.HasOne("CoolWebsite.Domain.Entities.Financial.FinancialProject", "FinancialProject")
@@ -347,10 +414,10 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.IndividualReceipt", b =>
+            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.IndividualReceiptObsolete", b =>
                 {
                     b.HasOne("CoolWebsite.Domain.Entities.Financial.Receipt", "Receipt")
-                        .WithMany("Receptors")
+                        .WithMany()
                         .HasForeignKey("ReceiptId");
 
                     b.HasOne("CoolWebsite.Domain.Entities.Identity.ApplicationUser", "User")
@@ -362,7 +429,16 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                 {
                     b.HasOne("CoolWebsite.Domain.Entities.Financial.FinancialProject", "FinancialProject")
                         .WithMany("Receipts")
-                        .HasForeignKey("FinancialProjectId");
+                        .HasForeignKey("FinancialProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.ReceiptItem", b =>
+                {
+                    b.HasOne("CoolWebsite.Domain.Entities.Financial.Receipt", null)
+                        .WithMany("Items")
+                        .HasForeignKey("ReceiptId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

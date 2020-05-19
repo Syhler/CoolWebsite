@@ -21,13 +21,13 @@ namespace Application.IntegrationTests.Financial.IndividualReceipts.Commands
                 Id = individualReceipt.Id
             };
 
-            var notDeleted = await FindAsync<IndividualReceipt>(individualReceipt.Id);
+            var notDeleted = await FindAsync<IndividualReceiptObsolete>(individualReceipt.Id);
 
             notDeleted.Should().NotBeNull();
             
             await SendAsync(deleteCommand);
 
-            var entity = await FindAsync<IndividualReceipt>(deleteCommand.Id);
+            var entity = await FindAsync<IndividualReceiptObsolete>(deleteCommand.Id);
 
             entity.Should().BeNull();
 
