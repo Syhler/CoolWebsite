@@ -33,6 +33,7 @@
           <e p="ReceiptItems" t="Include">
             <e p="Commands" t="Include">
               <e p="CreateReceiptItemsTests.cs" t="Include" />
+              <e p="DeleteReceiptItemsTests.cs" t="Include" />
             </e>
           </e>
           <e p="Receipts" t="Include">
@@ -300,9 +301,12 @@
               <e p="Commands" t="Include">
                 <e p="CreateReceiptItems" t="Include">
                   <e p="CreateReceiptItemCommand.cs" t="Include" />
-                  <e p="CreateReceiptItemValidator.cs" t="Include" />
+                  <e p="CreateReceiptItemCommandValidator.cs" t="Include" />
                 </e>
-                <e p="DeleteReceiptItems" t="Include" />
+                <e p="DeleteReceiptItems" t="Include">
+                  <e p="DeleteReceiptItemCommand.cs" t="Include" />
+                  <e p="DeleteReceiptItemCommandValidator.cs" t="Include" />
+                </e>
                 <e p="UpdateReceiptItems" t="Include" />
               </e>
             </e>

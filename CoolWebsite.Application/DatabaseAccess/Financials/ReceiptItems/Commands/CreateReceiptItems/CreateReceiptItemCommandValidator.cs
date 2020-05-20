@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems
 {
-    public class CreateReceiptItemValidator : AbstractValidator<CreateReceiptItemCommand>
+    public class CreateReceiptItemCommandValidator : AbstractValidator<CreateReceiptItemCommand>
     {
-        public CreateReceiptItemValidator()
+        public CreateReceiptItemCommandValidator()
         {
             RuleFor(x => x.Count)
                 .GreaterThanOrEqualTo(0);
