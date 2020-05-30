@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
@@ -39,6 +40,8 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             entity.Name.Should().Be(create.Name);
             entity.ItemGroup.Should().Be(create.ItemGroup);
             entity.ReceiptId.Should().Be(receiptId);
+            entity.CreatedBy.Should().Be(User.Id);
+            entity.Created.Should().BeCloseTo(DateTime.Now, 1000);
         }
 
         [Test]

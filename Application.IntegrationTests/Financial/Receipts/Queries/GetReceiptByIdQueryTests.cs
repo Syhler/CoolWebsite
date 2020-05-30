@@ -16,10 +16,8 @@ namespace Application.IntegrationTests.Financial.Receipts.Queries
         public async Task Handle_ValidReceiptId_ShouldReturnReceiptVm()
         {
             var receiptId = await CreateReceipt();
-            var user = await RunAsDefaultUserAsync();
+            //var user = await RunAsDefaultUserAsync();
 
-            await AddAsync(user);
-            
             
             var query = new GetReceiptByIdQueryVm
             {

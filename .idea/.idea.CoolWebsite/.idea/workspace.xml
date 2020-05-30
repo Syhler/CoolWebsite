@@ -20,13 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/ReceiptItems/Commands/DeleteReceiptItemsTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/DeleteReceiptItems/DeleteReceiptItemCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/DeleteReceiptItems/DeleteReceiptItemCommandValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/ReceiptItems/Commands/UpdateReceiptItemsTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/UpdateReceiptItems/UpdateReceiptItemCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/UpdateReceiptItems/UpdateReceiptItemCommandValidation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200530101340_addedAuddbleToReceiptItem.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200530101340_addedAuddbleToReceiptItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/ReceiptItems/Commands/CreateReceiptItemsTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/ReceiptItems/Commands/CreateReceiptItemsTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Queries/GetReceiptByIdQueryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Queries/GetReceiptByIdQueryTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/CoolWebsite.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/CoolWebsite.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/CreateReceiptItems/CreateReceiptItemValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/CreateReceiptItems/CreateReceiptItemCommandValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/ReceiptItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/ReceiptItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/SqlApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/SqlApplicationDbContextModelSnapshot.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +92,7 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Domain/Entities/Identity/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Auth/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200530101340_addedAuddbleToReceiptItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Home/Privacy.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Shared/_ValidationScriptsPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -97,7 +103,10 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Models/LoginViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Models/ErrorViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E407D4BA-C36C-45DA-982B-FD389A659F31/4/AutoMapperMappingException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Financial/ReceiptItems/Commands/UpdateReceiptItemsTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E407D4BA-C36C-45DA-982B-FD389A659F31/26/Extensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/UpdateReceiptItems/UpdateReceiptItemCommandValidation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/UpdateReceiptItems/UpdateReceiptItemCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8583D23B-1940-4A15-B09B-C5F90211FF8B/1/ConfigurationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/CreateReceipts/CreateReceiptsCommandValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/DeleteReceipts/DeleteReceiptsCommandValidator.cs" root0="FORCE_HIGHLIGHTING" />
@@ -228,9 +237,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/js/financial/home.js" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetAllFinancialProjectQuery.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectByIdQuery.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetFinancialProjectByIdQueryTests.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Home/Partial/FinancialProjectCard.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ProjectController.cs" />
@@ -259,7 +265,6 @@
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/CreateReceipts/CreateReceiptsCommand.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/ReceiptVm.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Common/FinancialTestBase.cs" />
-        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Queries/GetReceiptByIdQueryTests.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/CreateReceiptsTests.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Commands/DeleteFinancialProjectTests.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/GetReceiptByIdQueryVm.cs" />
@@ -270,15 +275,19 @@
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/d.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/Receipt.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/ReceiptItem.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Exceptions/ParentObjectNotFoundException.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/CreateReceiptItems/CreateReceiptItemCommand.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/CreateReceiptItems/CreateReceiptItemValidator.cs" />
-        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/ReceiptItems/Commands/CreateReceiptItemsTests.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/CreateReceiptItems/CreateReceiptItemCommandValidator.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/DeleteReceiptItems/DeleteReceiptItemCommand.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/DeleteReceiptItems/DeleteReceiptItemCommandValidator.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/ReceiptItems/Commands/DeleteReceiptItemsTests.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/UpdateReceiptItems/UpdateReceiptItemCommandValidation.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/UpdateReceiptItems/UpdateReceiptItemCommand.cs" />
+        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Queries/GetReceiptByIdQueryTests.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/ReceiptItem.cs" />
+        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/ReceiptItems/Commands/CreateReceiptItemsTests.cs" />
+        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/ReceiptItems/Commands/UpdateReceiptItemsTests.cs" />
       </list>
     </option>
   </component>
@@ -397,7 +406,9 @@
       <workItem from="1589810681905" duration="946000" />
       <workItem from="1589838213627" duration="765000" />
       <workItem from="1589904194399" duration="6582000" />
-      <workItem from="1589982815921" duration="611000" />
+      <workItem from="1589982815921" duration="4117000" />
+      <workItem from="1590600434063" duration="1203000" />
+      <workItem from="1590832997022" duration="871000" />
     </task>
     <servers />
   </component>
@@ -625,15 +636,15 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="841" y="435" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588276259049" />
-    <state x="-1136" y="86" width="947" height="1024" key="dock-window-1" timestamp="1589982920475">
+    <state x="-1136" y="86" width="947" height="1024" key="dock-window-1" timestamp="1590833493361">
       <screen x="-2560" y="0" width="2560" height="1440" />
     </state>
-    <state x="-1136" y="86" width="947" height="1024" key="dock-window-1/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1589982920475" />
+    <state x="-1136" y="86" width="947" height="1024" key="dock-window-1/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1590833493361" />
     <state x="2615" y="14" width="1110" height="1388" key="dock-window-1/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588343484599" />
-    <state x="2580" y="8" width="1950" height="1387" key="dock-window-2" timestamp="1589982920475">
+    <state x="2580" y="8" width="1950" height="1387" key="dock-window-2" timestamp="1590833493361">
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
-    <state x="2580" y="8" width="1950" height="1387" key="dock-window-2/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1589982920475" />
+    <state x="2580" y="8" width="1950" height="1387" key="dock-window-2/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1590833493361" />
     <state x="-1176" y="0" width="1192" height="1388" key="dock-window-2/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588343484599" />
     <state x="936" y="330" key="run.anything.popup" timestamp="1589463955702">
       <screen x="0" y="0" width="2560" height="1400" />

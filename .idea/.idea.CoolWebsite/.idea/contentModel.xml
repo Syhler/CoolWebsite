@@ -34,6 +34,7 @@
             <e p="Commands" t="Include">
               <e p="CreateReceiptItemsTests.cs" t="Include" />
               <e p="DeleteReceiptItemsTests.cs" t="Include" />
+              <e p="UpdateReceiptItemsTests.cs" t="Include" />
             </e>
           </e>
           <e p="Receipts" t="Include">
@@ -307,7 +308,10 @@
                   <e p="DeleteReceiptItemCommand.cs" t="Include" />
                   <e p="DeleteReceiptItemCommandValidator.cs" t="Include" />
                 </e>
-                <e p="UpdateReceiptItems" t="Include" />
+                <e p="UpdateReceiptItems" t="Include">
+                  <e p="UpdateReceiptItemCommand.cs" t="Include" />
+                  <e p="UpdateReceiptItemCommandValidation.cs" t="Include" />
+                </e>
               </e>
             </e>
             <e p="Receipts" t="Include">
@@ -394,6 +398,8 @@
             <e p="20200519164507_RemovedIndividualReceiptEntity.Designer.cs" t="Include" />
             <e p="20200519180731_AddedReceiptIdToReceiptItem.cs" t="Include" />
             <e p="20200519180731_AddedReceiptIdToReceiptItem.Designer.cs" t="Include" />
+            <e p="20200530101340_addedAuddbleToReceiptItem.cs" t="Include" />
+            <e p="20200530101340_addedAuddbleToReceiptItem.Designer.cs" t="Include" />
             <e p="SqlApplicationDbContextModelSnapshot.cs" t="Include" />
           </e>
         </e>

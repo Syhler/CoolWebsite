@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using CoolWebsite.Domain.Common;
 using CoolWebsite.Domain.Entities.Enums;
 
 namespace CoolWebsite.Domain.Entities.Financial
 {
-    public class ReceiptItem
+    public class ReceiptItem : AudibleEntity
     {
         public string Id { get; set; }
 
