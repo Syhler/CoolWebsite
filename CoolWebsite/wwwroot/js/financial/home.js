@@ -7,6 +7,7 @@
     
     const modal = $('#create-financial-project-modal')
 
+   
 
     modal.on('shown.bs.modal', function () 
     {
@@ -16,7 +17,7 @@
             success: function (data) 
             {
                 modal.append(data)
-                $('#financial-project-name').trigger('focus')
+                $('#financial_project_name').trigger('focus')
             },
             error: function (jqxhr, status, exception) {
                 alert('Exception: ' + exception);
@@ -33,6 +34,20 @@
     $(document).on("click",".remove-user",function () 
     {
         $(this).parent().remove()
+        
+        //add to dropdown box
+        const myOptions = {
+            val: $(this).parent().data("id"),
+            text: $(this).prev().text()
+        };
+
+        console.log(myOptions)
+        
+        const mySelect = $('#users-dropdown');
+        mySelect.append(new Option(myOptions.text, myOptions.val));
+
+
+       
     })
     
     modal.on("click","#add-user", function () {
@@ -49,8 +64,25 @@
     })
     
     $(document).on("click", "#create-financial-project", function () {
-        console.log("hehhee")
-        createFinancialProject();
+        $("#create-financial-project-modal-form").validate({
+            rules: {
+                financial_project_name: {
+                    required: true,
+                    maxlength: 100,
+                    minlength: 2
+                }
+            },
+            messages: {
+                financial_project_name: {
+                    required: "Please enter the project name",
+                    maxlength: "The name is too long (max 100 characters)",
+                    minlength: "Must have a minimum length of 2"
+                }
+            },
+            submitHandler: function () {
+                createFinancialProject()
+            }
+        })
     })
   
     
@@ -61,7 +93,7 @@
             url: config.createFinancialProjectURL,
             data: {
                 model:{
-                    Name: $("#financial-project-name").val(),
+                    Name: $("#financial_project_name").val(),
                     Users: getUsers()
                 }
             },
@@ -90,6 +122,7 @@
             "<td class=\"remove-user\"><a href=\"#\"  class=\"red\">Remove</a></td>" +
             "</tr>"
     }
+    
     
     
 })

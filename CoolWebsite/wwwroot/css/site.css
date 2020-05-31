@@ -40,6 +40,9 @@ a.navbar-brand {
   float: left;
 }
 
+.error {
+  color: red;
+}
 
 /* Sticky footer styles
 -------------------------------------------------- */

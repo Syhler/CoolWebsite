@@ -19,6 +19,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
     {
         private readonly IMapper _mapper;
         private readonly IApplicationDbContext _context;
+        private readonly ICurrentUserService _currentUser;
 
         public GetAllFinancialProjectQueryHandler(IApplicationDbContext context, IMapper mapper,
             ICurrentUserService currentUserService)
@@ -31,6 +32,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         public async Task<FinancialProjectsVm> Handle(GetAllFinancialProjectQuery request, CancellationToken cancellationToken)
         {
             var entity = _context.FinancialProjects
+                //.Where(x => x.FinancialProjectApplicationUsers.Any(y => y.UserId != _currentUser.UserID))
                 .Include(x => x.FinancialProjectApplicationUsers)
                 .Include(x => x.Receipts)
                 .OrderByDescending(x => x.LastModified.HasValue)
@@ -38,10 +40,13 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
                 .ThenByDescending(x => x.LastModified);
 
 
+            var projects = entity.ProjectTo<FinancialProjectDto>(_mapper.ConfigurationProvider).ToList();
+
+          
 
             return new FinancialProjectsVm
             {
-                FinancialProjects = entity.ProjectTo<FinancialProjectDto>(_mapper.ConfigurationProvider).ToList()
+                FinancialProjects = projects
             }; 
         }
     }

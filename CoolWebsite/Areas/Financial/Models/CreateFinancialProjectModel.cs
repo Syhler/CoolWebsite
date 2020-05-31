@@ -9,5 +9,8 @@ namespace CoolWebsite.Areas.Financial.Models
         public string Name { get; set; }
         public List<string> Users { get; set; }
         public List<SelectListItem>  UsersDropdown { get; set; }
+
+        public string CurrentUserName { get; set; }
+        public string CurrentUserId { get; set; }
     }
 }

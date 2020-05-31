@@ -30,7 +30,14 @@ namespace CoolWebsite.Infrastructure.Identity
         }
         public async Task<string> GetUserNameAsync(string userId)
         {
-            throw new System.NotImplementedException();
+            if (_userManager == null)
+            {
+                throw new IdentityObjectNotInitialized("UserManager");;
+            }
+
+            var result = await _userManager.FindByIdAsync(userId);
+
+            return result.FirstName + " " + result.LastName;
         }
 
         public async Task<(Result result, string userId)> CreateUserAsync(ApplicationUser user, string password)

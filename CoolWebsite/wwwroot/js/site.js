@@ -35,6 +35,9 @@ $(document).ready(function () {
             element.attr("hidden", true)
         }
     })
-    
+
+    $.validator.addMethod("maxlength", function (value, element, len) {
+        return value === "" || value.length <= len;
+    });
     
 });

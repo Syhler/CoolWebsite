@@ -9,11 +9,12 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <form >
+        <form role="form" id="create-financial-project-modal-form">
             <div class="modal-body">
                 <div class="form-group">
                     <label asp-for="Name">Project Name</label>
-                    <input class="form-control" id="financial-project-name" asp-for="Name" placeholder="Enter Project Name">
+                    <input class="form-control" name="financial_project_name" 
+                           id="financial_project_name" asp-for="Name" placeholder="Enter Project Name">
                     <small id="emailHelp" class="form-text text-muted">Wooow small help much help lmao.</small>
                 </div>
                 
@@ -38,6 +39,10 @@
                           </tr>
                         </thead>
                         <tbody id="user-table-body">
+                            <tr class="table-dark" data-id="@Model.CurrentUserId">
+                                <th >@Model.CurrentUserName</th>
+                                <td class="disabled grey">Remove</td>
+                            </tr>
                         </tbody>
                       </table> 
                         
@@ -47,8 +52,7 @@
             </div>
             
             <div class="modal-footer">
-                
-                <button type="button" id="create-financial-project" class="btn btn-primary">Save changes</button>
+                <button type="submit" id="create-financial-project" class="btn btn-primary">Save changes</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </form>
