@@ -31,37 +31,7 @@
     }) ;
     
     
-    $(document).on("click",".remove-user",function () 
-    {
-        $(this).parent().remove()
-        
-        //add to dropdown box
-        const myOptions = {
-            val: $(this).parent().data("id"),
-            text: $(this).prev().text()
-        };
-
-        console.log(myOptions)
-        
-        const mySelect = $('#users-dropdown');
-        mySelect.append(new Option(myOptions.text, myOptions.val));
-
-
-       
-    })
-    
-    modal.on("click","#add-user", function () {
-
-        const selected = $("#users-dropdown option:selected");
-        
-        if (selected.length === 0) return
-        
-        const userName = selected.text()
-        const userId = selected.val()
-        const row = getRow(userName, userId)
-        $("#user-table-body").append(row)
-        selected.remove()
-    })
+   
     
     $(document).on("click", "#create-financial-project", function () {
         $("#create-financial-project-modal-form").validate({
@@ -108,20 +78,15 @@
             
         })
     }
-    
-    function getUsers() 
+
+    function getUsers()
     {
         return $("#user-table-body tr").map(function () {
             return $(this).data("id");
         }).get();
     }
     
-    function getRow(name, value) {
-        return "<tr class=\"table-dark\" data-id=\""+value+"\">" +
-            "<th scope=\"row\">"+name+"</th>" +
-            "<td class=\"remove-user\"><a href=\"#\"  class=\"red\">Remove</a></td>" +
-            "</tr>"
-    }
+    
     
     
     

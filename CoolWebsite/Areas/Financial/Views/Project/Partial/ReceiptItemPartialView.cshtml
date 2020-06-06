@@ -1,0 +1,19 @@
+﻿@using System.Globalization
+@model CoolWebsite.Areas.Financial.Models.ReceiptItemModel
+
+
+<li class="list-group-item d-flex justify-content-between align-items-center">
+    @Model.Name
+    <div>
+        @foreach (var user in @Model.Users)
+        {
+            <span class="badge badge-success badge-pill" data-id="@user.Id">@user.Name</span>
+        }
+        <span class="badge badge-primary badge-pill">Type: @Model.Type</span>
+        <span class="badge badge-primary badge-pill">@Model.Price Kr Pr.</span>
+        <span class="badge badge-primary badge-pill">@Model.Count items</span>
+        <span class="badge badge-primary badge-pill">Total: <span id="receipt-item-total">@((Model.Price * Model.Count).ToString(CultureInfo.CurrentCulture))</span> Kr</span>
+        <span class="badge badge-warning badge-pill">Edit</span>
+        <span class="badge badge-danger badge-pill">Remove</span>
+    </div>
+</li>

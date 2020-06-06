@@ -1,0 +1,58 @@
+﻿@model CoolWebsite.Areas.Financial.Models.CreateReceiptItemVm
+
+
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Create new Financial Project</h5>
+            <button type="button" class="close red" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form role="form" id="create-receipt-item-modal-form" onsubmit="return false">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label asp-for="Name">Name</label>
+                    <input class="form-control" name="receipt_item_name"
+                           id="receipt-item-name" asp-for="Name" placeholder="Name of item">
+                    <small class="form-text text-muted">Just a name ?</small>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Count">Count</label>
+                    <select class="custom-select" id="count-dropdown" name="count_dropdown">
+                        <option selected="" value="">Select number of items</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Type">Type</label>
+                    <select asp-items="@Model.TypesSelectListItems" class="custom-select" id="types-dropdown" name="types_dropdown">
+                        <option value="" selected="selected">Select a type</option>
+                    </select>
+                    <small class="form-text text-muted">Generic group</small>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Price">Price</label>
+                    <input class="form-control" name="receipt_item_price"
+                           id="receipt-item-price" asp-for="Name" placeholder="Price for the individual item">
+                    <small class="form-text text-muted">The price per item</small>
+                </div>
+
+
+                @await Html.PartialAsync("AddUserPartialView", @Model.AddUserModel)
+
+            </div>
+            
+            <div class="modal-footer">
+                <button type="submit" id="create-receipt-item" class="btn btn-success">Save changes</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+            
+        </form>
+        
+    </div>
+</div>

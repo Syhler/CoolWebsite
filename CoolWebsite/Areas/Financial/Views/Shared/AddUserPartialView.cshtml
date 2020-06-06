@@ -1,0 +1,46 @@
+﻿@model CoolWebsite.Areas.Financial.Models.AddUserModel
+
+
+
+<div class="form-row mt-3">
+    <div class="form-group col-md-7">
+        <select asp-items="@Model.UserSelectListItems" id="users-dropdown" class="form-control">
+        </select>
+    </div>
+    <div class="form-group col-md">
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-success form-control" type="button" id="add-user">Add</button>
+
+            </div>
+            <div class="col">
+                <button class="btn btn-success form-control" type="button" id="add-all-users">Add All</button>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="card border-success">
+    <div class="card-header">Users Added</div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Remove</th>
+            </tr>
+            </thead>
+            <tbody id="user-table-body">
+            @if (!string.IsNullOrWhiteSpace(Model.CurrentUserId) && !string.IsNullOrWhiteSpace(Model.CurrentUserName))
+            {
+                <tr class="table-dark" data-id="@Model.CurrentUserId">
+                    <th>@Model.CurrentUserName</th>
+                    <td class="disabled grey">Remove</td>
+                </tr>
+            }
+            
+            </tbody>
+        </table>
+    </div>
+</div>

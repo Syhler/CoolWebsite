@@ -7,6 +7,7 @@ using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.CreateFinancialProject;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.DeleteFinancialProject;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects;
+using CoolWebsite.Areas.Financial.Common;
 using CoolWebsite.Areas.Financial.Models;
 using CoolWebsite.Areas.UserManagement.Models;
 using CoolWebsite.Domain.Entities.Identity;
@@ -66,9 +67,12 @@ namespace CoolWebsite.Areas.Financial.Controller
         {
             var model = new CreateFinancialProjectModel
             {
-                UsersDropdown = CreateSelectedList(_identity.GetUsers()),
-                CurrentUserName = await _identity.GetUserNameAsync(_currentUserService.UserID),
-                CurrentUserId = _currentUserService.UserID
+                AddUserModel = new AddUserModel
+                {
+                    UserSelectListItems = SelectListHandler.CreateFromUsers(_identity.GetUsers().ToList(), _currentUserService.UserID),
+                    CurrentUserName = await _identity.GetUserNameAsync(_currentUserService.UserID),
+                    CurrentUserId = _currentUserService.UserID
+                }
             };
             
             return PartialView("Partial/CreateFinancialProjectModal", model);
@@ -94,26 +98,7 @@ namespace CoolWebsite.Areas.Financial.Controller
         }
         
         
-        private List<SelectListItem> CreateSelectedList(IQueryable<ApplicationUser> models)
-        {
-            var listOfSelectedItem = new List<SelectListItem>();
-
-            foreach (var user in models)
-            {
-                if (user.Id == _currentUserService.UserID)
-                {
-                    continue;
-                }
-                
-                listOfSelectedItem.Add(new SelectListItem
-                {
-                    Value = user.Id,
-                    Text = user.FirstName +" " + user.LastName
-                });
-            }
-
-            return listOfSelectedItem;
-        }
+       
 
     }
 }

@@ -9,13 +9,16 @@
     <link rel="stylesheet" href="~/css/Main/MainLayout.css"/>
     <link rel="stylesheet" href="~/css/Main/navbar-fixed-left.min.css"/>
     <link rel="stylesheet" href="~/css/Main/Sidebar.css"/>
-    @RenderSection("StyleSheets", false)
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/lib/jquery-ui-1.12.1/jquery-ui.min.css" />
+
+    @await RenderSectionAsync("StyleSheets", false)
 </head>
 <body>
 <header>
-  
-   @Html.Partial("Sidebar")
- 
+
+    @await Html.PartialAsync("Sidebar")
+
 </header>
 
 <div class="container">
@@ -24,17 +27,13 @@
     </div>
 </div>
 
-@*
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - CoolWebsite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    *@
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-<script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/lib/moment.js"></script>
+<script type="text/javascript" src="~/lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="~/js/JQueryValidationCustomMethods.js"></script>
+
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

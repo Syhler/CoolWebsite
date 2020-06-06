@@ -10,6 +10,7 @@
             data-target="#create-financial-project-modal">
         CREATE PROJECT
     </button>
+    
     <div id="project-cards">
     @{
         foreach (var financialProject in @Model.FinancialProjects)
@@ -29,5 +30,6 @@
 
 @section Scripts
 {
-    <script src="~/js/financial/home.js" type="text/javascript" asp-append-version="true"></script>
+        <script src="~/js/financial/common.js" type="text/javascript" asp-append-version="true"></script>
+        <script src="~/js/financial/home.js" type="text/javascript" asp-append-version="true"></script>
 }

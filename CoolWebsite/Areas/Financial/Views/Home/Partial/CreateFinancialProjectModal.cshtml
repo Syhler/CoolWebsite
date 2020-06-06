@@ -5,7 +5,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">Create new Financial Project</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close red" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
@@ -17,38 +17,10 @@
                            id="financial_project_name" asp-for="Name" placeholder="Enter Project Name">
                     <small id="emailHelp" class="form-text text-muted">Wooow small help much help lmao.</small>
                 </div>
-                
-                <div class="form-row mt-3">
-                    <div class="form-group col-md-7">
-                        <label for="users-dropdown">Users</label>
-                        <select asp-items="@Model.UsersDropdown" id="users-dropdown" class="form-control">
-                        </select>
-                    </div>
-                    <div class="form-group col-md-2 ">
-                        <button class="btn btn-success form-control" type="button" id="add-user">Add</button>
-                    </div>
-                </div>
-                <div class="card border-success">
-                  <div class="card-header">Users Added</div>
-                    <div class="card-body">
-                      <table class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Remove</th>
-                          </tr>
-                        </thead>
-                        <tbody id="user-table-body">
-                            <tr class="table-dark" data-id="@Model.CurrentUserId">
-                                <th >@Model.CurrentUserName</th>
-                                <td class="disabled grey">Remove</td>
-                            </tr>
-                        </tbody>
-                      </table> 
-                        
-                    </div>
-                    
-                </div>
+
+
+                @await Html.PartialAsync("AddUserPartialView", @Model.AddUserModel)
+
             </div>
             
             <div class="modal-footer">

@@ -1,0 +1,97 @@
+﻿@using CoolWebsite.Areas.Financial.Models
+@model CoolWebsite.Areas.Financial.Models.CreateReceiptModel
+
+@{
+    ViewBag.Title = "Create Receipt";
+    Layout = "_Layout";
+}
+
+<div class="mt-5">
+    <h2>Here will you be avaible to create a receipt</h2>
+    <form > @*asp-area="Financial" asp-controller="Project" asp-action="CreateReceiptPost" method="post"*@
+        <input asp-for="FinancialProjectId" type="hidden" id="financial-project-id"/>
+
+        <div class="form-group">
+            <label asp-for="Location">Location</label>
+            <input class="form-control" name="location" id="location" asp-for="Location" placeholder="Enter Location Name">
+            <small class="form-text text-muted">Name of the shop you visited</small>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Note">Note</label>
+            <textarea class="form-control" name="note" id="note" asp-for="Note" placeholder="Enter a note here"></textarea>
+            <small class="form-text text-muted">A note about the receipt</small>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group date" data-provide="datepicker">
+                <input asp-for="DateVisited" type="text" class="form-control" id="datepicker">
+                <div class="input-group-addon">
+                    <i class="glyphicon glyphicon-asterisk"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            
+            <button class="btn btn-success" type="button" id="add-receipt-item"
+                    data-target="#create-receipt-item-modal"
+                    data-toggle="modal">
+                Add Item
+            </button>
+
+            <div id="receipt-item-cards" class="mt-4">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-header">
+                        Receipt Item List
+                        <small class="form-text text-muted">Name of the shop you visited</small>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                           
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge badge-primary badge-pill float-right">Total: <span id="all-receipt-items-total-price">0</span> Kr</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-danger">Back</button>
+        <button type="submit" class="btn btn-success" id="create-receipt-button">Create</button> @*FORM get sumbitted via ajax /Financial/project.js*@
+    </form>
+
+
+</div>
+
+<div class="modal" id="create-receipt-item-modal">
+    @*Partial view gets called*@
+</div>
+
+<script>
+$(document).ready(function() {
+    
+    window.onbeforeunload = function(){
+              return 'Are you sure you want to leave?';
+          };
+    
+     $(window).data('beforeunload',window.onbeforeunload);  
+    
+          //remove||re-assign onbeforeunload on hover 
+        $('#create-receipt-button')
+          .hover( 
+                 function(){window.onbeforeunload=null;},
+                 function(){window.onbeforeunload=$(window).data('beforeunload');}
+                );
+        
+    
+  
+})
+</script>
+
+@section Scripts
+{
+    <script src="~/js/financial/common.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="~/js/financial/project.js" type="text/javascript" asp-append-version="true"></script>
+}
