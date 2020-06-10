@@ -26,7 +26,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             {
                 ReceiptId = receiptId,
                 Price = 2,
-                ItemGroup = ItemGroup.Accompaniment,
+                ItemGroup = (int)ItemGroup.Essentials,
                 Count = 22,
                 Name = "das"
             };
@@ -37,7 +37,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             var updateCommand = new UpdateReceiptItemCommand
             {
                 Count = 1235,
-                ItemGroup = ItemGroup.Meat,
+                ItemGroup = (int)ItemGroup.Miscellaneous,
                 Name = "not even a name lmao",
                 Price = 231.32321,
                 ReceiptItemId = id
@@ -62,7 +62,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             var updateCommand = new UpdateReceiptItemCommand
             {
                 Count = 1235,
-                ItemGroup = ItemGroup.Meat,
+                ItemGroup = (int)ItemGroup.Essentials,
                 Name = "not even a name lmao",
                 Price = 231.32321,
                 ReceiptItemId = "asdasdas"
@@ -78,7 +78,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             var updateCommand = new UpdateReceiptItemCommand
             {
                 Count = -1235,
-                ItemGroup = ItemGroup.Meat,
+                ItemGroup = (int)ItemGroup.Essentials,
                 Name = "not even a name lmao",
                 Price = 231.32321,
                 ReceiptItemId = "dont even matter lmao"
@@ -93,7 +93,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             var updateCommand = new UpdateReceiptItemCommand
             {
                 Count = 1235,
-                ItemGroup = ItemGroup.Meat,
+                ItemGroup = (int)ItemGroup.Essentials,
                 Name = "",
                 Price = 231.32321,
                 ReceiptItemId = "dont even matter lmao"
@@ -109,7 +109,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             var updateCommand = new UpdateReceiptItemCommand
             {
                 Count = 1235,
-                ItemGroup = ItemGroup.Meat,
+                ItemGroup = (int)ItemGroup.Essentials,
                 Name = "asd",
                 Price = -231.32321,
                 ReceiptItemId = "dont even matter lmao"
@@ -140,7 +140,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             var updateCommand = new UpdateReceiptItemCommand
             {
                 Count = 1235,
-                ItemGroup = ItemGroup.Meat,
+                ItemGroup = (int)ItemGroup.Essentials,
                 Name = "asd",
                 Price = 231.32321
             };

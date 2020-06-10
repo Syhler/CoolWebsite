@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Domain.Entities.Enums;
 using CoolWebsite.Domain.Entities.Financial;
+using CoolWebsite.Domain.Entities.Identity;
 using MediatR;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems
@@ -14,19 +17,22 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
         public string Name { get; set; }
         public int Count { get; set; }
         public double Price { get; set; }
-        public ItemGroup ItemGroup { get; set; }
-
+        public int ItemGroup { get; set; }
         public string ReceiptId { get; set; }
+
+        public List<string> UsersId { get; set; }
 
     }
 
     public class CreateReceiptItemCommandHandler : IRequestHandler<CreateReceiptItemCommand, string>
     {
         private readonly IApplicationDbContext _context;
+        private readonly IIdentityService _identity;
 
-        public CreateReceiptItemCommandHandler(IApplicationDbContext context, ICurrentUserService service)
+        public CreateReceiptItemCommandHandler(IApplicationDbContext context, ICurrentUserService service, IIdentityService identity)
         {
             _context = context;
+            _identity = identity;
             _context.UserId = service.UserID;
         }
 
@@ -39,15 +45,30 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
             {
                 throw new ParentObjectNotFoundException(nameof(Receipt), request.ReceiptId);
             }
+
+            var id = Guid.NewGuid().ToString();
+
+
+            var users = new List<ApplicationUserReceiptItem>();
+
+            foreach (var user in request.UsersId)
+            {
+                users.Add(new ApplicationUserReceiptItem
+                {
+                    ApplicationUserId = user,
+                    ReceiptItemId = id
+                });
+            }
             
             var entity = new ReceiptItem
             {
+                Id = id,
                 Name = request.Name,
                 Count = request.Count,
                 Price = request.Price,
-                ItemGroup = request.ItemGroup,
-                Id = Guid.NewGuid().ToString(),
-                ReceiptId = request.ReceiptId
+                ItemGroup = (ItemGroup)request.ItemGroup,
+                ReceiptId = request.ReceiptId,
+                Users = users
             };
 
             await _context.ReceiptItems.AddAsync(entity, cancellationToken);
@@ -57,5 +78,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
 
             return entity.Id;
         }
+
+       
     }
 }

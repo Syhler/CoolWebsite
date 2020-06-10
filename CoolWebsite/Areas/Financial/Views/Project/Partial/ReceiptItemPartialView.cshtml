@@ -2,17 +2,21 @@
 @model CoolWebsite.Areas.Financial.Models.ReceiptItemModel
 
 
-<li class="list-group-item d-flex justify-content-between align-items-center">
-    @Model.Name
+<li class="list-group-item d-flex justify-content-between align-items-center receipt-item">
     <div>
         @foreach (var user in @Model.Users)
         {
-            <span class="badge badge-success badge-pill" data-id="@user.Id">@user.Name</span>
+            <span class="badge badge-success badge-pill badge-receipt-item-user" data-id="@user.Id">@user.Name</span>
         }
-        <span class="badge badge-primary badge-pill">Type: @Model.Type</span>
-        <span class="badge badge-primary badge-pill">@Model.Price Kr Pr.</span>
-        <span class="badge badge-primary badge-pill">@Model.Count items</span>
-        <span class="badge badge-primary badge-pill">Total: <span id="receipt-item-total">@((Model.Price * Model.Count).ToString(CultureInfo.CurrentCulture))</span> Kr</span>
+
+    </div>
+
+    <div>
+
+        <span class="badge badge-primary badge-pill">Type: <span data-id="@Model.Type.Value" class="badge-receipt-item-type">@Model.Type.Name</span></span>
+        <span class="badge badge-primary badge-pill"><span class="badge-receipt-item-price">@Model.Price</span> Kr Pr.</span>
+        <span class="badge badge-primary badge-pill"><span class="badge-receipt-item-count">@Model.Count</span> items</span>
+        <span class="badge badge-primary badge-pill">Total: <span class="badge-receipt-item-total">@((Model.Price * Model.Count).ToString(CultureInfo.CurrentCulture))</span> Kr</span>
         <span class="badge badge-warning badge-pill">Edit</span>
         <span class="badge badge-danger badge-pill">Remove</span>
     </div>

@@ -79,4 +79,33 @@ colors
     color: grey;
 }
 
+/*
+MODAL
+ */
+
+.override-padding-left-right-10
+{
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.override-padding-left-right-2
+{
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+}
+
+.type-button:focus
+{
+    outline: none!important;
+    box-shadow: none!important;
+}
+
+.count-button:focus{
+    outline: none!important;
+    box-shadow: none !important;
+}
+
+
+
 

@@ -51,8 +51,9 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
                 throw new NotFoundException(nameof(FinancialProject) + " (multiple objects found)", request.ProjectId);
             }
             
-            
-            return entity.ProjectTo<FinancialProjectDto>(_mapper.ConfigurationProvider).First();
+            var mapped = entity.ProjectTo<FinancialProjectDto>(_mapper.ConfigurationProvider).First();
+
+            return mapped;
         }
     }
 }

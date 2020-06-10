@@ -8,7 +8,8 @@
 
 <div class="mt-5">
     <h2>Here will you be avaible to create a receipt</h2>
-    <form > @*asp-area="Financial" asp-controller="Project" asp-action="CreateReceiptPost" method="post"*@
+    <form id="create-receipt-form">
+        @*asp-area="Financial" asp-controller="Project" asp-action="CreateReceiptPost" method="post"*@
         <input asp-for="FinancialProjectId" type="hidden" id="financial-project-id"/>
 
         <div class="form-group">
@@ -25,7 +26,7 @@
 
         <div class="form-group">
             <div class="input-group date" data-provide="datepicker">
-                <input asp-for="DateVisited" type="text" class="form-control" id="datepicker">
+                <input asp-for="DateVisited" type="text" name="DateVisited" class="form-control" id="datepicker">
                 <div class="input-group-addon">
                     <i class="glyphicon glyphicon-asterisk"></i>
                 </div>
@@ -33,7 +34,7 @@
         </div>
 
         <div class="mt-5">
-            
+
             <button class="btn btn-success" type="button" id="add-receipt-item"
                     data-target="#create-receipt-item-modal"
                     data-toggle="modal">
@@ -48,13 +49,15 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
-                           
+
                         </ul>
                     </div>
                     <div class="card-footer">
+                        <label id='receipt-item-none-error' class="red" style="display: none">You must add at least one receipt item</label>
                         <span class="badge badge-primary badge-pill float-right">Total: <span id="all-receipt-items-total-price">0</span> Kr</span>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -71,7 +74,7 @@
 
 <script>
 $(document).ready(function() {
-    
+    @*
     window.onbeforeunload = function(){
               return 'Are you sure you want to leave?';
           };
@@ -85,7 +88,8 @@ $(document).ready(function() {
                  function(){window.onbeforeunload=$(window).data('beforeunload');}
                 );
         
-    
+    *@
+    @*TODO(REMEBER TO UNCOMMET BEFOR RELEASE)*@
   
 })
 </script>

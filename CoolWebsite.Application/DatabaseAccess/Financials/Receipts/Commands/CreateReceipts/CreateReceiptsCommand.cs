@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Domain.Entities.Financial;
 using MediatR;
 
-namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts
+namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts
 {
     public class CreateReceiptsCommand : IRequest<string>
     {
@@ -16,6 +15,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.Cre
         public string Title { get; set; }
 
         public DateTime BoughtAt { get; set; }
+        public string Note { get; set; }
 
     }
 
@@ -39,6 +39,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.Cre
                 Id = Guid.NewGuid().ToString(),
                 DateVisited = request.BoughtAt,
                 Location = request.Title,
+                Note = request.Note
             };
 
             await _context.Receipts.AddAsync(entity, cancellationToken);

@@ -18,6 +18,7 @@ namespace CoolWebsite.Areas.Financial.Models
 
         //not sure
         public List<string> Users { get; set; }
+        
         public List<SelectListItem>  UsersDropdown { get; set; }
     }
 }

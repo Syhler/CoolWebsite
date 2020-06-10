@@ -23,7 +23,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             {
                 ReceiptId = receiptId,
                 Price = 2,
-                ItemGroup = ItemGroup.Accompaniment,
+                ItemGroup = (int)ItemGroup.Essentials,
                 Count = 22,
                 Name = "das"
             };

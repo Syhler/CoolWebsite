@@ -22,6 +22,10 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
 
             RuleFor(x => x.ReceiptId)
                 .NotEmpty();
+
+            RuleFor(x => x.UsersId)
+                .NotNull()
+                .NotEmpty();
         }
     }
 }

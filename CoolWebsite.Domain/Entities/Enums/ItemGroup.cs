@@ -2,14 +2,11 @@
 {
     public enum ItemGroup
     {
-        Essential,
-        Candy,
-        SoftDrink,
-        EnergyDrink,
-        Meat,
-        Greens,
-        Extra,
-        Accompaniment
+        Sweets,
+        Essentials,
+        Miscellaneous,
+        Unknown
+        
         
     }
 }

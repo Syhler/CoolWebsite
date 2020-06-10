@@ -350,6 +350,7 @@
                   <e p="Models" t="Include">
                     <e p="FinancialProjectDto.cs" t="Include" />
                     <e p="FinancialProjectsVm.cs" t="Include" />
+                    <e p="ReceiptItemDto.cs" t="Include" />
                     <e p="ReceiptsDto.cs" t="Include" />
                   </e>
                 </e>

@@ -13,7 +13,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
         public string Name { get; set; }
         public int Count { get; set; }
         public double Price { get; set; }
-        public ItemGroup ItemGroup { get; set; }
+        public int ItemGroup { get; set; }
 
         public string ReceiptItemId { get; set; }
     }
@@ -41,7 +41,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
 
             entity.Count = request.Count;
             entity.Price = request.Price;
-            entity.ItemGroup = request.ItemGroup;
+            entity.ItemGroup = (ItemGroup)request.ItemGroup;
             entity.Name = request.Name;
 
             await _context.SaveChangesAsync(cancellationToken);

@@ -1,13 +1,18 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
+using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
+using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries;
+using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Areas.Financial.Common;
 using CoolWebsite.Areas.Financial.Models;
 using CoolWebsite.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace CoolWebsite.Areas.Financial.Controller
 {
@@ -27,13 +32,17 @@ namespace CoolWebsite.Areas.Financial.Controller
         {
             var query = new GetFinancialProjectByIdQuery {ProjectId = id};
             var model = await Mediator.Send(query);
+            
+            
+            /*
             model.Receipts.Add(new ReceiptsDto {Location = "hej"});
             model.Receipts.Add(new ReceiptsDto {Location = "hej"});
             model.Receipts.Add(new ReceiptsDto {Location = "hej"});
             model.Receipts.Add(new ReceiptsDto {Location = "hej"});
             model.Receipts.Add(new ReceiptsDto {Location = "hej"});
             model.Receipts.Add(new ReceiptsDto {Location = "hej"});
-
+*/
+            
 
             return View(model);
         }
@@ -53,7 +62,35 @@ namespace CoolWebsite.Areas.Financial.Controller
         [HttpPost]
         public async Task<IActionResult> CreateReceiptPost(CreateReceiptModel model)
         {
-            return RedirectToAction("Index", new {id = model.FinancialProjectId});
+            
+            var command = new CreateReceiptsCommand
+            {
+                Total = model.ReceiptItemModels.Select(x => x.Price).Sum(),
+                BoughtAt = model.DateVisited,
+                FinancialProjectId = model.FinancialProjectId,
+                Title = model.Location,
+                Note = model.Note
+            };
+
+            var receiptId = await Mediator.Send(command);
+
+            foreach (var receiptItemModel in model.ReceiptItemModels)
+            {
+                var createReceiptItemCommand = new CreateReceiptItemCommand
+                {
+                    Name = "Receipt",
+                    Count = receiptItemModel.Count,
+                    ItemGroup = receiptItemModel.Type.Value,
+                    ReceiptId = receiptId,
+                    Price = receiptItemModel.Price,
+                    UsersId = receiptItemModel.Users.Select(x => x.Id).ToList()
+                };
+
+                await Mediator.Send(createReceiptItemCommand);
+            }
+            
+            //redirect to index
+            return Json(new {result = "Redirect", url = Url.Action("Index", "Project", new {id = model.FinancialProjectId})});
         }
 
         [HttpGet]

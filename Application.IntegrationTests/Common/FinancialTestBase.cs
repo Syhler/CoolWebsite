@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.CreateFinancialProject;
+using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Areas.UserManagement.Models;
 using CoolWebsite.Domain.Entities.Financial;
 using CoolWebsite.Domain.Entities.Identity;
@@ -47,7 +48,8 @@ namespace Application.IntegrationTests.Common
                 FinancialProjectId = projectId,
                 Total = 0,
                 Title = "Title",
-                BoughtAt = DateTime.Now
+                BoughtAt = DateTime.Now,
+                
             };
 
             return await SendAsync(createCommand);

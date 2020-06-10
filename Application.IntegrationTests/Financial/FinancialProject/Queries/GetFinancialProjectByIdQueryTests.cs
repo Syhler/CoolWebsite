@@ -6,6 +6,8 @@ using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.CreateFinancialProject;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects;
+using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems;
+using CoolWebsite.Domain.Entities.Enums;
 using CoolWebsite.Domain.Entities.Identity;
 using FluentAssertions;
 using NUnit.Framework;
@@ -29,9 +31,28 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
                     User
                 }
             };
-
+            
             var project = await SendAsync(createCommand);
 
+
+            var receiptId = await CreateReceipt(project.Id);
+            
+            var receiptItemCommand = new CreateReceiptItemCommand
+            {
+                Count = 5,
+                Price = 2,
+                Name = "test",
+                ItemGroup = (int) ItemGroup.Essentials,
+                ReceiptId = receiptId,
+                UsersId = new List<string> {User.Id}
+            };
+
+            var receiptItemId = await SendAsync(receiptItemCommand);
+            
+            
+            
+            
+            
             var query = new GetFinancialProjectByIdQuery
             {
                 ProjectId = project.Id
@@ -40,6 +61,11 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
             var model = await SendAsync(query);
 
             model.Should().NotBeNull();
+            model.Receipts.First().Id.Should().Be(receiptId);
+            model.Receipts.First().Location.Should().Be("Title");
+            model.Receipts.First().DateVisited.Should().BeCloseTo(DateTime.Now, 10000);
+            model.Receipts.First().Item.First().Id.Should().Be(receiptItemId);
+            model.Receipts.First().Item.First().Users.First().ApplicationUserId.Should().Be(User.Id);
             model.Id.Should().Be(project.Id);
             model.Created.Should().BeCloseTo(DateTime.Now, 1000);
             model.Users.First().Id.Should().Be(User.Id);

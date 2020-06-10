@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts;
+using FluentValidation;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts
 {

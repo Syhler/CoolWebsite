@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using CoolWebsite.Application.Common.Mapping;
 using CoolWebsite.Domain.Entities.Financial;
@@ -12,9 +13,12 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         public DateTime DateVisited { get; set; }
 
 
+        public ICollection<ReceiptItemDto> Item{ get; set; }
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Receipt, ReceiptsDto>();
+            profile.CreateMap<Receipt, ReceiptsDto>()
+                .ForMember(x => x.Item, 
+                    opt => opt.MapFrom(x => x.Items));
         }
     }
 }

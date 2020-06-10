@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
@@ -7,6 +9,7 @@ using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.Cr
 using CoolWebsite.Domain.Entities.Enums;
 using CoolWebsite.Domain.Entities.Financial;
 using FluentAssertions;
+using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
 namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
@@ -26,19 +29,26 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Count = 5,
                 Price = 2,
                 Name = "test",
-                ItemGroup = ItemGroup.Meat,
-                ReceiptId = receiptId
+                ItemGroup = (int)ItemGroup.Essentials,
+                ReceiptId = receiptId,
+                UsersId = new List<string>{User.Id}
             };
 
             var id = await SendAsync(create);
 
-            var entity = await FindAsync<ReceiptItem>(id);
+            var context = Context();
+            var entity = await context.ReceiptItems.Include(x => x.Users)
+                .FirstOrDefaultAsync(x => x.Id == id);
 
+            
+            
             entity.Should().NotBeNull();
             entity.Count.Should().Be(create.Count);
             entity.Price.Should().Be(create.Price);
             entity.Name.Should().Be(create.Name);
             entity.ItemGroup.Should().Be(create.ItemGroup);
+            entity.Users.First().ApplicationUserId.Should().Be(User.Id);
+            entity.Users.First().ReceiptItemId.Should().Be(id);
             entity.ReceiptId.Should().Be(receiptId);
             entity.CreatedBy.Should().Be(User.Id);
             entity.Created.Should().BeCloseTo(DateTime.Now, 1000);
@@ -52,8 +62,9 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Count = 5,
                 Price = 2,
                 Name = "",
-                ItemGroup = ItemGroup.Meat,
-                ReceiptId = "asdsa"
+                ItemGroup = (int)ItemGroup.Essentials,
+                ReceiptId = "asdsa",
+                UsersId = new List<string>{User.Id}
             };
             
             FluentActions.Awaiting(() => SendAsync(create)).Should().Throw<ValidationException>();
@@ -67,8 +78,9 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Count = 5,
                 Price = -2,
                 Name = "sds",
-                ItemGroup = ItemGroup.Meat,
-                ReceiptId = "asdsa"
+                ItemGroup = (int)ItemGroup.Essentials,
+                ReceiptId = "asdsa",
+                UsersId = new List<string>{User.Id}
             };
             
             FluentActions.Awaiting(() => SendAsync(create)).Should().Throw<ValidationException>();
@@ -82,8 +94,9 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Count = -5,
                 Price = 2,
                 Name = "sds",
-                ItemGroup = ItemGroup.Meat,
-                ReceiptId = "asdsa"
+                ItemGroup = (int)ItemGroup.Essentials,
+                ReceiptId = "asdsa",
+                UsersId = new List<string>{User.Id}
             };
             
             FluentActions.Awaiting(() => SendAsync(create)).Should().Throw<ValidationException>();
@@ -97,7 +110,8 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Count = 2,
                 Price = 2,
                 Name = "sds",
-                ReceiptId = "asdsa"
+                ReceiptId = "asdsa",
+                UsersId = new List<string>{User.Id}
             };
             
             FluentActions.Awaiting(() => SendAsync(create)).Should().Throw<ValidationException>();
@@ -113,7 +127,9 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Price = 2,
                 Name = "sds",
                 ReceiptId = "",
-                ItemGroup = ItemGroup.Meat
+                ItemGroup = (int)ItemGroup.Essentials,
+                UsersId = new List<string>{User.Id}
+                
             };
             
             FluentActions.Awaiting(() => SendAsync(create)).Should().Throw<ValidationException>();
@@ -128,11 +144,45 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Price = 2,
                 Name = "sds",
                 ReceiptId = "asdsa",
-                ItemGroup = ItemGroup.Meat
+                ItemGroup = (int)ItemGroup.Essentials,
+                UsersId = new List<string>{User.Id}
             };
 
             FluentActions.Awaiting(() => SendAsync(create)).Should().Throw<ParentObjectNotFoundException>();
         }
+
+        [Test]
+        public void Handle_UserIdsNull_ThrowValidationException()
+        {
+            var create = new CreateReceiptItemCommand
+            {
+                Count = 2,
+                Price = 2,
+                Name = "sds",
+                ReceiptId = "asdsa",
+                ItemGroup = (int)ItemGroup.Essentials
+            };
+
+            FluentActions.Awaiting(() => SendAsync(create)).Should().Throw<ValidationException>();
+        }
+        
+        [Test]
+        public void Handle_UserIdsEmpty_ThrowValidationException()
+        {
+            var create = new CreateReceiptItemCommand
+            {
+                Count = 2,
+                Price = 2,
+                Name = "sds",
+                ReceiptId = "asdsa",
+                ItemGroup = (int)ItemGroup.Essentials,
+                UsersId = new List<string>()
+            };
+
+            FluentActions.Awaiting(() => SendAsync(create)).Should().Throw<ValidationException>();
+        }
+        
+        
         
     }
 }
