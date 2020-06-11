@@ -17,7 +17,7 @@
         <span class="badge badge-primary badge-pill"><span class="badge-receipt-item-price">@Model.Price</span> Kr Pr.</span>
         <span class="badge badge-primary badge-pill"><span class="badge-receipt-item-count">@Model.Count</span> items</span>
         <span class="badge badge-primary badge-pill">Total: <span class="badge-receipt-item-total">@((Model.Price * Model.Count).ToString(CultureInfo.CurrentCulture))</span> Kr</span>
-        <span class="badge badge-warning badge-pill">Edit</span>
-        <span class="badge badge-danger badge-pill">Remove</span>
+        <span class="badge badge-warning badge-pill"><a href="#">Edit</a></span>
+        <span class="badge badge-danger badge-pill"><a href="#" class="remove-receipt-item">Remove</a></span>
     </div>
 </li>

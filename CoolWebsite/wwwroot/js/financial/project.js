@@ -37,6 +37,11 @@ $(document).ready(function () {
         })
     })
 
+    $(document).on("click", ".remove-receipt-item", function () {
+        console.log("We shilling")
+        $(this).parent().parent().parent().remove()
+    })
+    
     $(document).on("click", "#create-receipt-item", function () {
         //Validate
         validateReceiptItemModal(function () {
