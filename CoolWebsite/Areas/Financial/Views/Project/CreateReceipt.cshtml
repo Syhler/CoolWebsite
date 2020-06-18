@@ -1,4 +1,5 @@
 ﻿@using CoolWebsite.Areas.Financial.Models
+@using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries.Models
 @model CoolWebsite.Areas.Financial.Models.CreateReceiptModel
 
 @{
@@ -49,7 +50,25 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
-
+                            @{
+                                /*
+                                await Html.RenderPartialAsync("Partial/ReceiptItemPartialView", new ReceiptItemModel
+                                {
+                                    Count = 1,
+                                    Price = 231,
+                                    Type = new ItemGroupDto
+                                    {
+                                        Name = "type",
+                                        Value = 1
+                                    },
+                                    Users = new List<UserModel>(new []{new UserModel
+                                    {
+                                        Id = "test",
+                                        Name = "meeh"
+                                    } })
+                                });
+                                */
+                            }
                         </ul>
                     </div>
                     <div class="card-footer">
@@ -61,7 +80,7 @@
             </div>
         </div>
 
-        <button type="button" class="btn btn-danger">Back</button>
+        <a type="button" class="btn btn-danger" asp-action="Index" asp-controller="Project" asp-route-id="@Model.FinancialProjectId">Back</a>
         <button type="submit" class="btn btn-success" id="create-receipt-button">Create</button> @*FORM get sumbitted via ajax /Financial/project.js*@
     </form>
 
@@ -70,6 +89,9 @@
 
 <div class="modal" id="create-receipt-item-modal">
     @*Partial view gets called*@
+    @{
+        await Html.RenderPartialAsync("Partial/CreateReceiptItemModal", @Model.CreateReceiptItemVm);
+    }
 </div>
 
 <script>
@@ -89,7 +111,7 @@ $(document).ready(function() {
                 );
         
     *@
-    @*TODO(REMEBER TO UNCOMMET BEFOR RELEASE)*@
+    @*TODO(REMEBER TO UNCOMMEnd BEFORe RELEASE)*@
   
 })
 </script>

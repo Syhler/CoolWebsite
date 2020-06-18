@@ -112,5 +112,10 @@ MODAL
     cursor: pointer;
 }
 
+.enable-hover a:hover
+{
+    text-decoration: underline!important;
+}
+
 
 

@@ -2,7 +2,7 @@
 @model CoolWebsite.Areas.Financial.Models.ReceiptItemModel
 
 
-<li class="list-group-item d-flex justify-content-between align-items-center receipt-item">
+<li class="list-group-item d-flex justify-content-between align-items-center receipt-item" data-id="@Model.UniqueIdentifier">
     <div>
         @foreach (var user in @Model.Users)
         {
@@ -12,12 +12,11 @@
     </div>
 
     <div>
-
         <span class="badge badge-primary badge-pill">Type: <span data-id="@Model.Type.Value" class="badge-receipt-item-type">@Model.Type.Name</span></span>
         <span class="badge badge-primary badge-pill"><span class="badge-receipt-item-price">@Model.Price</span> Kr Pr.</span>
         <span class="badge badge-primary badge-pill"><span class="badge-receipt-item-count">@Model.Count</span> items</span>
         <span class="badge badge-primary badge-pill">Total: <span class="badge-receipt-item-total">@((Model.Price * Model.Count).ToString(CultureInfo.CurrentCulture))</span> Kr</span>
-        <span class="badge badge-warning badge-pill"><a href="#">Edit</a></span>
+        <span class="badge badge-warning badge-pill"><a class="edit-receipt-item enable-hover">Edit</a></span>
         <span class="badge badge-danger badge-pill"><a href="#" class="remove-receipt-item">Remove</a></span>
     </div>
 </li>

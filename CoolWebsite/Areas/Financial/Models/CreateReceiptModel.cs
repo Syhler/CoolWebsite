@@ -16,9 +16,6 @@ namespace CoolWebsite.Areas.Financial.Models
 
         public List<ReceiptItemModel> ReceiptItemModels { get; set; }
 
-        //not sure
-        public List<string> Users { get; set; }
-        
-        public List<SelectListItem>  UsersDropdown { get; set; }
+        public CreateReceiptItemVm CreateReceiptItemVm { get; set; }
     }
 }

@@ -12,6 +12,8 @@ namespace CoolWebsite.Areas.Financial.Models
         public ItemGroupDto Type { get; set; }
 
         public List<UserModel> Users { get; set; }
+
+        public Guid UniqueIdentifier { get; set; }
         
     }
 }

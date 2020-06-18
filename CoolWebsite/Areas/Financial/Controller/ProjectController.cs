@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
@@ -42,7 +43,6 @@ namespace CoolWebsite.Areas.Financial.Controller
             model.Receipts.Add(new ReceiptsDto {Location = "hej"});
             model.Receipts.Add(new ReceiptsDto {Location = "hej"});
 */
-            
 
             return View(model);
         }
@@ -50,12 +50,40 @@ namespace CoolWebsite.Areas.Financial.Controller
         [HttpGet]
         public async Task<IActionResult> CreateReceipt(string id)
         {
-            return View(new CreateReceiptModel {FinancialProjectId = id});
+
+            var financialQuery = new GetFinancialProjectByIdQuery {ProjectId = id};
+
+            var project = await Mediator.Send(financialQuery);
+            
+            var itemGroupQuery = new GetItemGroupQuery();
+
+            var itemGroups = await Mediator.Send(itemGroupQuery);
+
+            var createReceiptItemVm = new CreateReceiptItemVm
+            {
+                AddUserModel = new AddUserModel
+                {
+                    UserSelectListItems = SelectListHandler.CreateFromUsers(project.Users),
+                },
+                TypesSelectListItems = SelectListHandler.CreateFromItemGroup(itemGroups),
+            };
+            
+            
+            var model = new CreateReceiptModel
+            {
+                FinancialProjectId = id,
+                CreateReceiptItemVm = createReceiptItemVm
+
+            };
+            
+            return View(model);
         }
 
         [HttpPost]
         public async Task<IActionResult> GetReceiptItemPartialView(ReceiptItemModel model)
         {
+            model.UniqueIdentifier = Guid.NewGuid();
+            
             return PartialView("Partial/ReceiptItemPartialView", model);
         }
 
@@ -96,24 +124,9 @@ namespace CoolWebsite.Areas.Financial.Controller
         [HttpGet]
         public async Task<IActionResult> CreateReceiptItemModal(string financialProjectId)
         {
-            var financialQuery = new GetFinancialProjectByIdQuery {ProjectId = financialProjectId};
+           
 
-            var project = await Mediator.Send(financialQuery);
-            
-            var itemGroupQuery = new GetItemGroupQuery();
-
-            var itemGroups = await Mediator.Send(itemGroupQuery);
-
-            var model = new CreateReceiptItemVm
-            {
-                AddUserModel = new AddUserModel
-                {
-                    UserSelectListItems = SelectListHandler.CreateFromUsers(project.Users),
-                },
-                TypesSelectListItems = SelectListHandler.CreateFromItemGroup(itemGroups),
-            };
-
-            return View("Partial/CreateReceiptItemModal", model);
+            return View("Partial/CreateReceiptItemModal", null);
         }
     }
 }
