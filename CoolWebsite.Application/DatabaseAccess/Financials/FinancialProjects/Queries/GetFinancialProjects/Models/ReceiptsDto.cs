@@ -13,11 +13,43 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         public DateTime DateVisited { get; set; }
 
 
-        public ICollection<ReceiptItemDto> Item{ get; set; }
+        public IList<ReceiptItemDto> Items{ get; set; }
+        
+        public double Total
+        {
+            get
+            {
+                double total = 0;
+
+                foreach (var item in Items)
+                {
+                    total += item.Price * item.Count;
+                }
+                
+                return total;
+            }
+            private set
+            {
+                
+            }
+        }
+
+        public int DaysSinceLastVisit
+        {
+            get
+            {
+                return (DateTime.Now - DateVisited).Days;
+            }
+            private set
+            {
+                
+            }
+        }
+        
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Receipt, ReceiptsDto>()
-                .ForMember(x => x.Item, 
+                .ForMember(x => x.Items, 
                     opt => opt.MapFrom(x => x.Items));
         }
     }

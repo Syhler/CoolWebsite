@@ -64,8 +64,8 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
             model.Receipts.First().Id.Should().Be(receiptId);
             model.Receipts.First().Location.Should().Be("Title");
             model.Receipts.First().DateVisited.Should().BeCloseTo(DateTime.Now, 10000);
-            model.Receipts.First().Item.First().Id.Should().Be(receiptItemId);
-            model.Receipts.First().Item.First().Users.First().ApplicationUserId.Should().Be(User.Id);
+            model.Receipts.First().Items.First().Id.Should().Be(receiptItemId);
+            model.Receipts.First().Items.First().Users.First().ApplicationUserId.Should().Be(User.Id);
             model.Id.Should().Be(project.Id);
             model.Created.Should().BeCloseTo(DateTime.Now, 1000);
             model.Users.First().Id.Should().Be(User.Id);

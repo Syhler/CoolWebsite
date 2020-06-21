@@ -4,16 +4,23 @@
 <div class="card mb-3">
     <h3 class="card-header">Receipt</h3>
     <div class="card-body">
-        <h5 class="card-title">Netto</h5>
-        <h6 class="card-subtitle text-muted">Total: 152.31</h6>
+        <h5 class="card-title">@Model.Location</h5>
+        <h6 class="card-subtitle text-muted">Total: @Model.Total kr. </h6>
     </div>
-    <div class="card-body">
-        <p>Date: @DateTime.Now</p>
-    </div>
+   
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Vestibulum at eros</li>
+        @{
+
+            var length = Model.Items.Count > 3 ? 3 : Model.Items.Count;
+            for (int i = 0; i < length; i++)
+            {
+                var item = @Model.Items[i];
+                <li class="list-group-item">@item.Price</li>
+
+
+            }
+        }
+       
     </ul>
     <div class="card-body">
         
@@ -24,7 +31,21 @@
         <button type="button" class="btn btn-outline-danger">Delete</button>
         *@
     </div>
-    <div class="card-footer text-muted">
-        2 days ago
+    <div class="card-footer">
+        @{
+            var days = @Model.DaysSinceLastVisit;
+            if (days == 0)
+            {
+                <text><span class="text-muted">Today</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
+            }
+            else if (days == 1)
+            {
+                <text><span class="text-muted">Yesterday</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
+            }
+            else
+            {
+                <text><span class="text-muted">@days days ago</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
+            }
+        }
     </div>
 </div>

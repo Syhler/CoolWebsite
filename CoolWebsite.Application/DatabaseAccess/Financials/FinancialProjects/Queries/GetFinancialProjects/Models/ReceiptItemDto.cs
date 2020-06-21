@@ -11,6 +11,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         public string Id { get; set; }
         public int Count { get; set; }
         public double Price { get; set; }
+        
         public ItemGroup ItemGroup { get; set; }
         public ICollection<ApplicationUserReceiptItem> Users { get; set; }
 

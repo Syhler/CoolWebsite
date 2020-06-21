@@ -18,5 +18,7 @@ namespace CoolWebsite.Domain.Entities.Financial
 
         public string Description { get; set; }
 
+        
+
     }
 }
