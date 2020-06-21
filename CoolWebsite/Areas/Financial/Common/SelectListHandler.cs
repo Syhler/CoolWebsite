@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries.Models;
 using CoolWebsite.Domain.Entities.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -30,7 +31,7 @@ namespace CoolWebsite.Areas.Financial.Common
             return listOfSelectedItem;
         }
         
-        public static List<SelectListItem> CreateFromUsers(IList<ApplicationUser> models)
+        public static List<SelectListItem> CreateFromUsers(IList<UserDto> models)
         {
             var listOfSelectedItem = new List<SelectListItem>();
 
@@ -39,7 +40,7 @@ namespace CoolWebsite.Areas.Financial.Common
                 listOfSelectedItem.Add(new SelectListItem
                 {
                     Value = user.Id,
-                    Text = user.FirstName +" " + user.LastName
+                    Text = user.Name
                 });
             }
 

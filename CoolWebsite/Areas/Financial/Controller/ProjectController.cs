@@ -33,16 +33,6 @@ namespace CoolWebsite.Areas.Financial.Controller
         {
             var query = new GetFinancialProjectByIdQuery {ProjectId = id};
             var model = await Mediator.Send(query);
-            
-            
-            /*
-            model.Receipts.Add(new ReceiptsDto {Location = "hej"});
-            model.Receipts.Add(new ReceiptsDto {Location = "hej"});
-            model.Receipts.Add(new ReceiptsDto {Location = "hej"});
-            model.Receipts.Add(new ReceiptsDto {Location = "hej"});
-            model.Receipts.Add(new ReceiptsDto {Location = "hej"});
-            model.Receipts.Add(new ReceiptsDto {Location = "hej"});
-*/
 
             return View(model);
         }

@@ -11,8 +11,9 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
     {
         public string Id { get; set; }
         public string Title { get; set; }
-        public IList<ApplicationUser> Users { get; set; }
-        public IList<ReceiptsDto> Receipts { get; set; }
+
+        public IList<UserDto> Users { get; set; }
+        public IList<ReceiptDto> Receipts { get; set; }
 
         public DateTime? LastModified { get; set; }
 
@@ -22,10 +23,10 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         {
             profile.CreateMap<Domain.Entities.Financial.FinancialProject, FinancialProjectDto>()
                 .ForMember(x => x.Title, opt => opt.MapFrom(s => s.Title))
-                .ForMember(x => x.Users, opt => 
-                    opt.MapFrom(s => s.FinancialProjectApplicationUsers.Select(x => x.User)))
                 .ForMember(x => x.LastModified, opt =>
-                    opt.MapFrom(x => x.LastModified));
+                    opt.MapFrom(x => x.LastModified))
+                .ForMember(x => x.Users, opt => 
+                    opt.MapFrom(x => x.FinancialProjectApplicationUsers.Select(y => y.User)));
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Queries
             var model = await SendAsync(query);
 
 
-            model.Should().NotBeNull();
+            model.Should().NotBeNull(); //NOT WORKING ATM TODO
            
 
         }

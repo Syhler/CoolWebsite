@@ -6,7 +6,7 @@ using CoolWebsite.Domain.Entities.Financial;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models
 {
-    public class ReceiptsDto : IMapFrom<Receipt>
+    public class ReceiptDto : IMapFrom<Receipt>
     {
         public string Id { get; set; }
         public string Location { get; set; }
@@ -48,7 +48,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Receipt, ReceiptsDto>()
+            profile.CreateMap<Receipt, ReceiptDto>()
                 .ForMember(x => x.Items, 
                     opt => opt.MapFrom(x => x.Items));
         }

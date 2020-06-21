@@ -6,7 +6,6 @@ namespace CoolWebsite.Areas.Financial.Models
 {
     public class ReceiptItemModel
     {
-        public string Name { get; set; }
         public double Price { get; set; }
         public int Count { get; set; }
         public ItemGroupDto Type { get; set; }

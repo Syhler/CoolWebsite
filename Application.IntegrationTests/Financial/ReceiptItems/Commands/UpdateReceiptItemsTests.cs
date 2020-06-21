@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
@@ -28,7 +29,11 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Price = 2,
                 ItemGroup = (int)ItemGroup.Essentials,
                 Count = 22,
-                Name = "das"
+                Name = "das",
+                UsersId = new List<string>
+                {
+                    User.Id
+                }
             };
 
             var id = await SendAsync(createCommand);
