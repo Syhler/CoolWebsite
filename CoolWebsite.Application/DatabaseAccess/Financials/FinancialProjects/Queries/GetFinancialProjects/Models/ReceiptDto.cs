@@ -12,8 +12,11 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         public string Location { get; set; }
         public DateTime DateVisited { get; set; }
 
+        public string Note { get; set; }
 
         public IList<ReceiptItemDto> Items{ get; set; }
+
+        public DateTime? Deleted { get; set; }
         
         public double Total
         {

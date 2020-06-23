@@ -80,7 +80,7 @@
               <e p="CreateFinancialProjectModel.cs" t="Include" />
               <e p="CreateReceiptItemVm.cs" t="Include" />
               <e p="CreateReceiptModel.cs" t="Include" />
-              <e p="ReceiptItemModel.cs" t="Include" />
+              <e p="ReceiptItemVm.cs" t="Include" />
               <e p="UserModel.cs" t="Include" />
             </e>
             <e p="Views" t="Include">
@@ -465,6 +465,10 @@
             <e p="20200519180731_AddedReceiptIdToReceiptItem.Designer.cs" t="Include" />
             <e p="20200530101340_addedAuddbleToReceiptItem.cs" t="Include" />
             <e p="20200530101340_addedAuddbleToReceiptItem.Designer.cs" t="Include" />
+            <e p="20200623190124_addSoftDeletionToReceipt.cs" t="Include" />
+            <e p="20200623190124_addSoftDeletionToReceipt.Designer.cs" t="Include" />
+            <e p="20200623190552_addedSoDeletedCanBeNull.cs" t="Include" />
+            <e p="20200623190552_addedSoDeletedCanBeNull.Designer.cs" t="Include" />
             <e p="SqlApplicationDbContextModelSnapshot.cs" t="Include" />
           </e>
         </e>

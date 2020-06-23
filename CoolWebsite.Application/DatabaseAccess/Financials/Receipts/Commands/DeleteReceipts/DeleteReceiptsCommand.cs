@@ -1,11 +1,12 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Domain.Entities.Financial;
 using MediatR;
 
-namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.DeleteReceipts
+namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.DeleteReceipts
 {
     public class DeleteReceiptsCommand : IRequest
     {
@@ -31,7 +32,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.Dele
                 throw new NotFoundException(nameof(Receipt), request.Id);
             }
             
-            _context.Receipts.Remove(entity);
+            entity.Deleted = DateTime.Now;
 
             await _context.SaveChangesAsync(cancellationToken);
 

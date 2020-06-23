@@ -36,11 +36,11 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         public async Task<FinancialProjectDto> Handle(GetFinancialProjectByIdQuery request, CancellationToken cancellationToken)
         {
             var entity = _context.FinancialProjects
-                .Include(x => x.Receipts)
                 .Include(x => x.FinancialProjectApplicationUsers)
+                
                 .Where(x => x.Id == request.ProjectId);
 
-            
+
             if (entity.ToList().Count <= 0)
             {
                 throw new NotFoundException(nameof(FinancialProject), request.ProjectId);
@@ -53,6 +53,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
             
             var mapped = entity.ProjectTo<FinancialProjectDto>(_mapper.ConfigurationProvider).First();
 
+            
             return mapped;
         }
     }

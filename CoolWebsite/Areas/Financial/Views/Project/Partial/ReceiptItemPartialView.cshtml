@@ -1,10 +1,10 @@
 ﻿@using System.Globalization
-@model CoolWebsite.Areas.Financial.Models.ReceiptItemModel
+@model CoolWebsite.Areas.Financial.Models.ReceiptItemVm
 
 
 <li class="list-group-item d-flex justify-content-between align-items-center receipt-item" data-id="@Model.UniqueIdentifier">
     <div>
-        @foreach (var user in @Model.Users)
+        @foreach (var user in @Model.ReceiptItem.Users)
         {
             <span class="badge badge-success badge-pill badge-receipt-item-user" data-id="@user.Id">@user.Name</span>
         }
@@ -12,10 +12,10 @@
     </div>
 
     <div>
-        <span class="badge badge-primary badge-pill">Type: <span data-id="@Model.Type.Value" class="badge-receipt-item-type">@Model.Type.Name</span></span>
-        <span class="badge badge-primary badge-pill"><span class="badge-receipt-item-price">@Model.Price</span> Kr Pr.</span>
-        <span class="badge badge-primary badge-pill"><span class="badge-receipt-item-count">@Model.Count</span> items</span>
-        <span class="badge badge-primary badge-pill">Total: <span class="badge-receipt-item-total">@((Model.Price * Model.Count).ToString(CultureInfo.CurrentCulture))</span> Kr</span>
+        <span class="badge badge-primary badge-pill">Type: <span data-id="@Model.ReceiptItem.ItemGroup.Value" class="badge-receipt-item-type">@Model.ReceiptItem.ItemGroup.Name</span></span>
+        <span class="badge badge-primary badge-pill"><span class="badge-receipt-item-price">@Model.ReceiptItem.Price</span> Kr Pr.</span>
+        <span class="badge badge-primary badge-pill"><span class="badge-receipt-item-count">@Model.ReceiptItem.Count</span> items</span>
+        <span class="badge badge-primary badge-pill">Total: <span class="badge-receipt-item-total">@((Model.ReceiptItem.Price * Model.ReceiptItem.Count).ToString(CultureInfo.CurrentCulture))</span> Kr</span>
         <span class="badge badge-warning badge-pill"><a class="edit-receipt-item enable-hover">Edit</a></span>
         <span class="badge badge-danger badge-pill"><a href="#" class="remove-receipt-item">Remove</a></span>
     </div>

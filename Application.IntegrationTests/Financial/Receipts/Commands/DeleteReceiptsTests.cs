@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.DeleteReceipts;
+using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.DeleteReceipts;
 using CoolWebsite.Domain.Entities.Financial;
 using FluentAssertions;
 using NUnit.Framework;
@@ -32,7 +34,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
 
             var entity = await FindAsync<Receipt>(command.Id);
 
-            entity.Should().BeNull();
+            entity.Deleted.Should().BeCloseTo(DateTime.Now, 1000);
         }
 
         [Test]

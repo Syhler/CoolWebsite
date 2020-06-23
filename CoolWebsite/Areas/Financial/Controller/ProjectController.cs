@@ -2,12 +2,14 @@
 using System.Linq;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
+using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.DeleteReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts;
+using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.DeleteReceipts;
 using CoolWebsite.Areas.Financial.Common;
 using CoolWebsite.Areas.Financial.Models;
 using CoolWebsite.Services;
@@ -70,11 +72,11 @@ namespace CoolWebsite.Areas.Financial.Controller
         }
 
         [HttpPost]
-        public async Task<IActionResult> GetReceiptItemPartialView(ReceiptItemModel model)
+        public async Task<IActionResult> GetReceiptItemPartialView(ReceiptItemVm vm)
         {
-            model.UniqueIdentifier = Guid.NewGuid();
+            vm.UniqueIdentifier = Guid.NewGuid();
             
-            return PartialView("Partial/ReceiptItemPartialView", model);
+            return PartialView("Partial/ReceiptItemPartialView", vm);
         }
 
         [HttpPost]
@@ -98,7 +100,7 @@ namespace CoolWebsite.Areas.Financial.Controller
                 {
                     Name = "Receipt",
                     Count = receiptItemModel.Count,
-                    ItemGroup = receiptItemModel.Type.Value,
+                    ItemGroup = receiptItemModel.ItemGroup.Value,
                     ReceiptId = receiptId,
                     Price = receiptItemModel.Price,
                     UsersId = receiptItemModel.Users.Select(x => x.Id).ToList()
@@ -111,11 +113,23 @@ namespace CoolWebsite.Areas.Financial.Controller
             return Json(new {result = "Redirect", url = Url.Action("Index", "Project", new {id = model.FinancialProjectId})});
         }
 
+        public async Task<IActionResult> DeleteReceipt(string id, string projectId)
+        {
+            var command = new DeleteReceiptsCommand
+            {
+                Id = id
+            };
+
+            await Mediator.Send(command);
+
+
+            return RedirectToAction("Index", "Project", new {id = projectId});
+        }
+        
+        
         [HttpGet]
         public async Task<IActionResult> CreateReceiptItemModal(string financialProjectId)
         {
-           
-
             return View("Partial/CreateReceiptItemModal", null);
         }
     }

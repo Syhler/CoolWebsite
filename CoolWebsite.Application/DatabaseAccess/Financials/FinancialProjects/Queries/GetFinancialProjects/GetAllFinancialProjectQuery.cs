@@ -34,15 +34,20 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
             var entity = _context.FinancialProjects
                 //.Where(x => x.FinancialProjectApplicationUsers.Any(y => y.UserId != _currentUser.UserID))
                 .Include(x => x.FinancialProjectApplicationUsers)
-                .Include(x => x.Receipts)
                 .OrderByDescending(x => x.LastModified.HasValue)
                 .ThenByDescending(x => x.Created)
-                .ThenByDescending(x => x.LastModified);
+                .ThenByDescending(x => x.LastModified)
+                .Select(x => new
+                {
+                    x,
+                    Receipts = x.Receipts.Where(x => x.Deleted == null)
+                })
+                .Select(x => x.x);
 
 
             var projects = entity.ProjectTo<FinancialProjectDto>(_mapper.ConfigurationProvider).ToList();
 
-          
+            
 
             return new FinancialProjectsVm
             {

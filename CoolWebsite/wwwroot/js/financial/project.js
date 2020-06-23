@@ -252,15 +252,17 @@ if (parseFloat(priceInput.val()) > 0)
             type: "POST",
             url: config.getReceiptItemPartialView,
             data: {
-                model: {
-                    Name: name,
-                    Price: price,
-                    Count: count,
-                    Type: {
-                        Value: type,
-                        Name: typeName
-                    },
-                    Users: users
+                vm: {
+                    ReceiptItem: {
+                        Name: name,
+                        Price: price,
+                        Count: count,
+                        ItemGroup: {
+                            Value: type,
+                            Name: typeName
+                        },
+                        Users: users
+                    }
                 }
             },
             success: function (data) {
@@ -477,7 +479,7 @@ if (parseFloat(priceInput.val()) > 0)
 
             object[index] = {
                 Users: getUsersFromReceiptItem($(this)),
-                Type: {
+                ItemGroup: {
                     Value: $(this).find(".badge-receipt-item-type").data("id")
                 },
                 Price: $(this).find(".badge-receipt-item-price").text(),

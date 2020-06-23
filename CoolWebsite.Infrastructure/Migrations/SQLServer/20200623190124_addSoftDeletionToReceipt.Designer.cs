@@ -4,14 +4,16 @@ using CoolWebsite.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CoolWebsite.Infrastructure.Migrations.SQLServer
 {
     [DbContext(typeof(SqlApplicationDbContext))]
-    partial class SqlApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200623190124_addSoftDeletionToReceipt")]
+    partial class addSoftDeletionToReceipt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,7 +96,7 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                     b.Property<DateTime>("DateVisited")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("Deleted")
+                    b.Property<DateTime>("Deleted")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FinancialProjectId")

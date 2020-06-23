@@ -13,6 +13,8 @@ namespace CoolWebsite.Domain.Entities.Financial
         public string Note { get; set; }
         
         public DateTime DateVisited { get; set; }
+
+        public DateTime? Deleted { get; set; }
         
         public string FinancialProjectId { get; set; }
         

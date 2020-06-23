@@ -1,6 +1,63 @@
-﻿@model CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models.ReceiptDto
+﻿@using Microsoft.AspNetCore.Routing
+@model CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models.ReceiptDto
 
 
+
+<div class="card ">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="text-light mb-0">Receipt</h5>
+        </div>
+        <div class="card-body">
+            <h4 class="text-light card-title">@Model.Location</h4>
+            @if (!string.IsNullOrWhiteSpace(Model.Note))
+            {
+                <p>@Model.Note</p>
+            }
+            <ul class="list-group mb-4">
+                @foreach (var item in @Model.Items)
+                {
+                    <li class="list-group-item"><span class="text-white">@item.ItemGroup.Name</span><span class="badge badge-light ml-2" style="float: right;">Cost: @(item.Count*item.Price) kr</span></li>
+
+                }
+            </ul>
+            <ul class="list-group mb-4">
+                <li class="list-group-item"><span class="text-white">Total</span><span class="badge badge-light" style="float: right;">@Model.Total Kr</span></li>
+            </ul>
+            <div></div>
+            <div>
+                <button class="btn btn-success btn-sm mr-2" type="button">Edit</button>
+                <a class="btn btn-danger btn-sm" type="button" 
+                        asp-action="DeleteReceipt" 
+                        asp-controller="Project" 
+                        asp-route-id="@Model.Id" 
+                        asp-area="Financial"
+                        asp-route-projectId="@Context.GetRouteData().Values["id"]">Delete</a>
+            </div>
+        </div>
+        <div class="card-footer">
+            @{
+                var days = @Model.DaysSinceLastVisit;
+                if (days == 0)
+                {
+                    <text><span class="text-muted">Today</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
+                }
+                else if (days == 1)
+                {
+                    <text><span class="text-muted">Yesterday</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
+                }
+                else
+                {
+                    <text><span class="text-muted">@days days ago</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+
+
+<!--
 <div class="card mb-3">
     <h3 class="card-header">Receipt</h3>
     <div class="card-body">
@@ -34,7 +91,7 @@
     </div>
     <div class="card-footer">
         @{
-            var days = @Model.DaysSinceLastVisit;
+            //var days = @Model.DaysSinceLastVisit;
             if (days == 0)
             {
                 <text><span class="text-muted">Today</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
@@ -50,3 +107,4 @@
         }
     </div>
 </div>
+-->
