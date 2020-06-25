@@ -418,23 +418,25 @@
         </e>
         <e p="CoolWebsite.Domain.csproj" t="IncludeRecursive" />
         <e p="Entities" t="Include">
-          <e p="Enums" t="Include">
-            <e p="ItemGroup.cs" t="Include" />
-          </e>
           <e p="Financial" t="Include">
             <e p="ApplicationUserReceiptItem.cs" t="Include" />
             <e p="FinancialProject.cs" t="Include" />
             <e p="FinancialProjectApplicationUser.cs" t="Include" />
+            <e p="OweRecord.cs" t="Include" />
             <e p="Receipt.cs" t="Include" />
             <e p="ReceiptItem.cs" t="Include" />
+            <e p="Transaction.cs" t="Include" />
           </e>
           <e p="Identity" t="Include">
             <e p="ApplicationRole.cs" t="Include" />
             <e p="ApplicationUser.cs" t="Include" />
-            <e p="UserUpdate.cs" t="Include" />
+            <e p="UpdateApplicationUser.cs" t="Include" />
           </e>
         </e>
-        <e p="Enums" t="Include" />
+        <e p="Enums" t="Include">
+          <e p="ItemGroup.cs" t="Include" />
+          <e p="TransactionType.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
@@ -469,6 +471,8 @@
             <e p="20200623190124_addSoftDeletionToReceipt.Designer.cs" t="Include" />
             <e p="20200623190552_addedSoDeletedCanBeNull.cs" t="Include" />
             <e p="20200623190552_addedSoDeletedCanBeNull.Designer.cs" t="Include" />
+            <e p="20200625161747_AddedOweRecordAndTransactions.cs" t="Include" />
+            <e p="20200625161747_AddedOweRecordAndTransactions.Designer.cs" t="Include" />
             <e p="SqlApplicationDbContextModelSnapshot.cs" t="Include" />
           </e>
         </e>
@@ -484,8 +488,10 @@
           <e p="Configuration" t="Include">
             <e p="Financial" t="Include">
               <e p="FinancialProjectConfiguration.cs" t="Include" />
+              <e p="OweRecordConfiguration.cs" t="Include" />
               <e p="ReceiptConfiguration.cs" t="Include" />
               <e p="ReceiptItemConfiguration.cs" t="Include" />
+              <e p="TransactionConfiguration.cs" t="Include" />
             </e>
           </e>
           <e p="SqlApplicationDbContext.cs" t="Include" />

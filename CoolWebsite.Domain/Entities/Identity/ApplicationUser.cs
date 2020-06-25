@@ -10,6 +10,11 @@ namespace CoolWebsite.Domain.Entities.Identity
         public string LastName { get; set; }
         
         public ICollection<FinancialProjectApplicationUser> FinancialProjectApplicationUsers { get; set; }
+        public ICollection<Transaction> OutgoingTransactions { get; set; }
+        
+        public ICollection<Transaction> IncomingTransactions { get; set; }
+        
+        
 
     }
 }

@@ -15,6 +15,10 @@ namespace CoolWebsite.Application.Common.Interfaces
         DbSet<ReceiptItem> ReceiptItems { get; set; }
         
         DbSet<FinancialProjectApplicationUser> FinancialProjectApplicationUsers { get; set; }
+        
+        DbSet<Transaction> Transactions { get; set; }
+
+        DbSet<OweRecord> OweRecords { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 

@@ -9,10 +9,32 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         public string Id { get; set; }
         public string Name { get; set; }
 
+        public double Owed { get; set; }
+        
+        public string Initial
+        {
+            get
+            {
+                var split = Name.Split(" ");
+                var initial = "";
+                foreach (var s in split)
+                {
+                    initial += s.ToUpper()[0];
+                }
+
+                return initial;
+            }
+            private set
+            {
+                
+            }
+        }
+        
         public void Mapping(Profile profile)
         {
             profile.CreateMap<ApplicationUser, UserDto>()
-                .ForMember(x => x.Name, opt => opt.MapFrom(x => x.FirstName+ " "+ x.LastName));
+                .ForMember(x => x.Name, opt =>
+                    opt.MapFrom(x => x.FirstName + " " + x.LastName));
         }
     }
 }

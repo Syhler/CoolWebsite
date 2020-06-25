@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries.Models;
-using CoolWebsite.Domain.Entities.Enums;
+using CoolWebsite.Domain.Enums;
 using MediatR;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries

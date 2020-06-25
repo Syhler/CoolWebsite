@@ -1,6 +1,6 @@
 ﻿namespace CoolWebsite.Domain.Entities.Identity
 {
-    public class UserUpdate
+    public class UpdateApplicationUser
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

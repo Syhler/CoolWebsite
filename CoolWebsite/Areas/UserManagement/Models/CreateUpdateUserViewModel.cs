@@ -19,7 +19,7 @@ namespace CoolWebsite.Areas.UserManagement.Models
         public void Mapping(Profile profile)
         {
             profile.CreateMap<ApplicationUser, CreateUpdateUserViewModel>();
-            profile.CreateMap<CreateUpdateUserViewModel, UserUpdate>();
+            profile.CreateMap<CreateUpdateUserViewModel, UpdateApplicationUser>();
         }
     }
 }

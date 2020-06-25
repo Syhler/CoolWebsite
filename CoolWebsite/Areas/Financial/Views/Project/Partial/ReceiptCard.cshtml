@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Routing
+@using Microsoft.EntityFrameworkCore.Internal
 @model CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models.ReceiptDto
 
 
@@ -6,7 +7,12 @@
 <div class="card ">
     <div class="card">
         <div class="card-header">
-            <h5 class="text-light mb-0">Receipt</h5>
+            <h5 class="text-light mb-0">Receipt : Created by
+                <div class="small-collaborator-image">
+                    @Model.CreatedByDto.Initial
+                </div>
+            </h5>
+            
         </div>
         <div class="card-body">
             <h4 class="text-light card-title">@Model.Location</h4>
@@ -15,11 +21,27 @@
                 <p>@Model.Note</p>
             }
             <ul class="list-group mb-4">
-                @foreach (var item in @Model.Items)
-                {
-                    <li class="list-group-item"><span class="text-white">@item.ItemGroup.Name</span><span class="badge badge-light ml-2" style="float: right;">Cost: @(item.Count*item.Price) kr</span></li>
+                @{
+                    var grouped = Model.Items.GroupBy(x => x.ItemGroup.Name);
+                    foreach (var item in grouped)
+                    {
+                        var sum = item.Sum(x => x.Price*x.Count);
+                        <li class="list-group-item">
+                            <span class="text-white">@item.Key</span>
+                            <span class="badge badge-light ml-2" style="float: right;">Cost: @sum kr</span>
+                            <div>
+                                @foreach (var user in item.SelectMany(x => x.Users))
+                                {
+                                    <div class="small-collaborator-image">@user.Initial</div>
 
+                                }
+                            </div>
+                            
+                        </li>
+
+                    }
                 }
+               
             </ul>
             <ul class="list-group mb-4">
                 <li class="list-group-item"><span class="text-white">Total</span><span class="badge badge-light" style="float: right;">@Model.Total Kr</span></li>

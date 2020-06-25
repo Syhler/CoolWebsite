@@ -12,28 +12,32 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CoolWebsite.Infrastructure.Persistence
 {
-    public class SqlApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>, IApplicationDbContext
+    public class SqlApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>,
+        IApplicationDbContext
     {
         private ICurrentUserService _currentUserService;
         private IDateTime _dateTime;
         public string UserId { get; set; }
-        
-        public SqlApplicationDbContext(DbContextOptions<SqlApplicationDbContext> options, 
+
+        public SqlApplicationDbContext(DbContextOptions<SqlApplicationDbContext> options,
             IDateTime dateTime) : base(options)
         {
             _dateTime = dateTime;
             //_currentUserService = currentUserService;
-
-
         }
+
         public DbSet<FinancialProject> FinancialProjects { get; set; }
-        
+
         public DbSet<FinancialProjectApplicationUser> FinancialProjectApplicationUsers { get; set; }
 
         public DbSet<ApplicationUserReceiptItem> ApplicationUserReceiptItems { get; set; }
 
+        public DbSet<Transaction> Transactions { get; set; }
+
+        public DbSet<OweRecord> OweRecords { get; set; }
+
         public DbSet<ReceiptItem> ReceiptItems { get; set; }
-        
+
         public DbSet<Receipt> Receipts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -45,12 +49,33 @@ namespace CoolWebsite.Infrastructure.Persistence
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            
+
             builder.Entity<FinancialProjectApplicationUser>()
                 .HasKey(x => new {x.UserId, x.FinancialProjectId});
 
             builder.Entity<ApplicationUserReceiptItem>()
                 .HasKey(x => new {x.ApplicationUserId, x.ReceiptItemId});
+
+            builder.Entity<OweRecord>()
+                .HasOne(x => x.User)
+                .WithMany()
+                .HasForeignKey(x => x.Id)
+                .OnDelete(DeleteBehavior.Restrict);
+            
+
+            builder.Entity<Transaction>()
+                .HasOne(x => x.FromUser)
+                .WithMany(x => x.IncomingTransactions)
+                .HasForeignKey(x => x.FromUserId)
+                .HasPrincipalKey(x => x.Id);
+
+
+            builder.Entity<Transaction>()
+                .HasOne(x => x.ToUser)
+                .WithMany(x => x.OutgoingTransactions)
+                .HasForeignKey(x => x.ToUserId).OnDelete(DeleteBehavior.NoAction)
+                .HasPrincipalKey(x => x.Id);
+            ;
 
 
             base.OnModelCreating(builder);
@@ -58,7 +83,6 @@ namespace CoolWebsite.Infrastructure.Persistence
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)
         {
-
             foreach (var entry in ChangeTracker.Entries<AudibleEntity>())
             {
                 switch (entry.State)
@@ -68,6 +92,7 @@ namespace CoolWebsite.Infrastructure.Persistence
                         {
                             throw new IdentityCurrentUserIdNotSet();
                         }
+
                         entry.Entity.CreatedBy = UserId;
                         entry.Entity.Created = _dateTime.Now;
                         break;
@@ -82,6 +107,7 @@ namespace CoolWebsite.Infrastructure.Persistence
                         {
                             throw new IdentityCurrentUserIdNotSet();
                         }
+
                         entry.Entity.LastModified = _dateTime.Now;
                         entry.Entity.LastModifiedBy = UserId;
                         break;

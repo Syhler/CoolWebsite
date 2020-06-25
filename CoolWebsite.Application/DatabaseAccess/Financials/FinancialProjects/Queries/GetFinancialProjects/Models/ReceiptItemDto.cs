@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using CoolWebsite.Application.Common.Mapping;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries.Models;
-using CoolWebsite.Domain.Entities.Enums;
 using CoolWebsite.Domain.Entities.Financial;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models
@@ -16,6 +16,13 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         
         public ItemGroupDto ItemGroup { get; set; }
         public ICollection<UserDto> Users { get; set; }
+
+        public double Total {
+            get => Math.Round(Price * Count, 2);
+            private set
+            {
+                
+            } }
 
         public void Mapping(Profile profile)
         {

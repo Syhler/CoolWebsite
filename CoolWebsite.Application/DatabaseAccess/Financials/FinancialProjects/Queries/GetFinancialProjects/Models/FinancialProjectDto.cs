@@ -19,6 +19,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 
         public DateTime Created { get; set; }
 
+     
+
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Domain.Entities.Financial.FinancialProject, FinancialProjectDto>()

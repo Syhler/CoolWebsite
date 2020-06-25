@@ -5,9 +5,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
-using CoolWebsite.Domain.Entities.Enums;
 using CoolWebsite.Domain.Entities.Financial;
 using CoolWebsite.Domain.Entities.Identity;
+using CoolWebsite.Domain.Enums;
 using MediatR;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems

@@ -112,7 +112,7 @@ namespace CoolWebsite.Areas.UserManagement.Controller
         public async Task<IActionResult> UpdateUserPost(CreateUpdateUserViewModel updateUserViewModel)
         {
 
-            var user = _mapper.Map<UserUpdate>(updateUserViewModel);
+            var user = _mapper.Map<UpdateApplicationUser>(updateUserViewModel);
             
             var result = await _identityService.UpdateUser(user);
 

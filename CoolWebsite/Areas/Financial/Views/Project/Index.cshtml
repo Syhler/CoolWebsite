@@ -1,12 +1,39 @@
 ﻿@model CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models.FinancialProjectDto
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Receipt";
     Layout = "_Layout";
 }
 
 
 <div class="mt-5">
+
+    <div>
+        <div class="container mb-2 pb-3 pt-3" style="border: 1px solid rgba(0,0,0,0.6); background-color: #32383e">
+            <div class="row">
+                @foreach (var user in @Model.Users)
+                {
+                    <div class="col-sm">
+                        <div class="collaborator-image">@user.Initial</div>
+                        <p class="text-center mt-2 mb-2">Owed: 
+                            @if (@user.Owed <= 0)
+                            {
+                                <span class="green">@user.Owed</span>
+                                <button class="btn btn-success btn-pay">Request</button>
+
+                            }
+                            else
+                            {
+                                <span class="red">@user.Owed</span>
+                                <button class="btn btn-success btn-pay">Pay</button>
+                            }
+                            </p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
     <a class="btn btn-block btn-primary" asp-action="CreateReceipt" asp-area="Financial" asp-controller="Project" asp-route-id="@Model.Id">
         CREATE RECEIPT
     </a>
@@ -21,7 +48,7 @@
                 continue;
             }
             */
-            
+
             <div class="row mt-5">
 
                 @for (int i = 0; i < 3; i++)
@@ -65,8 +92,7 @@
                 <p>name of receipt</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal"
-                        >Close</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-danger" asp-action="Index" asp-controller="Project" asp-route-id="test" id="confirm-delete-button">Delete</button>
             </div>
         </div>

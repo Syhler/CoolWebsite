@@ -34,7 +34,10 @@ namespace CoolWebsite.Areas.Financial.Controller
         public async Task<IActionResult> Index(string id)
         {
             var query = new GetFinancialProjectByIdQuery {ProjectId = id};
+            
             var model = await Mediator.Send(query);
+
+            model.Users = model.Users.Where(x => x.Id != _currentUserService.UserID).ToList();
 
             return View(model);
         }
@@ -75,6 +78,8 @@ namespace CoolWebsite.Areas.Financial.Controller
         public async Task<IActionResult> GetReceiptItemPartialView(ReceiptItemVm vm)
         {
             vm.UniqueIdentifier = Guid.NewGuid();
+            
+            vm.ReceiptItem.Price = Math.Round(vm.ReceiptItem.Price, 2);
             
             return PartialView("Partial/ReceiptItemPartialView", vm);
         }

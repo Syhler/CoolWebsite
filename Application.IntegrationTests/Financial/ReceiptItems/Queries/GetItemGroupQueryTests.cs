@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries.Models;
-using CoolWebsite.Domain.Entities.Enums;
+using CoolWebsite.Domain.Enums;
 using FluentAssertions;
 using NUnit.Framework;
 

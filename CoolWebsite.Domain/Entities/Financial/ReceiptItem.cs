@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CoolWebsite.Domain.Common;
-using CoolWebsite.Domain.Entities.Enums;
+using CoolWebsite.Domain.Enums;
 
 namespace CoolWebsite.Domain.Entities.Financial
 {

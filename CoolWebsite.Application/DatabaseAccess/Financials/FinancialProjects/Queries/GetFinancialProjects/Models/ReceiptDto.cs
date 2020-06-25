@@ -17,6 +17,10 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         public IList<ReceiptItemDto> Items{ get; set; }
 
         public DateTime? Deleted { get; set; }
+
+        public string CreatedByUserId { get; set; }
+
+        public UserDto CreatedByDto { get; set; }
         
         public double Total
         {
@@ -52,8 +56,10 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Receipt, ReceiptDto>()
-                .ForMember(x => x.Items, 
-                    opt => opt.MapFrom(x => x.Items));
+                .ForMember(x => x.Items,
+                    opt => opt.MapFrom(x => x.Items))
+                .ForMember(x => x.CreatedByUserId, 
+                    opt => opt.MapFrom(x => x.CreatedBy));
         }
     }
 }

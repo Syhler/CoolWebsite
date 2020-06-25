@@ -119,3 +119,54 @@ MODAL
 
 
 
+
+.collaborator-image {
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    border-radius: 50%;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    background: grey;
+    margin: 0 auto;
+}
+
+.small-collaborator-image
+{
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 50%;
+    font-size: 15px;
+    color: #fff;
+    text-align: center; 
+    background: grey;
+    display: inline-grid;
+}
+
+.small-collaborator-image-header
+{
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 50%;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    background-color: #e9ecef;
+    display: inline-grid;
+}
+
+.btn-pay
+{
+    text-align: center;
+    margin: 0 auto !important;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+

@@ -7,8 +7,8 @@ using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.CreateFinancialProject;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems;
-using CoolWebsite.Domain.Entities.Enums;
 using CoolWebsite.Domain.Entities.Identity;
+using CoolWebsite.Domain.Enums;
 using FluentAssertions;
 using NUnit.Framework;
 

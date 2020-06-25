@@ -4,8 +4,8 @@ using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.DeleteReceiptItems;
-using CoolWebsite.Domain.Entities.Enums;
 using CoolWebsite.Domain.Entities.Financial;
+using CoolWebsite.Domain.Enums;
 using FluentAssertions;
 using NUnit.Framework;
 

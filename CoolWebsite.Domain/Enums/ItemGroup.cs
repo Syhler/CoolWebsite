@@ -1,4 +1,4 @@
-﻿namespace CoolWebsite.Domain.Entities.Enums
+﻿namespace CoolWebsite.Domain.Enums
 {
     public enum ItemGroup
     {

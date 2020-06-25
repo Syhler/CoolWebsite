@@ -9,5 +9,6 @@ namespace CoolWebsite.Domain.Entities.Financial
         
         public string FinancialProjectId { get; set; }
         public FinancialProject FinancialProject { get; set; }
+
     }
 }
