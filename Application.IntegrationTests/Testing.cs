@@ -95,6 +95,11 @@ namespace Application.IntegrationTests
             return await mediator.Send(request);
         }
 
+        public static async Task<ApplicationUser> CreateNewUser(string username, string password)
+        {
+            return await CreateUser(username, password);
+        }
+        
         public static async Task<ApplicationUser> RunAsDefaultUserAsync()
         {
             return await RunAsUserAsync("test@local","Testing1234!");
@@ -102,19 +107,26 @@ namespace Application.IntegrationTests
 
         public static async Task<ApplicationUser> RunAsUserAsync(string username, string password)
         {
-            using var scope = _scopeFactory.CreateScope();
 
-            var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
-            
-            var user = new ApplicationUser{UserName = username, Email = username, FirstName = "TEST", LastName = "TEST"};
-
-            await userManager.CreateAsync(user, password);
+            var user = await CreateUser(username, password);
 
             _currentUserId = user.Id;
 
             return user;
         }
 
+        private static async Task<ApplicationUser> CreateUser(string username, string password)
+        {
+            using var scope = _scopeFactory.CreateScope();
+
+            var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
+            
+            var user = new ApplicationUser{UserName = username, Email = username, FirstName = username, LastName = password};
+
+            await userManager.CreateAsync(user, password);
+
+            return user;
+        }
        
 
         public static async Task<TEntity> FindAsync<TEntity>(string id) where TEntity : class

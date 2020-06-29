@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Exceptions;
@@ -26,15 +27,13 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
         public async Task<Unit> Handle(DeleteFinancialProjectCommand request, CancellationToken cancellationToken)
         {
             var entity = _context.FinancialProjects
-                .Include(x => x.Receipts)
-                .Include(x => x.FinancialProjectApplicationUsers)
                 .FirstOrDefault(x => x.Id == request.Id);
 
             if (entity == null)
             {
                 throw new NotFoundException(nameof(Domain.Entities.Financial.FinancialProject), request.Id);
             }
-            
+            /*
             var receipts = entity.Receipts;
             //TODO(NEEDS TO BE UPDATED)
             
@@ -47,6 +46,9 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
 
 
             _context.FinancialProjects.Remove(entity);
+            */
+            entity.Deleted = DateTime.Now;
+
 
             await _context.SaveChangesAsync(cancellationToken);
             

@@ -33,6 +33,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         {
             var entity = _context.FinancialProjects
                 //.Where(x => x.FinancialProjectApplicationUsers.Any(y => y.UserId != _currentUser.UserID))
+                .Where(x => x.Deleted == null)
                 .Include(x => x.FinancialProjectApplicationUsers)
                 .OrderByDescending(x => x.LastModified.HasValue)
                 .ThenByDescending(x => x.Created)

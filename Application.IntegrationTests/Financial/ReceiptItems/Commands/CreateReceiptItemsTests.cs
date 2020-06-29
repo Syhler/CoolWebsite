@@ -23,6 +23,8 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
         public async Task Handle_ValidFields_CreateEntity()
         {
             var receiptId = await CreateReceipt();
+
+           
             
             var create = new CreateReceiptItemCommand
             {
@@ -31,15 +33,23 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Name = "test",
                 ItemGroup = (int)ItemGroup.Essentials,
                 ReceiptId = receiptId,
-                UsersId = new List<string>{User.Id}
+                UsersId = new List<string>
+                {
+                    SecondUser.Id
+                }
             };
 
             var id = await SendAsync(create);
 
             var context = Context();
-            var entity = await context.ReceiptItems.Include(x => x.Users)
+            
+            var entity = await context.ReceiptItems
+                .Include(x => x.Users)
+                .Include(x => x.Receipt)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
+            var records = context.OweRecords.Where(x => x.FinancialProjectId == entity.Receipt.FinancialProjectId);
+            
             
             
             entity.Should().NotBeNull();
@@ -47,11 +57,14 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             entity.Price.Should().Be(create.Price);
             entity.Name.Should().Be(create.Name);
             entity.ItemGroup.Should().Be(create.ItemGroup);
-            entity.Users.First().ApplicationUserId.Should().Be(User.Id);
+            entity.Users.First().ApplicationUserId.Should().Be(SecondUser.Id);
             entity.Users.First().ReceiptItemId.Should().Be(id);
             entity.ReceiptId.Should().Be(receiptId);
             entity.CreatedBy.Should().Be(User.Id);
             entity.Created.Should().BeCloseTo(DateTime.Now, 1000);
+
+            var firstOrDefault = records.FirstOrDefault(x => x.OwedUserId == User.Id);
+            firstOrDefault?.Amount.Should().Be(create.Count * create.Price);
         }
 
         [Test]

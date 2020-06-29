@@ -473,6 +473,12 @@
             <e p="20200623190552_addedSoDeletedCanBeNull.Designer.cs" t="Include" />
             <e p="20200625161747_AddedOweRecordAndTransactions.cs" t="Include" />
             <e p="20200625161747_AddedOweRecordAndTransactions.Designer.cs" t="Include" />
+            <e p="20200625211717_FixForWrongForeignKey.cs" t="Include" />
+            <e p="20200625211717_FixForWrongForeignKey.Designer.cs" t="Include" />
+            <e p="20200629144912_AddedSoftDeleteForFinancialProject.cs" t="Include" />
+            <e p="20200629144912_AddedSoftDeleteForFinancialProject.Designer.cs" t="Include" />
+            <e p="20200629145314_MadeDeletedForFinancialProjectNullable.cs" t="Include" />
+            <e p="20200629145314_MadeDeletedForFinancialProjectNullable.Designer.cs" t="Include" />
             <e p="SqlApplicationDbContextModelSnapshot.cs" t="Include" />
           </e>
         </e>

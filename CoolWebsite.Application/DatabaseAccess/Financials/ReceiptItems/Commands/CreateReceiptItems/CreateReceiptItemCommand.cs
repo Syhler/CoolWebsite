@@ -59,6 +59,30 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
                     ReceiptItemId = id
                 });
             }
+
+            var records = _context.OweRecords.Where(x => x.OwedUserId == receipt.CreatedBy && x.FinancialProjectId == receipt.FinancialProjectId);
+
+            foreach (var user in request.UsersId)
+            {
+                
+                var record = records.FirstOrDefault(x => x.UserId == user);
+                
+                if (request.UsersId.Count > 1)
+                {
+                    if (record != null)
+                    {
+                        record.Amount += (request.Count * request.Price)/request.UsersId.Count;
+                    }
+
+                }
+                else
+                {
+                    if (record != null)
+                    {
+                        record.Amount += request.Count * request.Price;
+                    }
+                }
+            }
             
             var entity = new ReceiptItem
             {
@@ -72,6 +96,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
             };
 
             await _context.ReceiptItems.AddAsync(entity, cancellationToken);
+            
 
             await _context.SaveChangesAsync(cancellationToken);
 

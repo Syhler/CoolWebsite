@@ -58,8 +58,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
             profile.CreateMap<Receipt, ReceiptDto>()
                 .ForMember(x => x.Items,
                     opt => opt.MapFrom(x => x.Items))
-                .ForMember(x => x.CreatedByUserId, 
-                    opt => opt.MapFrom(x => x.CreatedBy));
+                .ForMember(x => x.CreatedByDto, 
+                    opt => opt.MapFrom(x => x.CreatedByUser));
         }
     }
 }

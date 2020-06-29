@@ -45,6 +45,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
             var entity = _context.FinancialProjects
                 .Include(x => x.FinancialProjectApplicationUsers)
                 .Include(x => x.Receipts)
+                .Include(x => x.OweRecords)
                 .Where(x => x.Id == request.ProjectId);
 
             if (entity.ToList().Count == 0)
@@ -61,7 +62,92 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
             
             mapped.Receipts = mapped.Receipts.Where(x => x.Deleted == null).ToList();
 
-            foreach (var user in mapped.Users)
+
+            var currentUserRecords = entity.First().OweRecords.Where(x => x.UserId == _currentUserService.UserID).ToList();
+
+
+            foreach (var mappedUser in mapped.Users)
+            {
+                if (mappedUser.Id == _currentUserService.UserID) continue;
+
+                var affectedRecord = currentUserRecords.FirstOrDefault(x => x.OwedUserId == mappedUser.Id);
+
+                var records = entity.First().OweRecords.FirstOrDefault(x =>
+                    x.UserId == mappedUser.Id && x.OwedUserId == _currentUserService.UserID);
+
+                if (records != null)
+                {
+                    if (affectedRecord != null)
+                    {
+                        mappedUser.Owed = affectedRecord.Amount - records.Amount;
+
+                    }
+                    else
+                    {
+                        mappedUser.Owed = -records.Amount;
+                    }
+                }
+            }
+            
+
+            /*
+
+
+            foreach (var mappedUser in mapped.Users)
+            {
+                if (mappedUser.Id == _currentUserService.UserID)
+                {
+                    continue;
+                }
+                
+                //morten logged ind
+                
+                //lucas tur
+
+                var owed = entity
+                    .First().OweRecords
+                    .Where(x => x.UserId == mappedUser.Id && x.OwedUserId == _currentUserService.UserID).ToList();
+
+                if (owed.Any())
+                {
+                    var sum = owed.Sum(x => x.Amount);
+
+                    mappedUser.Owed = -sum;
+                }
+                else
+                {
+                    owed = entity
+                        .First().OweRecords
+                        .Where(x => x.OwedUserId == mappedUser.Id).ToList();
+
+                    var sum = owed.Sum(x => x.Amount);
+
+                    mappedUser.Owed = sum;
+
+                }
+              
+            }
+            */
+            
+            
+            
+            return mapped;
+            
+        }
+
+        private int getUserCount(ReceiptItemDto item, ReceiptDto receipt)
+        {
+            var userCount = item.Users.Count;
+            if (item.Users.FirstOrDefault(x => x.Id == receipt.CreatedByUserId) != null)
+            {
+                userCount--;
+            }
+
+            return userCount;
+        }
+        
+        /*
+         *             foreach (var user in mapped.Users)
             {
                 if (user.Id == _currentUserService.UserID)
                 {
@@ -135,56 +221,9 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
                     }
                 }
             }
-            
-            return mapped;
-            
-            
-            
-            
-            
-            //better optimized. but couldnt get it to work.....
-            /*
 
-            var entity = _context.FinancialProjects
-                .Include(x => x.FinancialProjectApplicationUsers)
-                .Where(x => x.Id == request.ProjectId)
-                .Select(x => new
-                {
-                    x,
-                    Receipts = x.Receipts.Where(x => x.Deleted == null).ToList()
-                });
-            
-            
-            if (entity == null)
-            {
-                throw new NotFoundException(nameof(FinancialProject), request.ProjectId);
-            }
-
-            /*
-            var query = new List<FinancialProject>
-            {
-                entity.x
-            }.AsQueryable();
-            
-
-            var mapped = _mapper.Map<FinancialProject, FinancialProjectDto>(entity.x);
-            var mapped = entity.Select(x => x.x).ProjectTo<FinancialProjectDto>(_mapper.ConfigurationProvider).FirstOrDefault();
-            */
-
-            
-            return mapped;
-        }
-
-        private int getUserCount(ReceiptItemDto item, ReceiptDto receipt)
-        {
-            var userCount = item.Users.Count;
-            if (item.Users.FirstOrDefault(x => x.Id == receipt.CreatedByUserId) != null)
-            {
-                userCount--;
-            }
-
-            return userCount;
-        }
+         */
+        
     }
     
     

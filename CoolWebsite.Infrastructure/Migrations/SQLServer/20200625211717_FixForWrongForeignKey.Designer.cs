@@ -4,14 +4,16 @@ using CoolWebsite.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CoolWebsite.Infrastructure.Migrations.SQLServer
 {
     [DbContext(typeof(SqlApplicationDbContext))]
-    partial class SqlApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200625211717_FixForWrongForeignKey")]
+    partial class FixForWrongForeignKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,10 +45,7 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime?>("Deleted")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)")
@@ -64,8 +63,6 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                         .HasMaxLength(100);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatedBy");
 
                     b.ToTable("FinancialProjects");
                 });
@@ -125,7 +122,7 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateVisited")
                         .HasColumnType("datetime2");
@@ -153,8 +150,6 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatedBy");
-
                     b.HasIndex("FinancialProjectId");
 
                     b.ToTable("Receipts");
@@ -172,7 +167,7 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ItemGroup")
                         .HasColumnType("int");
@@ -194,8 +189,6 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatedBy");
 
                     b.HasIndex("ReceiptId");
 
@@ -447,13 +440,6 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.FinancialProject", b =>
-                {
-                    b.HasOne("CoolWebsite.Domain.Entities.Identity.ApplicationUser", "CreatedByUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedBy");
-                });
-
             modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.FinancialProjectApplicationUser", b =>
                 {
                     b.HasOne("CoolWebsite.Domain.Entities.Financial.FinancialProject", "FinancialProject")
@@ -492,10 +478,6 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
 
             modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.Receipt", b =>
                 {
-                    b.HasOne("CoolWebsite.Domain.Entities.Identity.ApplicationUser", "CreatedByUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedBy");
-
                     b.HasOne("CoolWebsite.Domain.Entities.Financial.FinancialProject", "FinancialProject")
                         .WithMany("Receipts")
                         .HasForeignKey("FinancialProjectId")
@@ -505,10 +487,6 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
 
             modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.ReceiptItem", b =>
                 {
-                    b.HasOne("CoolWebsite.Domain.Entities.Identity.ApplicationUser", "CreatedByUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedBy");
-
                     b.HasOne("CoolWebsite.Domain.Entities.Financial.Receipt", "Receipt")
                         .WithMany("Items")
                         .HasForeignKey("ReceiptId");

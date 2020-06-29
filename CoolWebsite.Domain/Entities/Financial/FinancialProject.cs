@@ -20,6 +20,8 @@ namespace CoolWebsite.Domain.Entities.Financial
 
         public string Description { get; set; }
 
+        public DateTime? Deleted { get; set; }
+
         
 
     }

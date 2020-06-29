@@ -8,6 +8,8 @@ namespace CoolWebsite.Infrastructure.Persistence
 {
     public static class ApplicationDbContextSeed
     {
+        
+        
         public static async Task SeedDefaultUserAsync(UserManager<ApplicationUser> userManager,
             RoleManager<ApplicationRole> roleManager)
         {
@@ -18,19 +20,50 @@ namespace CoolWebsite.Infrastructure.Persistence
                 FirstName = "Morten",
                 LastName = "Syhler"
             };
-
-            if (userManager.Users.All(u => u.UserName != defaultUser.UserName))
+            
+            var secondUser = new ApplicationUser
             {
-                await userManager.CreateAsync(defaultUser, "testUser123");
-                
-                if (roleManager.Roles.All(u => u.Name != "Admin"))
-                {
-                    await roleManager.CreateAsync(new ApplicationRole {Name = "Admin"});
-                }
-                
-                var user = userManager.Users.First(x => x.Email == defaultUser.Email);
-                await userManager.AddToRoleAsync(user, "Admin");
+                UserName = "Lucas.ajander@gmail.com",
+                Email = "Lucas.ajander@gmail.com",
+                FirstName = "Lucas",
+                LastName = "Ajander"
+            };
+            var thirdUser = new ApplicationUser
+            {
+                UserName = "Niklas.hesteegg@gmail.com",
+                Email = "Niklas.hesteegg@gmail.com",
+                FirstName = "Niklas",
+                LastName = "Hesteegg"
+            };
+
+            if (roleManager.Roles.All(u => u.Name != "Admin"))
+            {
+                await roleManager.CreateAsync(new ApplicationRole {Name = "Admin"});
             }
+
+            await CreateUser(userManager, defaultUser);
+            await CreateUser(userManager, secondUser);
+            await CreateUser(userManager, thirdUser);
+
+            await GiveRole(userManager, defaultUser.Email, "Admin");
+            await GiveRole(userManager, secondUser.Email, "Admin");
+            await GiveRole(userManager, thirdUser.Email, "Admin");
+
+
+        }
+
+        private static async Task CreateUser(UserManager<ApplicationUser> userManager, ApplicationUser user)
+        {
+            if (userManager.Users.All(u => u.UserName != user.UserName))
+            {
+                await userManager.CreateAsync(user, "testUser123");
+            }
+        }
+
+        private static async  Task GiveRole( UserManager<ApplicationUser> userManager, string email, string role)
+        {
+            var user = userManager.Users.First(x => x.Email == email);
+            await userManager.AddToRoleAsync(user, role);
         }
     }
 }

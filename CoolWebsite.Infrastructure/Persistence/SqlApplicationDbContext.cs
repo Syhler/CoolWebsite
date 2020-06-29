@@ -56,10 +56,20 @@ namespace CoolWebsite.Infrastructure.Persistence
             builder.Entity<ApplicationUserReceiptItem>()
                 .HasKey(x => new {x.ApplicationUserId, x.ReceiptItemId});
 
+            /*
+            builder.Entity<FinancialProject>()
+                .HasMany<OweRecord>(x => x.OweRecords)
+                .WithOne(x => x.FinancialProject)
+                .HasForeignKey(x => x.Id);
+        
+            */
+            
+            
+
             builder.Entity<OweRecord>()
                 .HasOne(x => x.User)
                 .WithMany()
-                .HasForeignKey(x => x.Id)
+                .HasForeignKey(x => x.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
             
 

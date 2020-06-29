@@ -17,11 +17,13 @@ namespace Application.IntegrationTests.Common
         private string _projectName = "Create";
 
         protected ApplicationUser User;
+        protected ApplicationUser SecondUser;
 
         [SetUp]
         public async Task CreateUser()
         {
             User = await RunAsDefaultUserAsync();
+            SecondUser = await CreateNewUser("SecondUser", "YesIndeed");
         }
 
         protected async Task<string> CreateFinancialProject()
@@ -32,7 +34,8 @@ namespace Application.IntegrationTests.Common
                 Title = _projectName,
                 Users = new List<ApplicationUser>
                 {
-                    User
+                    User,
+                    SecondUser
                 }
             };
 

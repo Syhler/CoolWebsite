@@ -47,8 +47,30 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
                     FinancialProjectId = entity.Id,
                     UserId = applicationUser.Id
                 });
+
+                foreach (var user in request.Users)
+                {
+                    if (user.Id == applicationUser.Id)
+                    {
+                        continue;
+                    }
+                    
+                    //create OweRecord
+                    var oweRecord = new OweRecord
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        Amount = 0,
+                        FinancialProjectId = entity.Id,
+                        UserId = applicationUser.Id,
+                        OwedUserId = user.Id
+                    };
+
+                    await _context.OweRecords.AddAsync(oweRecord, cancellationToken);
+                }
+               
             }
 
+            
             entity.FinancialProjectApplicationUsers = users;
             
 

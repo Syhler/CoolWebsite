@@ -20,27 +20,32 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
         [Test]
         public async Task Handle_ValidFields_ShouldUpdate()
         {
-            var newUser = await RunAsUserAsync("new@new", "TESTING!123a");
-            
+
+
+            var firstUser = await CreateNewUser("CoolUser", "Not cool");
             
             var createCommand = new CreateFinancialProjectCommand
             {
                 Title = "First",
                 Users = new List<ApplicationUser>
                 {
-                    User
+                    User,
+                    firstUser
                 }
             };
 
             var project = await SendAsync(createCommand);
 
+
+            var newlyCreatedUser = await CreateNewUser("test12312312312", "hahah");
+            
             var updateCommand = new UpdateFinancialProjectCommand
             {
                 Id = project.Id,
                 Name = "Second",
                 Users = new List<ApplicationUser>
                 {
-                    newUser
+                    newlyCreatedUser
                 }
             };
 
@@ -48,16 +53,23 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
 
             var context = Context();
 
-            var entity = context.FinancialProjects.Include(x => x.FinancialProjectApplicationUsers)
+            var entity = context.FinancialProjects
+                .Include(x => x.FinancialProjectApplicationUsers)
+                .Include(x => x.OweRecords)
                 .First(x => x.Id == project.Id);
+            
             
             entity.Should().NotBeNull();
             entity.Title.Should().Be(updateCommand.Name);
-            entity.FinancialProjectApplicationUsers.First().UserId.Should().Be(newUser.Id);
+            entity.FinancialProjectApplicationUsers.FirstOrDefault(x => x.UserId == newlyCreatedUser.Id).Should().NotBeNull();
+            var recordFrom = entity.OweRecords.FirstOrDefault(x => x.UserId == newlyCreatedUser.Id);
+            var recordTo = entity.OweRecords.FirstOrDefault(x => x.OwedUserId == newlyCreatedUser.Id);
+            recordFrom.Should().NotBeNull();
+            recordTo.Should().NotBeNull();
             entity.LastModified.Should().NotBeNull();
             entity.LastModified.Should().BeCloseTo(DateTime.Now, 10000);
             entity.LastModifiedBy.Should().NotBeNull();
-            entity.LastModifiedBy.Should().Be(newUser.Id);
+            entity.LastModifiedBy.Should().Be(User.Id);
         }
         
 

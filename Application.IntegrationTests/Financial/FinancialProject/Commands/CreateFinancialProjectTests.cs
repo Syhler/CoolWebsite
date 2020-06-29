@@ -14,7 +14,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
 {
     using static Testing;
 
-    public class CreateFinancialProjectTests : TestBase
+    public class CreateFinancialProjectTests : FinancialTestBase
     {
         [Test]
         public async Task Handle_EmptyTitle_ShouldThrowValidationException()
@@ -57,22 +57,24 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
         [Test]
         public async Task Handle_Create_ShouldCreateFinancialProject()
         {
-            var user = await RunAsDefaultUserAsync();
 
             var command = new CreateFinancialProjectCommand
             {
                 Title = "Wooow",
                 Users = new List<ApplicationUser>
                 {
-                    user
+                    User,
+                    await CreateNewUser("new@new.com","UserUser")
                 }
             };
 
             var project = await SendAsync(command);
 
             var context = Context();
-            
-            var entity = context.FinancialProjects.Include(x => x.FinancialProjectApplicationUsers)
+
+            var entity = context.FinancialProjects
+                .Include(x => x.FinancialProjectApplicationUsers)
+                .Include(x => x.OweRecords)
                 .FirstOrDefault(x => x.Id == project.Id);
             
             await context.DisposeAsync();
@@ -80,8 +82,12 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
 
             entity.Should().NotBeNull();
             entity.Title.Should().Be(command.Title);
-            entity.FinancialProjectApplicationUsers.First().UserId.Should().Be(user.Id);
-            entity.CreatedBy.Should().Be(user.Id);
+            entity.FinancialProjectApplicationUsers.FirstOrDefault(x => x.UserId == User.Id).Should().NotBeNull();
+            var record = entity.OweRecords.FirstOrDefault(x => x.UserId == User.Id);
+            record.Should().NotBeNull();
+            record.Amount.Should().Be(0);
+            record.FinancialProjectId.Should().Be(project.Id);
+            entity.CreatedBy.Should().Be(User.Id);
             entity.Created.Should().BeCloseTo(DateTime.Now, 10000);
             entity.FinancialProjectApplicationUsers.First().FinancialProjectId.Should().Be(project.Id);
         }
