@@ -1,15 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.DeleteReceipts;
+using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.UpdateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries;
+using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries.Models;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.DeleteReceipts;
+using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.UpdateReceipts;
+using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries;
 using CoolWebsite.Areas.Financial.Common;
 using CoolWebsite.Areas.Financial.Models;
 using CoolWebsite.Services;
@@ -46,33 +51,63 @@ namespace CoolWebsite.Areas.Financial.Controller
         public async Task<IActionResult> CreateReceipt(string id)
         {
 
-            var financialQuery = new GetFinancialProjectByIdQuery {ProjectId = id};
+            var financialQuery = new GetUsersFromFinancialProjectQuery() {FinancialProjectId = id};
 
-            var project = await Mediator.Send(financialQuery);
-            
-            var itemGroupQuery = new GetItemGroupQuery();
-
-            var itemGroups = await Mediator.Send(itemGroupQuery);
-
-            var createReceiptItemVm = new CreateReceiptItemVm
-            {
-                AddUserModel = new AddUserModel
-                {
-                    UserSelectListItems = SelectListHandler.CreateFromUsers(project.Users),
-                },
-                TypesSelectListItems = SelectListHandler.CreateFromItemGroup(itemGroups),
-            };
-            
-            
+            var userDtos = await Mediator.Send(financialQuery);
+          
             var model = new CreateReceiptModel
             {
                 FinancialProjectId = id,
-                CreateReceiptItemVm = createReceiptItemVm
-
+                CreateReceiptItemVm = await CreateReceiptItemVm(userDtos)
             };
             
             return View(model);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> EditReceipt(string id, string financialProjectId)
+        {
+            var query = new GetReceiptByIdQueryVm
+            {
+                ReceiptId = id
+            };
+
+            var receiptDto = await Mediator.Send(query);
+
+            var usersQuery = new GetUsersFromFinancialProjectQuery{ FinancialProjectId = financialProjectId};
+
+            var userDtos = await Mediator.Send(usersQuery);
+            
+            var model = new CreateReceiptModel
+            {
+                ReceiptDto =  receiptDto,
+                FinancialProjectId = financialProjectId,
+                CreateReceiptItemVm = await CreateReceiptItemVm(userDtos)
+            };
+            
+            
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditReceiptPost(CreateReceiptModel model)
+        {
+
+            var command = new UpdateReceiptsCommand
+            {
+                Id = model.ReceiptDto.Id,
+                Location = model.ReceiptDto.Location,
+                ItemDtos = model.ReceiptDto.Items,
+                Datevisited = model.ReceiptDto.DateVisited,
+                Note = model.ReceiptDto.Note
+            };
+
+            await Mediator.Send(command);
+
+            return Json(new {result = "Redirect", url = Url.Action("Index", "Project", new {id = model.FinancialProjectId})});
+        }
+        
+        
 
         [HttpPost]
         public async Task<IActionResult> GetReceiptItemPartialView(ReceiptItemVm vm)
@@ -90,16 +125,16 @@ namespace CoolWebsite.Areas.Financial.Controller
             
             var command = new CreateReceiptsCommand
             {
-                Total = model.ReceiptItemModels.Select(x => x.Price).Sum(),
-                BoughtAt = model.DateVisited,
+                Total = model.ReceiptDto.Items.Select(x => x.Price).Sum(),
+                BoughtAt = model.ReceiptDto.DateVisited,
                 FinancialProjectId = model.FinancialProjectId,
-                Title = model.Location,
-                Note = model.Note
+                Title = model.ReceiptDto.Location,
+                Note = model.ReceiptDto.Note
             };
 
             var receiptId = await Mediator.Send(command);
 
-            foreach (var receiptItemModel in model.ReceiptItemModels)
+            foreach (var receiptItemModel in model.ReceiptDto.Items)
             {
                 var createReceiptItemCommand = new CreateReceiptItemCommand
                 {
@@ -136,6 +171,24 @@ namespace CoolWebsite.Areas.Financial.Controller
         public async Task<IActionResult> CreateReceiptItemModal(string financialProjectId)
         {
             return View("Partial/CreateReceiptItemModal", null);
+        }
+        
+      
+
+        private async Task<CreateReceiptItemVm> CreateReceiptItemVm(IList<UserDto> users)
+        {
+            var itemGroupQuery = new GetItemGroupQuery();
+
+            var itemGroups = await Mediator.Send(itemGroupQuery);
+            
+            return  new CreateReceiptItemVm
+            {
+                AddUserModel = new AddUserModel
+                {
+                    UserSelectListItems = SelectListHandler.CreateFromUsers(users),
+                },
+                TypesSelectListItems = SelectListHandler.CreateFromItemGroup(itemGroups),
+            };
         }
     }
 }

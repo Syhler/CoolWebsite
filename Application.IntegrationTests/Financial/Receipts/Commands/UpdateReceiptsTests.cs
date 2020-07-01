@@ -1,13 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
-using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.UpdateReceipts;
+using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
+using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems;
+using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries.Models;
+using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.UpdateReceipts;
 using CoolWebsite.Domain.Entities.Financial;
+using CoolWebsite.Domain.Enums;
 using FluentAssertions;
+using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
-namespace Application.IntegrationTests.Financial.Reciepts.Commands
+namespace Application.IntegrationTests.Financial.Receipts.Commands
 {
     using static Testing;
     
@@ -19,28 +26,55 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
         {
             var projectId = await CreateFinancialProject();
             var id = await CreateReceipt();
-            var user = await RunAsUserAsync("newuse@d","password123!");
+
+            var itemCommand = new CreateReceiptItemCommand
+            {
+                Name = "Receipt",
+                Count = 10,
+                Price = 1000,
+                ItemGroup = 0,
+                ReceiptId = id,
+                UsersId = new List<string>
+                {
+                    User.Id,
+                    SecondUser.Id
+                }
+            };
+
+            var itemId = await SendAsync(itemCommand);
+            
+            var item = GetReceiptItem(5);
             
             var command = new UpdateReceiptsCommand
             {
                 Id = id,
-                Total = 134534.4324,
-                FinancialProjectId = projectId,
-                Title = "Title",
-                BoughtAt = DateTime.Now
+                Location = "Netto",
+                Datevisited = DateTime.Now,
+                Note = "meh",
+                ItemDtos = new List<ReceiptItemDto>
+                {
+                    item,
+                }
             };
 
             await SendAsync(command);
 
-            var entity = await FindAsync<Receipt>(command.Id);
+            var context = Context();
+
+            var entity = context.Receipts
+                .Include(x => x.Items)
+                .FirstOrDefault(x => x.Id == command.Id);
+
+            await context.DisposeAsync();
 
             entity.Should().NotBeNull();
-            //entity.Total.Should().Be(command.Total);
-            entity.FinancialProjectId.Should().Be(command.FinancialProjectId);
+            entity.Note.Should().Be(command.Note);
+            entity.Items.FirstOrDefault(x => x.Id == item.Id).Should().NotBeNull();
+            entity.Items.Count.Should().Be(1);
             entity.LastModified.Should().BeCloseTo(DateTime.Now, 1000);
-            entity.LastModifiedBy.Should().Be(user.Id);
+            entity.LastModifiedBy.Should().Be(User.Id);
             entity.DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
-            entity.Location.Should().Be(command.Title);
+            entity.Location.Should().Be(command.Location);
         }
 
         [Test]
@@ -53,9 +87,8 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             var command = new UpdateReceiptsCommand
             {
                 Id = id,
-                Total = 134534.4324,
-                Title = "Title",
-                BoughtAt = DateTime.Now
+                Location = "Title",
+                Datevisited = DateTime.Now
             };
 
             await SendAsync(command);
@@ -63,12 +96,11 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
             var entity = await FindAsync<Receipt>(command.Id);
 
             entity.Should().NotBeNull();
-            //entity.Total.Should().Be(command.Total);
             entity.FinancialProjectId.Should().Be(projectId);
             entity.LastModified.Should().BeCloseTo(DateTime.Now, 1000);
             entity.LastModifiedBy.Should().Be(user.Id);
             entity.DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
-            entity.Location.Should().Be(command.Title);
+            entity.Location.Should().Be(command.Location);
         }
 
         [Test]
@@ -76,10 +108,9 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
         {
             var command = new UpdateReceiptsCommand
             {
-                Total = 2341.3,
                 Id = "nah",
-                Title = "Title",
-                BoughtAt = DateTime.Now
+                Location = "Title",
+                Datevisited = DateTime.Now
             };
 
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<NotFoundException>();
@@ -90,38 +121,22 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
         {
             var command = new UpdateReceiptsCommand
             {
-                Total = 2341.3,
                 Id = "",
-                Title = "Title",
-                BoughtAt = DateTime.Now
+                Location = "Title",
+                Datevisited = DateTime.Now
             };
 
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
         }
 
-
-        [Test]
-        public async Task Handle_TotalBelowZero_ShouldThrowValidationException()
-        {
-            var command = new UpdateReceiptsCommand
-            {
-                Total = -5,
-                Id = "asdadas",
-                Title = "Title",
-                BoughtAt = DateTime.Now
-            };
-
-            FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
-        }
         
         [Test]
         public async Task Handle_BoughtAtEmpty_ShouldThrowValidationException()
         {
             var command = new UpdateReceiptsCommand
             {
-                Total = 5,
                 Id = "asdadas",
-                Title = "Title",
+                Location = "Title",
             };
             
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
@@ -133,10 +148,9 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
         {
             var command = new UpdateReceiptsCommand
             {
-                Total = 123,
                 Id = "asdadas",
-                BoughtAt = DateTime.Now,
-                Title = ""
+                Datevisited = DateTime.Now,
+                Location = ""
             };
 
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
@@ -147,11 +161,10 @@ namespace Application.IntegrationTests.Financial.Reciepts.Commands
         {
             var command = new UpdateReceiptsCommand
             {
-                Total = 123,
                 Id = "asdadas",
-                Title = "dafhdsugjhsfdosjdfjiodsfoijdsfjiosdfsdfdfsdfsdfsdfsfsdfsdfsdf" +
+                Location = "dafhdsugjhsfdosjdfjiodsfoijdsfjiosdfsdfdfsdfsdfsdfsfsdfsdfsdf" +
                         "dfgdfgdfgojifdsjoifsdjoisdfojisdfjoisdfjoifsojdijoisdfjoifsdoij",
-                BoughtAt = DateTime.Now
+                Datevisited = DateTime.Now
             };
 
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();

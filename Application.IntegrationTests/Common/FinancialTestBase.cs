@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.CreateFinancialProject;
+using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
+using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries.Models;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Areas.UserManagement.Models;
 using CoolWebsite.Domain.Entities.Financial;
@@ -71,6 +73,25 @@ namespace Application.IntegrationTests.Common
             };
 
             return await SendAsync(createCommand);
+        }
+
+        protected ReceiptItemDto GetReceiptItem(int count)
+        {
+            return new ReceiptItemDto
+            {
+                Price = 100,
+                Count = count,
+                Id = Guid.NewGuid().ToString(),
+                ItemGroup = new ItemGroupDto{Value = 0},
+                Users = new List<UserDto>
+                {
+                    new UserDto
+                    {
+                        Id = User.Id
+                    }
+                }
+                    
+            };
         }
         
     }

@@ -23,5 +23,6 @@ namespace CoolWebsite.Domain.Entities.Financial
         
         public ICollection<ApplicationUserReceiptItem> Users { get; set; }
 
+        
     }
 }

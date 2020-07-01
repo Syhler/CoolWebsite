@@ -48,7 +48,13 @@
             </ul>
             <div></div>
             <div>
-                <button class="btn btn-success btn-sm mr-2" type="button">Edit</button>
+                <a class="btn btn-success btn-sm mr-2" type="button"
+                   asp-action="EditReceipt"
+                   asp-controller="Project"
+                   asp-area="Financial"
+                   asp-route-id="@Model.Id"
+                   asp-route-financialProjectId="@Context.GetRouteData().Values["id"]">Edit</a>
+                
                 <a class="btn btn-danger btn-sm" type="button" 
                         asp-action="DeleteReceipt" 
                         asp-controller="Project" 

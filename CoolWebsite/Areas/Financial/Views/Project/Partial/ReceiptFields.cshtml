@@ -1,0 +1,64 @@
+﻿@using CoolWebsite.Areas.Financial.Models
+@model CoolWebsite.Areas.Financial.Models.CreateReceiptModel
+
+<input asp-for="FinancialProjectId" type="hidden" id="financial-project-id"/>
+
+<div class="form-group">
+    <label asp-for="ReceiptDto.Location">Location</label>
+    <input class="form-control" name="location" id="location" asp-for="ReceiptDto.Location" placeholder="Enter Location Name">
+    <small class="form-text text-muted">Name of the shop you visited</small>
+</div>
+
+<div class="form-group">
+    <label asp-for="ReceiptDto.Note">Note</label>
+    <textarea class="form-control" name="note" id="note" asp-for="ReceiptDto.Note" placeholder="Enter a note here"></textarea>
+    <small class="form-text text-muted">A note about the receipt</small>
+</div>
+
+<div class="form-group">
+    <div class="input-group date" data-provide="datepicker">
+        <input asp-for="ReceiptDto.DateVisited" type="text" name="DateVisited" class="form-control" id="datepicker">
+        <div class="input-group-addon">
+            <i class="glyphicon glyphicon-asterisk"></i>
+        </div>
+    </div>
+</div>
+
+<div class="mt-5">
+
+    <button class="btn btn-success" type="button" id="add-receipt-item"
+            data-target="#create-receipt-item-modal"
+            data-toggle="modal">
+        Add Item
+    </button>
+
+    <div id="receipt-item-cards" class="mt-4">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header">
+                Receipt Item List
+                <small class="form-text text-muted">Name of the shop you visited</small>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    @{
+                        if (Model.ReceiptDto?.Items != null)
+                        {
+                            foreach (var receiptDtoItem in Model.ReceiptDto.Items)
+                            {
+                                await Html.RenderPartialAsync("Partial/ReceiptItemPartialView", new ReceiptItemVm
+                                {
+                                    ReceiptItem = receiptDtoItem,
+                                    UniqueIdentifier = string.IsNullOrWhiteSpace(receiptDtoItem.Id) ? Guid.NewGuid() : Guid.Parse(receiptDtoItem.Id)
+                                });
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+            <div class="card-footer">
+                <label id='receipt-item-none-error' class="red" style="display: none">You must add at least one receipt item</label>
+                <span class="badge badge-primary badge-pill float-right">Total: <span id="all-receipt-items-total-price">0</span> Kr</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,7 +3,8 @@ $(document).ready(function () {
     const config = {
         createReceiptItemModal: "/Financial/Project/CreateReceiptItemModal",
         getReceiptItemPartialView: "/Financial/Project/GetReceiptItemPartialView",
-        createReceipt: "/Financial/Project/CreateReceiptPost"
+        createReceipt: "/Financial/Project/CreateReceiptPost",
+        editReceipt: "/Financial/Project/EditReceiptPost"
     }
 
 
@@ -11,42 +12,13 @@ $(document).ready(function () {
     const usersOptions = $("#users-dropdown option");
     console.log(usersOptions)
 
-    /*
-    modal.on("shown.bs.modal", function () {
-
-        if (modal.children().length > 0) {
-            $('#receipt-item-price').trigger('focus')
-            return
-        }
-
-        //Get modal from partialview
-        $.ajax({
-            type: "get",
-            url: config.createReceiptItemModal,
-            data: {
-                financialProjectId: $("#financial-project-id").val()
-            },
-            success: function (data) {
-                modal.append(data)
-                //Trigger input box
-                $('#receipt-item-price').trigger('focus')
-                populateDropdown()
-            },
-            error: function (jqxhr, status, exception) {
-                alert('Exception: ' + exception);
-
-            }
-        })
-    })
-     */
-    
     modal.on("shown.bs.modal", function () {
         reActivateUsers()
     })
     
     modal.on("hide.bs.modal", function () {
 
-        if ($("#edit-receipt-button").is(":visible"))
+        if ($("#edit-receipt-item-button").is(":visible"))
         {
             emptyModal();
         }
@@ -99,7 +71,7 @@ $(document).ready(function () {
 
         //Make it edit thingy
         $("#create-receipt-item").hide()
-        const editButton = $("#edit-receipt-button");
+        const editButton = $("#edit-receipt-item-button");
         editButton.show()
         editButton.data("id", element.data("id"))
 
@@ -114,7 +86,7 @@ $(document).ready(function () {
 
         //Make it add thingy
         
-        $("#edit-receipt-button").hide()
+        $("#edit-receipt-item-button").hide()
         $("#create-receipt-item").show()
 
     })
@@ -134,25 +106,10 @@ $(document).ready(function () {
             validationStatus = false;
         }
         return validationStatus;
-        /*
-
-const priceInput = $("#receipt-item-price");
-if (priceInput.val() === "")
-{
-    
-    return false;
-}
-
-if (parseFloat(priceInput.val()) > 0)
-{
-    
-    return false;
-}
-
- */
+  
     }
     
-    $(document).on("click", "#edit-receipt-button", function ()
+    $(document).on("click", "#edit-receipt-item-button", function ()
     {
         
         const validated = validateModalForm();
@@ -164,7 +121,7 @@ if (parseFloat(priceInput.val()) > 0)
 
             console.log("Edit method ran")
 
-            const dataId = $("#edit-receipt-button").data("id");
+            const dataId = $("#edit-receipt-item-button").data("id");
 
 
             $(".list-group").prepend(data);
@@ -347,18 +304,20 @@ if (parseFloat(priceInput.val()) > 0)
 
     $(document).on("click", "#create-receipt-button", function () {
 
-        validateCreateReceipt(function () {
+        validateReceiptForm(function () {
             const location = $("#location").val();
             const note = $("#note").val();
             const date = $("#datepicker").val()
             const financialProjectId = $("#financial-project-id").val()
 
             const dataset = {
-                Location: location,
-                Note: note,
-                DateVisited: date,
+                ReceiptDto : {
+                    Location: location,
+                    Note: note,
+                    DateVisited: date,
+                    Items: getReceiptItems()
+                },
                 FinancialProjectId: financialProjectId,
-                ReceiptItemModels: getReceiptItems()
             }
 
 
@@ -375,8 +334,46 @@ if (parseFloat(priceInput.val()) > 0)
             })
         })
     })
+    
+    $(document).on("click", "#edit-receipt-button", function () {
 
-    $("#create-receipt-form").submit(function (e) {
+        validateReceiptForm(function () {
+            const location = $("#location").val();
+            const note = $("#note").val();
+            const date = $("#datepicker").val()
+            const financialProjectId = $("#financial-project-id").val()
+
+            const baseUrl = (window.location).href; 
+            const id = baseUrl.substring(baseUrl.lastIndexOf('/') + 1, baseUrl.lastIndexOf('?'))
+            
+            const dataset = {
+                ReceiptDto : {
+                    Location: location,
+                    Note: note,
+                    DateVisited: date,
+                    Items: getReceiptItems(),
+                    Id: id
+                },
+                FinancialProjectId: financialProjectId,
+            }
+
+
+            $.ajax({
+                type: "POST",
+                url: config.editReceipt,
+                data: dataset,
+                success: function (data) {
+                    window.location = data.url;
+                },
+                error: function (jqxhr, status, exception) {
+                    alert('Exception: ' + exception);
+                }
+            })
+        })
+        
+    })
+
+    $("#receipt-form").submit(function (e) {
         e.preventDefault();
     });
     
@@ -422,14 +419,14 @@ if (parseFloat(priceInput.val()) > 0)
     
 
 
-    function validateCreateReceipt(callback) {
+    function validateReceiptForm(callback) {
         //custom validation
         if (!atLeastOneReceiptItem()) {
             //show custom error message
             $("#receipt-item-none-error").show()
         }
 
-        $("#create-receipt-form").validate({
+        $("#receipt-form").validate({
 
             rules: {
                 location: {
@@ -483,7 +480,8 @@ if (parseFloat(priceInput.val()) > 0)
                     Value: $(this).find(".badge-receipt-item-type").data("id")
                 },
                 Price: $(this).find(".badge-receipt-item-price").text(),
-                Count: $(this).find(".badge-receipt-item-count").text()
+                Count: $(this).find(".badge-receipt-item-count").text(),
+                Id: $(this).data("id")
             }
 
 

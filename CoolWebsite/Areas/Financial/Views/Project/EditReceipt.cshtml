@@ -1,12 +1,12 @@
 ﻿@model CoolWebsite.Areas.Financial.Models.CreateReceiptModel
 
 @{
-    ViewBag.Title = "Create Receipt";
+    ViewBag.Title = "EditReceipt";
     Layout = "_Layout";
 }
 
 <div class="mt-5">
-    <h2>Here will you be avaible to create a receipt</h2>
+    <h2>Here will you be avaible to edit a receipt</h2>
     <form id="receipt-form">
        
         @{
@@ -15,7 +15,8 @@
         
 
         <a type="button" class="btn btn-danger" asp-action="Index" asp-controller="Project" asp-route-id="@Model.FinancialProjectId">Back</a>
-        <button type="submit" class="btn btn-success" id="create-receipt-button">Create</button> @*FORM get sumbitted via ajax /Financial/project.js*@
+        <button type="submit" class="btn btn-success" id="edit-receipt-button">Edit</button> 
+        @*FORM get sumbitted via ajax /Financial/project.js*@
     </form>
 
 

@@ -66,12 +66,12 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
             model.Receipts.First().Location.Should().Be("Title");
             model.Receipts.First().DateVisited.Should().BeCloseTo(DateTime.Now, 10000);
             model.Receipts.First().Items.First().Id.Should().Be(receiptItemId);
-            model.Receipts.First().Items.First().Users.First().Id.Should().Be(SecondUser.Id);
+            model.Receipts.First().Items.First().Users.FirstOrDefault(x => x.Id == SecondUser.Id).Should().NotBeNull();
             model.Receipts.First().Items.First().ItemGroup.Value.Should().Be(receiptItemCommand.ItemGroup);
             model.Users.FirstOrDefault(x => x.Id == SecondUser.Id).Owed.Should().Be(-10);
             model.Id.Should().Be(project.Id);
             model.Created.Should().BeCloseTo(DateTime.Now, 1000);
-            model.Users.First().Id.Should().Be(User.Id);
+            model.Users.FirstOrDefault(x => x.Id == User.Id).Should().NotBeNull();
             model.Title.Should().Be(project.Title);
         }
 

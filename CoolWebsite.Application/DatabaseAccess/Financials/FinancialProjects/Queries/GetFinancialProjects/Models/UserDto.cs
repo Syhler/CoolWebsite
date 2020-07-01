@@ -35,6 +35,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
             profile.CreateMap<ApplicationUser, UserDto>()
                 .ForMember(x => x.Name, opt =>
                     opt.MapFrom(x => x.FirstName + " " + x.LastName));
+            
+            
         }
     }
 }

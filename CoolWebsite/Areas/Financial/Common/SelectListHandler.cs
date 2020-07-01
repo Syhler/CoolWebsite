@@ -47,7 +47,7 @@ namespace CoolWebsite.Areas.Financial.Common
             return listOfSelectedItem;
         }
 
-        public static List<SelectListItem> CreateFromItemGroup(List<ItemGroupDto> itemGroups)
+        public static List<SelectListItem> CreateFromItemGroup(IList<ItemGroupDto> itemGroups)
         {
             var listOfSelectedItem = new List<SelectListItem>();
 

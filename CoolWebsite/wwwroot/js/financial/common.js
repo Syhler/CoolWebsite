@@ -7,7 +7,10 @@
 
 
     
-    
+    function getIdFromUrl()
+    {
+        
+    }
     
     
     

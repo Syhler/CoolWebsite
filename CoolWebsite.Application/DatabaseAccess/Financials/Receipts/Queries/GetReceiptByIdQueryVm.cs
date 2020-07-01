@@ -1,18 +1,24 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Queries;
+using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
+using CoolWebsite.Domain.Entities.Financial;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries
 {
-    public class GetReceiptByIdQueryVm : IRequest<ReceiptVm>
+    public class GetReceiptByIdQueryVm : IRequest<ReceiptDto>
     {
         public string ReceiptId { get; set; }
     }
 
-    public class GetReceiptByIdQueryVmHandler : IRequestHandler<GetReceiptByIdQueryVm, ReceiptVm>
+    public class GetReceiptByIdQueryVmHandler : IRequestHandler<GetReceiptByIdQueryVm, ReceiptDto>
     {
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
@@ -28,31 +34,20 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries
         }
 
 
-        public async Task<ReceiptVm> Handle(GetReceiptByIdQueryVm request, CancellationToken cancellationToken)
+        public async Task<ReceiptDto> Handle(GetReceiptByIdQueryVm request, CancellationToken cancellationToken)
         {
-            //TODO(NEEDS TO BE LOOKED AT)
-            /*
             var entity = _context.Receipts
-                .Include(x => x.Receptors)
-                .FirstOrDefault(x => x.Id == request.ReceiptId);
-
+                .Include(x => x.Items)
+                .Where(x => x.Id == request.ReceiptId);
+            
             if (entity == null)
             {
                 throw new NotFoundException(nameof(Receipt), request.ReceiptId);
             }
-            
-            foreach (var individualReceipt in entity.Receptors)
-            {
-                individualReceipt.User = await _service.GetUserById(individualReceipt.UserId);
-            }
 
-            return new ReceiptVm
-            {
-                IndividualReceipts = entity.Receptors.AsQueryable().ProjectTo<IndividualReceiptDto>(_mapper.ConfigurationProvider).ToList()
-            };
-            */
-            return null;
+            var mapped = entity.ProjectTo<ReceiptDto>(_mapper.ConfigurationProvider);
 
+            return mapped.First();
         }
     }
 }

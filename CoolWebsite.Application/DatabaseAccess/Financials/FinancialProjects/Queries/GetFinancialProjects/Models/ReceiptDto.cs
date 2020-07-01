@@ -27,7 +27,10 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
             get
             {
                 double total = 0;
-
+                if (Items == null)
+                {
+                    return total;
+                }
                 foreach (var item in Items)
                 {
                     total += item.Price * item.Count;
