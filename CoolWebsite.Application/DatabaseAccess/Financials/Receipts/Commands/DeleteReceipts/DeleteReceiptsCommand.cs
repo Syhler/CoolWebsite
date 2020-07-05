@@ -6,6 +6,7 @@ using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Domain.Entities.Financial;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.DeleteReceipts
 {
@@ -26,7 +27,10 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.De
 
         public async Task<Unit> Handle(DeleteReceiptsCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _context.Receipts.FindAsync(request.Id);
+            var entity = _context.Receipts
+                .Include(x => x.Items)
+                .ThenInclude(x => x.Users)
+                .FirstOrDefault(x => x.Id == request.Id);
 
             if (entity == null)
             {

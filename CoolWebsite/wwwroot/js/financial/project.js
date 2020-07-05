@@ -4,7 +4,8 @@ $(document).ready(function () {
         createReceiptItemModal: "/Financial/Project/CreateReceiptItemModal",
         getReceiptItemPartialView: "/Financial/Project/GetReceiptItemPartialView",
         createReceipt: "/Financial/Project/CreateReceiptPost",
-        editReceipt: "/Financial/Project/EditReceiptPost"
+        editReceipt: "/Financial/Project/EditReceiptPost",
+        payTransaction: "/Financial/Project/PayTransaction"
     }
 
 
@@ -345,6 +346,8 @@ $(document).ready(function () {
 
             const baseUrl = (window.location).href; 
             const id = baseUrl.substring(baseUrl.lastIndexOf('/') + 1, baseUrl.lastIndexOf('?'))
+
+            
             
             const dataset = {
                 ReceiptDto : {
@@ -381,6 +384,113 @@ $(document).ready(function () {
         e.preventDefault();
     })
 
+    $(document).on("click", ".btn-pay", function () {
+
+        const amount = $(this).parent().find(".amount-owed").text()
+        const toUserId = $(this).data("id");
+
+        
+        const inputBox = $("#transaction-amount");
+
+        inputBox.attr("data-max-amount", amount)
+        inputBox.val(amount)
+        $("#confirm-pay-transaction-modal").modal("show");
+        inputBox.focus();
+        
+        $("#btn-transaction-confirm").attr("data-id", toUserId)
+        
+        
+    })
+    
+    $(document).on("click", "#btn-transaction-confirm", function () {
+        sendPayTransaction()
+    })
+    
+    $(document).on("click",".btn-request", function () {
+
+        const amount = $(this).parent().find(".amount-owed").text()
+        const toUserId = $(this).data("id");
+        
+        console.log("GIVE ME MONEY REQUEST : " + amount + " : User : " + toUserId)
+        
+    })
+    
+    function showTransactionErrorMessage(message) {
+
+        $("#transaction-amount-feedback").text(message);
+        $("#transaction-amount").addClass("is-invalid");
+    }
+    
+    function sendPayTransaction()
+    {
+        const input = $("#transaction-amount");
+        const amount = input.val()
+        const maxAmount = input.data("max-amount")
+
+        console.log(maxAmount)
+        console.log(amount)
+        //validation
+        
+        if (isNaN(amount))
+        {
+            showTransactionErrorMessage("It has to be a number")
+            return;
+        }
+        else if (!/\S/.test(amount))
+        {
+            showTransactionErrorMessage("The input must not be empty")
+            return;
+        }
+        else
+        {
+            if (parseFloat(amount) > parseFloat(maxAmount))
+            {
+                showTransactionErrorMessage("The number has to be lower or equal to " + maxAmount)
+                return;
+            } else if (parseFloat(amount) <= 0)
+            {
+                showTransactionErrorMessage("The number has to be larger than 0")
+                return;
+            }
+        }
+        
+        const toUserId = $("#btn-transaction-confirm").data("id");
+
+
+        const baseUrl = (window.location).href;
+        const financialProjectId = baseUrl.substring(baseUrl.lastIndexOf('/') + 1);
+        
+        $.ajax({
+            type : "POST",
+            url: config.payTransaction,
+            data: {
+                model : {
+                    ToUserId : toUserId,
+                    Amount : amount,
+                    FinancialProjectId : financialProjectId
+                }
+            },
+            success: function () {
+                $("#confirm-pay-transaction-modal").modal("hide")
+                
+                
+                const currentAmountElem = $("[data-id="+toUserId+"]").parent().find(".amount-owed");
+                
+                const newAmount = parseFloat(currentAmountElem.text()) - parseFloat(amount);
+
+                currentAmountElem.text(newAmount)
+                
+                
+            },
+            error: function () {
+
+            }
+
+        })
+    }
+    
+    
+    
 
     /*************************/
     /*          NUMBERS     */
@@ -537,77 +647,7 @@ $(document).ready(function () {
             return $(this).data("id");
         }).get();
     }
+    
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-       $("#create-receipt-item-modal-form").validate({
-
-           rules: {
-               receipt_item_price: {
-                   required: true, 
-                   greaterThanZero: true
-               },
-               cancer : true
-           },
-           submitHandler: function (form) {
-               if (typeButtonChosen() && countButtonChosen())
-               {
-                   
-                   form.submit(function (e) {
-                       e.preventDefault();
-                   })
-               }
-
-           }
-       })
-        */
-
-
-/*
-       
-       $("#create-receipt-item-modal-form").validate({
-
-           rules: {
-               receipt_item_price: {
-                   required: true,
-                   greaterThanZero: true
-               },
-           },
-           submitHandler: function (form) {
-               
-               if (typeButtonChosen() && countButtonChosen())
-               {
-                   
-                   form.submit(function (e) {
-                       e.preventDefault();
-                   })
-               }
-
-           }
-       })
-       
-        */
-
-
-
-
-
-
 

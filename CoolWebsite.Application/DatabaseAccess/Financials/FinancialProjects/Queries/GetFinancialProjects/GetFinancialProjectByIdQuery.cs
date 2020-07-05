@@ -63,71 +63,32 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
             mapped.Receipts = mapped.Receipts.Where(x => x.Deleted == null).ToList();
 
 
-            var currentUserRecords = entity.First().OweRecords.Where(x => x.UserId == _currentUserService.UserID).ToList();
+            var currentUserRecords = entity.First().OweRecords.Where(x => x.UserId == _currentUserService.UserID && x.FinancialProjectId == mapped.Id).ToList();
 
 
             foreach (var mappedUser in mapped.Users)
             {
                 if (mappedUser.Id == _currentUserService.UserID) continue;
 
+                //Gets record where current user owe mappedUser money
                 var affectedRecord = currentUserRecords.FirstOrDefault(x => x.OwedUserId == mappedUser.Id);
 
-                var records = entity.First().OweRecords.FirstOrDefault(x =>
-                    x.UserId == mappedUser.Id && x.OwedUserId == _currentUserService.UserID);
+                //Gets records where mapped owe currentUsers money
+                var records = entity.First().OweRecords.FirstOrDefault(x => x.UserId == mappedUser.Id && x.OwedUserId == _currentUserService.UserID);
 
-                if (records != null)
-                {
-                    if (affectedRecord != null)
-                    {
-                        mappedUser.Owed = affectedRecord.Amount - records.Amount;
-
-                    }
-                    else
-                    {
-                        mappedUser.Owed = -records.Amount;
-                    }
-                }
-            }
-            
-
-            /*
-
-
-            foreach (var mappedUser in mapped.Users)
-            {
-                if (mappedUser.Id == _currentUserService.UserID)
-                {
-                    continue;
-                }
+                if (records == null) continue;
                 
-                //morten logged ind
-                
-                //lucas tur
-
-                var owed = entity
-                    .First().OweRecords
-                    .Where(x => x.UserId == mappedUser.Id && x.OwedUserId == _currentUserService.UserID).ToList();
-
-                if (owed.Any())
+                if (affectedRecord != null)
                 {
-                    var sum = owed.Sum(x => x.Amount);
+                    
+                    mappedUser.Owed = affectedRecord.Amount - records.Amount;
 
-                    mappedUser.Owed = -sum;
                 }
                 else
                 {
-                    owed = entity
-                        .First().OweRecords
-                        .Where(x => x.OwedUserId == mappedUser.Id).ToList();
-
-                    var sum = owed.Sum(x => x.Amount);
-
-                    mappedUser.Owed = sum;
-
+                    mappedUser.Owed = -records.Amount;
                 }
-              
             }
-            */
             
             
             

@@ -4,14 +4,16 @@ using CoolWebsite.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CoolWebsite.Infrastructure.Migrations.SQLServer
 {
     [DbContext(typeof(SqlApplicationDbContext))]
-    partial class SqlApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200701093234_AddedFinacialProjectIdToTransactions")]
+    partial class AddedFinacialProjectIdToTransactions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -210,25 +212,13 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                     b.Property<double>("Amount")
                         .HasColumnType("float");
 
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("FinancialProjectId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FromUserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime?>("LastModified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ToUserId")
                         .IsRequired()
@@ -238,10 +228,6 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatedBy");
-
-                    b.HasIndex("FinancialProjectId");
 
                     b.HasIndex("FromUserId");
 
@@ -536,16 +522,6 @@ namespace CoolWebsite.Infrastructure.Migrations.SQLServer
 
             modelBuilder.Entity("CoolWebsite.Domain.Entities.Financial.Transaction", b =>
                 {
-                    b.HasOne("CoolWebsite.Domain.Entities.Identity.ApplicationUser", "CreatedByUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedBy");
-
-                    b.HasOne("CoolWebsite.Domain.Entities.Financial.FinancialProject", "FinancialProject")
-                        .WithMany()
-                        .HasForeignKey("FinancialProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("CoolWebsite.Domain.Entities.Identity.ApplicationUser", "FromUser")
                         .WithMany("IncomingTransactions")
                         .HasForeignKey("FromUserId")

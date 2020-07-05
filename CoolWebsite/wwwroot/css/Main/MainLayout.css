@@ -158,7 +158,17 @@ MODAL
     display: inline-grid;
 }
 
-.btn-pay
+.btn-pay 
+{
+    text-align: center;
+    margin: 0 auto !important;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-request
 {
     text-align: center;
     margin: 0 auto !important;

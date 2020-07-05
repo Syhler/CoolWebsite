@@ -12,6 +12,7 @@ namespace CoolWebsite.Infrastructure.Persistence.Configuration.Financial
             builder.Property(x => x.ToUserId).IsRequired();
             builder.Property(x => x.FromUserId).IsRequired();
             builder.Property(x => x.TransactionType).IsRequired();
+            builder.Property(x => x.FinancialProjectId).IsRequired();
         }
     }
 }

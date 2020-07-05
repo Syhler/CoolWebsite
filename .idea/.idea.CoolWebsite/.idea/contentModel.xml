@@ -62,6 +62,9 @@
           </e>
         </e>
         <e p="Testing.cs" t="Include" />
+        <e p="Transaction" t="Include">
+          <e p="CreateTransactionTests.cs" t="Include" />
+        </e>
       </e>
       <e p="CoolWebsite" t="IncludeRecursive">
         <e p="app.db" t="Include" />
@@ -81,6 +84,7 @@
               <e p="CreateFinancialProjectModel.cs" t="Include" />
               <e p="CreateReceiptItemVm.cs" t="Include" />
               <e p="CreateReceiptModel.cs" t="Include" />
+              <e p="PayTransaction.cs" t="Include" />
               <e p="ReceiptItemVm.cs" t="Include" />
               <e p="UserModel.cs" t="Include" />
             </e>
@@ -327,6 +331,16 @@
         </e>
         <e p="CoolWebsite.Application.csproj" t="IncludeRecursive" />
         <e p="DatabaseAccess" t="Include">
+          <e p="Common" t="Include">
+            <e p="Transaction" t="Include">
+              <e p="Commands" t="Include">
+                <e p="CreateTransaction" t="Include">
+                  <e p="CreateTransactionCommand.cs" t="Include" />
+                  <e p="CreateTransactionCommandValidator.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
           <e p="Financials" t="Include">
             <e p="FinancialProjects" t="Include">
               <e p="Commands" t="Include">
@@ -484,6 +498,12 @@
             <e p="20200629144912_AddedSoftDeleteForFinancialProject.Designer.cs" t="Include" />
             <e p="20200629145314_MadeDeletedForFinancialProjectNullable.cs" t="Include" />
             <e p="20200629145314_MadeDeletedForFinancialProjectNullable.Designer.cs" t="Include" />
+            <e p="20200701093234_AddedFinacialProjectIdToTransactions.cs" t="Include" />
+            <e p="20200701093234_AddedFinacialProjectIdToTransactions.Designer.cs" t="Include" />
+            <e p="20200701095916_AddedForeginKEyToTransactions.cs" t="Include" />
+            <e p="20200701095916_AddedForeginKEyToTransactions.Designer.cs" t="Include" />
+            <e p="20200701101537_AddedAudibleToTransactions.cs" t="Include" />
+            <e p="20200701101537_AddedAudibleToTransactions.Designer.cs" t="Include" />
             <e p="SqlApplicationDbContextModelSnapshot.cs" t="Include" />
           </e>
         </e>

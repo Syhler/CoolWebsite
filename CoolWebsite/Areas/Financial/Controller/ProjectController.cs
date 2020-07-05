@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
+using CoolWebsite.Application.DatabaseAccess.Common.Transaction.Commands.CreateTransaction;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.DeleteReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.UpdateReceipts;
-using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems;
@@ -17,6 +17,7 @@ using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Update
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries;
 using CoolWebsite.Areas.Financial.Common;
 using CoolWebsite.Areas.Financial.Models;
+using CoolWebsite.Domain.Enums;
 using CoolWebsite.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -46,6 +47,22 @@ namespace CoolWebsite.Areas.Financial.Controller
 
             return View(model);
         }
+
+        [HttpPost]
+        public async Task PayTransaction(PayTransaction model)
+        {
+            var command = new CreateTransactionCommand
+            {
+                TransactionType = TransactionType.FinancialReceipts,
+                ToUserId = model.ToUserId,
+                Amount = model.Amount,
+                FinancialProjectId = model.FinancialProjectId
+            };
+
+            await Mediator.Send(command);
+        }
+        
+        
 
         [HttpGet]
         public async Task<IActionResult> CreateReceipt(string id)

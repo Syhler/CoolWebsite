@@ -1,7 +1,6 @@
-﻿using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts;
-using FluentValidation;
+﻿using FluentValidation;
 
-namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Commands.CreateReceipts
+namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts
 {
     public class CreateReceiptsCommandValidator : AbstractValidator<CreateReceiptsCommand>
     {
