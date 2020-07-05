@@ -30,7 +30,6 @@
 
 <script>
 $(document).ready(function() {
-    @*
     window.onbeforeunload = function(){
               return 'Are you sure you want to leave?';
           };
@@ -43,10 +42,6 @@ $(document).ready(function() {
                  function(){window.onbeforeunload=null;},
                  function(){window.onbeforeunload=$(window).data('beforeunload');}
                 );
-        
-    *@
-    @*TODO(REMEBER TO UNCOMMEnd BEFORe RELEASE)*@
-  
 })
 </script>
 

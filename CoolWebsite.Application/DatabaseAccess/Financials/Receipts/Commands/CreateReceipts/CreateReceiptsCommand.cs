@@ -9,12 +9,11 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Cr
 {
     public class CreateReceiptsCommand : IRequest<string>
     {
-        public double Total { get; set; }
         public string FinancialProjectId { get; set; }
 
-        public string Title { get; set; }
+        public string Location { get; set; }
 
-        public DateTime BoughtAt { get; set; }
+        public DateTime DateVisited { get; set; }
         public string Note { get; set; }
 
     }
@@ -37,8 +36,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Cr
             {
                 FinancialProjectId = request.FinancialProjectId,
                 Id = Guid.NewGuid().ToString(),
-                DateVisited = request.BoughtAt,
-                Location = request.Title,
+                DateVisited = request.DateVisited,
+                Location = request.Location,
                 Note = request.Note
             };
 

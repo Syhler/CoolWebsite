@@ -50,9 +50,8 @@ namespace Application.IntegrationTests.Common
             var createCommand = new CreateReceiptsCommand
             {
                 FinancialProjectId = projectId,
-                Total = 0,
-                Title = "Title",
-                BoughtAt = DateTime.Now,
+                Location = "Title",
+                DateVisited = DateTime.Now,
                 
             };
 
@@ -66,9 +65,8 @@ namespace Application.IntegrationTests.Common
             var createCommand = new CreateReceiptsCommand
             {
                 FinancialProjectId = projectId,
-                Total = 0,
-                Title = "Title",
-                BoughtAt = DateTime.Now
+                Location = "Title",
+                DateVisited = DateTime.Now
             };
 
             return await SendAsync(createCommand);

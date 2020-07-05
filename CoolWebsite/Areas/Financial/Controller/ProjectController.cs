@@ -84,7 +84,7 @@ namespace CoolWebsite.Areas.Financial.Controller
         [HttpGet]
         public async Task<IActionResult> EditReceipt(string id, string financialProjectId)
         {
-            var query = new GetReceiptByIdQueryVm
+            var query = new GetReceiptByIdQuery
             {
                 ReceiptId = id
             };
@@ -142,10 +142,9 @@ namespace CoolWebsite.Areas.Financial.Controller
             
             var command = new CreateReceiptsCommand
             {
-                Total = model.ReceiptDto.Items.Select(x => x.Price).Sum(),
-                BoughtAt = model.ReceiptDto.DateVisited,
+                DateVisited = model.ReceiptDto.DateVisited,
                 FinancialProjectId = model.FinancialProjectId,
-                Title = model.ReceiptDto.Location,
+                Location = model.ReceiptDto.Location,
                 Note = model.ReceiptDto.Note
             };
 

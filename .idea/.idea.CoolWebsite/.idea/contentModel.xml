@@ -414,8 +414,8 @@
                 </e>
               </e>
               <e p="Queries" t="Include">
+                <e p="GetReceiptByIdQuery.cs" t="Include" />
                 <e p="GetReceiptByIdQueryValidator.cs" t="Include" />
-                <e p="GetReceiptByIdQueryVm.cs" t="Include" />
                 <e p="ReceiptVm.cs" t="Include" />
               </e>
             </e>

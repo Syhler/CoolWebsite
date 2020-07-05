@@ -1,14 +1,14 @@
-﻿using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries;
-using FluentValidation;
+﻿using FluentValidation;
 
-namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Queries
+namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries
 {
-    public class GetReceiptByIdQueryValidator : AbstractValidator<GetReceiptByIdQueryVm>
+    public class GetReceiptByIdQueryValidator : AbstractValidator<GetReceiptByIdQuery>
     {
         public GetReceiptByIdQueryValidator()
         {
             RuleFor(x => x.ReceiptId)
-                .NotEmpty();
+                .NotEmpty()
+                .NotNull();
         }
     }
 }

@@ -22,9 +22,8 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
             var command = new CreateReceiptsCommand
             {
                 FinancialProjectId = id,
-                Total = 100,
-                BoughtAt = DateTime.Now,
-                Title = "Title"
+                DateVisited = DateTime.Now,
+                Location = "Title"
             };
 
             var receiptsId = await SendAsync(command);
@@ -36,7 +35,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         
             entity.Created.Should().BeCloseTo(DateTime.Now, 10000);
             entity.CreatedBy.Should().Be(User.Id);
-            entity.Location.Should().Be(command.Title);
+            entity.Location.Should().Be(command.Location);
             entity.DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
 
         }
@@ -51,9 +50,8 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
             var command = new CreateReceiptsCommand
             {
                 FinancialProjectId = id,
-                Total = 100,
-                BoughtAt = DateTime.Now,
-                Title = "Title"
+                DateVisited = DateTime.Now,
+                Location = "Title"
             };
 
             var receiptsId = await SendAsync(command);
@@ -65,7 +63,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
             entity.Created.Should().BeCloseTo(DateTime.Now, 1000);
             entity.CreatedBy.Should().Be(user.Id);
             entity.DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
-            entity.Location.Should().Be(command.Title);
+            entity.Location.Should().Be(command.Location);
         }
         
         [Test]
@@ -76,9 +74,8 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
             var command = new CreateReceiptsCommand
             {
                 FinancialProjectId = id,
-                Total = -5,
-                BoughtAt = DateTime.Now,
-                Title = "Title"
+                DateVisited = DateTime.Now,
+                Location = "Title"
             };
 
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
@@ -89,9 +86,8 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         {
             var command = new CreateReceiptsCommand
             {
-                Total = 100,
-                BoughtAt = DateTime.Now,
-                Title = "Title",
+                DateVisited = DateTime.Now,
+                Location = "Title",
                 FinancialProjectId = ""
             };
 
@@ -103,8 +99,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         {
             var command = new CreateReceiptsCommand
             {
-                Total = 100,
-                Title = "Title",
+                Location = "Title",
                 FinancialProjectId = "sad"
             };
 
@@ -116,9 +111,8 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         {
             var command = new CreateReceiptsCommand
             {
-                Total = 100,
-                BoughtAt = DateTime.Now,
-                Title = "",
+                DateVisited = DateTime.Now,
+                Location = "",
                 FinancialProjectId = "asd"
             };
 
@@ -130,9 +124,8 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         {
             var command = new CreateReceiptsCommand
             {
-                Total = 100,
-                BoughtAt = DateTime.Now,
-                Title = "dsfsfsdfijpsdkjfpsdkfpodskofkdsokposfkpospkofsdkpofsdkpofsdkposdfpkokfpsdkfspdopk" +
+                DateVisited = DateTime.Now,
+                Location = "dsfsfsdfijpsdkjfpsdkfpodskofkdsokposfkpospkofsdkpofsdkpofsdkposdfpkokfpsdkfspdopk" +
                         "ogfddgfopkfgdkppkdgfopkogdfkpogdfkpodgfkpogdfkpogdfkpogdfkpofgdpkokpgfdopk",
                 FinancialProjectId = "asd"
             };

@@ -6,17 +6,15 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Cr
     {
         public CreateReceiptsCommandValidator()
         {
-            RuleFor(x => x.Total)
-                .GreaterThanOrEqualTo(0).WithMessage("Total has to be above 0");
 
             RuleFor(x => x.FinancialProjectId)
                 .NotEmpty().WithMessage("FinancialProjectID is required");
 
-            RuleFor(x => x.Title)
+            RuleFor(x => x.Location)
                 .NotEmpty().WithMessage("Title is required")
                 .MaximumLength(100);
 
-            RuleFor(x => x.BoughtAt)
+            RuleFor(x => x.DateVisited)
                 .NotEmpty().WithMessage("BoughtAt is required");
         }
     }

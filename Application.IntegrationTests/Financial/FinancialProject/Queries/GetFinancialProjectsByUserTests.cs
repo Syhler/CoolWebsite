@@ -34,10 +34,9 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
             
             var createReceipt = new CreateReceiptsCommand
             {
-                Total = 2000,
                 FinancialProjectId = project.Id,
-                Title = "Title",
-                BoughtAt = DateTime.Now
+                Location = "Title",
+                DateVisited = DateTime.Now
             };
 
             var receiptId = await SendAsync(createReceipt);
@@ -55,7 +54,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
             model.FinancialProjects.First().Title.Should().Be(createCommand.Title);
             model.FinancialProjects.First().Receipts.First().Id.Should().Be(receiptId);
             model.FinancialProjects.First().Id.Should().Be(project.Id);
-            model.FinancialProjects.First().Receipts.First().Location.Should().Be(createReceipt.Title);
+            model.FinancialProjects.First().Receipts.First().Location.Should().Be(createReceipt.Location);
             model.FinancialProjects.First().Receipts.First().DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
 
         }
