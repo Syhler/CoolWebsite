@@ -1,3 +1,4 @@
+using System.IO;
 using AutoMapper;
 using CoolWebsite.Application;
 using CoolWebsite.Application.Common.Interfaces;
@@ -9,10 +10,12 @@ using CoolWebsite.Services;
 using CoolWebsite.Services.Mapping;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 
 namespace CoolWebsite
@@ -84,9 +87,16 @@ namespace CoolWebsite
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
-            app.UseHttpsRedirection();
+            
+            
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+            
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
+           
             app.UseCookiePolicy();
 
             app.UseRouting();
