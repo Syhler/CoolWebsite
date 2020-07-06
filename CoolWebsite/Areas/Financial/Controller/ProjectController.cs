@@ -26,7 +26,7 @@ using Microsoft.AspNetCore.Mvc.Routing;
 namespace CoolWebsite.Areas.Financial.Controller
 {
     [Area("Financial")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Financial, Admin")]
     public class ProjectController : MediatorController
     {
         private readonly ICurrentUserService _currentUserService;

@@ -20,7 +20,7 @@ using Newtonsoft.Json;
 namespace CoolWebsite.Areas.Financial.Controller
 {
     [Area("Financial")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Financial, Admin")]
     public class HomeController : MediatorController
     {
         private readonly ICurrentUserService _currentUserService;

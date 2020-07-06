@@ -40,14 +40,19 @@ namespace CoolWebsite.Infrastructure.Persistence
             {
                 await roleManager.CreateAsync(new ApplicationRole {Name = "Admin"});
             }
+            
+            if (roleManager.Roles.All(u => u.Name != "Financial"))
+            {
+                await roleManager.CreateAsync(new ApplicationRole {Name = "Financial"});
+            }
 
             await CreateUser(userManager, defaultUser);
             await CreateUser(userManager, secondUser);
             await CreateUser(userManager, thirdUser);
 
             await GiveRole(userManager, defaultUser.Email, "Admin");
-            await GiveRole(userManager, secondUser.Email, "Admin");
-            await GiveRole(userManager, thirdUser.Email, "Admin");
+            await GiveRole(userManager, secondUser.Email, "Financial");
+            await GiveRole(userManager, thirdUser.Email, "Financial");
 
 
         }

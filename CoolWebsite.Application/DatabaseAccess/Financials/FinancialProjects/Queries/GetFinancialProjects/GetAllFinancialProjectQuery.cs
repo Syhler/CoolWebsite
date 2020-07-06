@@ -7,6 +7,7 @@ using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects
 {
@@ -22,19 +23,20 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         private readonly ICurrentUserService _currentUser;
 
         public GetAllFinancialProjectQueryHandler(IApplicationDbContext context, IMapper mapper,
-            ICurrentUserService currentUserService)
+            ICurrentUserService currentUserService, ICurrentUserService currentUser)
         {
             _context = context;
             _mapper = mapper;
+            _currentUser = currentUser;
             _context.UserId = currentUserService.UserID;
         }
 
         public async Task<FinancialProjectsVm> Handle(GetAllFinancialProjectQuery request, CancellationToken cancellationToken)
         {
             var entity = _context.FinancialProjects
-                //.Where(x => x.FinancialProjectApplicationUsers.Any(y => y.UserId != _currentUser.UserID))
-                .Where(x => x.Deleted == null)
                 .Include(x => x.FinancialProjectApplicationUsers)
+                .Where(x => x.FinancialProjectApplicationUsers.Any(x => x.UserId == _currentUser.UserID))
+                .Where(x => x.Deleted == null)
                 .OrderByDescending(x => x.LastModified.HasValue)
                 .ThenByDescending(x => x.Created)
                 .ThenByDescending(x => x.LastModified);
