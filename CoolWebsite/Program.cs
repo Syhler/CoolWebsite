@@ -54,11 +54,9 @@ namespace CoolWebsite
             var host = Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>()
-                        .UseKestrel();
-
-                    webBuilder.UseContentRoot(Directory.GetCurrentDirectory())
-                        .UseWebRoot("Content");
+                    webBuilder
+                        .UseKestrel()
+                        .UseStartup<Startup>();
                 });
             
             
