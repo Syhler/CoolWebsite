@@ -34,7 +34,7 @@
                     <div class="container" id="count-button-container">
                         <div class="row">
                             <div class="col-sm override-padding-left-right-2">
-                                <button type="button" class="btn btn-info btn-block count-button">1</button>
+                                <button type="button" class="btn btn-info btn-block count-button active">1</button>
                             </div>
                             <div class="col-sm override-padding-left-right-2">
                                 <button type="button" class="btn btn-info btn-block count-button">2</button>
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <label id='receipt-item-count-error' class="red" style="display: none">You must choose a button</label>
-                        
+
                     </div>
                     @*
                     <select class="custom-select" id="count-dropdown" name="count_dropdown">
@@ -91,7 +91,10 @@
 
             <div class="modal-footer">
                 <button type="submit" class="btn btn-warning" id="edit-receipt-item-button" name="edit" value="edit">Edit Changes</button>
-                <button type="submit" id="create-receipt-item" class="btn btn-success" name="create" value="create">Save Changes</button>
+                <button type="submit" id="create-receipt-item" class="btn btn-success" name="create" value="create">Add Item </button>
+                <button type="submit" id="create-receipt-item-close" class="btn btn-success" name="create-close" value="create-close">Add Item & close</button>
+
+
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
 

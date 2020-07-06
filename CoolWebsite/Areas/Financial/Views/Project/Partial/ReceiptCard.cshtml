@@ -3,16 +3,16 @@
 @model CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models.ReceiptDto
 
 
-
 <div class="card ">
     <div class="card">
         <div class="card-header">
-            <h5 class="text-light mb-0">Receipt : Created by
+            <h5 class="text-light mb-0">
+                Receipt : Created by
                 <div class="small-collaborator-image">
                     @Model.CreatedByDto.Initial
                 </div>
             </h5>
-            
+
         </div>
         <div class="card-body">
             <h4 class="text-light card-title">@Model.Location</h4>
@@ -22,29 +22,46 @@
             }
             <ul class="list-group mb-4">
                 @{
+                    var dic = new Dictionary<string, List<string>>();
                     var grouped = Model.Items.GroupBy(x => x.ItemGroup.Name);
                     foreach (var item in grouped)
                     {
-                        var sum = item.Sum(x => x.Price*x.Count);
+                        var sum = item.Sum(x => x.Price * x.Count);
+
+                        if (!dic.ContainsKey(item.Key))
+                        {
+                            dic.Add(item.Key, new List<string>());
+                        }
+                        
                         <li class="list-group-item">
                             <span class="text-white">@item.Key</span>
                             <span class="badge badge-light ml-2" style="float: right;">Cost: @sum kr</span>
                             <div>
                                 @foreach (var user in item.SelectMany(x => x.Users))
                                 {
-                                    <div class="small-collaborator-image">@user.Initial</div>
+                                    var value = dic.GetValueOrDefault(@item.Key);
 
+                                    if (value != null)
+                                    {
+                                        if (!value.Contains(user.Id))
+                                        {
+                                            <div class="small-collaborator-image">@user.Initial</div>
+                                            value.Add(user.Id);
+                                        }
+                                    }
+                                   
                                 }
                             </div>
-                            
-                        </li>
 
+                        </li>
                     }
                 }
-               
+
             </ul>
             <ul class="list-group mb-4">
-                <li class="list-group-item"><span class="text-white">Total</span><span class="badge badge-light" style="float: right;">@Model.Total Kr</span></li>
+                <li class="list-group-item">
+                    <span class="text-white">Total</span><span class="badge badge-light" style="float: right;">@Model.Total Kr</span>
+                </li>
             </ul>
             <div></div>
             <div>
@@ -53,14 +70,18 @@
                    asp-controller="Project"
                    asp-area="Financial"
                    asp-route-id="@Model.Id"
-                   asp-route-financialProjectId="@Context.GetRouteData().Values["id"]">Edit</a>
-                
-                <a class="btn btn-danger btn-sm" type="button" 
-                        asp-action="DeleteReceipt" 
-                        asp-controller="Project" 
-                        asp-route-id="@Model.Id" 
-                        asp-area="Financial"
-                        asp-route-projectId="@Context.GetRouteData().Values["id"]">Delete</a>
+                   asp-route-financialProjectId="@Context.GetRouteData().Values["id"]">
+                    Edit
+                </a>
+
+                <a class="btn btn-danger btn-sm" type="button"
+                   asp-action="DeleteReceipt"
+                   asp-controller="Project"
+                   asp-route-id="@Model.Id"
+                   asp-area="Financial"
+                   asp-route-projectId="@Context.GetRouteData().Values["id"]">
+                    Delete
+                </a>
             </div>
         </div>
         <div class="card-footer">
@@ -84,7 +105,6 @@
 </div>
 
 
-
 <!--
 <div class="card mb-3">
     <h3 class="card-header">Receipt</h3>
@@ -95,24 +115,21 @@
    
     <ul class="list-group list-group-flush">
         @{
-
             var length = Model.Items.Count > 3 ? 3 : Model.Items.Count;
             for (int i = 0; i < length; i++)
             {
                 var item = @Model.Items[i];
                 <li class="list-group-item">@item.Price + @item.Users.First().Name</li>
                 //@Html.RenderPartialAsync("ReceiptItemPartialView", item)
-                                                       
-
             }
         }
        
     </ul>
     <div class="card-body">
         
-         <a href="#" class="card-link green">Open</a>
-                <a href="#" class="card-link red">Delete</a>
-    @*
+        <a href="#" class="card-link green">Open</a>
+        <a href="#" class="card-link red">Delete</a>
+        @*
        <button type="button" class="btn btn-outline-success">Open</button>
         <button type="button" class="btn btn-outline-danger">Delete</button>
         *@

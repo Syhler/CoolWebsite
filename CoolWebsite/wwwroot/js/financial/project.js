@@ -150,8 +150,27 @@ $(document).ready(function () {
        
         
     })
+    
+    $(document).on("click", "#create-receipt-item", function () {
 
-    $(document).on("click","#create-receipt-item", function () {
+        const validated = validateModalForm();
+
+        if (!validated) return;
+
+        createReceiptModel(function (data) {
+
+            console.log("Creating method ran")
+
+            $(".list-group").prepend(data)
+            $("#receipt-item-none-error").hide()
+            //Update price
+            calculateTotalReceiptCost(data)
+            //clear modal
+            emptyModal();
+        })
+    })
+
+    $(document).on("click","#create-receipt-item-close", function () {
         //Validate
 
         const validated = validateModalForm();
@@ -171,7 +190,6 @@ $(document).ready(function () {
             emptyModal();
         })
                     
-        console.log("Creating cancer")
        
     })
 
@@ -254,8 +272,16 @@ $(document).ready(function () {
 
         $(".count-button").each(function () {
 
+            if ($(this).text() === "1"){
+                $(this).addClass("active")
+                
+            }
+            else
+            {
+                $(this).removeClass("active")
 
-            $(this).removeClass("active")
+            }
+
 
         })
 
