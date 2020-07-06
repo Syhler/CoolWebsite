@@ -12,14 +12,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CoolWebsite.Infrastructure.Persistence
 {
-    public class SqlApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>,
+    public class MySqlApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>,
         IApplicationDbContext
     {
         private ICurrentUserService _currentUserService;
         private IDateTime _dateTime;
         public string UserId { get; set; }
 
-        public SqlApplicationDbContext(DbContextOptions<SqlApplicationDbContext> options,
+        public MySqlApplicationDbContext(DbContextOptions<MySqlApplicationDbContext> options,
             IDateTime dateTime) : base(options)
         {
             _dateTime = dateTime;
@@ -61,7 +61,7 @@ namespace CoolWebsite.Infrastructure.Persistence
                 .WithMany()
                 .HasForeignKey(x => x.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
-            
+
 
             builder.Entity<Transaction>()
                 .HasOne(x => x.FromUser)

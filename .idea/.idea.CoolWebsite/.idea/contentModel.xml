@@ -473,6 +473,11 @@
           <e p="IdentityService.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
+          <e p="MysqlServer" t="Include">
+            <e p="20200706122556_Initial.cs" t="Include" />
+            <e p="20200706122556_Initial.Designer.cs" t="Include" />
+            <e p="MySqlApplicationDbContextModelSnapshot.cs" t="Include" />
+          </e>
           <e p="SQLServer" t="Include">
             <e p="20200513205353_InitialCreateSql.cs" t="Include" />
             <e p="20200513205353_InitialCreateSql.Designer.cs" t="Include" />
@@ -525,6 +530,7 @@
               <e p="TransactionConfiguration.cs" t="Include" />
             </e>
           </e>
+          <e p="MysqlApplicationDbContext.cs" t="Include" />
           <e p="SqlApplicationDbContext.cs" t="Include" />
         </e>
         <e p="Services" t="Include">

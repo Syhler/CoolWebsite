@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Migrations" />
+      <Folder Include="Migrations\MysqlServer" />
     </ItemGroup>
 
 </Project>

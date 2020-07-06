@@ -26,7 +26,7 @@ namespace CoolWebsite
 
                 try
                 {
-                    var context = services.GetRequiredService<SqlApplicationDbContext>();
+                    var context = services.GetRequiredService<MySqlApplicationDbContext>();
 
                     if (context.Database.IsSqlServer())
                     {
