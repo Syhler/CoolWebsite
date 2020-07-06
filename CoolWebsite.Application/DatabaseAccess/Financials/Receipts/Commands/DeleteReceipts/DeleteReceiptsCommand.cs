@@ -18,10 +18,12 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.De
     public class DeleteReceiptsCommandHandler : IRequestHandler<DeleteReceiptsCommand>
     {
         private readonly IApplicationDbContext _context;
+        private readonly ICurrentUserService _currentUserService;
 
         public DeleteReceiptsCommandHandler(IApplicationDbContext context, ICurrentUserService currentUserService)
         {
             _context = context;
+            _currentUserService = currentUserService;
             _context.UserId = currentUserService.UserID;
         }
 
@@ -48,14 +50,23 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.De
                 {
                     foreach (var user in receiptItem.Users)
                     {
-                
-                        var record = records.FirstOrDefault(x => x.UserId == user.ApplicationUserId);
-                
+                        var record = records.FirstOrDefault(x => x.UserId == user.ApplicationUserId && x.OwedUserId == _currentUserService.UserID);
+                        
                         if (receiptItem.Users.Count > 1)
                         {
                             if (record != null)
                             {
-                                record.Amount -= (receiptItem.Count * receiptItem.Price)/receiptItem.Users.Count;
+                                if (record.Amount < 0)
+                                {
+                                    record.Amount += (receiptItem.Count * receiptItem.Price)/receiptItem.Users.Count;
+
+                                }
+                                else
+                                {
+                                    record.Amount -= (receiptItem.Count * receiptItem.Price)/receiptItem.Users.Count;
+
+                                }
+                                
                             }
 
                         }
@@ -63,9 +74,19 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.De
                         {
                             if (record != null)
                             {
-                                record.Amount -= receiptItem.Count * receiptItem.Price;
+                                if (record.Amount < 0)
+                                {
+                                    record.Amount += receiptItem.Count * receiptItem.Price;
+
+                                }
+                                else
+                                {
+                                    record.Amount -= receiptItem.Count * receiptItem.Price;
+
+                                }
                             }
                         }
+                        
                     }
                 }
             }
@@ -81,4 +102,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.De
             return Unit.Value;
         }
     }
+    
+    /*
+     * 
+     */
 }

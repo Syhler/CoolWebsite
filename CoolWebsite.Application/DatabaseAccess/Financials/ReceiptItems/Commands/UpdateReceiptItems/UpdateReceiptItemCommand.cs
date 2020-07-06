@@ -39,6 +39,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
                 throw new NotFoundException(nameof(ReceiptItem), request.ReceiptItemId);
             }
 
+            
+            
             entity.Count = request.Count;
             entity.Price = request.Price;
             entity.ItemGroup = (ItemGroup)request.ItemGroup;

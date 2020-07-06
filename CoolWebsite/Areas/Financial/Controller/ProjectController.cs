@@ -129,7 +129,16 @@ namespace CoolWebsite.Areas.Financial.Controller
         [HttpPost]
         public async Task<IActionResult> GetReceiptItemPartialView(ReceiptItemVm vm)
         {
-            vm.UniqueIdentifier = Guid.NewGuid();
+            if (!string.IsNullOrWhiteSpace(vm.ReceiptItem.Id))
+            {
+                vm.UniqueIdentifier = Guid.Parse(vm.ReceiptItem.Id);
+                
+            }
+            else
+            {
+                vm.UniqueIdentifier = Guid.NewGuid();
+            }
+            
             
             vm.ReceiptItem.Price = Math.Round(vm.ReceiptItem.Price, 2);
             

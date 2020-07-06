@@ -81,12 +81,12 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
                 if (affectedRecord != null)
                 {
                     
-                    mappedUser.Owed = affectedRecord.Amount - records.Amount;
+                    mappedUser.Owed = Math.Round(affectedRecord.Amount - records.Amount, 2);
 
                 }
                 else
                 {
-                    mappedUser.Owed = -records.Amount;
+                    mappedUser.Owed = Math.Round(-records.Amount,2);
                 }
             }
             

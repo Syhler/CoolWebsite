@@ -38,7 +38,7 @@ $(document).ready(function() {
      $(window).data('beforeunload',window.onbeforeunload);  
     
           //remove||re-assign onbeforeunload on hover 
-        $('#create-receipt-button')
+        $('#edit-receipt-button')
           .hover( 
                  function(){window.onbeforeunload=null;},
                  function(){window.onbeforeunload=$(window).data('beforeunload');}

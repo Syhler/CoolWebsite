@@ -71,7 +71,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
                 {
                     if (record != null)
                     {
-                        record.Amount += (request.Count * request.Price)/request.UsersId.Count;
+                        record.Amount += Math.Round(request.Count * request.Price/request.UsersId.Count,2);
                     }
 
                 }
@@ -79,7 +79,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
                 {
                     if (record != null)
                     {
-                        record.Amount += request.Count * request.Price;
+                        record.Amount += Math.Round(request.Count * request.Price,2);
                     }
                 }
             }

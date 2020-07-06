@@ -125,7 +125,7 @@ $(document).ready(function () {
             const dataId = $("#edit-receipt-item-button").data("id");
 
 
-            $(".list-group").prepend(data);
+            
 
             $(".receipt-item").each(function () {
 
@@ -137,10 +137,13 @@ $(document).ready(function () {
                 }
             })
 
+            $(".list-group").prepend(data);
+
             $("#receipt-item-none-error").hide()
             $("#create-receipt-item-modal").modal("hide")
             calculateTotalReceiptCost(data)
             emptyModal();
+            $("#edit-receipt-item-button").removeData("id");
 
         })
         
@@ -191,6 +194,8 @@ $(document).ready(function () {
         const price = $("#receipt-item-price").val()
         const usersId = getUsersId();
         const usersName = getUsersName();
+        const id = $("#edit-receipt-item-button").data("id");
+        console.log(id)
     
         if (usersName.length !== usersId.length) {
             return;
@@ -212,6 +217,7 @@ $(document).ready(function () {
             data: {
                 vm: {
                     ReceiptItem: {
+                        Id: id,
                         Name: name,
                         Price: price,
                         Count: count,
@@ -255,6 +261,7 @@ $(document).ready(function () {
 
         const table = $("#user-table-body")
         table.empty();
+        
         reActivateUsers()
     }
     

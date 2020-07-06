@@ -33,22 +33,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
             {
                 throw new NotFoundException(nameof(Domain.Entities.Financial.FinancialProject), request.Id);
             }
-            /*
-            var receipts = entity.Receipts;
-            //TODO(NEEDS TO BE UPDATED)
-            
-            var users = entity.FinancialProjectApplicationUsers;
-            
-            foreach (var financialProjectApplicationUser in users)
-            {
-                _context.FinancialProjectApplicationUsers.Remove(financialProjectApplicationUser);
-            }
-
-
-            _context.FinancialProjects.Remove(entity);
-            */
             entity.Deleted = DateTime.Now;
-
 
             await _context.SaveChangesAsync(cancellationToken);
             

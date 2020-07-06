@@ -36,7 +36,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
                     total += item.Price * item.Count;
                 }
                 
-                return total;
+                return Math.Round(total,2);
             }
             private set
             {
