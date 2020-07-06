@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CoolWebsite.Domain.Entities.Identity;
@@ -51,7 +52,14 @@ namespace CoolWebsite
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
             var host = Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>().UseKestrel(); });
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>()
+                        .UseKestrel();
+
+                    webBuilder.UseContentRoot(Directory.GetCurrentDirectory())
+                        .UseWebRoot("Content");
+                });
             
             
             return host;
