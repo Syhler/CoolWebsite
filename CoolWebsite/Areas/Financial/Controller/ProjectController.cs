@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.DatabaseAccess.Common.Transaction.Commands.CreateTransaction;
@@ -40,7 +41,7 @@ namespace CoolWebsite.Areas.Financial.Controller
         public async Task<IActionResult> Index(string id)
         {
             var query = new GetFinancialProjectByIdQuery {ProjectId = id};
-            
+
             var model = await Mediator.Send(query);
 
             model.Users = model.Users.Where(x => x.Id != _currentUserService.UserID).ToList();

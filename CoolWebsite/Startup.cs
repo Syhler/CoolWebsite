@@ -11,6 +11,7 @@ using CoolWebsite.Services.Mapping;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
@@ -87,6 +88,14 @@ namespace CoolWebsite
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            
+            var localizationOptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("da-DK"), //Danish will be the default culture (for new visitors) //TODO add support for multiple
+                // - https://stackoverflow.com/questions/41289737/get-the-current-culture-in-a-controller-asp-net-core
+            };
+
+            app.UseRequestLocalization(localizationOptions);
             
             
             app.UseForwardedHeaders(new ForwardedHeadersOptions
