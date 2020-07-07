@@ -13,9 +13,9 @@
 
     <div>
         <span class="badge badge-primary badge-pill">Type: <span data-id="@Model.ReceiptItem.ItemGroup.Value" class="badge-receipt-item-type">@Model.ReceiptItem.ItemGroup.Name</span></span>
-        <span class="badge badge-primary badge-pill"><span class="badge-receipt-item-price">@Model.ReceiptItem.Price</span> Kr Pr.</span>
+        <span class="badge badge-primary badge-pill"><span class="badge-receipt-item-price">@Model.ReceiptItem.Price.ToString("F")</span> Kr Pr.</span>
         <span class="badge badge-primary badge-pill"><span class="badge-receipt-item-count">@Model.ReceiptItem.Count</span> items</span>
-        <span class="badge badge-primary badge-pill">Total: <span class="badge-receipt-item-total">@((@Model.ReceiptItem.Total).ToString(CultureInfo.CurrentCulture))</span> Kr</span>
+        <span class="badge badge-primary badge-pill">Total: <span class="badge-receipt-item-total">@((@Model.ReceiptItem.Total.ToString("F")).ToString(CultureInfo.CurrentCulture))</span> Kr</span>
         <span class="badge badge-warning badge-pill"><a class="edit-receipt-item enable-hover">Edit</a></span>
         <span class="badge badge-danger badge-pill"><a href="#" class="remove-receipt-item">Remove</a></span>
     </div>

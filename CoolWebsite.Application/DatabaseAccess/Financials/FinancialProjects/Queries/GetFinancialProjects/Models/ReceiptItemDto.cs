@@ -17,8 +17,9 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         public ItemGroupDto ItemGroup { get; set; }
         public ICollection<UserDto> Users { get; set; }
 
-        public double Total {
-            get => Math.Round(Price * Count, 2);
+        public double Total
+        {
+            get => Price * Count;
             private set
             {
                 

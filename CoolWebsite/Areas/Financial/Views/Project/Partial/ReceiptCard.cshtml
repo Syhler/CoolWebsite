@@ -60,7 +60,7 @@
             </ul>
             <ul class="list-group mb-4">
                 <li class="list-group-item">
-                    <span class="text-white">Total</span><span class="badge badge-light" style="float: right;">@Model.Total Kr</span>
+                    <span class="text-white">Total</span><span class="badge badge-light" style="float: right;">@Model.Total.ToString("F") Kr</span>
                 </li>
             </ul>
             <div></div>
@@ -104,52 +104,3 @@
     </div>
 </div>
 
-
-<!--
-<div class="card mb-3">
-    <h3 class="card-header">Receipt</h3>
-    <div class="card-body">
-        <h5 class="card-title">@Model.Location</h5>
-        <h6 class="card-subtitle text-muted">Total: @Model.Total kr. </h6>
-    </div>
-   
-    <ul class="list-group list-group-flush">
-        @{
-            var length = Model.Items.Count > 3 ? 3 : Model.Items.Count;
-            for (int i = 0; i < length; i++)
-            {
-                var item = @Model.Items[i];
-                <li class="list-group-item">@item.Price + @item.Users.First().Name</li>
-                //@Html.RenderPartialAsync("ReceiptItemPartialView", item)
-            }
-        }
-       
-    </ul>
-    <div class="card-body">
-        
-        <a href="#" class="card-link green">Open</a>
-        <a href="#" class="card-link red">Delete</a>
-        @*
-       <button type="button" class="btn btn-outline-success">Open</button>
-        <button type="button" class="btn btn-outline-danger">Delete</button>
-        *@
-    </div>
-    <div class="card-footer">
-        @{
-            //var days = @Model.DaysSinceLastVisit;
-            if (days == 0)
-            {
-                <text><span class="text-muted">Today</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
-            }
-            else if (days == 1)
-            {
-                <text><span class="text-muted">Yesterday</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
-            }
-            else
-            {
-                <text><span class="text-muted">@days days ago</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
-            }
-        }
-    </div>
-</div>
--->

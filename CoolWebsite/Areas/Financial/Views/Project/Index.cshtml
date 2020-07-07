@@ -20,13 +20,13 @@
                         <p class="text-center mt-2 mb-2">Owed: 
                             @if (@user.Owed <= 0)
                             {
-                                <span class="green amount-owed">@user.Owed</span>
+                                <span class="green amount-owed">@user.Owed.ToString("F")</span>
                                 <button class="btn btn-success btn-request" data-id="@user.Id">Request</button>
 
                             }
                             else
                             {
-                                <span class="red amount-owed">@user.Owed</span>
+                                <span class="red amount-owed">@user.Owed.ToString("F")</span>
                                 <button class="btn btn-success btn-pay" data-id="@user.Id">Pay</button>
                             }
                         </p>

@@ -11,15 +11,6 @@
         </div>
         <form role="form" id="create-receipt-item-modal-form" onsubmit="return false">
             <div class="modal-body">
-                @*
-                <div class="form-group">
-                    <label asp-for="Name">Name</label>
-                    <input class="form-control" name="receipt_item_name"
-                           id="receipt-item-name" asp-for="Name" placeholder="Name of item">
-                    <small class="form-text text-muted">Just a name ?</small>
-                </div>
-*@
-
                 <div class="form-group">
                     <label asp-for="Price">Price</label>
                     <input class="form-control" name="receipt_item_price"
@@ -51,22 +42,12 @@
                         <label id='receipt-item-count-error' class="red" style="display: none">You must choose a button</label>
 
                     </div>
-                    @*
-                    <select class="custom-select" id="count-dropdown" name="count_dropdown">
-                        <option selected="" value="">Select number of items</option>
-                    </select>
-                    *@
 
                 </div>
 
 
                 <div class="form-group">
                     <label asp-for="Type">Type</label>
-                    @*
-                    <select asp-items="@Model.TypesSelectListItems" class="custom-select" id="types-dropdown" name="types_dropdown">
-                        <option value="" selected="selected">Select a type</option>
-                    </select>
-                    *@
 
                     <div class="container">
                         <div class="row">
