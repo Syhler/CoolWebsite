@@ -72,6 +72,7 @@ $(document).ready(function () {
 
         //Make it edit thingy
         $("#create-receipt-item").hide()
+        $("#create-receipt-item-close").hide()
         const editButton = $("#edit-receipt-item-button");
         editButton.show()
         editButton.data("id", element.data("id"))
@@ -89,6 +90,7 @@ $(document).ready(function () {
         
         $("#edit-receipt-item-button").hide()
         $("#create-receipt-item").show()
+        $("#create-receipt-item-close").show()
 
     })
 
