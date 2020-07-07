@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.IO;
 using AutoMapper;
 using CoolWebsite.Application;
@@ -89,6 +90,12 @@ namespace CoolWebsite
                 app.UseHsts();
             }
             
+            var cultureInfo = new CultureInfo("da-DK");
+            
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+            
+            /*
             var localizationOptions = new RequestLocalizationOptions
             {
                 DefaultRequestCulture = new RequestCulture("da-DK"), //Danish will be the default culture (for new visitors) //TODO add support for multiple
@@ -96,7 +103,7 @@ namespace CoolWebsite
             };
 
             app.UseRequestLocalization(localizationOptions);
-            
+            */
             
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
