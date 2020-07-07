@@ -550,7 +550,7 @@ $(document).ready(function () {
         
         //const newPrice = (parseFloat(total) + parseFloat(priceFromReceiptItem))
         
-        receiptTotal.text(total.toString().replace('.',',').replace(' ',''))
+        receiptTotal.text(total.toFixed(2).toString().replace('.',',').replace(' ',''))
     }
     
     
