@@ -37,7 +37,7 @@ namespace CoolWebsite.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            var result = await _identityService.LoginUser(model.Email, model.Password);
+            var result = await _identityService.LoginUser(model.Email, model.Password, model.Persistence);
 
             if (!result.Succeeded) return RedirectToAction("Index");
             
@@ -55,7 +55,7 @@ namespace CoolWebsite.Controllers
         public RedirectToActionResult Logout()
         {
              _identityService.Logout();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home", new {area=""});
         }
     }
 }

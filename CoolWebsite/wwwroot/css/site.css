@@ -94,3 +94,62 @@ body {
 /*  white-space: nowrap;*/
 /*  line-height: 60px; !* Vertically center the text there *!*/
 /*}*/
+
+
+/*****Homepage******/
+
+.main-image{
+  background-image: url(../img/Homepage/image4.jpg);
+}
+
+.nav-link:hover
+{
+  cursor: pointer;
+}
+
+.nav-link {
+  cursor: default;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

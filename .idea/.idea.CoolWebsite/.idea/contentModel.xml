@@ -9,6 +9,7 @@
     <e p="C:\Users\morte\.nuget\packages\nunit3testadapter\3.13.0\build\netcoreapp1.0\NUnit3.TestAdapter.pdb" t="Include" />
     <e p="C:\Users\morte\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
     <e p="C:\Users\morte\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_CoolWebsite.609162593.00" t="ExcludeRecursive" />
+    <e p="C:\Users\morte\AppData\Roaming\JetBrains\Rider2020.1\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_baguettebox.js_1.10.0_baguetteBox.css" t="IncludeRecursive" />
     <e p="C:\Users\morte\AppData\Roaming\JetBrains\Rider2020.1\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_bootstrap-datepicker_1.9.0_css_bootstrap-datepicker.css" t="IncludeRecursive" />
     <e p="C:\Users\morte\AppData\Roaming\JetBrains\Rider2020.1\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_bootstrap-datepicker_1.9.0_js_bootstrap-datepicker.js" t="IncludeRecursive" />
     <e p="C:\Users\morte\Documents\GitHub\C#_Project\CoolWebsite" t="IncludeFlat">
@@ -198,11 +199,50 @@
             <e p="site.css" t="Include" />
           </e>
           <e p="favicon.ico" t="Include" />
+          <e p="fonts" t="Include">
+            <e p="font-awesome.min.css" t="Include" />
+            <e p="fontawesome-webfont.eot" t="Include" />
+            <e p="fontawesome-webfont.svg" t="Include" />
+            <e p="fontawesome-webfont.ttf" t="Include" />
+            <e p="fontawesome-webfont.woff" t="Include" />
+            <e p="fontawesome-webfont.woff2" t="Include" />
+            <e p="FontAwesome.otf" t="Include" />
+            <e p="ionicons.eot" t="Include" />
+            <e p="ionicons.min.css" t="Include" />
+            <e p="ionicons.svg" t="Include" />
+            <e p="ionicons.ttf" t="Include" />
+            <e p="ionicons.woff" t="Include" />
+            <e p="Simple-Line-Icons.eot" t="Include" />
+            <e p="simple-line-icons.min.css" t="Include" />
+            <e p="Simple-Line-Icons.svg" t="Include" />
+            <e p="Simple-Line-Icons.ttf" t="Include" />
+            <e p="Simple-Line-Icons.woff" t="Include" />
+            <e p="Simple-Line-Icons.woff2" t="Include" />
+          </e>
+          <e p="img" t="Include">
+            <e p="Homepage" t="Include">
+              <e p="58480979cef1014c0b5e4901.png" t="Include" />
+              <e p="app_icon.png" t="Include" />
+              <e p="C-Sharp-01.png" t="Include" />
+              <e p="CSS3_logo_and_wordmark.svg.png" t="Include" />
+              <e p="HTML5_Logo_128.png" t="Include" />
+              <e p="image-250nw-575234476.jpg" t="Include" />
+              <e p="image4.jpg" t="Include" />
+              <e p="kotlin-1-logo-png-transparent.png" t="Include" />
+              <e p="logo-mysql-170x115.png" t="Include" />
+              <e p="Mmww2.png" t="Include" />
+              <e p="pngwing.com.png" t="Include" />
+              <e p="Untitled.png" t="Include" />
+            </e>
+          </e>
           <e p="js" t="Include">
             <e p="Financial" t="Include">
               <e p="common.js" t="Include" />
               <e p="home.js" t="Include" />
               <e p="project.js" t="Include" />
+            </e>
+            <e p="Homepage" t="Include">
+              <e p="homepage.js" t="Include" />
             </e>
             <e p="JQueryValidationCustomMethods.js" t="Include" />
             <e p="site.js" t="Include" />
@@ -248,6 +288,10 @@
                 </e>
               </e>
               <e p="LICENSE" t="Include" />
+            </e>
+            <e p="css" t="Include">
+              <e p="Profile-Card.css" t="Include" />
+              <e p="smoothproducts.css" t="Include" />
             </e>
             <e p="jquery" t="Include">
               <e p="dist" t="Include">
@@ -298,7 +342,19 @@
               <e p="jquery.validate.unobtrusive.min.js" t="Include" />
               <e p="LICENSE.txt" t="Include" />
             </e>
-            <e p="moment.js" t="Include" />
+            <e p="js" t="Include">
+              <e p="moment.js" t="Include" />
+              <e p="smoothproducts.min.js" t="Include" />
+              <e p="theme.js" t="Include" />
+            </e>
+            <e p="test" t="Include">
+              <e p="css" t="Include">
+                <e p="bootstrap.min.css" t="Include" />
+              </e>
+              <e p="js" t="Include">
+                <e p="bootstrap.min.js" t="Include" />
+              </e>
+            </e>
           </e>
         </e>
       </e>

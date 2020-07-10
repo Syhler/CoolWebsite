@@ -29,8 +29,8 @@ namespace CoolWebsite.Infrastructure
             
             services.ConfigureApplicationCookie(options =>
             {
-                options.LoginPath = "/auth/index";
-                options.LogoutPath = "/auth/index";
+                options.LoginPath = "/Home/Index";
+                options.LogoutPath = "/Home/Index";
             });
  
             return services;

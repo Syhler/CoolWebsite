@@ -94,17 +94,7 @@ namespace CoolWebsite
             
             CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
             CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
-            
-            /*
-            var localizationOptions = new RequestLocalizationOptions
-            {
-                DefaultRequestCulture = new RequestCulture("da-DK"), //Danish will be the default culture (for new visitors) //TODO add support for multiple
-                // - https://stackoverflow.com/questions/41289737/get-the-current-culture-in-a-controller-asp-net-core
-            };
 
-            app.UseRequestLocalization(localizationOptions);
-            */
-            
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
@@ -126,7 +116,7 @@ namespace CoolWebsite
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Auth}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

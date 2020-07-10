@@ -20,32 +20,39 @@ namespace CoolWebsite.Controllers
 {
     public class HomeController : MediatorController
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
         private readonly IIdentityService _identityService;
-        private readonly ICurrentUserService _currentUserService;
 
         
-        public HomeController(ILogger<HomeController> logger, 
-            SignInManager<ApplicationUser> signInManager,
-            UserManager<ApplicationUser> userManager,
-            IIdentityService identityService,
-            ICurrentUserService currentUserService)
+        public HomeController(IIdentityService identityService)
         {
-            _logger = logger;
-            _signInManager = signInManager;
-            _userManager = userManager;
             _identityService = identityService;
-            _currentUserService = currentUserService;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            
             return View();
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
+        {
+            var result = await _identityService.LoginUser(model.Email, model.Password, model.Persistence);
+
+            if (!result.Succeeded) return Json(new {result="Failure", errors = result.Errors});
+            
+            if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
+            {
+                return Json(new {result="Redirect", url = Url.Action(returnUrl)});
+            }
+
+            //return RedirectToAction("Index", "Home");
+            return Json(new {result = "Redirect", url = Url.Action("Index", "Home")});
+
+        }
+        
+        
         [Authorize(Roles = "Admin")]
         public IActionResult Privacy()
         {

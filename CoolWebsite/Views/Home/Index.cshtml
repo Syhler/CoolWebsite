@@ -1,14 +1,372 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = null;
 }
 
 
 
-<div class="text-center">
-   
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a  class="link" href="https://docs.microsoft.com/aspnet/core">
-        building Web apps with ASP.NET Core
-        big oof
-    </a></p>
+<!DOCTYPE html>
+<html lang="dk">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
+    <link rel="stylesheet" href="~/lib/test/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="~/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="~/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="~/lib/css/Profile-Card.css">
+    <link rel="stylesheet" href="~/css/site.css"/>
+    @*
+    <link rel="stylesheet" href="assets/css/Profile-Picture-With-Badge-1.css">
+    <link rel="stylesheet" href="assets/css/Profile-Picture-With-Badge.css">
+    *@
+    <link rel="stylesheet" href="~/lib/css/smoothproducts.css">
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+    <div class="container">
+        <a class="navbar-brand logo" href="#">MSyhler</a>
+        <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+            <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse"
+             id="navcol-1">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="home">Home</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="who-am-i">Who am i</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="courses">Courses</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="skill-set">Skill sets</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="projects">Projects</a>
+                </li>
+                @{
+                    bool isAuthenticated = User.Identity.IsAuthenticated;
+                    if (isAuthenticated)
+                    {
+                      
+                        
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" asp-area="Financial" asp-controller="Home" asp-action="Index">Financial</a>
+                        </li>
+                        
+                    }
+                    else
+                    {
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="sign-in">Sign in</a>
+                        </li>
+                        
+                    }
+                }
+                
+            </ul>
+        </div>
+    </div>
+    
+    @{
+        if (isAuthenticated)
+        {
+            <div style="float: left">
+            <a class="link" asp-area="" asp-controller="Auth" asp-action="Logout">@User.Identity.Name : Sign out</a>
+            </div>
+        }
+    }
+</nav>
+<main class="page landing-page">
+    <section class="clean-block clean-hero main-image home" style="color:rgba(9, 162, 255, 0.85); ">
+        <div class="text">
+            <h2>Morten Syhler Portfolio</h2>
+            <p>.NET developer</p><button class="btn btn-outline-light btn-lg" type="button">Learn More</button>
+        </div>
+    </section>
+    <section class="clean-block clean-info dark who-am-i">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Who Am I</h2>
+                <p>My name is Morten Syhler. I'm 21 years old. I have <br>~ 2 years of professional experience as a <br>.NET full stack developer&nbsp;<br></p>
+            </div>
+            <div class="row align-items-center">
+                <div class="col text-center">
+                    <img class="img-thumbnail" src="~/img/Homepage/image-250nw-575234476.jpg" width="500">
+                </div>
+                <div class="col-md-6">
+                    <h3>What i do</h3>
+                    <div class="getting-started-info">
+                        <p>I am currently attending college in denmark. Currently on my 3rd semester. Been programming since i was 17.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="clean-block courses">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Courses</h2>
+                <p>A list of what courses i have taken.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-5 feature-box">
+                    <i class="icon-star icon"></i>
+                    <h4>C#</h4>
+                    <ul class="list-unstyled">
+                        <li>C# Basics. By <strong>Code with Mosh</strong></li>
+                        <li>C# Intermediate. By&nbsp;<strong>Code with Mosh</strong><br></li>
+                        <li>C# Advance. By&nbsp;<strong>Code with Mosh</strong><br></li>
+                        <li>ASP.NET MVC 5. By&nbsp;<strong>Code with Mosh</strong><br><br></li>
+                    </ul>
+                </div>
+                <div class="col-md-5 feature-box">
+                    <i class="icon-pencil icon"></i>
+                    <h4>CSS - HTML</h4>
+                    <ul class="list-unstyled">
+                        <li>Build Responsvie Website with HTML5 and CSS3 By <strong>Jonas Schemdtmann</strong></li>
+                    </ul>
+                </div>
+                <div class="col-md-5 feature-box">
+                    <i class="icon ion-android-bulb icon"></i>
+                    <h4>General</h4>
+                    <ul class="list-unstyled">
+                        <li>Unit Testing.&nbsp;By&nbsp;<strong>Code with Mosh</strong><br></li>
+                        <li>Clean Coding and Refactoring. By&nbsp;<strong>Code with Mosh</strong><br><br></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="clean-block skill-set dark pb-3">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Skill Set</h2>
+                <p>List of my programming skills</p>
+            </div>
+            <ul class="list-unstyled">
+                <li>
+                    <div>
+                        <p>
+                            <img src="~/img/Homepage/C-Sharp-01.png" width="35" height="35">
+                        </p>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">85%</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="mt-3">
+                    <div>
+                        <p>
+                            <img src="~/img/Homepage/HTML5_Logo_128.png" width="35" height="35">
+                        </p>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">70%</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="mt-3">
+                    <div>
+                        <p>
+                            <img src="~/img/Homepage/Mmww2.png" width="35">
+                        </p>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%;">65%</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="mt-3">
+                    <div>
+                        <p>
+                            <img src="~/img/Homepage/CSS3_logo_and_wordmark.svg.png" width="30">
+                        </p>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%;">55%</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="block-heading pt-2">
+                <h2 class="text-info">Other Programming skills</h2>
+            </div>
+        </div>
+        <ul class="list-inline text-center">
+            <li class="list-inline-item">MySQL<img src="~/img/Homepage/logo-mysql-170x115.png" width="50"></li>
+            <li class="list-inline-item">SQL<img src="~/img/Homepage/pngwing.com.png" width="40"></li>
+            <li class="list-inline-item">Java<img src="~/img/Homepage/58480979cef1014c0b5e4901.png" width="30"></li>
+            <li class="list-inline-item">Kotlin<img src="~/img/Homepage/kotlin-1-logo-png-transparent.png" width="35"></li>
+        </ul>
+    </section>
+    <section class="clean-block projects">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Projects</h2>
+                <p>Some project of mine</p>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col">
+                        <div class="profile-card">
+                            <div class="profile-back"></div><img class="rounded-circle profile-pic" src="~/img/Homepage/Untitled.png">
+                            <h3 class="profile-name">CoolWebsite - (Current Website)</h3>
+                            <p class="profile-bio">
+                                It's called CoolWebsite simply because of the lack of a better name. However, I've created the website to make it easier for my roommates and me to split receipts from grocery stores.<br>To try out the application, sign
+                                in with Guest123@guest.com as the email and Guest123 as the password. <br>Click Read More to read about the plans for this project and more. <br>The source code to the project is available by clicking on the GitHub
+                                repo.
+                            </p>
+                            <div class="mr-4 ml-4">
+                                <button class="btn btn-outline-primary btn-block" type="button">Read More</button>
+                            </div>
+                            <div class="mt-2">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item text-primary" style="font-size: 40px;">
+                                        <a href="https://github.com/Syhler/CoolWebsite" target="_blank">
+                                            <i class="fa fa-github"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="profile-card">
+                            <div class="profile-back"></div><img class="rounded-circle profile-pic" src="~/img/Homepage/app_icon.png">
+                            <h3 class="profile-name">Messaging Android App</h3>
+                            <p class="profile-bio">
+                                Messaging App does exactly what the name says. I've created the app in 51 hours, which includes learning android development. I did use firebase as the backend. It's possible to see the app in action by clicking on the
+                                GitHub repo.
+                            </p>
+                            <div class="mr-4 ml-4">
+                                <button class="btn btn-outline-primary btn-block" type="button">Read More</button>
+                            </div>
+                            <div class="mt-2">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item text-primary" style="font-size: 40px;">
+                                        <a href="https://github.com/Syhler/MessagingApp" target="_blank">
+                                            <i class="fa fa-github"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="page-footer dark">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h5>Get started</h5>
+                <ul>
+                    <li>
+                        <a href="#">Sign In</a>
+                    </li>
+                    <li>
+                        <a href="#">Sign up (Currently disabled)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                <div>
+                    <h5>About me</h5>
+                    <ul>
+                        <li>
+                            <a href="#">Who am i</a>
+                        </li>
+                        <li>
+                            <a href="#">Courses</a>
+                        </li>
+                        <li>
+                            <a href="#">Skill Set</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col">
+                <h5>Projects</h5>
+                <ul>
+                    <li>
+                        <a href="#">CoolWebsite</a>
+                    </li>
+                    <li>
+                        <a href="#">Messaging App</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <p>© 2020 Morten Syhler&nbsp;All Rights Reserved<br></p>
+    </div>
+</footer>
+
+
+<!-- 
+modal
+-->
+<div class="modal" tabindex="-1" role="dialog" id="login-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="container p-5">
+                <div class="block-heading">
+                    <h2 class="text-info">Log In</h2>
+                </div>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="form-control item" type="email" id="email" name="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input class="form-control" type="password" id="password" name="password">
+                    </div>
+                    
+                    <div id="error-div">
+                        
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="checkbox">
+                            <label class="form-check-label" for="checkbox">Remember me</label>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-block" type="submit" id="login-btn">Log In</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+<script src="~/lib/js/smoothproducts.min.js"></script>
+<script src="~/lib/js/theme.js"></script>
+<script src="~/js/homepage/homepage.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+
+</body>
+
+</html>

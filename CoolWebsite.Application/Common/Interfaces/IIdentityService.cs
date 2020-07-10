@@ -12,7 +12,7 @@ namespace CoolWebsite.Application.Common.Interfaces
 
         Task<(Result result, string userId)> CreateUserAsync(ApplicationUser user, string password);
 
-        Task<Result> LoginUser(string email, string password);
+        Task<Result> LoginUser(string email, string password, bool persistent);
 
         Task<Result> CreateRole(string roleName);
 

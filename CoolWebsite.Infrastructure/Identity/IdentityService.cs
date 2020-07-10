@@ -53,17 +53,20 @@ namespace CoolWebsite.Infrastructure.Identity
             return (result.ToApplicationResult(), user.Id);
         }
 
-        public async Task<Result> LoginUser(string email, string password)
+        public async Task<Result> LoginUser(string email, string password, bool persistent)
         {
             if (_signInManager == null)
             {
                 throw new IdentityObjectNotInitialized("SignInManager");
             }
             
-            var result = await _signInManager.PasswordSignInAsync(email, password, 
-                false, false);
+            var signInResult = await _signInManager.PasswordSignInAsync(email, password, 
+                persistent, false);
             
-            return result.ToApplicationResult();
+            
+            
+            return signInResult.ToApplicationResult();
+
         }
 
         public async Task<Result> DeleteRole(string id)

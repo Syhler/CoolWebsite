@@ -36,6 +36,11 @@ namespace CoolWebsite.Infrastructure.Identity
                 errors.Add("Account requiresTwoFactor");
             }
 
+            if (errors.Count == 0)
+            {
+                errors.Add("Username or password was incorrect. Please try agian");
+            }
+
             return errors;
         }
     }
