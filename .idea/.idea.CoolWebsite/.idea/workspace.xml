@@ -20,23 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/Views/Home/CoolWebsiteProject.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/Views/Shared/_HomePageLayout.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/img/Homepage/Setup.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/img/Homepage/profile_pic.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/img/Homepage/profile_picutre.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/img/Homepage/setup2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/js/homepage/common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/js/homepage/coolWebsiteProject.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Views/Shared/Sidebar.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Views/Shared/Sidebar.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/js/homepage/homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/js/homepage/homepage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -498,7 +482,7 @@
       <workItem from="1594033851604" duration="4694000" />
       <workItem from="1594122119360" duration="5552000" />
       <workItem from="1594376399799" duration="13876000" />
-      <workItem from="1594460337555" duration="10683000" />
+      <workItem from="1594460337555" duration="10737000" />
     </task>
     <servers />
   </component>
