@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewData["Title"] = "CoolWebsite - Project";
+    Layout = "_HomePageLayout";
+}
+
+@section NavBar
+{
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" asp-action="Index" asp-controller="Home" asp-area="">Home</a>
+    </li>
+    
+    <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="cool-website-project">CoolWebsite - Project</a>
+    </li>
+    
+     <li class="nav-item" role="presentation">
+            <a class="nav-link" id="cool-website-features">Features</a>
+        </li>
+    
+    
+}
+
+
+    <main class="page">
+        <section class="clean-block clean-hero cool-website-image" style="  color: rgba(9, 162, 255, 0.65);">
+            <div class="text">
+                <h2>CoolWebsite - (Current Website)</h2>
+                <p>ASP.NET core Web Application</p>
+                
+                @{
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="btn btn-outline-light btn-lg" asp-action="Index" asp-controller="Home" asp-area="Financial">Go To Financial</a>
+
+                    }
+                    else
+                    {
+                        <button class="btn btn-outline-light btn-lg sign-in" type="button">Sign In</button>
+                    }
+                }
+            </div>
+        </section>
+        <section class="clean-block cool-website-features">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Features</h2>
+                    <p>Information about the project</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 feature-box"><i class="icon-star icon"></i>
+                        <h4>Planed features</h4>
+                        <ul class="list-unstyled">
+                            <li>Add Logger and Performance Pipeline</li>
+                            <li>Add support for Storebox api</li>
+                            <li>Redesign UI with React or Angular</li>
+                            <li>Create Intergration Test for UI</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-wrench icon"></i>
+                        <h4>Technologies used</h4>
+                        <ul class="list-unstyled">
+                            <li>ASP.NET core</li>
+                            <li>Entity Framework Core</li>
+                            <li>Mediatr</li>
+                            <li>AutoMapper</li>
+                            <li>Jquery</li>
+                            <li>Bootstrap</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-umbrella icon"></i>
+                        <h4>Architecture</h4>
+                        <p style="opacity: 1;">The project is using a Clean Architecture design approach. Which is heavily inspired by Jason Taylor version of Clean Architecture for C# Link for GitHub: Here<br /></p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-refresh icon"></i>
+                        <h4>Guest User</h4>
+                        <ul class="list-unstyled">
+                            <li>Email: Guest123@guest.com<br /></li>
+                            <li>Password: Guest123</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+@section Scripts
+{
+    <script src="~/js/homepage/CoolWebsiteProject.js"></script>
+
+    
+}
+
+

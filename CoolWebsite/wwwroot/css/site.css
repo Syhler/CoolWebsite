@@ -99,19 +99,26 @@ body {
 /*****Homepage******/
 
 .main-image{
-  background-image: url(../img/Homepage/image4.jpg);
+  background-image: url(../img/Homepage/setup2.png);
 }
 
-.nav-link:hover
+.cool-website-image{
+  background-image: url(../img/Homepage/Untitled.png);
+}
+
+.nav-link:hover, .default-link:hover
 {
   cursor: pointer;
 }
 
-.nav-link {
+.nav-link, .default-link {
   cursor: default;
 }
 
-
+.round-image{
+  border-radius: 50%;
+  transform: rotate(6deg);
+}
 
 
 

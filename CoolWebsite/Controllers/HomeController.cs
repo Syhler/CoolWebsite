@@ -48,8 +48,14 @@ namespace CoolWebsite.Controllers
             }
 
             //return RedirectToAction("Index", "Home");
-            return Json(new {result = "Redirect", url = Url.Action("Index", "Home")});
+            return Json(new {result = "Redirect", url = Url.Action("Index", "Home", new {area = "Financial"})});
 
+        }
+
+        [AllowAnonymous]
+        public IActionResult CoolWebsiteProject()
+        {
+            return View();
         }
         
         

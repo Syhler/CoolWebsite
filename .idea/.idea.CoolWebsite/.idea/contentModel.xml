@@ -10,6 +10,7 @@
     <e p="C:\Users\morte\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
     <e p="C:\Users\morte\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_CoolWebsite.609162593.00" t="ExcludeRecursive" />
     <e p="C:\Users\morte\AppData\Roaming\JetBrains\Rider2020.1\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_baguettebox.js_1.10.0_baguetteBox.css" t="IncludeRecursive" />
+    <e p="C:\Users\morte\AppData\Roaming\JetBrains\Rider2020.1\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_baguettebox.js_1.10.0_baguetteBox.js" t="IncludeRecursive" />
     <e p="C:\Users\morte\AppData\Roaming\JetBrains\Rider2020.1\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_bootstrap-datepicker_1.9.0_css_bootstrap-datepicker.css" t="IncludeRecursive" />
     <e p="C:\Users\morte\AppData\Roaming\JetBrains\Rider2020.1\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_bootstrap-datepicker_1.9.0_js_bootstrap-datepicker.js" t="IncludeRecursive" />
     <e p="C:\Users\morte\Documents\GitHub\C#_Project\CoolWebsite" t="IncludeFlat">
@@ -178,10 +179,12 @@
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Home" t="Include">
+            <e p="CoolWebsiteProject.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
             <e p="Privacy.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
+            <e p="_HomePageLayout.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
             <e p="_LoginPartial.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
@@ -232,6 +235,10 @@
               <e p="logo-mysql-170x115.png" t="Include" />
               <e p="Mmww2.png" t="Include" />
               <e p="pngwing.com.png" t="Include" />
+              <e p="profile_pic.png" t="Include" />
+              <e p="profile_picutre.jpg" t="Include" />
+              <e p="Setup.jpg" t="Include" />
+              <e p="setup2.png" t="Include" />
               <e p="Untitled.png" t="Include" />
             </e>
           </e>
@@ -242,6 +249,8 @@
               <e p="project.js" t="Include" />
             </e>
             <e p="Homepage" t="Include">
+              <e p="common.js" t="Include" />
+              <e p="CoolWebsiteProject.js" t="Include" />
               <e p="homepage.js" t="Include" />
             </e>
             <e p="JQueryValidationCustomMethods.js" t="Include" />

@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"]</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
+    <link rel="stylesheet" href="~/lib/test/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="~/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="~/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="~/lib/css/Profile-Card.css">
+    <link rel="stylesheet" href="~/css/site.css"/>
+    @*
+        <link rel="stylesheet" href="assets/css/Profile-Picture-With-Badge-1.css">
+        <link rel="stylesheet" href="assets/css/Profile-Picture-With-Badge.css">
+        *@
+    <link rel="stylesheet" href="~/lib/css/smoothproducts.css">
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+    <div class="container">
+        <a class="navbar-brand logo" asp-action="Index" asp-controller="Home" asp-area="">MSyhler</a>
+        <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+            <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse"
+             id="navcol-1">
+            <ul class="nav navbar-nav ml-auto">
+                @await RenderSectionAsync("NavBar", true)
+               
+                @{
+                    bool isAuthenticated = User.Identity.IsAuthenticated;
+                    if (isAuthenticated)
+                    {
+
+
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" asp-area="Financial" asp-controller="Home" asp-action="Index">Financial</a>
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link sign-in" >Sign in</a>
+                        </li>
+
+                    }
+                }
+
+            </ul>
+        </div>
+    </div>
+    
+    @{
+        if (isAuthenticated)
+        {
+            <div style="float: left">
+                <a class="link" asp-area="" asp-controller="Auth" asp-action="Logout">@User.Identity.Name : Sign out</a>
+            </div>
+        }
+    }
+</nav>
+@RenderBody()
+
+<footer class="page-footer dark">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h5>Get started</h5>
+                <ul>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a asp-action="Logout" asp-controller="Auth" asp-area="" class="default-link">Log out</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a class="sign-in default-link">Sign In</a>
+                        </li>
+                    }
+                    <li>
+                        <a class="default-link">Sign up (Currently disabled)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                <div>
+                    <h5>About me</h5>
+                    <ul>
+                        <li>
+                            <a class="default-link" asp-action="Index" asp-controller="Home" asp-area="">Who am i</a>
+                        </li>
+                        <li>
+                            <a class="default-link" asp-action="Index" asp-controller="Home" asp-area="">Courses</a>
+                        </li>
+                        <li>
+                            <a class="default-link" asp-action="Index" asp-controller="Home" asp-area="">Skill Set</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col">
+                <h5>Projects</h5>
+                <ul>
+                    <li>
+                        <a class="default-link" asp-action="CoolWebsiteProject" asp-controller="Home" asp-area="">CoolWebsite</a>
+                    </li>
+                    <li>
+                        <a class="default-link" >Messaging App</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <p>© 2020 Morten Syhler&nbsp;All Rights Reserved<br></p>
+    </div>
+</footer>
+
+</body>
+
+
+<!-- 
+modal
+-->
+<div class="modal" tabindex="-1" role="dialog" id="login-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="container p-5">
+                <div class="block-heading">
+                    <h2 class="text-info">Log In</h2>
+                </div>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="form-control item" type="email" id="email" name="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input class="form-control" type="password" id="password" name="password">
+                    </div>
+                    
+                    <div id="error-div">
+                        
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="checkbox">
+                            <label class="form-check-label" for="checkbox">Remember me</label>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-block" type="submit" id="login-btn">Log In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/js/homepage/common.js"></script>
+
+
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+<script src="~/lib/js/smoothproducts.min.js"></script>
+<script src="~/lib/js/theme.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+
+@await RenderSectionAsync("Scripts", false)
+
+
+</html>
