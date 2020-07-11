@@ -35,6 +35,14 @@ namespace CoolWebsite.Infrastructure.Persistence
                 FirstName = "Niklas",
                 LastName = "Hesteegg"
             };
+            
+            var guestUser = new ApplicationUser
+            {
+                FirstName = "Guest",
+                LastName = "Guest",
+                UserName = "Guest123@guest.com",
+                Email = "Guest123@guest.com"
+            };
 
             if (roleManager.Roles.All(u => u.Name != "Admin"))
             {
@@ -49,11 +57,12 @@ namespace CoolWebsite.Infrastructure.Persistence
             await CreateUser(userManager, defaultUser);
             await CreateUser(userManager, secondUser);
             await CreateUser(userManager, thirdUser);
+            await CreateUser(userManager, guestUser, "Guest123");
 
             await GiveRole(userManager, defaultUser.Email, "Admin");
             await GiveRole(userManager, secondUser.Email, "Financial");
             await GiveRole(userManager, thirdUser.Email, "Financial");
-
+            await GiveRole(userManager, guestUser.Email, "Financial");
 
         }
 
@@ -62,6 +71,14 @@ namespace CoolWebsite.Infrastructure.Persistence
             if (userManager.Users.All(u => u.UserName != user.UserName))
             {
                 await userManager.CreateAsync(user, "testUser123");
+            }
+        }
+        
+        private static async Task CreateUser(UserManager<ApplicationUser> userManager, ApplicationUser user, string password)
+        {
+            if (userManager.Users.All(u => u.UserName != user.UserName))
+            {
+                await userManager.CreateAsync(user, password);
             }
         }
 
