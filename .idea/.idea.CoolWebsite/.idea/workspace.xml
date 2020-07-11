@@ -20,10 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/homepage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite/Views/Shared/_HomePageLayout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Views/Shared/_HomePageLayout.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/MainLayout.css" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/MainLayout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,8 +72,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -280,7 +282,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/CreateReceipts/CreateReceiptsCommand.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/CreateReceipts/CreateReceiptsCommandValidator.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Queries/GetReceiptByIdQueryTests.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/CreateReceiptsTests.cs" />
@@ -330,6 +331,7 @@
         <option value="$PROJECT_DIR$/CoolWebsite/Views/Home/Index.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" />
         <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/MainLayout.css" />
+        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/homepage.css" />
         <option value="$PROJECT_DIR$/CoolWebsite/Views/Shared/_HomePageLayout.cshtml" />
       </list>
     </option>
@@ -485,7 +487,7 @@
       <workItem from="1594033851604" duration="4694000" />
       <workItem from="1594122119360" duration="5552000" />
       <workItem from="1594376399799" duration="13876000" />
-      <workItem from="1594460337555" duration="11114000" />
+      <workItem from="1594460337555" duration="12170000" />
     </task>
     <servers />
   </component>

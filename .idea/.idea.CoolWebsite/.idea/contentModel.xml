@@ -195,6 +195,7 @@
         <e p="wwwroot" t="Include">
           <e p="css" t="Include">
             <e p="Main" t="Include">
+              <e p="homepage.css" t="Include" />
               <e p="MainLayout.css" t="Include" />
               <e p="navbar-fixed-left.min.css" t="Include" />
               <e p="Sidebar.css" t="Include" />
