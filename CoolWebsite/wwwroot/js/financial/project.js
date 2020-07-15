@@ -466,7 +466,7 @@ $(document).ready(function () {
         console.log(amount)
         //validation
         
-        if (isNaN(amount))
+        if (isNaN(parseFloat(amount)))
         {
             showTransactionErrorMessage("It has to be a number")
             return;
