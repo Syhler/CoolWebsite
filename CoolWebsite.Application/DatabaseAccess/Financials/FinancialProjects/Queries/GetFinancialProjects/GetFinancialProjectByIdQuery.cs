@@ -38,7 +38,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 
         public async Task<FinancialProjectDto> Handle(GetFinancialProjectByIdQuery request, CancellationToken cancellationToken)
         {
-            
+
             var entity = _context.FinancialProjects
                 .Include(x => x.FinancialProjectApplicationUsers)
                 .Include(x => x.Receipts)
@@ -59,6 +59,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
             
             mapped.Receipts = mapped.Receipts.Where(x => x.Deleted == null).ToList(); //Removes deleted receipts from the mapped project
 
+            mapped.Receipts = mapped.Receipts.OrderByDescending(x => x.DateVisited).ToList();
+            
             var currentUserRecords = entity.First().OweRecords.Where(x => x.UserId == _currentUserService.UserID && x.FinancialProjectId == mapped.Id).ToList();
 
             foreach (var mappedUser in mapped.Users)

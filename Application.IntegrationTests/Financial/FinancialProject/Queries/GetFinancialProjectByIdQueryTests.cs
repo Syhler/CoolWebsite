@@ -7,6 +7,7 @@ using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.CreateFinancialProject;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems;
+using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Domain.Entities.Identity;
 using CoolWebsite.Domain.Enums;
 using FluentAssertions;
@@ -38,6 +39,16 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
 
             var receiptId = await CreateReceipt(project.Id);
             
+            var createReceipt = new CreateReceiptCommand
+            {
+                FinancialProjectId = project.Id,
+                Location = "Title",
+                DateVisited = DateTime.Today.AddDays(-5),
+
+            };
+
+            await SendAsync(createReceipt);
+            
             var receiptItemCommand = new CreateReceiptItemCommand
             {
                 Count = 5,
@@ -63,6 +74,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
 
             model.Should().NotBeNull();
             model.Receipts.First().Id.Should().Be(receiptId);
+            model.Receipts.Count.Should().Be(2);
             model.Receipts.First().Location.Should().Be("Title");
             model.Receipts.First().DateVisited.Should().BeCloseTo(DateTime.Now, 10000);
             model.Receipts.First().Items.First().Id.Should().Be(receiptItemId);

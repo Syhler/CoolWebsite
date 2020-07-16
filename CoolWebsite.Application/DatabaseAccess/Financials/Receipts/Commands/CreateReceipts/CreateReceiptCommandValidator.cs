@@ -15,7 +15,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Cr
                 .MaximumLength(100);
 
             RuleFor(x => x.DateVisited)
-                .NotEmpty().WithMessage("BoughtAt is required");
+                .NotEmpty().WithMessage("DateVisited is required");
             
             
         }
