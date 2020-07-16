@@ -507,13 +507,18 @@ $(document).ready(function () {
             },
             success: function () {
                 $("#confirm-pay-transaction-modal").modal("hide")
+
+                location.reload();
                 
+                /*
                 
                 const currentAmountElem = $("[data-id="+toUserId+"]").parent().find(".amount-owed");
                 
                 const newAmount = parseFloat(currentAmountElem.text()) - parseFloat(amount);
 
                 currentAmountElem.text(newAmount)
+                
+                 */
                 
                 
             },
