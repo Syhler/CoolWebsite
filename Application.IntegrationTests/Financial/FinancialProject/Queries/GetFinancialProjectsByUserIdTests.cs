@@ -15,7 +15,7 @@ using NUnit.Framework.Internal;
 namespace Application.IntegrationTests.Financial.FinancialProject.Queries
 {
     using static Testing;
-    public class GetFinancialProjectsByUserTests : FinancialTestBase
+    public class GetFinancialProjectsByUserIdTests : FinancialTestBase
     {
         
         [Test]
@@ -32,7 +32,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
 
             var project = await SendAsync(createCommand);
             
-            var createReceipt = new CreateReceiptsCommand
+            var createReceipt = new CreateReceiptCommand
             {
                 FinancialProjectId = project.Id,
                 Location = "Title",
@@ -41,7 +41,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
 
             var receiptId = await SendAsync(createReceipt);
 
-            var query = new GetFinancialProjectsByUserQuery
+            var query = new GetFinancialProjectsByUserIdQuery
             {
                 UserId = User.Id
             };
@@ -73,7 +73,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
 
             await SendAsync(createCommand);
 
-            var query = new GetFinancialProjectsByUserQuery
+            var query = new GetFinancialProjectsByUserIdQuery
             {
                 UserId = "ads"
             };
@@ -87,7 +87,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
         [Test]
         public async Task Handle_EmptyUserId_ShouldThrowValidationException()
         {
-            var query = new GetFinancialProjectsByUserQuery();
+            var query = new GetFinancialProjectsByUserIdQuery();
 
             FluentActions.Invoking(async () => await SendAsync(query)).Should().Throw<ValidationException>();
         }

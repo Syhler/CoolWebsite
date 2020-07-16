@@ -140,7 +140,7 @@ namespace Application.IntegrationTests
             
         }
 
-        public static SqlApplicationDbContext Context()
+        public static SqlApplicationDbContext CreateContext()
         {
             var scope = _scopeFactory.CreateScope();
             return scope.ServiceProvider.GetService<SqlApplicationDbContext>();

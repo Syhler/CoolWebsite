@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.DeleteFinancialProject;
@@ -17,8 +18,6 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
         {
             var id = await CreateFinancialProject();
 
-            var receiptId = await CreateReceipt(id);
-
             
             var command = new DeleteFinancialProjectCommand
             {
@@ -26,18 +25,16 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             };
 
             var notDeleted = await FindAsync<CoolWebsite.Domain.Entities.Financial.FinancialProject>(id);
-            var notDeletedReceipt = await FindAsync<Receipt>(receiptId);
 
-            notDeleted.Should().NotBeNull();
-            notDeletedReceipt.Should().NotBeNull();
+            notDeleted.Deleted.Should().BeNull();
 
             await SendAsync(command);
 
             var entity = await FindAsync<CoolWebsite.Domain.Entities.Financial.FinancialProject>(id);
-            var receiptEntity = await FindAsync<Receipt>(receiptId);
 
-            entity.Should().BeNull();
-            receiptEntity.Should().BeNull();
+            entity.Deleted.Should().BeCloseTo(DateTime.Now, 1000);
+
+
         }
         
         [Test]

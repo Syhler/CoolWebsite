@@ -47,7 +47,7 @@ namespace Application.IntegrationTests.Common
 
         protected async Task<string> CreateReceipt(string projectId)
         {
-            var createCommand = new CreateReceiptsCommand
+            var createCommand = new CreateReceiptCommand
             {
                 FinancialProjectId = projectId,
                 Location = "Title",
@@ -62,7 +62,7 @@ namespace Application.IntegrationTests.Common
         {
             var projectId = await CreateFinancialProject();
             
-            var createCommand = new CreateReceiptsCommand
+            var createCommand = new CreateReceiptCommand
             {
                 FinancialProjectId = projectId,
                 Location = "Title",
@@ -85,6 +85,10 @@ namespace Application.IntegrationTests.Common
                     new UserDto
                     {
                         Id = User.Id
+                    },
+                    new UserDto
+                    {
+                        Id = SecondUser.Id
                     }
                 }
                     

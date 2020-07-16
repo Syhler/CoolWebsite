@@ -11,26 +11,24 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects
 {
-    public class GetFinancialProjectsByUserQuery : IRequest<FinancialProjectsVm>
+    public class GetFinancialProjectsByUserIdQuery : IRequest<FinancialProjectsVm>
     {
         public string UserId { get; set; }
     }
 
-    public class GetFinancialProjectsByUserQueryHandler : IRequestHandler<GetFinancialProjectsByUserQuery, FinancialProjectsVm>
+    public class GetFinancialProjectsByUserIdQueryHandler : IRequestHandler<GetFinancialProjectsByUserIdQuery, FinancialProjectsVm>
     {
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
-        private readonly IIdentityService _service;
 
-        public GetFinancialProjectsByUserQueryHandler(IApplicationDbContext context, IMapper mapper, ICurrentUserService currentUserService, IIdentityService service)
+        public GetFinancialProjectsByUserIdQueryHandler(IApplicationDbContext context, IMapper mapper, ICurrentUserService currentUserService)
         {
             _context = context;
             _mapper = mapper;
-            _service = service;
             _context.UserId = currentUserService.UserID;
         }
 
-        public async Task<FinancialProjectsVm> Handle(GetFinancialProjectsByUserQuery request, CancellationToken cancellationToken)
+        public async Task<FinancialProjectsVm> Handle(GetFinancialProjectsByUserIdQuery request, CancellationToken cancellationToken)
         {
             var projects = _context.FinancialProjects.Where(x =>
                     x.FinancialProjectApplicationUsers.Any(user => user.UserId == request.UserId))

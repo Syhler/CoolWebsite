@@ -25,7 +25,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         public async Task Handle_ValidFields_ShouldUpdate()
         {
             var projectId = await CreateFinancialProject();
-            var id = await CreateReceipt();
+            var id = await CreateReceipt(projectId);
 
             var itemCommand = new CreateReceiptItemCommand
             {
@@ -36,16 +36,31 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
                 ReceiptId = id,
                 UsersId = new List<string>
                 {
-                    User.Id,
                     SecondUser.Id
                 }
             };
 
-            var itemId = await SendAsync(itemCommand);
+            var receiptItemId = await SendAsync(itemCommand);
             
             var item = GetReceiptItem(5);
             
-            var command = new UpdateReceiptsCommand
+            var context = CreateContext();
+
+            var oweRecord = context.OweRecords.FirstOrDefault(x => x.OwedUserId == User.Id && x.UserId == SecondUser.Id && x.FinancialProjectId == projectId);
+
+            oweRecord.Should().NotBeNull();
+            oweRecord.Amount.Should().Be(itemCommand.Count * itemCommand.Price);
+
+            var editedItem = new ReceiptItemDto
+            {
+                ItemGroup = new ItemGroupDto {Value = itemCommand.ItemGroup},
+                Count = 1,
+                Id = receiptItemId,
+                Price = 100,
+                Users = new List<UserDto> {new UserDto {Id = SecondUser.Id}}
+            };
+            
+            var command = new UpdateReceiptCommand
             {
                 Id = id,
                 Location = "Netto",
@@ -54,23 +69,43 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
                 ItemDtos = new List<ReceiptItemDto>
                 {
                     item,
+                   editedItem
                 }
             };
 
             await SendAsync(command);
 
-            var context = Context();
 
             var entity = context.Receipts
                 .Include(x => x.Items)
                 .FirstOrDefault(x => x.Id == command.Id);
 
-            await context.DisposeAsync();
+            context = CreateContext();
+            
+            var newOweRecord = context.OweRecords.FirstOrDefault(x => x.OwedUserId == User.Id && x.UserId == SecondUser.Id && x.FinancialProjectId == projectId);
 
+            newOweRecord.Should().NotBeNull();
+            newOweRecord.Amount.Should().Be((item.Price*item.Count/item.Users.Count) + editedItem.Price*editedItem.Count/editedItem.Users.Count);
+            
             entity.Should().NotBeNull();
             entity.Note.Should().Be(command.Note);
             entity.Items.FirstOrDefault(x => x.Id == item.Id).Should().NotBeNull();
-            entity.Items.Count.Should().Be(1);
+            entity.Items.Count.Should().Be(2);
+            
+            
+            var editedItemEntity = entity.Items.FirstOrDefault(x => x.Id == editedItem.Id);
+            editedItemEntity.Should().NotBeNull();
+            editedItemEntity.Count.Should().Be(editedItem.Count);
+            editedItemEntity.Price.Should().Be(editedItem.Price);
+            editedItemEntity.ItemGroup.Should().Be(editedItem.ItemGroup.Value);
+            
+            var newItem = entity.Items.FirstOrDefault(x => x.Id == item.Id);
+            newItem.Should().NotBeNull();
+            newItem.Count.Should().Be(item.Count);
+            newItem.Price.Should().Be(item.Price);
+            newItem.ItemGroup.Should().Be(item.ItemGroup.Value);
+            
+            
             entity.LastModified.Should().BeCloseTo(DateTime.Now, 1000);
             entity.LastModifiedBy.Should().Be(User.Id);
             entity.DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
@@ -84,7 +119,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
             var id = await CreateReceipt(projectId);
             var user = await RunAsDefaultUserAsync();
             
-            var command = new UpdateReceiptsCommand
+            var command = new UpdateReceiptCommand
             {
                 Id = id,
                 Location = "Title",
@@ -106,7 +141,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         [Test]
         public async Task Handle_InvalidId_ShouldThrowNotFoundException()
         {
-            var command = new UpdateReceiptsCommand
+            var command = new UpdateReceiptCommand
             {
                 Id = "nah",
                 Location = "Title",
@@ -119,7 +154,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         [Test]
         public async Task Handle_IdEmpty_ShouldThrowValidationException()
         {
-            var command = new UpdateReceiptsCommand
+            var command = new UpdateReceiptCommand
             {
                 Id = "",
                 Location = "Title",
@@ -133,7 +168,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         [Test]
         public async Task Handle_BoughtAtEmpty_ShouldThrowValidationException()
         {
-            var command = new UpdateReceiptsCommand
+            var command = new UpdateReceiptCommand
             {
                 Id = "asdadas",
                 Location = "Title",
@@ -146,7 +181,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         [Test]
         public async Task Handle_TitleEmpty_ShouldThrowValidationException()
         {
-            var command = new UpdateReceiptsCommand
+            var command = new UpdateReceiptCommand
             {
                 Id = "asdadas",
                 Datevisited = DateTime.Now,
@@ -159,7 +194,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         [Test]
         public async Task Handle_TitleAboveMaxLength_ShouldThrowValidationException()
         {
-            var command = new UpdateReceiptsCommand
+            var command = new UpdateReceiptCommand
             {
                 Id = "asdadas",
                 Location = "dafhdsugjhsfdosjdfjiodsfoijdsfjiosdfsdfdfsdfsdfsdfsfsdfsdfsdf" +

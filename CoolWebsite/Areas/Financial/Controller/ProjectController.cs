@@ -5,8 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.DatabaseAccess.Common.Transaction.Commands.CreateTransaction;
-using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.DeleteReceipts;
-using CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.UpdateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems;
@@ -111,7 +109,7 @@ namespace CoolWebsite.Areas.Financial.Controller
         public async Task<IActionResult> EditReceiptPost(CreateReceiptModel model)
         {
 
-            var command = new UpdateReceiptsCommand
+            var command = new UpdateReceiptCommand
             {
                 Id = model.ReceiptDto.Id,
                 Location = model.ReceiptDto.Location,
@@ -150,7 +148,7 @@ namespace CoolWebsite.Areas.Financial.Controller
         public async Task<IActionResult> CreateReceiptPost(CreateReceiptModel model)
         {
             
-            var command = new CreateReceiptsCommand
+            var command = new CreateReceiptCommand
             {
                 DateVisited = model.ReceiptDto.DateVisited,
                 FinancialProjectId = model.FinancialProjectId,
@@ -181,7 +179,7 @@ namespace CoolWebsite.Areas.Financial.Controller
 
         public async Task<IActionResult> DeleteReceipt(string id, string projectId)
         {
-            var command = new DeleteReceiptsCommand
+            var command = new DeleteReceiptCommand
             {
                 Id = id
             };

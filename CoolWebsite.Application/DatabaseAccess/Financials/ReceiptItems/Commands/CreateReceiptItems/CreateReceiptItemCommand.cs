@@ -19,9 +19,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
         public double Price { get; set; }
         public int ItemGroup { get; set; }
         public string ReceiptId { get; set; }
-
         public List<string> UsersId { get; set; }
-
     }
 
     public class CreateReceiptItemCommandHandler : IRequestHandler<CreateReceiptItemCommand, string>
@@ -29,7 +27,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
         private readonly IApplicationDbContext _context;
         private readonly IIdentityService _identity;
 
-        public CreateReceiptItemCommandHandler(IApplicationDbContext context, ICurrentUserService service, IIdentityService identity)
+        public CreateReceiptItemCommandHandler(IApplicationDbContext context, ICurrentUserService service,
+            IIdentityService identity)
         {
             _context = context;
             _identity = identity;
@@ -49,61 +48,50 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
             var id = Guid.NewGuid().ToString();
 
 
-            var users = new List<ApplicationUserReceiptItem>();
+            var users = request.UsersId.Select(x => new ApplicationUserReceiptItem
+                {ApplicationUserId = x, ReceiptItemId = id}).ToList();
 
-            foreach (var user in request.UsersId)
-            {
-                users.Add(new ApplicationUserReceiptItem
-                {
-                    ApplicationUserId = user,
-                    ReceiptItemId = id
-                });
-            }
+            var oweRecords = _context.OweRecords.Where(x =>
+                x.OwedUserId == receipt.CreatedBy && x.FinancialProjectId == receipt.FinancialProjectId);
 
-            var records = _context.OweRecords.Where(x => x.OwedUserId == receipt.CreatedBy && x.FinancialProjectId == receipt.FinancialProjectId);
+            UpdateOweRecord(request, oweRecords);
 
-            foreach (var user in request.UsersId)
-            {
-                
-                var record = records.FirstOrDefault(x => x.UserId == user);
-                
-                if (request.UsersId.Count > 1)
-                {
-                    if (record != null)
-                    {
-                        record.Amount += Math.Round(request.Count * request.Price/request.UsersId.Count,2);
-                    }
 
-                }
-                else
-                {
-                    if (record != null)
-                    {
-                        record.Amount += Math.Round(request.Count * request.Price,2);
-                    }
-                }
-            }
-            
             var entity = new ReceiptItem
             {
                 Id = id,
                 Name = request.Name,
                 Count = request.Count,
                 Price = request.Price,
-                ItemGroup = (ItemGroup)request.ItemGroup,
+                ItemGroup = (ItemGroup) request.ItemGroup,
                 ReceiptId = request.ReceiptId,
                 Users = users
             };
 
             await _context.ReceiptItems.AddAsync(entity, cancellationToken);
-            
 
             await _context.SaveChangesAsync(cancellationToken);
-
 
             return entity.Id;
         }
 
-       
+        private void UpdateOweRecord(CreateReceiptItemCommand request, IQueryable<OweRecord> oweRecords)
+        {
+            foreach (var user in request.UsersId)
+            {
+                var oweRecord = oweRecords.FirstOrDefault(x => x.UserId == user);
+
+                if (oweRecord == null) continue;
+
+                if (request.UsersId.Count > 1)
+                {
+                    oweRecord.Amount += Math.Round(request.Count * request.Price / request.UsersId.Count, 2);
+                }
+                else
+                {
+                    oweRecord.Amount += Math.Round(request.Count * request.Price, 2);
+                }
+            }
+        }
     }
 }

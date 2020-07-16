@@ -7,7 +7,7 @@ using MediatR;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts
 {
-    public class CreateReceiptsCommand : IRequest<string>
+    public class CreateReceiptCommand : IRequest<string>
     {
         public string FinancialProjectId { get; set; }
 
@@ -18,18 +18,18 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Cr
 
     }
 
-    public class CreateReceiptsCommandHandler : IRequestHandler<CreateReceiptsCommand, string>
+    public class CreateReceiptCommandHandler : IRequestHandler<CreateReceiptCommand, string>
     {
         private readonly IApplicationDbContext _context;
 
-        public CreateReceiptsCommandHandler(IApplicationDbContext context, ICurrentUserService currentUserService)
+        public CreateReceiptCommandHandler(IApplicationDbContext context, ICurrentUserService currentUserService)
         {
             _context = context;
             _context.UserId = currentUserService.UserID;
         }
 
 
-        public async Task<string> Handle(CreateReceiptsCommand request, CancellationToken cancellationToken)
+        public async Task<string> Handle(CreateReceiptCommand request, CancellationToken cancellationToken)
         {
             
             var entity = new Receipt

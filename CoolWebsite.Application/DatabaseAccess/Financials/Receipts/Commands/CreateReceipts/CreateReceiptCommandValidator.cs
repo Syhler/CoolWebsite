@@ -2,9 +2,9 @@
 
 namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts
 {
-    public class CreateReceiptsCommandValidator : AbstractValidator<CreateReceiptsCommand>
+    public class CreateReceiptCommandValidator : AbstractValidator<CreateReceiptCommand>
     {
-        public CreateReceiptsCommandValidator()
+        public CreateReceiptCommandValidator()
         {
 
             RuleFor(x => x.FinancialProjectId)
@@ -16,6 +16,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Cr
 
             RuleFor(x => x.DateVisited)
                 .NotEmpty().WithMessage("BoughtAt is required");
+            
+            
         }
     }
 }

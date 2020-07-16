@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -48,31 +49,10 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
                     UserId = applicationUser.Id
                 });
 
-                foreach (var user in request.Users)
-                {
-                    if (user.Id == applicationUser.Id)
-                    {
-                        continue;
-                    }
-                    
-                    //create OweRecord
-                    var oweRecord = new OweRecord
-                    {
-                        Id = Guid.NewGuid().ToString(),
-                        Amount = 0,
-                        FinancialProjectId = entity.Id,
-                        UserId = applicationUser.Id,
-                        OwedUserId = user.Id
-                    };
-
-                    await _context.OweRecords.AddAsync(oweRecord, cancellationToken);
-                }
-               
+                await CreateOweRecord(request.Users, entity.Id, applicationUser.Id, cancellationToken);
             }
 
-            
             entity.FinancialProjectApplicationUsers = users;
-            
 
             await _context.FinancialProjects.AddAsync(entity, cancellationToken);
 
@@ -80,5 +60,29 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
 
             return _mapper.Map<FinancialProjectDto>(entity);
         }
+
+        private async Task CreateOweRecord(IList<ApplicationUser> users, string financialProjectId, string applicationUserId, CancellationToken cancellationToken)
+        {
+            foreach (var user in users)
+            {
+                if (user.Id == applicationUserId)
+                {
+                    continue;
+                }
+                    
+                //create OweRecord
+                var oweRecord = new OweRecord
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Amount = 0,
+                    FinancialProjectId = financialProjectId,
+                    UserId = applicationUserId,
+                    OwedUserId = user.Id
+                };
+
+                await _context.OweRecords.AddAsync(oweRecord, cancellationToken);
+            }
+        }
     }
+    
 }

@@ -31,7 +31,7 @@
             <e p="Queries" t="Include">
               <e p="GetAllFinancialProjectsTests.cs" t="Include" />
               <e p="GetFinancialProjectByIdQueryTests.cs" t="Include" />
-              <e p="GetFinancialProjectsByUserTests.cs" t="Include" />
+              <e p="GetFinancialProjectsByUserIdTests.cs" t="Include" />
               <e p="GetUsersFromFinancialProjectQueryTests.cs" t="Include" />
             </e>
           </e>
@@ -465,16 +465,16 @@
             <e p="Receipts" t="Include">
               <e p="Commands" t="Include">
                 <e p="CreateReceipts" t="Include">
-                  <e p="CreateReceiptsCommand.cs" t="Include" />
-                  <e p="CreateReceiptsCommandValidator.cs" t="Include" />
+                  <e p="CreateReceiptCommand.cs" t="Include" />
+                  <e p="CreateReceiptCommandValidator.cs" t="Include" />
                 </e>
                 <e p="DeleteReceipts" t="Include">
-                  <e p="DeleteReceiptsCommand.cs" t="Include" />
-                  <e p="DeleteReceiptsCommandValidator.cs" t="Include" />
+                  <e p="DeleteReceiptCommand.cs" t="Include" />
+                  <e p="DeleteReceiptCommandValidator.cs" t="Include" />
                 </e>
                 <e p="UpdateReceipts" t="Include">
-                  <e p="UpdateReceiptsCommand.cs" t="Include" />
-                  <e p="UpdateReceiptsCommandValidator.cs" t="Include" />
+                  <e p="UpdateReceiptCommand.cs" t="Include" />
+                  <e p="UpdateReceiptCommandValidator.cs" t="Include" />
                 </e>
               </e>
               <e p="Queries" t="Include">

@@ -1,12 +1,11 @@
-﻿using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.UpdateReceipts;
-using FluentValidation;
+﻿using FluentValidation;
 
-namespace CoolWebsite.Application.DatabaseAccess.Financial.Receipts.Command.UpdateReceipts
+namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.UpdateReceipts
 {
-    public class UpdateReceiptsCommandValidator : AbstractValidator<UpdateReceiptsCommand>
+    public class UpdateReceiptCommandValidator : AbstractValidator<UpdateReceiptCommand>
     {
 
-        public UpdateReceiptsCommandValidator()
+        public UpdateReceiptCommandValidator()
         {
             RuleFor(x => x.Id)
                 .NotEmpty().WithMessage("Id is required");

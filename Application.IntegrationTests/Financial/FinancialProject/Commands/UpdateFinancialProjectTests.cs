@@ -51,7 +51,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
 
             await SendAsync(updateCommand);
 
-            var context = Context();
+            var context = CreateContext();
 
             var entity = context.FinancialProjects
                 .Include(x => x.FinancialProjectApplicationUsers)

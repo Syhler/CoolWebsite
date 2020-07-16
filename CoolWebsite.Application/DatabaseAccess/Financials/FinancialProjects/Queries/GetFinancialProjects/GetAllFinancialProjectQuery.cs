@@ -1,10 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
+using CoolWebsite.Domain.Entities.Financial;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
@@ -44,16 +46,21 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 
             var projects = entity.ProjectTo<FinancialProjectDto>(_mapper.ConfigurationProvider).ToList();
 
-            foreach (var financialProjectDto in projects)
-            {
-                financialProjectDto.Receipts = financialProjectDto.Receipts.Where(x => x.Deleted == null).ToList();
-            }
+            RemoveDeletedReceiptFromDto(projects);
             
 
             return new FinancialProjectsVm
             {
                 FinancialProjects = projects
             }; 
+        }
+
+        private void RemoveDeletedReceiptFromDto(List<FinancialProjectDto> projects)
+        {
+            foreach (var financialProjectDto in projects)
+            {
+                financialProjectDto.Receipts = financialProjectDto.Receipts.Where(x => x.Deleted == null).ToList();
+            }
         }
     }
 }

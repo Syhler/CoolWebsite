@@ -64,18 +64,23 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
                 Users = new List<ApplicationUser>
                 {
                     User,
-                    await CreateNewUser("new@new.com","UserUser")
+                    SecondUser
                 }
             };
 
             var project = await SendAsync(command);
 
-            var context = Context();
+            var context = CreateContext();
 
             var entity = context.FinancialProjects
                 .Include(x => x.FinancialProjectApplicationUsers)
                 .Include(x => x.OweRecords)
                 .FirstOrDefault(x => x.Id == project.Id);
+
+            var oweRecords = context.OweRecords.Where(x => x.FinancialProjectId == project.Id);
+
+            oweRecords.Should().NotBeNull();
+            oweRecords.Count().Should().Be(2);
             
             await context.DisposeAsync();
             

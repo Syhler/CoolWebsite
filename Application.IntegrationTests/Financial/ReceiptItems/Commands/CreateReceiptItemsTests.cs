@@ -40,7 +40,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
 
             var id = await SendAsync(create);
 
-            var context = Context();
+            var context = CreateContext();
             
             var entity = await context.ReceiptItems
                 .Include(x => x.Users)
@@ -115,7 +115,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
         }
 
         [Test]
-        public void Handle_ItemGroupNull_ThrowValidationException()
+        public void Handle_ItemGroupBelowZero_ThrowValidationException()
         {
             var create = new CreateReceiptItemCommand
             {
@@ -123,7 +123,8 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Price = 2,
                 Name = "sds",
                 ReceiptId = "asdsa",
-                UsersId = new List<string>{User.Id}
+                UsersId = new List<string>{User.Id},
+                ItemGroup = -5
             };
             
             FluentActions.Awaiting(() => SendAsync(create)).Should().Throw<ValidationException>();

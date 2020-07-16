@@ -19,7 +19,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         {
             var id = await CreateFinancialProject();
             
-            var command = new CreateReceiptsCommand
+            var command = new CreateReceiptCommand
             {
                 FinancialProjectId = id,
                 DateVisited = DateTime.Now,
@@ -41,50 +41,9 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         }
 
         [Test]
-        public async Task Handle_NoUsers_ShouldCreateEntity()
-        {
-            var id = await CreateFinancialProject();
-            
-            var user = await RunAsDefaultUserAsync();
-
-            var command = new CreateReceiptsCommand
-            {
-                FinancialProjectId = id,
-                DateVisited = DateTime.Now,
-                Location = "Title"
-            };
-
-            var receiptsId = await SendAsync(command);
-
-            var entity = await FindAsync<Receipt>(receiptsId);
-
-            entity.Should().NotBeNull();
-            entity.FinancialProjectId.Should().Be(command.FinancialProjectId);
-            entity.Created.Should().BeCloseTo(DateTime.Now, 1000);
-            entity.CreatedBy.Should().Be(user.Id);
-            entity.DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
-            entity.Location.Should().Be(command.Location);
-        }
-        
-        [Test]
-        public async Task Handle_TotalBelowZero_ShouldThrowValidationException()
-        {
-            var id = await CreateFinancialProject();
-            
-            var command = new CreateReceiptsCommand
-            {
-                FinancialProjectId = id,
-                DateVisited = DateTime.Now,
-                Location = "Title"
-            };
-
-            FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
-        }
-
-        [Test]
         public async Task Handle_FinancialProjectIdEmpty_ShouldThrowValidationException()
         {
-            var command = new CreateReceiptsCommand
+            var command = new CreateReceiptCommand
             {
                 DateVisited = DateTime.Now,
                 Location = "Title",
@@ -97,7 +56,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         [Test]
         public async Task Handle_BoughtAtEmpty_ShouldThrowValidationException()
         {
-            var command = new CreateReceiptsCommand
+            var command = new CreateReceiptCommand
             {
                 Location = "Title",
                 FinancialProjectId = "sad"
@@ -109,7 +68,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         [Test]
         public async Task Handle_TitleEmpty_ShouldThrowValidationException()
         {
-            var command = new CreateReceiptsCommand
+            var command = new CreateReceiptCommand
             {
                 DateVisited = DateTime.Now,
                 Location = "",
@@ -122,7 +81,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         [Test]
         public async Task Handle_TitleAboveMaxLength_ShouldThrowValidationException()
         {
-            var command = new CreateReceiptsCommand
+            var command = new CreateReceiptCommand
             {
                 DateVisited = DateTime.Now,
                 Location = "dsfsfsdfijpsdkjfpsdkfpodskofkdsokposfkpospkofsdkpofsdkpofsdkposdfpkokfpsdkfspdopk" +

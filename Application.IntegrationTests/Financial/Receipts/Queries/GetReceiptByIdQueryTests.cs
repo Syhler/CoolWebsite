@@ -22,7 +22,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Queries
         {
             var financialProjectId = await CreateFinancialProject();
             
-            var createCommand = new CreateReceiptsCommand
+            var createCommand = new CreateReceiptCommand
             {
                 FinancialProjectId = financialProjectId,
                 Location = "Title",

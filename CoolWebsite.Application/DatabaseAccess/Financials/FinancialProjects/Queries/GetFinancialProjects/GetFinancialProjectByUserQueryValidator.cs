@@ -2,7 +2,7 @@
 
 namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects
 {
-    public class GetFinancialProjectByUserQueryValidator : AbstractValidator<GetFinancialProjectsByUserQuery>
+    public class GetFinancialProjectByUserQueryValidator : AbstractValidator<GetFinancialProjectsByUserIdQuery>
     {
         public GetFinancialProjectByUserQueryValidator()
         {

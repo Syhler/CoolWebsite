@@ -31,7 +31,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
 
             var project = await SendAsync(createCommand);
             
-            var createReceipt = new CreateReceiptsCommand
+            var createReceipt = new CreateReceiptCommand
             {
                 FinancialProjectId = project.Id,
                 Location = "Title",
@@ -50,6 +50,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
             model.FinancialProjects.First().Receipts.First().Id.Should().Be(receiptId);
             model.FinancialProjects.First().Id.Should().Be(project.Id);
             model.FinancialProjects.First().Receipts.First().Location.Should().Be(createReceipt.Location);
+            model.FinancialProjects.First().Receipts.FirstOrDefault(x => x.Deleted != null).Should().BeNull();
             model.FinancialProjects.First().Receipts.First().DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
             model.FinancialProjects.First().Created.Should().BeCloseTo(DateTime.Now, 1000);
             model.FinancialProjects.First().Users.First().Id.Should().Be(User.Id);

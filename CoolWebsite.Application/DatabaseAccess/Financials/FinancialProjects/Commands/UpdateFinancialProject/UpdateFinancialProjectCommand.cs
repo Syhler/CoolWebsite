@@ -16,13 +16,14 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
     {
         public string Id { get; set; }
         public string Name { get; set; }
-
         public List<ApplicationUser> Users { get; set; }
         
         
         public class UpdateFinancialProjectCommandHandler : IRequestHandler<UpdateFinancialProjectCommand>
         {
             private readonly IApplicationDbContext _context;
+
+            private string _financialProjectId = null;
 
             public UpdateFinancialProjectCommandHandler(IApplicationDbContext context, ICurrentUserService currentUserService)
             {
@@ -40,51 +41,38 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
 
                 if (entity == null)
                 {
-                    throw new NotFoundException(nameof(Domain.Entities.Financial.FinancialProject), request.Id);
+                    throw new NotFoundException(nameof(FinancialProject), request.Id);
                 }
 
-                var users = new List<FinancialProjectApplicationUser>();
+                _financialProjectId = entity.Id;
+                
 
-                foreach (var applicationUser in request.Users)
-                {
-                    users.Add(new FinancialProjectApplicationUser
-                    {
-                        FinancialProjectId = entity.Id,
-                        UserId = applicationUser.Id
-                    });
-                }
+                var users = request.Users.Select(applicationUser
+                    => new FinancialProjectApplicationUser {FinancialProjectId = _financialProjectId, UserId = applicationUser.Id}).ToList();
                 
-                
-                
-                //add new user
-                foreach (var newUser in request.Users)
-                {
-                    foreach (var projectApplicationUser in entity.FinancialProjectApplicationUsers)
-                    {
-                        if (newUser.Id == projectApplicationUser.UserId)
-                        {
-                            continue;
-                        }
-                    
-                        //create OweRecord
-                        var oweRecord = new OweRecord
-                        {
-                            Id = Guid.NewGuid().ToString(),
-                            Amount = 0,
-                            FinancialProjectId = entity.Id,
-                            UserId = newUser.Id,
-                            OwedUserId = projectApplicationUser.UserId
-                        };
 
-                        await _context.OweRecords.AddAsync(oweRecord, cancellationToken);
-                    }
-                }
+                await CreateOweRecordForNewUsers(request.Users, entity.FinancialProjectApplicationUsers, cancellationToken);
+
+
+                await CreateOweRecordForOldToNewUsers(entity.FinancialProjectApplicationUsers, request.Users,
+                    cancellationToken);
                 
                 
+                entity.Title = request.Name;
+                entity.FinancialProjectApplicationUsers = users;
+
+
+                await _context.SaveChangesAsync(cancellationToken);
+                
+                return Unit.Value;
+            }
+            
+            private async Task CreateOweRecordForOldToNewUsers(ICollection<FinancialProjectApplicationUser> currentUsers, List<ApplicationUser> newUsers, CancellationToken cancellationToken)
+            {
                 //add old user to new users
-                foreach (var projectApplicationUser in entity.FinancialProjectApplicationUsers)
+                foreach (var projectApplicationUser in currentUsers)
                 {
-                    foreach (var applicationUser in request.Users)
+                    foreach (var applicationUser in newUsers)
                     {
                         if (projectApplicationUser.UserId == applicationUser.Id)
                         {
@@ -96,7 +84,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
                         {
                             Id = Guid.NewGuid().ToString(),
                             Amount = 0,
-                            FinancialProjectId = entity.Id,
+                            FinancialProjectId = _financialProjectId,
                             UserId = projectApplicationUser.UserId,
                             OwedUserId = applicationUser.Id
                         };
@@ -104,15 +92,32 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
                         await _context.OweRecords.AddAsync(oweRecord, cancellationToken);
                     }
                 }
-                
-                
-                entity.Title = request.Name;
-                entity.FinancialProjectApplicationUsers = users;
+            }
+            
+            private async Task CreateOweRecordForNewUsers(List<ApplicationUser> newUsers, ICollection<FinancialProjectApplicationUser> currentUsers, CancellationToken cancellationToken)
+            {
+                foreach (var newUser in newUsers)
+                {
+                    foreach (var projectApplicationUser in currentUsers)
+                    {
+                        if (newUser.Id == projectApplicationUser.UserId)
+                        {
+                            continue;
+                        }
+                    
+                        //create OweRecord
+                        var oweRecord = new OweRecord
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            Amount = 0,
+                            FinancialProjectId = _financialProjectId,
+                            UserId = newUser.Id,
+                            OwedUserId = projectApplicationUser.UserId
+                        };
 
-
-                await _context.SaveChangesAsync(cancellationToken);
-                
-                return Unit.Value;
+                        await _context.OweRecords.AddAsync(oweRecord, cancellationToken);
+                    }
+                }
             }
         }
     }
