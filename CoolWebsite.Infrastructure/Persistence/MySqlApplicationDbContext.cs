@@ -12,9 +12,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CoolWebsite.Infrastructure.Persistence
 {
-    public class MySqlApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>,
-        IApplicationDbContext
+    
+    public class MySqlApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>, IApplicationDbContext
     {
+        
         private ICurrentUserService _currentUserService;
         private IDateTime _dateTime;
         public string UserId { get; set; }
