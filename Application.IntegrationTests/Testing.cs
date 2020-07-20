@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Moq;
 using NUnit.Framework;
 using Respawn;
@@ -39,8 +40,15 @@ namespace Application.IntegrationTests
                 .AddEnvironmentVariables();
 
             _configuration = builder.Build();
+            
 
-            var startup = new Startup(_configuration);
+            var mockEnvironment = new Mock<IWebHostEnvironment>();
+            //...Setup the mock as needed
+            mockEnvironment
+                .Setup(m => m.IsDevelopment())
+                .Returns(true);
+            
+            var startup = new Startup(_configuration, mockEnvironment.Object);
             
             var services = new ServiceCollection();
 

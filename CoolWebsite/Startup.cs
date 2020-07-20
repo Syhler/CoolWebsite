@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 using System.IO;
 using AutoMapper;
@@ -11,6 +12,7 @@ using CoolWebsite.Services;
 using CoolWebsite.Services.Mapping;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,8 +26,11 @@ namespace CoolWebsite
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment _environment;
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
+            _environment = environment;
             Configuration = configuration;
         }
 
@@ -37,6 +42,22 @@ namespace CoolWebsite
             services.AddHttpContextAccessor();
             services.AddTransient<ICurrentUserService, CurrentUserService>();
 
+            services.AddHttpsRedirection(options =>
+            {
+                options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
+                options.HttpsPort = 5001;
+            });
+            
+            
+            services.AddHsts(options =>
+            {
+                options.Preload = true;
+                options.IncludeSubDomains = true;
+                options.MaxAge = TimeSpan.FromDays(60);
+                
+                //options.ExcludedHosts.Add("example.com");
+                //options.ExcludedHosts.Add("www.example.com");
+            });
             
             services.AddInfrastructure(Configuration);
             services.AddApplication();
@@ -68,10 +89,19 @@ namespace CoolWebsite
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             
-                
-                //services.AddAutoMapper(typeof(VMMappingProfile), typeof(DTOMappingProfile));
+            if (!_environment.IsDevelopment())
+            {
+                services.AddHttpsRedirection(options =>
+                {
+                    options.RedirectStatusCode = StatusCodes.Status308PermanentRedirect;
+                    options.HttpsPort = 443;
+                });
+            }
+            
         }
         
+        //services.AddAutoMapper(typeof(VMMappingProfile), typeof(DTOMappingProfile));
+
         //index/index
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -100,7 +130,7 @@ namespace CoolWebsite
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
             
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
            
             app.UseCookiePolicy();
