@@ -76,6 +76,9 @@
             <e p="PerformanceBehaviourTests.cs" t="Include" />
             <e p="RequestLoggerTests.cs" t="Include" />
           </e>
+          <e p="Mappings" t="Include">
+            <e p="MappingTests.cs" t="Include" />
+          </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -84,7 +87,6 @@
             </e>
           </e>
         </e>
-        <e p="UnitTest1.cs" t="Include" />
       </e>
       <e p="CoolWebsite" t="IncludeRecursive">
         <e p="app.db" t="Include" />

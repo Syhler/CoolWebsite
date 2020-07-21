@@ -20,10 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Application.UnitTests/Common/Mappings/MappingTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application.UnitTests/Application.UnitTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Application.UnitTests/Application.UnitTests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application.UnitTests/Common/Behaviours/RequestLoggerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.UnitTests/Common/Behaviours/RequestLoggerTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/LoggingBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/LoggingBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.UnitTests/UnitTest1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/CreateReceiptModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/CreateReceiptModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +172,6 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Home/Partial/CreateFinancialProjectModal.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/CreateFinancialProjectModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200625211717_FixForWrongForeignKey.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Application.UnitTests/UnitTest1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/PerformanceBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200629144912_AddedSoftDeleteForFinancialProject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/LoggingBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
@@ -280,6 +280,7 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/Users.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/UpdateUser.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Application.UnitTests/Common/Mappings/MappingTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Exceptions/ParentObjectNotFoundException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/CreateUser.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Financial/ReceiptItems/Commands/CreateReceiptItemsTests.cs" root0="FORCE_HIGHLIGHTING" />
@@ -289,8 +290,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" />
-        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/MainLayout.css" />
         <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/homepage.css" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/ApplicationDbContextSeed.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/CreateFinancialProject/CreateFinancialProjectCommand.cs" />
@@ -340,6 +339,8 @@
         <option value="$PROJECT_DIR$/Application.UnitTests/Common/Behaviours/PerformanceBehaviourTests.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/LoggingBehaviour.cs" />
         <option value="$PROJECT_DIR$/Application.UnitTests/Common/Behaviours/RequestLoggerTests.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/CreateReceiptModel.cs" />
+        <option value="$PROJECT_DIR$/Application.UnitTests/Common/Mappings/MappingTests.cs" />
       </list>
     </option>
   </component>
