@@ -62,6 +62,20 @@ namespace CoolWebsite.Infrastructure.Identity
             
            
             var result = await _userManager.CreateAsync(user, password);
+
+            if (result.Succeeded)
+            {
+                _logger.LogInformation("CoolWebsite CreateUser : By {CurrentUserId} {@Timestamp} {@UserAgent} {@Ip} \n Created User Id : {@UserId} ", 
+                    _currentUserService.UserID, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip, user.Id);
+            }
+            else
+            {
+                _logger.LogError("CoolWebsite CreateUser FAILED : By {CurrentUserId} {@Timestamp} {@UserAgent} {@Ip} \n Created User Id : {@UserId} ", 
+                    _currentUserService.UserID, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip, user.Id);
+            }
+            
+            
+
             
             return (result.ToApplicationResult(), user.Id);
         }
@@ -78,7 +92,15 @@ namespace CoolWebsite.Infrastructure.Identity
 
             var user = await _userManager.FindByEmailAsync(email);
 
-            _logger.LogInformation("CoolWebsite LoginUser : {UserId} {Email} {@Timestamp} {@UserAgent} {@Ip}", user.Id, email, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip);
+
+            if (signInResult.Succeeded)
+            {
+                _logger.LogInformation("CoolWebsite LoginUser : {UserId} {Email} {@Timestamp} {@UserAgent} {@Ip}", user.Id, email, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip);
+            }
+            else
+            {
+                _logger.LogError("CoolWebsite LoginUser FAILED : {UserId} {Email} {@Timestamp} {@UserAgent} {@Ip}", user.Id, email, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip);
+            }
             
             return signInResult.ToApplicationResult();
 
@@ -215,6 +237,18 @@ namespace CoolWebsite.Infrastructure.Identity
             var user = await _userManager.FindByIdAsync(id);
 
             var result = await _userManager.DeleteAsync(user);
+            
+            if (result.Succeeded)
+            {
+                _logger.LogInformation("CoolWebsite Delete user : By {CurrentUserId} {@Timestamp} {@UserAgent} {@Ip} \n Deleted User Id : {@UserId} ", 
+                    _currentUserService.UserID, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip, user.Id);
+            }
+            else
+            {
+                _logger.LogError("CoolWebsite Delete user FAILED : By {CurrentUserId} {@Timestamp} {@UserAgent} {@Ip} \n Deleted User Id : {@UserId} ", 
+                    _currentUserService.UserID, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip, user.Id);
+            }
+           
 
             return result.ToApplicationResult();
         }
