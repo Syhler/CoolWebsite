@@ -15,20 +15,12 @@ namespace CoolWebsite.Application
             serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());
             serviceCollection.AddMediatR(Assembly.GetExecutingAssembly());
             serviceCollection.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-            serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-            serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
 
-            //serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());
-          
-            // var configuration = new MapperConfiguration(cfg =>
-            // {
-            //     cfg.AddProfile(new MappingProfile());
-            // });
-            //
-            // //serviceCollection.AddSingleton<IMapper>(sp => configuration.CreateMapper());
+            serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             
+            serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
             
-            
+            serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
             
             return serviceCollection;
         }
