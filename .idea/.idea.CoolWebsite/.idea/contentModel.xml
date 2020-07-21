@@ -295,6 +295,11 @@
                   <e p="bootstrap.min.js.map" t="Include" />
                 </e>
               </e>
+              <e p="Homepage" t="Include">
+                <e p="css" t="Include">
+                  <e p="bootstrap.min.css" t="Include" />
+                </e>
+              </e>
               <e p="LICENSE" t="Include" />
             </e>
             <e p="css" t="Include">
@@ -354,14 +359,6 @@
               <e p="moment.js" t="Include" />
               <e p="smoothproducts.min.js" t="Include" />
               <e p="theme.js" t="Include" />
-            </e>
-            <e p="test" t="Include">
-              <e p="css" t="Include">
-                <e p="bootstrap.min.css" t="Include" />
-              </e>
-              <e p="js" t="Include">
-                <e p="bootstrap.min.js" t="Include" />
-              </e>
             </e>
           </e>
         </e>

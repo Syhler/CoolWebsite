@@ -28,6 +28,7 @@
 
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ViewStart.cshtml" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\homepage\js\bootstrap.min.js" />
     </ItemGroup>
 
     <ItemGroup>
@@ -338,7 +339,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="wwwroot\lib\test" />
+      <Folder Include="wwwroot\lib\bootstrap\homepage" />
     </ItemGroup>
 
 </Project>
