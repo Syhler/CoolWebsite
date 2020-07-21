@@ -22,8 +22,8 @@ namespace CoolWebsite.Application.Common.Behaviours
             _identityService = identityService;
             _currentUserService = currentUserService;
             _logger = logger;
-            _ip = httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString();
-            _userAgent = httpContextAccessor.HttpContext.Request.Headers["User-Agent"].ToString();
+            _ip = httpContextAccessor?.HttpContext.Connection.RemoteIpAddress.ToString();
+            _userAgent = httpContextAccessor?.HttpContext.Request.Headers["User-Agent"].ToString();
         }
 
 

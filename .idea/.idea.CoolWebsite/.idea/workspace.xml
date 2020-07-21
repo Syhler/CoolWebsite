@@ -20,15 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Application.UnitTests/Application.UnitTests.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application.UnitTests/Common/Behaviours/PerformanceBehaviourTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application.UnitTests/Common/Behaviours/RequestLoggerTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application.UnitTests/UnitTest1.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/PerformanceBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DependencyInjection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.sln" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.UnitTests/Application.UnitTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Application.UnitTests/Application.UnitTests.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.UnitTests/Common/Behaviours/RequestLoggerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.UnitTests/Common/Behaviours/RequestLoggerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/LoggingBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/LoggingBehaviour.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,8 +142,10 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Domain/Entities/Financial/Receipt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/UpdateReceipts/UpdateReceiptCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/CreateReceiptModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/02ADC355-64F9-419E-ACEC-A04FB251D6D6/21/It.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Home/Partial/FinancialProjectCard.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Commands/DeleteFinancialProjectTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/02ADC355-64F9-419E-ACEC-A04FB251D6D6/ea/267d2521/Mock`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Commands/UpdateFinancialProjectTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Mapping/IMapFrom.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectsByUserQueryVm.cs" root0="FORCE_HIGHLIGHTING" />
@@ -337,12 +334,12 @@
         <option value="$PROJECT_DIR$/CoolWebsite/Controllers/AuthController.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IIdentityService.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/LoggingBehaviour.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityService.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/PerformanceBehaviour.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DependencyInjection.cs" />
-        <option value="$PROJECT_DIR$/Application.UnitTests/Common/Behaviours/RequestLoggerTests.cs" />
         <option value="$PROJECT_DIR$/Application.UnitTests/Common/Behaviours/PerformanceBehaviourTests.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/LoggingBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Application.UnitTests/Common/Behaviours/RequestLoggerTests.cs" />
       </list>
     </option>
   </component>
