@@ -16,6 +16,7 @@ namespace CoolWebsite.Application
             serviceCollection.AddMediatR(Assembly.GetExecutingAssembly());
             serviceCollection.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
 
             //serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());
           

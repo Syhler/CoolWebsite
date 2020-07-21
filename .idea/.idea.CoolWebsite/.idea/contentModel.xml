@@ -68,6 +68,24 @@
           <e p="CreateTransactionTests.cs" t="Include" />
         </e>
       </e>
+      <e p="Application.UnitTests" t="IncludeRecursive">
+        <e p="Application.UnitTests.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Common" t="Include">
+          <e p="Behaviours" t="Include">
+            <e p="PerformanceBehaviourTests.cs" t="Include" />
+            <e p="RequestLoggerTests.cs" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="Application.UnitTests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="UnitTest1.cs" t="Include" />
+      </e>
       <e p="CoolWebsite" t="IncludeRecursive">
         <e p="app.db" t="Include" />
         <e p="appsettings.Development.json" t="Include" />
@@ -365,6 +383,7 @@
         <e p="Common" t="Include">
           <e p="Behaviours" t="Include">
             <e p="LoggingBehaviour.cs" t="Include" />
+            <e p="PerformanceBehaviour.cs" t="Include" />
             <e p="ValidationBehavior.cs" t="Include" />
           </e>
           <e p="Exceptions" t="Include">
