@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.Common.Models;
 using CoolWebsite.Domain.Entities.Identity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace CoolWebsite.Infrastructure.Identity
 {
@@ -17,17 +20,27 @@ namespace CoolWebsite.Infrastructure.Identity
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly ICurrentUserService _currentUserService;
+        private readonly ILogger<IdentityService> _logger;
 
+        private string _ip;
+        private string _userAgent;
+        
         public IdentityService(UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             RoleManager<ApplicationRole> roleManager,
-            ICurrentUserService currentUserService)
+            ICurrentUserService currentUserService,
+            ILogger<IdentityService> logger,
+            IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
             _currentUserService = currentUserService;
+            _logger = logger;
+            _ip = httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString();
+            _userAgent = httpContextAccessor.HttpContext.Request.Headers["User-Agent"].ToString();
         }
+        
         public async Task<string> GetUserNameAsync(string userId)
         {
             if (_userManager == null)
@@ -62,8 +75,10 @@ namespace CoolWebsite.Infrastructure.Identity
             
             var signInResult = await _signInManager.PasswordSignInAsync(email, password, 
                 persistent, false);
-            
-            
+
+            var user = await _userManager.FindByEmailAsync(email);
+
+            _logger.LogInformation("CoolWebsite LoginUser : {UserId} {Email} {@Timestamp} {@UserAgent} {@Ip}", user.Id, email, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip);
             
             return signInResult.ToApplicationResult();
 
