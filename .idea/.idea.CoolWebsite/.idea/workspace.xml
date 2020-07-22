@@ -21,11 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/ICurrentUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/ICurrentUserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Services/CurrentUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Services/CurrentUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/ReceiptCard.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/ReceiptCard.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Services/CurrentUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Services/CurrentUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/js/financial/project.js" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/js/financial/project.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/HomeController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -325,10 +323,8 @@
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/UserModel.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/CreateFinancialProjectModel.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Controllers/HomeController.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/HomeController.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/PayTransaction.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/CreateUpdateUserViewModel.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/ICurrentUserService.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/CreateReceiptModel.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/ReceiptItemVm.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/ReceiptItemDto.cs" />
@@ -339,11 +335,13 @@
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/FinancialProjectDto.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/CreateReceiptItemModal.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/ReceiptDto.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Services/CurrentUserService.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Services/CurrentUserService.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Views/Shared/_Layout.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/js/financial/project.js" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/ReceiptCard.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/ICurrentUserService.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Services/CurrentUserService.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/HomeController.cs" />
       </list>
     </option>
   </component>
@@ -506,7 +504,7 @@
       <workItem from="1595327972358" duration="7552000" />
       <workItem from="1595403806033" duration="7655000" />
       <workItem from="1595426168524" duration="124000" />
-      <workItem from="1595426324064" duration="775000" />
+      <workItem from="1595426324064" duration="972000" />
     </task>
     <servers />
   </component>

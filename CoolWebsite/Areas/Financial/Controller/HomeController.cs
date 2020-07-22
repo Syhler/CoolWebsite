@@ -58,6 +58,10 @@ namespace CoolWebsite.Areas.Financial.Controller
         [HttpGet]
         public async Task<IActionResult> GetModal()
         {
+            if (_currentUserService.UserId == null) {
+                throw new IdentityCurrentUserIdNotSet();
+            }
+            
             var model = new CreateFinancialProjectModel
             {
                 AddUserModel = new AddUserModel

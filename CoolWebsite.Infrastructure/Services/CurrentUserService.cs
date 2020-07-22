@@ -13,7 +13,7 @@ namespace CoolWebsite.Infrastructure.Services
         }
         
     
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
         public ClaimsPrincipal? UserClaims { get; set; }
     }
 }
