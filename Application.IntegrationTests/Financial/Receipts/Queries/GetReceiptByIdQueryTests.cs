@@ -64,6 +64,8 @@ namespace Application.IntegrationTests.Financial.Receipts.Queries
             model.Note.Should().Be(createCommand.Note);
             model.DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
             model.CreatedByUserId.Should().Be(User.Id);
+            model.CreatedByDto.Should().NotBeNull();
+            model.CreatedByDto.Id.Should().Be(User.Id);
             model.Deleted.Should().BeNull();
             var item = model.Items.First();
             item.Should().NotBeNull();

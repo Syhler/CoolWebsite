@@ -85,6 +85,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
             model.Created.Should().BeCloseTo(DateTime.Now, 1000);
             model.Users.FirstOrDefault(x => x.Id == User.Id).Should().NotBeNull();
             model.Title.Should().Be(project.Title);
+            model.LastModified.Should().Be(null);
         }
 
         [Test]

@@ -20,10 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Application.UnitTests/Common/Models/ReceiptDtoTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application.UnitTests/Common/Models/ReceiptItemDtoTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application.UnitTests/Common/Models/UserDtoTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/ICurrentUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/ICurrentUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Services/CurrentUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/Services/CurrentUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetFinancialProjectByIdQueryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetFinancialProjectByIdQueryTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Queries/GetReceiptByIdQueryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Queries/GetReceiptByIdQueryTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.UnitTests/Application.UnitTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Application.UnitTests/Application.UnitTests.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/UserDto.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,6 +187,8 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Application.UnitTests/Common/Models/ReceiptItemDtoTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Application.UnitTests/Common/Models/ReceiptDtoTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetAllFinancialProjectQuery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetAllFinancialProjectsTests.cs" root0="FORCE_HIGHLIGHTING" />
@@ -192,12 +199,14 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/RoleViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectByUserIdQueryValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Controller/RolesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/4218F797-2423-4170-BA27-41980861C041/02/706fcb0d/02000003pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31D5DE1A-F683-49A0-84FE-2D827F1647F6/71/74159cc9/Checkpoint.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/ReceiptFields.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200530101340_addedAuddbleToReceiptItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/EditReceipt.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Application.UnitTests/Common/Models/UserDtoTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Home/Privacy.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetUsersFromFinancialProjectQuery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -291,27 +300,20 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/UpdateFinancialProject/UpdateFinancialProjectCommandValidator.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/UpdateFinancialProject/UpdateFinancialProjectCommand.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/CreateFinancialProject/CreateFinancialProjectCommandValidator.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/CreateFinancialProject/CreateFinancialProjectCommand.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/DeleteFinancialProject/DeleteFinancialProjectCommandValidator.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/DeleteFinancialProject/DeleteFinancialProjectCommand.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/DeleteReceipts/DeleteReceiptCommandValidator.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/DeleteReceipts/DeleteReceiptCommand.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/CreateReceiptItems/CreateReceiptItemCommandValidator.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/CreateReceiptItems/CreateReceiptItemCommand.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/UserDto.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/UpdateReceipts/UpdateReceiptCommandValidator.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Commands/CreateFinancialProjectTests.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetFinancialProjectsByUserIdTests.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/CreateReceiptsTests.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetUsersFromFinancialProjectQueryTests.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/DeleteReceiptsTests.cs" />
-        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Queries/GetReceiptByIdQueryTests.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Commands/DeleteFinancialProjectTests.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Transaction/CreateTransactionTests.cs" />
-        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetFinancialProjectByIdQueryTests.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/UpdateReceiptsTests.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/UpdateReceipts/UpdateReceiptCommand.cs" />
@@ -334,7 +336,6 @@
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Home/Partial/FinancialProjectCard.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/FinancialProjectDto.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/CreateReceiptItemModal.cshtml" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/ReceiptDto.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Services/CurrentUserService.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Views/Shared/_Layout.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/js/financial/project.js" />
@@ -342,6 +343,14 @@
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/ICurrentUserService.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Services/CurrentUserService.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/HomeController.cs" />
+        <option value="$PROJECT_DIR$/Application.UnitTests/Common/Models/UserDtoTests.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/UserDto.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/ReceiptDto.cs" />
+        <option value="$PROJECT_DIR$/Application.UnitTests/Common/Models/ReceiptDtoTests.cs" />
+        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Queries/GetReceiptByIdQueryTests.cs" />
+        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetFinancialProjectByIdQueryTests.cs" />
+        <option value="$PROJECT_DIR$/Application.UnitTests/Common/Models/ReceiptItemDtoTests.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectByIdQuery.cs" />
       </list>
     </option>
   </component>
@@ -504,7 +513,7 @@
       <workItem from="1595327972358" duration="7552000" />
       <workItem from="1595403806033" duration="7655000" />
       <workItem from="1595426168524" duration="124000" />
-      <workItem from="1595426324064" duration="972000" />
+      <workItem from="1595426324064" duration="6731000" />
     </task>
     <servers />
   </component>
@@ -512,10 +521,10 @@
     <option name="version" value="2" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="131" />
+    <option name="coveragePercentColumnWidth" value="129" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="499" />
+    <option name="symbolColumnWidth" value="492" />
     <coverage-tree-state>
       <expand>
         <path>
@@ -525,13 +534,116 @@
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
           <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="1661" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="2" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
           <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="1661" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="1605" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="7" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="7" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1710" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="7" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1710" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1711" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="7" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1710" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1711" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1712" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="7" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1710" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1711" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1712" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1726" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="7" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1710" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1711" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1712" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1726" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="2583" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="7" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1710" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1711" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1712" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1726" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="2583" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1730" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="7" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1710" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1711" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1712" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1726" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="2583" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1730" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1486" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="7" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1710" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1711" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1712" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1726" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="2583" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1730" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1486" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1497" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="7" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1710" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1711" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1712" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1726" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="2583" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1730" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1486" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1497" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1513" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="7" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1710" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1711" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1712" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1726" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="2583" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1730" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1486" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1497" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="1522" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
@@ -782,12 +894,12 @@
     </state>
     <state x="936" y="330" key="run.anything.popup/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1590939200407" />
     <state x="936" y="330" width="672" height="677" key="run.anything.popup/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1593985597042" />
-    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup" timestamp="1595427026491">
+    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup" timestamp="1595448591113">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1591022876078" />
     <state x="943" y="315" width="672" height="676" key="search.everywhere.popup/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588345088296" />
-    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595427026491" />
+    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595448591113" />
     <state x="3503" y="1764" width="672" height="696" key="search.everywhere.popup/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588456983205" />
   </component>
   <component name="XDebuggerManager">

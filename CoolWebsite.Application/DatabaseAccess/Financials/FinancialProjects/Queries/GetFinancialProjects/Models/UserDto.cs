@@ -15,6 +15,11 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         {
             get
             {
+                if (string.IsNullOrWhiteSpace(Name))
+                {
+                    return "";
+                }
+                
                 var split = Name?.Split(" ");
                 var initial = "";
                 

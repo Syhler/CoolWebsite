@@ -79,6 +79,11 @@
           <e p="Mappings" t="Include">
             <e p="MappingTests.cs" t="Include" />
           </e>
+          <e p="Models" t="Include">
+            <e p="ReceiptDtoTests.cs" t="Include" />
+            <e p="ReceiptItemDtoTests.cs" t="Include" />
+            <e p="UserDtoTests.cs" t="Include" />
+          </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
