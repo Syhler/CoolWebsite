@@ -35,7 +35,7 @@
                         
                         <li class="list-group-item">
                             <span class="text-white">@item.Key</span>
-                            <span class="badge badge-light ml-2" style="float: right;">Cost: @sum kr</span>
+                            <span class="badge badge-light ml-2" style="float: right;">Cost: @sum.ToString("N2") kr</span>
                             <div>
                                 @foreach (var user in item.SelectMany(x => x.Users))
                                 {

@@ -11,7 +11,6 @@ $(document).ready(function () {
 
     const modal = $("#create-receipt-item-modal");
     const usersOptions = $("#users-dropdown option");
-    console.log(usersOptions)
 
     modal.on("shown.bs.modal", function () {
         reActivateUsers()
@@ -122,7 +121,6 @@ $(document).ready(function () {
 
         createReceiptModel(function (data) {
 
-            console.log("Edit method ran")
 
             const dataId = $("#edit-receipt-item-button").data("id");
 
@@ -134,7 +132,6 @@ $(document).ready(function () {
                 if ($(this).data("id") === dataId)
                 {
                     $(this).remove();
-                    console.log("found and removed")
                     return true;
                 }
             })
@@ -161,7 +158,6 @@ $(document).ready(function () {
 
         createReceiptModel(function (data) {
 
-            console.log("Creating method ran")
 
             $(".list-group").prepend(data)
             $("#receipt-item-none-error").hide()
@@ -181,7 +177,6 @@ $(document).ready(function () {
 
         createReceiptModel(function (data) {
 
-            console.log("Creating method ran")
 
             $(".list-group").prepend(data)
             $("#receipt-item-none-error").hide()
@@ -215,7 +210,6 @@ $(document).ready(function () {
         const usersId = getUsersId();
         const usersName = getUsersName();
         const id = $("#edit-receipt-item-button").data("id");
-        console.log(id)
     
         if (usersName.length !== usersId.length) {
             return;
@@ -446,7 +440,6 @@ $(document).ready(function () {
         const amount = $(this).parent().find(".amount-owed").text()
         const toUserId = $(this).data("id");
         
-        console.log("GIVE ME MONEY REQUEST : " + amount + " : User : " + toUserId)
         
     })
     
@@ -462,8 +455,6 @@ $(document).ready(function () {
         const amount = input.val()
         const maxAmount = input.data("max-amount")
 
-        console.log(maxAmount)
-        console.log(amount)
         //validation
         
         if (isNaN(parseFloat(amount)))
@@ -544,7 +535,8 @@ $(document).ready(function () {
         
         numbers.each(function () {
 
-            const priceFromReceiptItem = parseFloat($(this, $(data)).text().replace(',','.').replace(' ',''))
+            const priceFromReceiptItem = parseFloat($(this).text().replace(".", ""));
+            //const priceFromReceiptItem = parseFloat($(this, $(data)).text().replace(',','.').replace(' ',''))
             total += priceFromReceiptItem;
             
         })

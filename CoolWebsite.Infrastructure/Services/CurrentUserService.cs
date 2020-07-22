@@ -9,8 +9,7 @@ namespace CoolWebsite.Infrastructure.Services
         public CurrentUserService(IHttpContextAccessor httpContextAccessor)
         {
             UserId = httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            UserClaims = httpContextAccessor.HttpContext?.User;
-
+            UserClaims = httpContextAccessor.HttpContext.User;
         }
         
     

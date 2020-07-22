@@ -10,11 +10,11 @@ namespace CoolWebsite.Services
     {
         public CurrentUserService(IHttpContextAccessor httpContextAccessor)
         {
-            UserId = httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            UserId = httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
             UserClaims = httpContextAccessor.HttpContext?.User;
         }
         
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
         
         public ClaimsPrincipal? UserClaims { get; set; }
     }
