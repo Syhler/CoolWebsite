@@ -16,12 +16,12 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries
 
     public class GetItemGroupQueryHandler : IRequestHandler<GetItemGroupQuery, List<ItemGroupDto>>
     {
-        public async Task<List<ItemGroupDto>> Handle(GetItemGroupQuery request, CancellationToken cancellationToken)
+        public Task<List<ItemGroupDto>> Handle(GetItemGroupQuery request, CancellationToken cancellationToken)
         {
-            return Enum.GetValues(typeof(ItemGroup))
+            return Task.FromResult(Enum.GetValues(typeof(ItemGroup))
                 .Cast<ItemGroup>()
                 .Select(x => new ItemGroupDto {Value = (int) x, Name = x.ToString()})
-                .ToList();
+                .ToList());
         }
     }
 }

@@ -8,16 +8,21 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
         public UpdateReceiptCommandValidator()
         {
             RuleFor(x => x.Id)
-                .NotEmpty().WithMessage("Id is required");
-         
+                .NotEmpty().WithMessage("Id is required")
+                .NotNull();
+
             RuleFor(x => x.Location)
                 .NotEmpty().WithMessage("Title is required")
-                .MaximumLength(100);
+                .MaximumLength(100)
+                .NotNull();
 
-            RuleFor(x => x.Datevisited)
+            RuleFor(x => x.DateVisited)
                 .NotEmpty().WithMessage("BoughtAt is required");
-            
-            
+
+            RuleFor(x => x.ItemDtos)
+                .NotNull()
+                .NotEmpty();
+
         }
         
     }

@@ -8,19 +8,19 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 {
     public class ReceiptDto : IMapFrom<Receipt>
     {
-        public string Id { get; set; }
-        public string Location { get; set; }
+        public string Id { get; set; } = null!;
+        public string Location { get; set; } = null!;
         public DateTime DateVisited { get; set; }
 
-        public string Note { get; set; }
+        public string? Note { get; set; }
 
-        public IList<ReceiptItemDto> Items{ get; set; }
+        public IList<ReceiptItemDto> Items{ get; set; } = null!;
 
         public DateTime? Deleted { get; set; }
 
-        public string CreatedByUserId { get; set; }
+        public string CreatedByUserId { get; set; } = null!;
 
-        public UserDto CreatedByDto { get; set; }
+        public UserDto CreatedByDto { get; set; } = null!;
         
         public double Total
         {
@@ -38,24 +38,10 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 
                 return total;
             }
-            private set
-            {
-                
-            }
         }
 
-        public int DaysSinceLastVisit
-        {
-            get
-            {
-                return (DateTime.Now - DateVisited).Days;
-            }
-            private set
-            {
-                
-            }
-        }
-        
+        public int DaysSinceLastVisit => (DateTime.Now - DateVisited).Days;
+
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Receipt, ReceiptDto>()

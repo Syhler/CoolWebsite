@@ -16,7 +16,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 {
     public class GetUsersFromFinancialProjectQuery : IRequest<IList<UserDto>>
     {
-        public string FinancialProjectId { get; set; }
+        public string FinancialProjectId { get; set; } = null!;
     }
 
     public class GetUsersFromFinancialProjectQueryHandler : IRequestHandler<GetUsersFromFinancialProjectQuery, IList<UserDto>>
@@ -28,10 +28,10 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         {
             _context = context;
             _mapper = mapper;
-            _context.UserId = currentUserService.UserID;
+            _context.UserId = currentUserService.UserId;
         }
 
-        public async Task<IList<UserDto>> Handle(GetUsersFromFinancialProjectQuery request, CancellationToken cancellationToken)
+        public Task<IList<UserDto>> Handle(GetUsersFromFinancialProjectQuery request, CancellationToken cancellationToken)
         {
             var entity =
                 _context.FinancialProjectApplicationUsers
@@ -50,7 +50,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
                 throw new NullReferenceException("Mapped object was returned as null");
             }
 
-            return mapped;
+            return Task.FromResult<IList<UserDto>>(mapped);
         }
     }
     

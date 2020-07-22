@@ -8,10 +8,12 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
         {
             RuleFor(x => x.Title)
                 .NotEmpty().WithMessage("Title is required")
-                .MaximumLength(100);
+                .MaximumLength(100)
+                .NotNull();
 
             RuleFor(x => x.Users)
-                .NotEmpty().WithMessage("User is required");
+                .NotEmpty().WithMessage("User is required")
+                .NotNull().WithMessage("User is required");
         }
     }
 }

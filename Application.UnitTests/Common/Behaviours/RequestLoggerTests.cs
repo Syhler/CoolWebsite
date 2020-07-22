@@ -28,7 +28,7 @@ namespace Application.UnitTests.Common.Behaviours
         [Test]
         public async Task Handle_IsAuthenticated_ShouldCallGetUserNameAsyncOnce()
         {
-            _currentUserService.Setup(x => x.UserID).Returns("Administrator");
+            _currentUserService.Setup(x => x.UserId).Returns("Administrator");
             
             var requestLogger = new LoggingBehaviour<CreateFinancialProjectCommand>(_identityService.Object, _currentUserService.Object, _logger.Object, null);
 

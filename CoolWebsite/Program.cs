@@ -29,10 +29,7 @@ namespace CoolWebsite
                 {
                     var context = services.GetRequiredService<SqlApplicationDbContext>();
 
-                    if (context.Database.IsSqlServer())
-                    {
-                        await context.Database.MigrateAsync();
-                    }
+                    await context.Database.MigrateAsync();
 
                     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
                     var roleManager = services.GetRequiredService<RoleManager<ApplicationRole>>();
@@ -42,6 +39,10 @@ namespace CoolWebsite
                 }
                 catch (Exception e)
                 {
+                    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+                    
+                    logger.LogError(e,"An error occured while migrating or seeding the database");
+                    
                     throw;
                 }
             }

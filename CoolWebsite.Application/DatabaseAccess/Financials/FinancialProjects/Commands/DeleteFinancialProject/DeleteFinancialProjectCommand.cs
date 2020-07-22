@@ -11,7 +11,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
 {
     public class DeleteFinancialProjectCommand : IRequest
     {
-        public string Id { get; set; }
+        public string Id { get; set; } = null!;
     }
 
     public class DeleteFinancialProjectCommandHandler : IRequestHandler<DeleteFinancialProjectCommand>
@@ -21,7 +21,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
         public DeleteFinancialProjectCommandHandler(IApplicationDbContext context, ICurrentUserService currentUserService)
         {
             _context = context;
-            _context.UserId = currentUserService.UserID;
+            _context.UserId = currentUserService.UserId;
         }
 
         public async Task<Unit> Handle(DeleteFinancialProjectCommand request, CancellationToken cancellationToken)

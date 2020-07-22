@@ -85,7 +85,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
         }
 
         [Test]
-        public async Task Handle_EmptyUserId_ShouldThrowValidationException()
+        public void Handle_EmptyUserId_ShouldThrowValidationException()
         {
             var query = new GetFinancialProjectsByUserIdQuery();
 

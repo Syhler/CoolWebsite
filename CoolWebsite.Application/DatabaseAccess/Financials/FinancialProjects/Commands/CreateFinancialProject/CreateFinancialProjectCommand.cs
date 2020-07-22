@@ -15,8 +15,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
 {
     public class CreateFinancialProjectCommand : IRequest<FinancialProjectDto>
     {
-        public string Title { get; set; }
-        public IList<ApplicationUser> Users { get; set; }
+        public string Title { get; set; } = null!;
+        public IList<ApplicationUser> Users { get; set; } = null!;
     }
     
     public class CreateFinancialProjectCommandHandler : IRequestHandler<CreateFinancialProjectCommand, FinancialProjectDto>
@@ -28,7 +28,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
         {
             _context = context;
             _mapper = mapper;
-            _context.UserId = userService.UserID;
+            _context.UserId = userService.UserId;
         }
 
         public async Task<FinancialProjectDto> Handle(CreateFinancialProjectCommand request, CancellationToken cancellationToken)
@@ -61,7 +61,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
             return _mapper.Map<FinancialProjectDto>(entity);
         }
 
-        private async Task CreateOweRecord(IList<ApplicationUser> users, string financialProjectId, string applicationUserId, CancellationToken cancellationToken)
+        private async Task CreateOweRecord(IEnumerable<ApplicationUser> users, string financialProjectId, string applicationUserId, CancellationToken cancellationToken)
         {
             foreach (var user in users)
             {

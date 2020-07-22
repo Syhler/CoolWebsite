@@ -47,7 +47,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
         }
 
         [Test]
-        public async Task Handle_InvalidFields_ShouldThrowValidationException()
+        public void Handle_InvalidFields_ShouldThrowValidationException()
         {
             var command = new CreateFinancialProjectCommand();
             

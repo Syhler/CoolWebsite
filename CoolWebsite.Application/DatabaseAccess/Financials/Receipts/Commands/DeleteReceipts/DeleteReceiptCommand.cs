@@ -12,7 +12,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.De
 {
     public class DeleteReceiptCommand : IRequest
     {
-        public string Id { get; set; }
+        public string Id { get; set; } = null!;
     }
 
     public class DeleteReceiptCommandHandler : IRequestHandler<DeleteReceiptCommand>
@@ -24,7 +24,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.De
         {
             _context = context;
             _currentUserService = currentUserService;
-            _context.UserId = currentUserService.UserID;
+            _context.UserId = currentUserService.UserId;
         }
 
         public async Task<Unit> Handle(DeleteReceiptCommand request, CancellationToken cancellationToken)
@@ -62,7 +62,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.De
         {
             foreach (var user in receiptItem.Users)
             {
-                var record = oweRecords.FirstOrDefault(x => x.UserId == user.ApplicationUserId && x.OwedUserId == _currentUserService.UserID);
+                var record = oweRecords.FirstOrDefault(x => x.UserId == user.ApplicationUserId && x.OwedUserId == _currentUserService.UserId);
 
                 if (record == null) continue;
                         

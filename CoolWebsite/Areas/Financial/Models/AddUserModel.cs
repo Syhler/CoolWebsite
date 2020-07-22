@@ -5,8 +5,8 @@ namespace CoolWebsite.Areas.Financial.Models
 {
     public class AddUserModel
     {
-        public List<SelectListItem> UserSelectListItems { get; set; }
-        public string CurrentUserName { get; set; }
-        public string CurrentUserId { get; set; }
+        public List<SelectListItem>? UserSelectListItems { get; set; }
+        public string? CurrentUserName { get; set; }
+        public string? CurrentUserId { get; set; }
     }
 }

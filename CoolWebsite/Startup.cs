@@ -59,9 +59,10 @@ namespace CoolWebsite
                 //options.ExcludedHosts.Add("www.example.com");
             });
             
-            services.AddInfrastructure(Configuration);
             services.AddApplication();
+            services.AddInfrastructure(Configuration);
 
+            
             services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation()
                 .AddFluentValidation(x => 

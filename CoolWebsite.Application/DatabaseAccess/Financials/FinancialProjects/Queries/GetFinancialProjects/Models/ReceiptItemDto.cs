@@ -10,20 +10,14 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 {
     public class ReceiptItemDto : IMapFrom<ReceiptItem>
     {
-        public string Id { get; set; }
+        public string? Id { get; set; }
         public int Count { get; set; }
         public double Price { get; set; }
         
-        public ItemGroupDto ItemGroup { get; set; }
-        public ICollection<UserDto> Users { get; set; }
+        public ItemGroupDto ItemGroup { get; set; } = null!;
+        public ICollection<UserDto> Users { get; set; } = null!;
 
-        public double Total
-        {
-            get => Price * Count;
-            private set
-            {
-                
-            } }
+        public double Total => Price * Count;
 
         public void Mapping(Profile profile)
         {

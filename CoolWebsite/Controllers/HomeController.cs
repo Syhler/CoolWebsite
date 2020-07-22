@@ -29,7 +29,7 @@ namespace CoolWebsite.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             return View();
         }
@@ -38,6 +38,11 @@ namespace CoolWebsite.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            if (model.Email == null || model.Password == null)
+            {
+                return Json(new {result="Failure", errors = "Email or password is null"});
+            }
+            
             var result = await _identityService.LoginUser(model.Email, model.Password, model.Persistence);
 
             if (!result.Succeeded) return Json(new {result="Failure", errors = result.Errors});
@@ -69,12 +74,6 @@ namespace CoolWebsite.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
-        }
-
-        public string GetCurrentUser()
-        {
-            var user = HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
-            return user;
         }
       
     }

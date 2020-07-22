@@ -9,7 +9,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
 {
     public class DeleteReceiptItemCommand : IRequest
     {
-        public string ReceiptId { get; set; }
+        public string ReceiptId { get; set; } = null!;
     }
     
     public class DeleteReceiptItemCommandHandler : IRequestHandler<DeleteReceiptItemCommand>
@@ -19,7 +19,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
         public DeleteReceiptItemCommandHandler(IApplicationDbContext context, ICurrentUserService userService)
         {
             _context = context;
-            _context.UserId = userService.UserID;
+            _context.UserId = userService.UserId;
         }
 
 

@@ -38,7 +38,7 @@
                 @await RenderSectionAsync("NavBar", true)
                
                 @{
-                    bool isAuthenticated = User.Identity.IsAuthenticated;
+                    var isAuthenticated = User.Identity.IsAuthenticated;
                     if (isAuthenticated)
                     {
 

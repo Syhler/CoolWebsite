@@ -7,7 +7,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
         public DeleteFinancialProjectCommandValidator()
         {
             RuleFor(x => x.Id)
-                .NotEmpty().WithMessage("Id is required");
+                .NotEmpty().WithMessage("Id is required")
+                .NotNull().WithMessage("Id is required");
         }
     }
 }

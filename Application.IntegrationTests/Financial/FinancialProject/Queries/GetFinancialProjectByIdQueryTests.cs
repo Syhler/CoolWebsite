@@ -88,7 +88,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
         }
 
         [Test]
-        public async Task Handle_InvalidProjectId_ShouldThrowNotFoundException()
+        public void Handle_InvalidProjectId_ShouldThrowNotFoundException()
         {
          
             var query = new GetFinancialProjectByIdQuery
@@ -101,7 +101,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
         }
 
         [Test]
-        public async Task Handle_EmptyProjectId_ShouldThrowValidationException()
+        public void Handle_EmptyProjectId_ShouldThrowValidationException()
         {
             var query = new GetFinancialProjectByIdQuery
             {

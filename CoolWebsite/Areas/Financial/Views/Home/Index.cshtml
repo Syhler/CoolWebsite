@@ -12,11 +12,14 @@
     </button>
     
     <div id="project-cards">
-    @{
-        foreach (var financialProject in @Model.FinancialProjects)
-        {
-            @await Html.PartialAsync("Partial/FinancialProjectCard", financialProject)
-        }
+        @{
+            if (Model.FinancialProjects != null)
+            {
+                foreach (var financialProject in @Model.FinancialProjects)
+                {
+                    @await Html.PartialAsync("Partial/FinancialProjectCard", financialProject)
+                }
+            }
     }
     </div>
 </div>

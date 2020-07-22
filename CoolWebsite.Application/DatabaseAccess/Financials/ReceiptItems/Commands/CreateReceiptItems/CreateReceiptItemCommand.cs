@@ -14,12 +14,12 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
 {
     public class CreateReceiptItemCommand : IRequest<string>
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
         public int Count { get; set; }
         public double Price { get; set; }
         public int ItemGroup { get; set; }
-        public string ReceiptId { get; set; }
-        public List<string> UsersId { get; set; }
+        public string ReceiptId { get; set; } = null!;
+        public List<string> UsersId { get; set; } = null!;
     }
 
     public class CreateReceiptItemCommandHandler : IRequestHandler<CreateReceiptItemCommand, string>
@@ -32,7 +32,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
         {
             _context = context;
             _identity = identity;
-            _context.UserId = service.UserID;
+            _context.UserId = service.UserId;
         }
 
 

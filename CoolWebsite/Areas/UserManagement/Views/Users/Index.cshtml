@@ -19,10 +19,10 @@
     </ul>
     <div id="myTabContent" class="tab-content">
         <div class="tab-pane fade active show" id="home">
-            @Html.Partial("Users", @Model.Users)
+            @await Html.PartialAsync("Users", @Model.Users)
         </div>
         <div class="tab-pane fade " id="create-user">
-            @Html.Partial("CreateUser", @Model.CreateUpdateUserViewModel)
+            @await Html.PartialAsync("CreateUser", @Model.CreateUpdateUserViewModel)
         </div> 
         <div class="tab-pane fade " id="edit-user-pane">
         </div>

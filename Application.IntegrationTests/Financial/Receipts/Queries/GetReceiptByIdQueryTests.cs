@@ -78,7 +78,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Queries
         
 
         [Test]
-        public async Task Handle_InvalidId_ShouldThrowNotFoundException()
+        public void Handle_InvalidId_ShouldThrowNotFoundException()
         {
             var query = new GetReceiptByIdQuery
             {
@@ -89,7 +89,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Queries
         }
 
         [Test]
-        public async Task Handle_IdIsEmpty_ShouldThrowValidationException()
+        public void Handle_IdIsEmpty_ShouldThrowValidationException()
         {
             var query = new GetReceiptByIdQuery
             {
@@ -100,7 +100,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Queries
         }
 
         [Test]
-        public async Task Handle_IdIsNull_ShouldThrowValidationException()
+        public void Handle_IdIsNull_ShouldThrowValidationException()
         {
             var query = new GetReceiptByIdQuery
             {

@@ -11,7 +11,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
                 .GreaterThanOrEqualTo(0);
 
             RuleFor(x => x.Name)
-                .NotEmpty();
+                .NotEmpty()
+                .NotNull();
 
             RuleFor(x => x.Price)
                 .GreaterThanOrEqualTo(0);
@@ -22,7 +23,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
             
 
             RuleFor(x => x.ReceiptId)
-                .NotEmpty();
+                .NotEmpty()
+                .NotNull();
 
             RuleFor(x => x.UsersId)
                 .NotNull()

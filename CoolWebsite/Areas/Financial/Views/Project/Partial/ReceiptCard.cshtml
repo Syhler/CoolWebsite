@@ -41,7 +41,7 @@
                                 {
                                     var value = dic.GetValueOrDefault(@item.Key);
 
-                                    if (value != null)
+                                    if (value != null && user.Id != null) 
                                     {
                                         if (!value.Contains(user.Id))
                                         {

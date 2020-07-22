@@ -21,13 +21,16 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach (var user in role.Users)
+                        @if (role.Users != null)
                         {
-                            <tr>
-                                <th scope="row">@user.Id</th>
-                                <td>@user.FirstName @user.LastName</td>
-                                <td>@user.Email</td>
-                            </tr>
+                            @foreach (var user in role.Users)
+                            {
+                                <tr>
+                                    <th scope="row">@user.Id</th>
+                                    <td>@user.FirstName @user.LastName</td>
+                                    <td>@user.Email</td>
+                                </tr>
+                            }
                         }
                         </tbody>
                     </table> 

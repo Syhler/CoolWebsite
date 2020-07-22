@@ -8,11 +8,11 @@ namespace CoolWebsite.Areas.UserManagement.Models
 {
     public class RoleViewModel : IMapFrom<ApplicationRole>
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
-        public string Id { get; set; }
+        public string Id { get; set; } = null!;
 
-        public List<UserModel> Users { get; set; }
+        public List<UserModel>? Users { get; set; } = null!;
 
         public void Mapping(Profile profile)
         {

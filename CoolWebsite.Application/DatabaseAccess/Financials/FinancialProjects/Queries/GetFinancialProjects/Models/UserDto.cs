@@ -6,8 +6,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 {
     public class UserDto : IMapFrom<ApplicationUser>
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
+        public string? Id { get; set; }
+        public string? Name { get; set; }
 
         public double Owed { get; set; }
         
@@ -15,18 +15,17 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         {
             get
             {
-                var split = Name.Split(" ");
+                var split = Name?.Split(" ");
                 var initial = "";
+                
+                if (split == null) return initial;
+                
                 foreach (var s in split)
                 {
                     initial += s.ToUpper()[0];
                 }
 
                 return initial;
-            }
-            private set
-            {
-                
             }
         }
         

@@ -9,12 +9,13 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Cr
 {
     public class CreateReceiptCommand : IRequest<string>
     {
-        public string FinancialProjectId { get; set; }
+        public string FinancialProjectId { get; set; } = null!;
 
-        public string Location { get; set; }
+        public string Location { get; set; } = null!;
 
         public DateTime DateVisited { get; set; }
-        public string Note { get; set; }
+        
+        public string? Note { get; set; }
 
     }
 
@@ -25,7 +26,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Cr
         public CreateReceiptCommandHandler(IApplicationDbContext context, ICurrentUserService currentUserService)
         {
             _context = context;
-            _context.UserId = currentUserService.UserID;
+            _context.UserId = currentUserService.UserId;
         }
 
 

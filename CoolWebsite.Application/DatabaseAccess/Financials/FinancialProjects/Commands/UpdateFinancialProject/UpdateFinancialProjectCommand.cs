@@ -14,21 +14,21 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
 {
     public class UpdateFinancialProjectCommand : IRequest
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public List<ApplicationUser> Users { get; set; }
+        public string Id { get; set; } = null!;
+        public string Name { get; set; } = null!;
+        public List<ApplicationUser> Users { get; set; } = null!;
         
         
         public class UpdateFinancialProjectCommandHandler : IRequestHandler<UpdateFinancialProjectCommand>
         {
             private readonly IApplicationDbContext _context;
 
-            private string _financialProjectId = null;
+            private string _financialProjectId = string.Empty;
 
             public UpdateFinancialProjectCommandHandler(IApplicationDbContext context, ICurrentUserService currentUserService)
             {
                 _context = context;
-                _context.UserId = currentUserService.UserID;
+                _context.UserId = currentUserService.UserId;
             }
 
 

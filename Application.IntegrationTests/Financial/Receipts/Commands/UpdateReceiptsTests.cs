@@ -64,7 +64,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
             {
                 Id = id,
                 Location = "Netto",
-                Datevisited = DateTime.Now,
+                DateVisited = DateTime.Now,
                 Note = "meh",
                 ItemDtos = new List<ReceiptItemDto>
                 {
@@ -117,13 +117,16 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         {
             var projectId = await CreateFinancialProject();
             var id = await CreateReceipt(projectId);
-            var user = await RunAsDefaultUserAsync();
             
             var command = new UpdateReceiptCommand
             {
                 Id = id,
                 Location = "Title",
-                Datevisited = DateTime.Now
+                DateVisited = DateTime.Now,
+                ItemDtos = new List<ReceiptItemDto>
+                {
+                   GetReceiptItem(20)
+                }
             };
 
             await SendAsync(command);
@@ -133,32 +136,36 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
             entity.Should().NotBeNull();
             entity.FinancialProjectId.Should().Be(projectId);
             entity.LastModified.Should().BeCloseTo(DateTime.Now, 1000);
-            entity.LastModifiedBy.Should().Be(user.Id);
+            entity.LastModifiedBy.Should().Be(User.Id);
             entity.DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
             entity.Location.Should().Be(command.Location);
         }
 
         [Test]
-        public async Task Handle_InvalidId_ShouldThrowNotFoundException()
+        public void Handle_InvalidId_ShouldThrowNotFoundException()
         {
             var command = new UpdateReceiptCommand
             {
                 Id = "nah",
                 Location = "Title",
-                Datevisited = DateTime.Now
+                DateVisited = DateTime.Now,
+                ItemDtos = new List<ReceiptItemDto>
+                {
+                    new ReceiptItemDto()
+                }
             };
 
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<NotFoundException>();
         }
 
         [Test]
-        public async Task Handle_IdEmpty_ShouldThrowValidationException()
+        public void Handle_IdEmpty_ShouldThrowValidationException()
         {
             var command = new UpdateReceiptCommand
             {
                 Id = "",
                 Location = "Title",
-                Datevisited = DateTime.Now
+                DateVisited = DateTime.Now
             };
 
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();
@@ -166,7 +173,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
 
         
         [Test]
-        public async Task Handle_BoughtAtEmpty_ShouldThrowValidationException()
+        public void Handle_BoughtAtEmpty_ShouldThrowValidationException()
         {
             var command = new UpdateReceiptCommand
             {
@@ -179,12 +186,12 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         }
 
         [Test]
-        public async Task Handle_TitleEmpty_ShouldThrowValidationException()
+        public void Handle_TitleEmpty_ShouldThrowValidationException()
         {
             var command = new UpdateReceiptCommand
             {
                 Id = "asdadas",
-                Datevisited = DateTime.Now,
+                DateVisited = DateTime.Now,
                 Location = ""
             };
 
@@ -192,14 +199,14 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         }
 
         [Test]
-        public async Task Handle_TitleAboveMaxLength_ShouldThrowValidationException()
+        public void Handle_TitleAboveMaxLength_ShouldThrowValidationException()
         {
             var command = new UpdateReceiptCommand
             {
                 Id = "asdadas",
                 Location = "dafhdsugjhsfdosjdfjiodsfoijdsfjiosdfsdfdfsdfsdfsdfsfsdfsdfsdf" +
                         "dfgdfgdfgojifdsjoifsdjoisdfojisdfjoisdfjoifsojdijoisdfjoifsdoij",
-                Datevisited = DateTime.Now
+                DateVisited = DateTime.Now
             };
 
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();

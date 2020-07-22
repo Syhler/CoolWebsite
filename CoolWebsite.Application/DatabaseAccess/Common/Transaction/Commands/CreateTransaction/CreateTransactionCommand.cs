@@ -10,9 +10,9 @@ namespace CoolWebsite.Application.DatabaseAccess.Common.Transaction.Commands.Cre
 {
     public class CreateTransactionCommand : IRequest<string>
     {
-        public string ToUserId { get; set; }
+        public string ToUserId { get; set; } = null!;
         public TransactionType TransactionType { get; set; }
-        public string FinancialProjectId { get; set; }
+        public string FinancialProjectId { get; set; } = null!;
         public double Amount { get; set; }
     }
 
@@ -26,7 +26,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Common.Transaction.Commands.Cre
         {
             _context = context;
             _currentUserService = currentUserService;
-            _context.UserId = currentUserService.UserID;
+            _context.UserId = currentUserService?.UserId;
         }
 
 
@@ -35,7 +35,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Common.Transaction.Commands.Cre
 
             var oweRecords = _context.OweRecords
                 .FirstOrDefault(x => x.FinancialProjectId == request.FinancialProjectId &&
-                            x.UserId == _currentUserService.UserID &&
+                            x.UserId == _currentUserService.UserId &&
                             x.OwedUserId == request.ToUserId);
 
             if (oweRecords != null)
@@ -51,7 +51,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Common.Transaction.Commands.Cre
                 FinancialProjectId = request.FinancialProjectId,
                 TransactionType = request.TransactionType,
                 ToUserId = request.ToUserId,
-                FromUserId = _currentUserService.UserID,
+                FromUserId = _currentUserService.UserId,
                 Id = Guid.NewGuid().ToString()
 
             };

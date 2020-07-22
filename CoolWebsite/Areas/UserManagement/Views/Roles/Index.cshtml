@@ -17,10 +17,10 @@
   </ul>
   <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade active show" id="home">
-     @Html.Partial("Roles", @Model)
+      @await Html.PartialAsync("Roles", @Model)
     </div>
     <div class="tab-pane fade " id="create-user">
-      @Html.Partial("CreateRole")
+      @await Html.PartialAsync("CreateRole")
     </div>
   </div>
 

@@ -40,21 +40,17 @@ namespace Application.IntegrationTests
                 .AddEnvironmentVariables();
 
             _configuration = builder.Build();
-            
 
-            var mockEnvironment = new Mock<IWebHostEnvironment>();
-            //...Setup the mock as needed
-            mockEnvironment
-                .Setup(m => m.IsDevelopment())
-                .Returns(true);
+
+            var webHostEnvironment = Mock.Of<IWebHostEnvironment>(w => w.EnvironmentName == "Development" &&
+                                                                      w.ApplicationName == "CoolWebsite");
             
-            var startup = new Startup(_configuration, mockEnvironment.Object);
+            var startup = new Startup(_configuration,webHostEnvironment);
             
             var services = new ServiceCollection();
 
 
-            services.AddSingleton(Mock.Of<IWebHostEnvironment>(w => w.EnvironmentName == "Development" &&
-                                                                    w.ApplicationName == "CoolWebsite"));
+            services.AddSingleton(webHostEnvironment);
             services.AddLogging();
             
             startup.ConfigureServices(services);
@@ -65,7 +61,7 @@ namespace Application.IntegrationTests
 
             services.Remove(currentUserServicesDescriptor);
 
-            services.AddTransient(x => Mock.Of<ICurrentUserService>(s => s.UserID == _currentUserId));
+            services.AddTransient(x => Mock.Of<ICurrentUserService>(s => s.UserId == _currentUserId));
 
             _scopeFactory = services.BuildServiceProvider().GetService<IServiceScopeFactory>();
             

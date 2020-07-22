@@ -30,14 +30,14 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
             _context = context;
             _mapper = mapper;
             _currentUser = currentUser;
-            _context.UserId = currentUserService.UserID;
+            _context.UserId = currentUserService.UserId;
         }
 
-        public async Task<FinancialProjectsVm> Handle(GetAllFinancialProjectQuery request, CancellationToken cancellationToken)
+        public Task<FinancialProjectsVm> Handle(GetAllFinancialProjectQuery request, CancellationToken cancellationToken)
         {
             var entity = _context.FinancialProjects
                 .Include(x => x.FinancialProjectApplicationUsers)
-                .Where(x => x.FinancialProjectApplicationUsers.Any(x => x.UserId == _currentUser.UserID))
+                .Where(x => x.FinancialProjectApplicationUsers.Any(x => x.UserId == _currentUser.UserId))
                 .Where(x => x.Deleted == null)
                 .OrderByDescending(x => x.LastModified.HasValue)
                 .ThenByDescending(x => x.Created)
@@ -49,10 +49,10 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
             RemoveDeletedReceiptFromDto(projects);
             
 
-            return new FinancialProjectsVm
+            return Task.FromResult(new FinancialProjectsVm
             {
                 FinancialProjects = projects
-            }; 
+            }); 
         }
 
         private void RemoveDeletedReceiptFromDto(List<FinancialProjectDto> projects)

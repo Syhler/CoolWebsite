@@ -45,7 +45,7 @@ namespace Application.IntegrationTests.Transaction
         
         //greateer than 0
         [Test]
-        public async Task Handle_AmountBelowZero_ShouldThrowValidationException()
+        public void Handle_AmountBelowZero_ShouldThrowValidationException()
         {
             var command = new CreateTransactionCommand
             {
@@ -61,7 +61,7 @@ namespace Application.IntegrationTests.Transaction
 
         //notnull
         [Test]
-        public async Task Handle_FinancialProjectIdIsNull_ShouldThrowValidationException()
+        public void Handle_FinancialProjectIdIsNull_ShouldThrowValidationException()
         {
             var command = new CreateTransactionCommand
             {
@@ -76,7 +76,7 @@ namespace Application.IntegrationTests.Transaction
         
         //notempty
         [Test]
-        public async Task Handle_FinancialProjectIsEmpty_ShouldThrowValidationException()
+        public void Handle_FinancialProjectIsEmpty_ShouldThrowValidationException()
         {
             var command = new CreateTransactionCommand
             {
@@ -91,7 +91,7 @@ namespace Application.IntegrationTests.Transaction
         
         //notnull
         [Test]
-        public async Task Handle_ToUserIdIsNull_ShouldThrowValidationException()
+        public void Handle_ToUserIdIsNull_ShouldThrowValidationException()
         {
             var command = new CreateTransactionCommand
             {
@@ -106,7 +106,7 @@ namespace Application.IntegrationTests.Transaction
         
         //notempty
         [Test]
-        public async Task Handle_ToUserIdIsEmpty_ShouldThrowValidationException()
+        public void Handle_ToUserIdIsEmpty_ShouldThrowValidationException()
         {
             var command = new CreateTransactionCommand
             {

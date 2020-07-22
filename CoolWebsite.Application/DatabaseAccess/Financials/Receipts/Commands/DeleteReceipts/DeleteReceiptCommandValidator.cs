@@ -7,7 +7,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.De
         public DeleteReceiptCommandValidator()
         {
             RuleFor(x => x.Id)
-                .NotEmpty().WithMessage("Id is required");
+                .NotEmpty().WithMessage("Id is required")
+                .NotNull().WithMessage("Id is required");
         }
     }
 }

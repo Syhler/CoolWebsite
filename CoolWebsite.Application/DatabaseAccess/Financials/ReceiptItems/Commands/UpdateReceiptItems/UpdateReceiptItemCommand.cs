@@ -10,12 +10,12 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
 {
     public class UpdateReceiptItemCommand : IRequest
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
         public int Count { get; set; }
         public double Price { get; set; }
         public int ItemGroup { get; set; }
 
-        public string ReceiptItemId { get; set; }
+        public string ReceiptItemId { get; set; } = null!;
     }
     
     public class UpdateReceiptItemCommandHandler : IRequestHandler<UpdateReceiptItemCommand>
@@ -25,7 +25,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
         public UpdateReceiptItemCommandHandler(IApplicationDbContext context, ICurrentUserService currentUserService)
         {
             _context = context;
-            _context.UserId = currentUserService.UserID;
+            _context.UserId = currentUserService.UserId;
         }
 
 

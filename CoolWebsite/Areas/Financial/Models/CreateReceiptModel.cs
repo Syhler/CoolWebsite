@@ -7,9 +7,9 @@ namespace CoolWebsite.Areas.Financial.Models
 {
     public class CreateReceiptModel
     {
-        public string FinancialProjectId { get; set; }
+        public string FinancialProjectId { get; set; } = null!;
 
-        public ReceiptDto ReceiptDto { get; set; }
-        public CreateReceiptItemVm CreateReceiptItemVm { get; set; }
+        public ReceiptDto ReceiptDto { get; set; } = null!;
+        public CreateReceiptItemVm? CreateReceiptItemVm { get; set; }
     }
 }

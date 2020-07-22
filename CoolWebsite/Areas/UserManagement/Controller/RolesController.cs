@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -66,7 +65,7 @@ namespace CoolWebsite.Areas.UserManagement.Controller
         }
         
         [HttpPost]
-        public async Task<IActionResult> CreateRole()
+        public IActionResult CreateRole()
         {
             return PartialView("_Layout");
         }
@@ -80,10 +79,8 @@ namespace CoolWebsite.Areas.UserManagement.Controller
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateEntity()
+        public IActionResult UpdateEntity()
         {
-            
-
             return RedirectToAction("Index");
         }
 

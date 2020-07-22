@@ -42,7 +42,7 @@ namespace CoolWebsite.Areas.Financial.Controller
 
             var model = await Mediator.Send(query);
 
-            model.Users = model.Users.Where(x => x.Id != _currentUserService.UserID).ToList();
+            model.Users = model.Users.Where(x => x.Id != _currentUserService.UserId).ToList();
 
             return View(model);
         }
@@ -114,7 +114,7 @@ namespace CoolWebsite.Areas.Financial.Controller
                 Id = model.ReceiptDto.Id,
                 Location = model.ReceiptDto.Location,
                 ItemDtos = model.ReceiptDto.Items,
-                Datevisited = model.ReceiptDto.DateVisited,
+                DateVisited = model.ReceiptDto.DateVisited,
                 Note = model.ReceiptDto.Note
             };
 
@@ -126,17 +126,9 @@ namespace CoolWebsite.Areas.Financial.Controller
         
 
         [HttpPost]
-        public async Task<IActionResult> GetReceiptItemPartialView(ReceiptItemVm vm)
+        public IActionResult GetReceiptItemPartialView(ReceiptItemVm vm)
         {
-            if (!string.IsNullOrWhiteSpace(vm.ReceiptItem.Id))
-            {
-                vm.UniqueIdentifier = Guid.Parse(vm.ReceiptItem.Id);
-                
-            }
-            else
-            {
-                vm.UniqueIdentifier = Guid.NewGuid();
-            }
+            vm.UniqueIdentifier = string.IsNullOrWhiteSpace(vm.ReceiptItem.Id) ? Guid.NewGuid() : Guid.Parse(vm.ReceiptItem.Id);
             
             
             vm.ReceiptItem.Price = Math.Round(vm.ReceiptItem.Price, 2);
@@ -167,7 +159,7 @@ namespace CoolWebsite.Areas.Financial.Controller
                     ItemGroup = receiptItemModel.ItemGroup.Value,
                     ReceiptId = receiptId,
                     Price = receiptItemModel.Price,
-                    UsersId = receiptItemModel.Users.Select(x => x.Id).ToList()
+                    UsersId = receiptItemModel.Users.Select(x => x.Id).ToList()!
                 };
 
                 await Mediator.Send(createReceiptItemCommand);
@@ -192,7 +184,7 @@ namespace CoolWebsite.Areas.Financial.Controller
         
         
         [HttpGet]
-        public async Task<IActionResult> CreateReceiptItemModal(string financialProjectId)
+        public IActionResult CreateReceiptItemModal(string financialProjectId)
         {
             return View("Partial/CreateReceiptItemModal", null);
         }

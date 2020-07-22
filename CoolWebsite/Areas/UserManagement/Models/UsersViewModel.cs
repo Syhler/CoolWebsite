@@ -4,7 +4,7 @@ namespace CoolWebsite.Areas.UserManagement.Models
 {
     public class UsersViewModel
     {
-        public List<UserModel> Users { get; set; }
-        public CreateUpdateUserViewModel CreateUpdateUserViewModel { get; set; }
+        public List<UserModel>? Users { get; set; }
+        public CreateUpdateUserViewModel? CreateUpdateUserViewModel { get; set; }
     }
 }

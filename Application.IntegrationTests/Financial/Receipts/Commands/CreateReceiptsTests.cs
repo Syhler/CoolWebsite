@@ -41,7 +41,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         }
 
         [Test]
-        public async Task Handle_FinancialProjectIdEmpty_ShouldThrowValidationException()
+        public void Handle_FinancialProjectIdEmpty_ShouldThrowValidationException()
         {
             var command = new CreateReceiptCommand
             {
@@ -54,7 +54,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         }
 
         [Test]
-        public async Task Handle_BoughtAtEmpty_ShouldThrowValidationException()
+        public void Handle_BoughtAtEmpty_ShouldThrowValidationException()
         {
             var command = new CreateReceiptCommand
             {
@@ -66,7 +66,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         }
 
         [Test]
-        public async Task Handle_TitleEmpty_ShouldThrowValidationException()
+        public void Handle_TitleEmpty_ShouldThrowValidationException()
         {
             var command = new CreateReceiptCommand
             {
@@ -79,7 +79,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         }
 
         [Test]
-        public async Task Handle_TitleAboveMaxLength_ShouldThrowValidationException()
+        public void Handle_TitleAboveMaxLength_ShouldThrowValidationException()
         {
             var command = new CreateReceiptCommand
             {

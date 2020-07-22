@@ -38,7 +38,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
         }
         
         [Test]
-        public async Task Handle_InvalidId_ShouldThrowNotFoundException()
+        public void Handle_InvalidId_ShouldThrowNotFoundException()
         {
             var command = new DeleteFinancialProjectCommand
             {
@@ -48,7 +48,8 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<NotFoundException>();
         }
 
-        public async Task Handle_EmptyId_ShouldThrowValidationException()
+        [Test]
+        public void Handle_EmptyId_ShouldThrowValidationException()
         {
             var command = new DeleteFinancialProjectCommand();
             FluentActions.Invoking(async () => await SendAsync(command)).Should().Throw<ValidationException>();

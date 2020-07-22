@@ -17,7 +17,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 {
     public class GetFinancialProjectByIdQuery : IRequest<FinancialProjectDto>
     {
-        public string ProjectId { get; set; }
+        public string ProjectId { get; set; } = null!;
     }
 
     public class GetFinancialProjectByIdQueryHandler 
@@ -32,11 +32,11 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         {
             _mapper = mapper;
             _context = context;
-            _context.UserId = userService.UserID;
+            _context.UserId = userService.UserId;
             _currentUserService = userService;
         }
 
-        public async Task<FinancialProjectDto> Handle(GetFinancialProjectByIdQuery request, CancellationToken cancellationToken)
+        public Task<FinancialProjectDto> Handle(GetFinancialProjectByIdQuery request, CancellationToken cancellationToken)
         {
 
             var entity = _context.FinancialProjects
@@ -61,17 +61,17 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 
             mapped.Receipts = mapped.Receipts.OrderByDescending(x => x.DateVisited).ToList();
             
-            var currentUserRecords = entity.First().OweRecords.Where(x => x.UserId == _currentUserService.UserID && x.FinancialProjectId == mapped.Id).ToList();
+            var currentUserRecords = entity.First().OweRecords.Where(x => x.UserId == _currentUserService.UserId && x.FinancialProjectId == mapped.Id).ToList();
 
             foreach (var mappedUser in mapped.Users)
             {
-                if (mappedUser.Id == _currentUserService.UserID) continue;
+                if (mappedUser.Id == _currentUserService.UserId) continue;
 
                 //Gets record where current user owe mappedUser money
                 var affectedRecord = currentUserRecords.FirstOrDefault(x => x.OwedUserId == mappedUser.Id);
 
                 //Gets records where mapped owe currentUsers money
-                var records = entity.First().OweRecords.FirstOrDefault(x => x.UserId == mappedUser.Id && x.OwedUserId == _currentUserService.UserID);
+                var records = entity.First().OweRecords.FirstOrDefault(x => x.UserId == mappedUser.Id && x.OwedUserId == _currentUserService.UserId);
 
                 if (records == null) continue;
                 
@@ -80,7 +80,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
                     : Math.Round(-records.Amount,2);
             }
             
-            return mapped;
+            return Task.FromResult(mapped);
             
         }
     }

@@ -9,11 +9,11 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 {
     public class FinancialProjectDto : IMapFrom<Domain.Entities.Financial.FinancialProject>
     {
-        public string Id { get; set; }
-        public string Title { get; set; }
+        public string Id { get; set; } = null!;
+        public string Title { get; set; } = null!;
 
-        public IList<UserDto> Users { get; set; }
-        public IList<ReceiptDto> Receipts { get; set; }
+        public IList<UserDto> Users { get; set; } = null!;
+        public IList<ReceiptDto> Receipts { get; set; } = null!;
 
         public DateTime? LastModified { get; set; }
 

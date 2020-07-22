@@ -6,7 +6,7 @@ namespace CoolWebsite.Areas.Financial.Models
 {
     public class ReceiptItemVm
     {
-        public ReceiptItemDto ReceiptItem { get; set; }
+        public ReceiptItemDto ReceiptItem { get; set; } = null!;
 
         public Guid UniqueIdentifier { get; set; }
         

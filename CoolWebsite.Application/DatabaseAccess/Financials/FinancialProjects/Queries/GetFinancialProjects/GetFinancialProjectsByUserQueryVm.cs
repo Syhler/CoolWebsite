@@ -13,7 +13,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 {
     public class GetFinancialProjectsByUserIdQuery : IRequest<FinancialProjectsVm>
     {
-        public string UserId { get; set; }
+        public string UserId { get; set; } = null!;
     }
 
     public class GetFinancialProjectsByUserIdQueryHandler : IRequestHandler<GetFinancialProjectsByUserIdQuery, FinancialProjectsVm>
@@ -25,10 +25,10 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         {
             _context = context;
             _mapper = mapper;
-            _context.UserId = currentUserService.UserID;
+            _context.UserId = currentUserService.UserId;
         }
 
-        public async Task<FinancialProjectsVm> Handle(GetFinancialProjectsByUserIdQuery request, CancellationToken cancellationToken)
+        public Task<FinancialProjectsVm> Handle(GetFinancialProjectsByUserIdQuery request, CancellationToken cancellationToken)
         {
             var projects = _context.FinancialProjects.Where(x =>
                     x.FinancialProjectApplicationUsers.Any(user => user.UserId == request.UserId))
@@ -41,10 +41,10 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
             }
             
             
-            return new FinancialProjectsVm
+            return Task.FromResult(new FinancialProjectsVm
             {
                 FinancialProjects = projects.ProjectTo<FinancialProjectDto>(_mapper.ConfigurationProvider).ToList()
-            };
+            });
         }
     }
 }

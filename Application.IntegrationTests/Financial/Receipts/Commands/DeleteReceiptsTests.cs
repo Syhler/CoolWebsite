@@ -77,7 +77,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         }
 
         [Test]
-        public async Task Handle_Invalid_ShouldThrowNotFoundException()
+        public void Handle_Invalid_ShouldThrowNotFoundException()
         {
             
             var command = new DeleteReceiptCommand
@@ -89,7 +89,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         }
 
         [Test]
-        public async Task Handle_IdEmpty_ShouldThrowValidationException()
+        public void Handle_IdEmpty_ShouldThrowValidationException()
         {
             var command = new DeleteReceiptCommand();
 

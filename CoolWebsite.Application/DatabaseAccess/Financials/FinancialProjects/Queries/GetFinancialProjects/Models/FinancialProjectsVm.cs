@@ -4,6 +4,6 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 {
     public class FinancialProjectsVm
     {
-        public IList<FinancialProjectDto> FinancialProjects { get; set; }
+        public IList<FinancialProjectDto>? FinancialProjects { get; set; } 
     }
 }

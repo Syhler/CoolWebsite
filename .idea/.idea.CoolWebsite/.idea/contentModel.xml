@@ -108,7 +108,6 @@
               <e p="CreateReceiptModel.cs" t="Include" />
               <e p="PayTransaction.cs" t="Include" />
               <e p="ReceiptItemVm.cs" t="Include" />
-              <e p="UserModel.cs" t="Include" />
             </e>
             <e p="Views" t="Include">
               <e p="_ViewImports.cshtml" t="Include" />
@@ -436,7 +435,7 @@
                 </e>
                 <e p="UpdateFinancialProject" t="Include">
                   <e p="UpdateFinancialProjectCommand.cs" t="Include" />
-                  <e p="UpdateFinancialProjectValidator.cs" t="Include" />
+                  <e p="UpdateFinancialProjectCommandValidator.cs" t="Include" />
                 </e>
               </e>
               <e p="Queries" t="Include">
@@ -444,7 +443,7 @@
                   <e p="GetAllFinancialProjectQuery.cs" t="Include" />
                   <e p="GEtFinancialProjectByIdQuery.cs" t="Include" />
                   <e p="GetFinancialProjectByIdQueryValidator.cs" t="Include" />
-                  <e p="GetFinancialProjectByUserQueryValidator.cs" t="Include" />
+                  <e p="GetFinancialProjectByUserIdQueryValidator.cs" t="Include" />
                   <e p="GetFinancialProjectsByUserQueryVm.cs" t="Include" />
                   <e p="GetUsersFromFinancialProjectQuery.cs" t="Include" />
                   <e p="GetUsersFromFinancialProjectQueryValidator.cs" t="Include" />

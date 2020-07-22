@@ -51,11 +51,14 @@
 
                     <div class="container">
                         <div class="row">
-                            @foreach (var type in @Model.TypesSelectListItems)
+                            @if (Model.TypesSelectListItems != null)
                             {
-                                <div class="col-sm override-padding-left-right-2">
-                                    <button type="button" class="btn btn-info btn-block type-button" data-id="@type.Value">@type.Text</button>
-                                </div>
+                                @foreach (var type in @Model.TypesSelectListItems)
+                                {
+                                    <div class="col-sm override-padding-left-right-2">
+                                        <button type="button" class="btn btn-info btn-block type-button" data-id="@type.Value">@type.Text</button>
+                                    </div>
+                                }
                             }
                         </div>
                         <label id='receipt-item-type-error' class="red" style="display: none">You must choose a button</label>

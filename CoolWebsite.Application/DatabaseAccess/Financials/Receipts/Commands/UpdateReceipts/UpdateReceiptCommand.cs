@@ -17,16 +17,16 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
 {
     public class UpdateReceiptCommand : IRequest
     {
-        public string Id { get; set; }
-        public string FinancialProjectId { get; set; }
+        public string Id { get; set; } = null!;
+        public string? FinancialProjectId { get; set; }
 
-        public string Location { get; set; }
+        public string Location { get; set; } = null!;
 
-        public string Note { get; set; }
+        public string? Note { get; set; }
 
-        public DateTime Datevisited { get; set; }
+        public DateTime DateVisited { get; set; }
 
-        public IList<ReceiptItemDto> ItemDtos { get; set; }
+        public IList<ReceiptItemDto> ItemDtos { get; set; } = null!;
     }
 
     public class UpdateReceiptCommandHandler : IRequestHandler<UpdateReceiptCommand>
@@ -36,7 +36,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
         public UpdateReceiptCommandHandler(IApplicationDbContext context, ICurrentUserService currentUserService)
         {
             _context = context;
-            _context.UserId = currentUserService.UserID;
+            _context.UserId = currentUserService.UserId;
         }
 
         public async Task<Unit> Handle(UpdateReceiptCommand request, CancellationToken cancellationToken)
@@ -57,7 +57,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
 
 
             entity.Location = request.Location;
-            entity.DateVisited = request.Datevisited;
+            entity.DateVisited = request.DateVisited;
             entity.Note = request.Note;
 
             if (!string.IsNullOrWhiteSpace(request.FinancialProjectId))
@@ -140,7 +140,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
             {
                 Id = receiptItemId,
                 Count = newItem.Count,
-                ItemGroup = (ItemGroup) newItem.ItemGroup.Value,
+                ItemGroup = newItem.ItemGroup != null ? (ItemGroup) newItem.ItemGroup.Value : ItemGroup.Unknown,
                 Price = newItem.Price,
                 ReceiptId = receiptId,
                 Users = users,
@@ -159,7 +159,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
             
             receiptItem.Count = receiptItemDto.Count;
             receiptItem.Price = receiptItemDto.Price;
-            receiptItem.ItemGroup = (ItemGroup) receiptItemDto.ItemGroup.Value;
+            receiptItem.ItemGroup = receiptItemDto.ItemGroup != null ? (ItemGroup) receiptItemDto.ItemGroup.Value : ItemGroup.Unknown;
 
             var newUsers =
                 CreateUserReceiptItemsListWithSkips(receiptItemDto.Users, receiptItemDto.Id, receiptItem.Users);
@@ -249,11 +249,14 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
             }
         }
 
-        private List<ApplicationUserReceiptItem> CreateUserReceiptItemsList(ICollection<UserDto> userDtos,
-            string receiptItemId)
+        private List<ApplicationUserReceiptItem> CreateUserReceiptItemsList(
+            ICollection<UserDto>? userDtos,
+            string? receiptItemId)
         {
             var users = new List<ApplicationUserReceiptItem>();
 
+            if (userDtos == null) return users;
+            
             foreach (var user in userDtos)
             {
                 users.Add(new ApplicationUserReceiptItem
@@ -266,11 +269,13 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
             return users;
         }
 
-        private List<ApplicationUserReceiptItem> CreateUserReceiptItemsListWithSkips(ICollection<UserDto> userDtos,
-            string receiptItemId, ICollection<ApplicationUserReceiptItem> skips)
+        private List<ApplicationUserReceiptItem> CreateUserReceiptItemsListWithSkips(ICollection<UserDto>? userDtos,
+            string? receiptItemId, ICollection<ApplicationUserReceiptItem> skips)
         {
             var users = new List<ApplicationUserReceiptItem>();
 
+            if (userDtos == null) return users;
+            
             foreach (var user in userDtos)
             {
                 if (skips.Any(x => x.ApplicationUserId == user.Id))

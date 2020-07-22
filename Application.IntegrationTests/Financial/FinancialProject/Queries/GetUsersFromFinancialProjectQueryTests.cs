@@ -35,7 +35,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
         
         //Validation
         [Test]
-        public async Task Handle_EmptyId_ShouldThrowValidationException()
+        public void Handle_EmptyId_ShouldThrowValidationException()
         {
             
             var query = new GetUsersFromFinancialProjectQuery
@@ -49,7 +49,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
         }
 
         [Test]
-        public async Task Handle_NullId_ShouldThrowValidationException()
+        public void Handle_NullId_ShouldThrowValidationException()
         {
             var query = new GetUsersFromFinancialProjectQuery
             {
@@ -63,7 +63,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
         
         //WrongId
         [Test]
-        public async Task Handle_WrongId_ShouldThrowNotFoundException()
+        public void Handle_WrongId_ShouldThrowNotFoundException()
         {
             var query = new GetUsersFromFinancialProjectQuery
             {

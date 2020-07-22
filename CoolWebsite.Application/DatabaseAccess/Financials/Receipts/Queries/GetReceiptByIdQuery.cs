@@ -14,7 +14,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries
 {
     public class GetReceiptByIdQuery : IRequest<ReceiptDto>
     {
-        public string ReceiptId { get; set; }
+        public string ReceiptId { get; set; } = null!;
     }
 
     public class GetReceiptByIdQueryVmHandler : IRequestHandler<GetReceiptByIdQuery, ReceiptDto>
@@ -29,11 +29,11 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries
             _context = context;
             _mapper = mapper;
             _service = service;
-            _context.UserId = userService.UserID;
+            _context.UserId = userService.UserId;
         }
 
 
-        public async Task<ReceiptDto> Handle(GetReceiptByIdQuery request, CancellationToken cancellationToken)
+        public Task<ReceiptDto> Handle(GetReceiptByIdQuery request, CancellationToken cancellationToken)
         {
             var entity = _context.Receipts
                 .Include(x => x.Items)
@@ -46,7 +46,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries
             
             var mapped = entity.ProjectTo<ReceiptDto>(_mapper.ConfigurationProvider);
 
-            return mapped.First();
+            return Task.FromResult(mapped.First());
         }
     }
 }

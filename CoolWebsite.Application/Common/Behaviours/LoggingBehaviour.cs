@@ -13,8 +13,8 @@ namespace CoolWebsite.Application.Common.Behaviours
         private readonly ICurrentUserService _currentUserService;
         private readonly IIdentityService _identityService;
 
-        private string _ip;
-        private string _userAgent;
+        private readonly string? _ip;
+        private readonly string? _userAgent;
 
         public LoggingBehaviour(IIdentityService identityService, ICurrentUserService currentUserService,
             ILogger<TRequest> logger, IHttpContextAccessor httpContextAccessor)
@@ -22,15 +22,18 @@ namespace CoolWebsite.Application.Common.Behaviours
             _identityService = identityService;
             _currentUserService = currentUserService;
             _logger = logger;
-            _ip = httpContextAccessor?.HttpContext.Connection.RemoteIpAddress.ToString();
-            _userAgent = httpContextAccessor?.HttpContext.Request.Headers["User-Agent"].ToString();
+            
+            
+            if (httpContextAccessor == null) return;
+            _ip = httpContextAccessor?.HttpContext?.Connection?.RemoteIpAddress.ToString();
+            _userAgent = httpContextAccessor?.HttpContext?.Request?.Headers["User-Agent"].ToString();
         }
 
 
         public async Task Process(TRequest request, CancellationToken cancellationToken)
         {
             var requestName = typeof(TRequest).Name;
-            var userId = _currentUserService.UserID ?? string.Empty;
+            var userId = _currentUserService.UserId ?? string.Empty;
             string userName = string.Empty;
 
             if (!string.IsNullOrEmpty(userId))

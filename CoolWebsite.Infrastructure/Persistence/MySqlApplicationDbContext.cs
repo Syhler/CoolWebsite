@@ -16,30 +16,28 @@ namespace CoolWebsite.Infrastructure.Persistence
     public class MySqlApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>, IApplicationDbContext
     {
         
-        private ICurrentUserService _currentUserService;
-        private IDateTime _dateTime;
-        public string UserId { get; set; }
+        private readonly IDateTime _dateTime;
+        public string? UserId { get; set; }
 
         public MySqlApplicationDbContext(DbContextOptions<MySqlApplicationDbContext> options,
             IDateTime dateTime) : base(options)
         {
             _dateTime = dateTime;
-            //_currentUserService = currentUserService;
         }
 
-        public DbSet<FinancialProject> FinancialProjects { get; set; }
+        public DbSet<FinancialProject> FinancialProjects { get; set; } = null!;
 
-        public DbSet<FinancialProjectApplicationUser> FinancialProjectApplicationUsers { get; set; }
+        public DbSet<FinancialProjectApplicationUser> FinancialProjectApplicationUsers { get; set; } = null!;
 
-        public DbSet<ApplicationUserReceiptItem> ApplicationUserReceiptItems { get; set; }
+        public DbSet<ApplicationUserReceiptItem> ApplicationUserReceiptItems { get; set; } = null!;
 
-        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<Transaction> Transactions { get; set; } = null!;
 
-        public DbSet<OweRecord> OweRecords { get; set; }
+        public DbSet<OweRecord> OweRecords { get; set; } = null!;
 
-        public DbSet<ReceiptItem> ReceiptItems { get; set; }
+        public DbSet<ReceiptItem> ReceiptItems { get; set; } = null!;
 
-        public DbSet<Receipt> Receipts { get; set; }
+        public DbSet<Receipt> Receipts { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

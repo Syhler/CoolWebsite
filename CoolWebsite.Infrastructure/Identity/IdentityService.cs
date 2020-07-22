@@ -22,8 +22,8 @@ namespace CoolWebsite.Infrastructure.Identity
         private readonly ICurrentUserService _currentUserService;
         private readonly ILogger<IdentityService> _logger;
 
-        private string _ip;
-        private string _userAgent;
+        private readonly string? _ip;
+        private readonly string? _userAgent;
         
         public IdentityService(UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
@@ -37,8 +37,11 @@ namespace CoolWebsite.Infrastructure.Identity
             _roleManager = roleManager;
             _currentUserService = currentUserService;
             _logger = logger;
-            _ip = httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString();
-            _userAgent = httpContextAccessor.HttpContext.Request.Headers["User-Agent"].ToString();
+
+            if (httpContextAccessor == null) return;
+            
+            _ip = httpContextAccessor.HttpContext?.Connection?.RemoteIpAddress.ToString();
+            _userAgent = httpContextAccessor.HttpContext?.Request?.Headers["User-Agent"].ToString();
         }
         
         public async Task<string> GetUserNameAsync(string userId)
@@ -50,6 +53,10 @@ namespace CoolWebsite.Infrastructure.Identity
 
             var result = await _userManager.FindByIdAsync(userId);
 
+            if (result == null) {
+                return string.Empty;
+            }
+            
             return result.FirstName + " " + result.LastName;
         }
 
@@ -66,12 +73,12 @@ namespace CoolWebsite.Infrastructure.Identity
             if (result.Succeeded)
             {
                 _logger.LogInformation("CoolWebsite CreateUser : By {CurrentUserId} {@Timestamp} {@UserAgent} {@Ip} \n Created User Id : {@UserId} ", 
-                    _currentUserService.UserID, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip, user.Id);
+                    _currentUserService.UserId, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip, user.Id);
             }
             else
             {
                 _logger.LogError("CoolWebsite CreateUser FAILED : By {CurrentUserId} {@Timestamp} {@UserAgent} {@Ip} \n Created User Id : {@UserId} ", 
-                    _currentUserService.UserID, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip, user.Id);
+                    _currentUserService.UserId, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip, user.Id);
             }
             
             
@@ -127,7 +134,7 @@ namespace CoolWebsite.Infrastructure.Identity
                 throw new IdentityObjectNotInitialized("UserManager");
             }
 
-            var user = await _userManager.FindByIdAsync(_currentUserService.UserID);
+            var user = await _userManager.FindByIdAsync(_currentUserService.UserId);
             
             var result = await _userManager.AddToRoleAsync(user, name);
                 
@@ -241,12 +248,12 @@ namespace CoolWebsite.Infrastructure.Identity
             if (result.Succeeded)
             {
                 _logger.LogInformation("CoolWebsite Delete user : By {CurrentUserId} {@Timestamp} {@UserAgent} {@Ip} \n Deleted User Id : {@UserId} ", 
-                    _currentUserService.UserID, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip, user.Id);
+                    _currentUserService.UserId, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip, user.Id);
             }
             else
             {
                 _logger.LogError("CoolWebsite Delete user FAILED : By {CurrentUserId} {@Timestamp} {@UserAgent} {@Ip} \n Deleted User Id : {@UserId} ", 
-                    _currentUserService.UserID, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip, user.Id);
+                    _currentUserService.UserId, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip, user.Id);
             }
            
 

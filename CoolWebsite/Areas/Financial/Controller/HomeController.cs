@@ -50,15 +50,8 @@ namespace CoolWebsite.Areas.Financial.Controller
                 Users = await _identity.GetUsersByIds(model.Users)
             };
 
-            try
-            {
-                var project = await Mediator.Send(command);
-                return PartialView("Partial/FinancialProjectCard", project);
-            }
-            catch (ValidationException e)
-            {
-                return null;
-            }
+            var project = await Mediator.Send(command);
+            return PartialView("Partial/FinancialProjectCard", project);
 
         }
 
@@ -69,9 +62,9 @@ namespace CoolWebsite.Areas.Financial.Controller
             {
                 AddUserModel = new AddUserModel
                 {
-                    UserSelectListItems = SelectListHandler.CreateFromUsers(_identity.GetUsers().ToList(), _currentUserService.UserID),
-                    CurrentUserName = await _identity.GetUserNameAsync(_currentUserService.UserID),
-                    CurrentUserId = _currentUserService.UserID
+                    UserSelectListItems = SelectListHandler.CreateFromUsers(_identity.GetUsers().ToList(), _currentUserService.UserId),
+                    CurrentUserName = await _identity.GetUserNameAsync(_currentUserService.UserId),
+                    CurrentUserId = _currentUserService.UserId
                 }
             };
             
