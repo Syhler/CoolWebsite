@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CoolWebsite.Domain.Common;
+using CoolWebsite.Domain.Entities.Identity;
 
 namespace CoolWebsite.Domain.Entities.Financial
 {
@@ -21,6 +22,10 @@ namespace CoolWebsite.Domain.Entities.Financial
         public FinancialProject FinancialProject { get; set; }
 
         public ICollection<ReceiptItem> Items { get; set; }
+        
+        public string DeletedByUserId { get; set; }
+
+        public ApplicationUser DeletedByUser { get; set; }
         
     }
 }

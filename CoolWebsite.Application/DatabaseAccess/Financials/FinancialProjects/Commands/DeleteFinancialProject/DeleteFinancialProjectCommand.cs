@@ -17,10 +17,12 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
     public class DeleteFinancialProjectCommandHandler : IRequestHandler<DeleteFinancialProjectCommand>
     {
         private readonly IApplicationDbContext _context;
+        private readonly ICurrentUserService _currentUserService;
 
         public DeleteFinancialProjectCommandHandler(IApplicationDbContext context, ICurrentUserService currentUserService)
         {
             _context = context;
+            _currentUserService = currentUserService;
             _context.UserId = currentUserService.UserId;
         }
 
@@ -34,6 +36,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
                 throw new NotFoundException(nameof(Domain.Entities.Financial.FinancialProject), request.Id);
             }
             entity.Deleted = DateTime.Now;
+            entity.DeletedByUserId = _currentUserService.UserId;
 
             await _context.SaveChangesAsync(cancellationToken);
             

@@ -33,6 +33,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             var entity = await FindAsync<CoolWebsite.Domain.Entities.Financial.FinancialProject>(id);
 
             entity.Deleted.Should().BeCloseTo(DateTime.Now, 1000);
+            entity.DeletedByUserId.Should().Be(User.Id);
 
 
         }

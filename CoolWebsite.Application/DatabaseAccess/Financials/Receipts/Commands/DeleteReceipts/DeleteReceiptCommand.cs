@@ -52,6 +52,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.De
             }
            
             entity.Deleted = DateTime.Now;
+            entity.DeletedByUserId = _currentUserService.UserId;
 
             await _context.SaveChangesAsync(cancellationToken);
 

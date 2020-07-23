@@ -73,8 +73,10 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
             
             var updatedOweRecord = context.OweRecords.FirstOrDefault(x =>
                 x.OwedUserId == User.Id && x.UserId == SecondUser.Id && x.FinancialProjectId == projectId);
-            
+
+            entity.Should().NotBeNull();
             entity.Deleted.Should().BeCloseTo(DateTime.Now, 1000);
+            entity.DeletedByUserId.Should().Be(User.Id);
             updatedOweRecord.Should().NotBeNull();
             updatedOweRecord.Amount.Should().Be(0);
 

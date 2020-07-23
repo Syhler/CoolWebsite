@@ -22,6 +22,9 @@ namespace CoolWebsite.Domain.Entities.Financial
 
         public DateTime? Deleted { get; set; }
 
+        public string DeletedByUserId { get; set; }
+
+        public ApplicationUser DeletedByUser { get; set; }
         
 
     }

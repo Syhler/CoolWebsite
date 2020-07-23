@@ -2310,6 +2310,8 @@
             <e p="20200701095916_AddedForeginKEyToTransactions.Designer.cs" t="Include" />
             <e p="20200701101537_AddedAudibleToTransactions.cs" t="Include" />
             <e p="20200701101537_AddedAudibleToTransactions.Designer.cs" t="Include" />
+            <e p="20200723212218_AddedDeletedBy.cs" t="Include" />
+            <e p="20200723212218_AddedDeletedBy.Designer.cs" t="Include" />
             <e p="SqlApplicationDbContextModelSnapshot.cs" t="Include" />
           </e>
         </e>

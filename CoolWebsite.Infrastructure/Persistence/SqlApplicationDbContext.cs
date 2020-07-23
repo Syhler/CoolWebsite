@@ -48,6 +48,7 @@ namespace CoolWebsite.Infrastructure.Persistence
         {
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
+                
             builder.Entity<FinancialProjectApplicationUser>()
                 .HasKey(x => new {x.UserId, x.FinancialProjectId});
 
