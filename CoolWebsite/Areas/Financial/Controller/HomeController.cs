@@ -75,7 +75,7 @@ namespace CoolWebsite.Areas.Financial.Controller
             return PartialView("Partial/CreateFinancialProjectModal", model);
         }
 
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> ArchiveProject(string id)
         {
             var command = new DeleteFinancialProjectCommand
             {

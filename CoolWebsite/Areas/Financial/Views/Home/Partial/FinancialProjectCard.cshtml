@@ -6,16 +6,20 @@
         <h6>users: @Model.Users.Count | Receipts @Model.Receipts.Count</h6>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         <a asp-action="Index" asp-controller="Project" asp-area="Financial" asp-route-id="@Model.Id" class="card-link green">Enter</a>
-        <a asp-action="Delete" asp-area="Financial" asp-controller="Home" asp-route-id="@Model.Id" class="card-link red">Delete</a>
+        <a class="card-link red enable-hover archive-project" data-id="@Model.Id">Archive</a>
         @{
             if (Model.LastModified.HasValue)
             {
-                <a class="card-link">Last Modified: @Model.LastModified</a>
+                <span class="card-link text-white">Last Modified: @Model.LastModified</span>
             }
             else
             {
-                <a class="card-link">Created: @Model.Created</a>
+                <span class="card-link text-white">Created: @Model.Created</span>
             }
         }
+
+
+
+
     </div>
 </div>
