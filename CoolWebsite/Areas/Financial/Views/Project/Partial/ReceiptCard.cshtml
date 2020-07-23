@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Routing
 @using Microsoft.EntityFrameworkCore.Internal
+@using CoolWebsite.Services
 @model CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models.ReceiptDto
 
 
@@ -65,23 +66,29 @@
             </ul>
             <div></div>
             <div>
-                <a class="btn btn-success btn-sm mr-2" type="button"
-                   asp-action="EditReceipt"
-                   asp-controller="Project"
-                   asp-area="Financial"
-                   asp-route-id="@Model.Id"
-                   asp-route-financialProjectId="@Context.GetRouteData().Values["id"]">
-                    Edit
-                </a>
+                
 
-                <a class="btn btn-danger btn-sm" type="button"
-                   asp-action="DeleteReceipt"
-                   asp-controller="Project"
-                   asp-route-id="@Model.Id"
-                   asp-area="Financial"
-                   asp-route-projectId="@Context.GetRouteData().Values["id"]">
-                    Delete
-                </a>
+                @if (User.GetUserId() == @Model.CreatedByUserId)
+                {
+                    <a class="btn btn-success btn-sm mr-2" type="button"
+                       asp-action="EditReceipt"
+                       asp-controller="Project"
+                       asp-area="Financial"
+                       asp-route-id="@Model.Id"
+                       asp-route-financialProjectId="@Context.GetRouteData().Values["id"]">
+                        Edit
+                    </a>
+                    
+                    <a class="btn btn-danger btn-sm" type="button"
+                       asp-action="DeleteReceipt"
+                       asp-controller="Project"
+                       asp-route-id="@Model.Id"
+                       asp-area="Financial"
+                       asp-route-projectId="@Context.GetRouteData().Values["id"]">
+                        Delete
+                    </a>
+                }
+               
             </div>
         </div>
         <div class="card-footer">
