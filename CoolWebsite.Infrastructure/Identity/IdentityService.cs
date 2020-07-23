@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
@@ -60,6 +61,13 @@ namespace CoolWebsite.Infrastructure.Identity
             return result.FirstName + " " + result.LastName;
         }
 
+        public async Task<ApplicationUser> GetUserByEmail(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+
+            return user;
+        }
+
         public async Task<(Result result, string userId)> CreateUserAsync(ApplicationUser user, string password)
         {
             if (_userManager == null)
@@ -99,10 +107,19 @@ namespace CoolWebsite.Infrastructure.Identity
 
             var user = await _userManager.FindByEmailAsync(email);
 
+            
 
             if (signInResult.Succeeded)
             {
+                var claims = await _userManager.GetClaimsAsync(user);
+                if (claims.FirstOrDefault(x => x.Type == "FirstName") == null || claims.FirstOrDefault(x => x.Type == "LastName") == null)
+                {
+                    await _userManager.AddClaimAsync(user, new Claim("FirstName", user.FirstName));
+                    await _userManager.AddClaimAsync(user, new Claim("LastName", user.LastName));
+                    await _signInManager.RefreshSignInAsync(user);
+                }
                 _logger.LogInformation("CoolWebsite LoginUser : {UserId} {Email} {@Timestamp} {@UserAgent} {@Ip}", user.Id, email, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip);
+               
             }
             else
             {

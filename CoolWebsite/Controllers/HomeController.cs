@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using CoolWebsite.Models;
 using CoolWebsite.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -52,11 +53,24 @@ namespace CoolWebsite.Controllers
                 return Json(new {result="Redirect", url = Url.Action(returnUrl)});
             }
 
-            //return RedirectToAction("Index", "Home");
             return Json(new {result = "Redirect", url = Url.Action("Index", "Home", new {area = "Financial"})});
 
         }
 
+        public void AddClaims(HttpContext httpContext, ApplicationUser user)
+        {
+            if (httpContext.User == null) return;
+            
+            var claims = new List<Claim>
+            {
+                new Claim("FirstName", user.FirstName),
+                new Claim("LastName", user.LastName)
+            };
+
+            var appIdentity = new ClaimsIdentity(claims);
+            httpContext.User.AddIdentity(appIdentity);
+        }
+        
         [AllowAnonymous]
         public IActionResult CoolWebsiteProject()
         {

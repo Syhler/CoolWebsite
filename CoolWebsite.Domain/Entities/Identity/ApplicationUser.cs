@@ -14,6 +14,8 @@ namespace CoolWebsite.Domain.Entities.Identity
         
         public ICollection<Transaction> IncomingTransactions { get; set; }
         
+
+        
         
 
     }

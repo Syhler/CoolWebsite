@@ -10,6 +10,8 @@ namespace CoolWebsite.Application.Common.Interfaces
     {
         Task<string> GetUserNameAsync(string userID);
 
+        Task<ApplicationUser> GetUserByEmail(string email);
+
         Task<(Result result, string userId)> CreateUserAsync(ApplicationUser user, string password);
 
         Task<Result> LoginUser(string email, string password, bool persistent);

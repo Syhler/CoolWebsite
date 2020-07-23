@@ -1,44 +1,232 @@
-﻿<nav class="navbar navbar-expand navbar-dark bg-dark fixed-left ">
-    <a class="navbar-brand" href="#">Cool Website</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse top-div " id="navbarColor02">
-        <ul class="navbar-nav mr-auto ">
-            <li class="nav-item">
-                <a class="nav-link" asp-action="Index" asp-area="" asp-controller="Home">Home<span class="sr-only">(current)</span></a>
-            </li>
+﻿@using System.Security.Claims
+@using CoolWebsite.Services
+@*<nav class="navbar navbar-expand navbar-dark bg-dark fixed-left ">
+  <a class="navbar-brand" href="#">Cool Website</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse top-div " id="navbarColor02">
+    <ul class="navbar-nav mr-auto ">
+      <li class="nav-item">
+        <a class="nav-link" asp-action="Index" asp-area="" asp-controller="Home">Home<span class="sr-only">(current)</span></a>
+      </li>
           
-            @{
-                if (User.IsInRole("Admin"))
-                {
-                    <li class="nav-item">
-                        <a class="nav-link nav-dropdown-activator" >User mangenment</a>
-                        <ul hidden="" class="dropdown-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="UserManagement" asp-action="Index" asp-controller="Roles">Roles</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="UserManagement" asp-action="Index" asp-controller="Users">Users</a>
-                            </li>
-                        </ul>
-                    </li>
-                }
-            }
+      @{
+        if (User.IsInRole("Admin"))
+        {
+          <li class="nav-item">
+            <a class="nav-link nav-dropdown-activator" >User mangenment</a>
+            <ul hidden="" class="dropdown-nav">
+              <li class="nav-item">
+                <a class="nav-link" asp-area="UserManagement" asp-action="Index" asp-controller="Roles">Roles</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" asp-area="UserManagement" asp-action="Index" asp-controller="Users">Users</a>
+              </li>
+            </ul>
+          </li>
+        }
+      }
             
-            <li class="nav-item">
-                <a class="nav-link" asp-area="Financial" asp-action="Index" asp-controller="Home">Financial</a>
-            </li>
-        </ul>
-    </div>
-    <div class="bottom-div">
-        <ul class="navbar-nav mr-auto bottom-div-list">
-            <li class="bottom-div-list">
-                <span>@User.Identity.Name</span>
-                <a class="nav-link text-danger" asp-area="" asp-controller="Auth" asp-action="Logout">Log out</a>
-            </li>
+      <li class="nav-item">
+        <a class="nav-link" asp-area="Financial" asp-action="Index" asp-controller="Home">Financial</a>
+      </li>
+    </ul>
+  </div>
+  <div class="bottom-div">
+    <ul class="navbar-nav mr-auto bottom-div-list">
+      <li class="bottom-div-list">
+        <span>@User.Identity.Name</span>
+        <a class="nav-link text-danger" asp-area="" asp-controller="Auth" asp-action="Logout">Log out</a>
+      </li>
                 
-        </ul>
-    </div>
+    </ul>
+  </div>
 </nav>
+*@
+
+<a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-brand">
+        <a asp-action="Index" asp-controller="Home" asp-area="">CoolWebsite</a>
+        <div id="close-sidebar">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <div class="sidebar-header">
+        <div class="user-pic">
+          <img class="img-responsive img-rounded" src="~/img/Homepage/d5802db4-4b7b-48a1-a67a-e0b15f34bafb_200x200.png"
+            alt="User picture">
+        </div>
+        <div class="user-info">
+          <span class="user-name">
+            
+            @User.GetFirstName()
+            <strong>
+              @User.GetLastName()
+            </strong>
+          </span>
+          @if (User.IsInRole("Admin"))
+          {
+            <span class="user-role">Administrator</span>
+            
+          }
+          else
+          {
+            <span class="user-role">Standard User</span>
+          }
+          <span class="user-status">
+            <i class="fa fa-circle"></i>
+            <span>Online</span>
+          </span>
+        </div>
+      </div>
+      <!-- sidebar-header  -->
+    @*
+      <div class="sidebar-search">
+        <div>
+          <div class="input-group">
+            <input type="text" class="form-control search-menu" placeholder="Search...">
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      *@
+      <!-- sidebar-search  -->
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span>Financial</span>
+          </li>
+          <li>
+            <a asp-action="Index" asp-controller="Home" asp-area="Financial">
+              <i class="fa fa-tachometer-alt"></i>
+              <span>Projects</span>
+              @*<span class="badge badge-pill badge-warning">New</span>*@
+            </a>
+          </li>
+        @*
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-shopping-cart"></i>
+              <span>E-commerce</span>
+              <span class="badge badge-pill badge-danger">3</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">Products
+
+                  </a>
+                </li>
+                <li>
+                  <a href="#">Orders</a>
+                </li>
+                <li>
+                  <a href="#">Credit cart</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="far fa-gem"></i>
+              <span>Components</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">General</a>
+                </li>
+                <li>
+                  <a href="#">Panels</a>
+                </li>
+                <li>
+                  <a href="#">Tables</a>
+                </li>
+                <li>
+                  <a href="#">Icons</a>
+                </li>
+                <li>
+                  <a href="#">Forms</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        <li class="sidebar-dropdown">
+          <a href="#">
+            <i class="fa fa-chart-line"></i>
+            <span>Charts</span>
+          </a>
+          <div class="sidebar-submenu">
+            <ul>
+              <li>
+                <a href="#">Pie chart</a>
+              </li>
+              <li>
+                <a href="#">Line chart</a>
+              </li>
+              <li>
+                <a href="#">Bar chart</a>
+              </li>
+              <li>
+                <a href="#">Histogram</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+                  *@
+        @if (User.IsInRole("Admin"))
+        {
+          <li class="header-menu">
+            <span>User Management</span>
+          </li>
+          <li>
+            <a asp-action="Index" asp-controller="Users" asp-area="UserManagement">
+              <i class="fa fa-book"></i>
+              <span>User</span>
+              <span class="badge badge-pill badge-primary">Beta</span>
+            </a>
+          </li>
+          <li>
+            <a asp-action="Index" asp-controller="Roles" asp-area="UserManagement">
+              <i class="fa fa-calendar"></i>
+              <span>Role</span>
+            </a>
+          </li>
+        }
+          
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
+    </div>
+    <!-- sidebar-content  -->
+  <div class="sidebar-footer">
+    @*
+    <a href="#">
+      <i class="fa fa-bell"></i>
+      <span class="badge badge-pill badge-warning notification">3</span>
+    </a>
+    <a href="#">
+      <i class="fa fa-envelope"></i>
+      <span class="badge badge-pill badge-success notification">7</span>
+    </a>
+    *@
+    <a asp-action="Logout" asp-controller="Auth" asp-area="">
+      <i class="fa fa-power-off"></i>
+    </a>
+    
+    <a href="#">
+      <i class="fa fa-cog"></i>
+      @*<span class="badge-sonar"></span>*@
+    </a>
+  </div>
+  </nav>

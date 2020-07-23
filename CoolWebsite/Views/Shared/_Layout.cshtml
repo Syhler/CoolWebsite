@@ -8,27 +8,29 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrapDark.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/Main/MainLayout.css"/>
-    <link rel="stylesheet" href="~/css/Main/navbar-fixed-left.min.css"/>
     <link rel="stylesheet" href="~/css/Main/Sidebar.css"/>
+    <link rel="stylesheet" href="~/lib/fontawesome-free-5.14.0-web/css/all.min.css"/>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="~/lib/jquery-ui-1.12.1/jquery-ui.min.css" />
 
     @await RenderSectionAsync("StyleSheets", false)
 </head>
 <body>
-<header>
 
+<div class="page-wrapper chiller-theme toggled">
+  
     @await Html.PartialAsync("Sidebar")
 
-</header>
 
-<div class="container">
-    <div id="wrapper">
-        @RenderBody()
-    </div>
+    <main class="page-content">
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
+    </main>
 </div>
 
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script type="text/javascript" src="~/lib/js/moment.js"></script>

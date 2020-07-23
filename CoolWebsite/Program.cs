@@ -34,6 +34,7 @@ namespace CoolWebsite
                     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
                     var roleManager = services.GetRequiredService<RoleManager<ApplicationRole>>();
 
+                    
                     await ApplicationDbContextSeed.SeedDefaultUserAsync(userManager, roleManager);
 
                 }

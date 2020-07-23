@@ -6,8 +6,10 @@
     Layout = "_Layout";
 }
 
-<div class="wrapper">
-  <ul class="nav nav-tabs">
+<div>
+  
+<h1 class="text-center mt-2 mb-2">Role Management</h1>
+<ul class="nav nav-tabs">
     <li class="nav-item">
       <a class="nav-link active" data-toggle="tab" href="#home">Roles</a>
     </li>
@@ -15,13 +17,14 @@
       <a class="nav-link" data-toggle="tab" href="#create-user">Create Role</a>
     </li>
   </ul>
-  <div id="myTabContent" class="tab-content">
-    <div class="tab-pane fade active show" id="home">
-      @await Html.PartialAsync("Roles", @Model)
-    </div>
-    <div class="tab-pane fade " id="create-user">
-      @await Html.PartialAsync("CreateRole")
-    </div>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active show" id="home">
+    @await Html.PartialAsync("Roles", @Model)
   </div>
-
+  <div class="tab-pane fade " id="create-user">
+    @await Html.PartialAsync("CreateRole")
+  </div>
 </div>
+</div>
+
+
