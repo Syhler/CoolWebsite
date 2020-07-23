@@ -112,10 +112,13 @@ namespace CoolWebsite.Infrastructure.Identity
             if (signInResult.Succeeded)
             {
                 var claims = await _userManager.GetClaimsAsync(user);
-                if (claims.FirstOrDefault(x => x.Type == "FirstName") == null || claims.FirstOrDefault(x => x.Type == "LastName") == null)
+                if (claims.FirstOrDefault(x => x.Type == "FirstName") == null || 
+                    claims.FirstOrDefault(x => x.Type == "LastName") == null ||
+                    claims.FirstOrDefault(x => x.Type == "UserId") == null)
                 {
                     await _userManager.AddClaimAsync(user, new Claim("FirstName", user.FirstName));
                     await _userManager.AddClaimAsync(user, new Claim("LastName", user.LastName));
+                    await _userManager.AddClaimAsync(user, new Claim("UserId", user.Id));
                     await _signInManager.RefreshSignInAsync(user);
                 }
                 _logger.LogInformation("CoolWebsite LoginUser : {UserId} {Email} {@Timestamp} {@UserAgent} {@Ip}", user.Id, email, DateTime.Now.ToString(CultureInfo.CurrentCulture), _userAgent, _ip);

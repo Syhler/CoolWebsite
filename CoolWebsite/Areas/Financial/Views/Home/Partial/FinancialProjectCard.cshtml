@@ -1,4 +1,5 @@
-﻿@model CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models.FinancialProjectDto
+﻿@using CoolWebsite.Services
+@model CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models.FinancialProjectDto
 
 <div class="card mt-2">
     <div class="card-body">
@@ -6,7 +7,11 @@
         <h6>users: @Model.Users.Count | Receipts @Model.Receipts.Count</h6>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         <a asp-action="Index" asp-controller="Project" asp-area="Financial" asp-route-id="@Model.Id" class="card-link green">Enter</a>
-        <a class="card-link red enable-hover archive-project" data-id="@Model.Id">Archive</a>
+        @if (User.GetUserId() == @Model.CreatedBy)
+        {
+            <a class="card-link red enable-hover archive-project" data-id="@Model.Id">Archive</a>
+        }
+        
         @{
             if (Model.LastModified.HasValue)
             {

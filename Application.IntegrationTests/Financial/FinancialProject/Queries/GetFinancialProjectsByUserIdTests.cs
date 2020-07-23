@@ -55,6 +55,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
             model.FinancialProjects.First().Receipts.First().Id.Should().Be(receiptId);
             model.FinancialProjects.First().Id.Should().Be(project.Id);
             model.FinancialProjects.First().Receipts.First().Location.Should().Be(createReceipt.Location);
+            model.FinancialProjects.First().CreatedBy.Should().Be(User.Id);
             model.FinancialProjects.First().Receipts.First().DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
 
         }

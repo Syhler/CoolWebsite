@@ -19,6 +19,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 
         public DateTime Created { get; set; }
 
+        public string CreatedBy { get; set; } = null!;
+
      
 
         public void Mapping(Profile profile)

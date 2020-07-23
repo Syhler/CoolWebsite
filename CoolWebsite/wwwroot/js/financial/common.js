@@ -15,13 +15,11 @@
     /*    ARCHIVE      */
     /********************/
     
-    $(".archive-project").click(function () {
-
+    $(document).on("click", ".archive-project", function () {
         const id = $(this).data("id")
-        
+
         $("#confirm-archive-btn").attr("data-id", id)
         $("#confirm-archive-modal").modal("show")
-        
     })
     
     $(document).on("click", "#confirm-archive-btn", function () 
