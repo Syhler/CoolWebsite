@@ -2,12 +2,43 @@
 
     const config = {
         createFinancialProjectURL: "/Financial/Home/CreateProject",
-        getModal: "/Financial/Home/GetModal"
+        getModal: "/Financial/Home/GetModal",
+        archive: "/Financial/Home/ArchiveProject"
     };
     
     const modal = $('#create-financial-project-modal')
 
-   
+
+    /*******************/
+    /*    ARCHIVE      */
+    /********************/ 
+    $(document).on("click", ".archive-project", function () {
+        const id = $(this).data("id")
+
+        $("#confirm-archive-btn").attr("data-id", id)
+        $("#confirm-archive-modal").modal("show")
+    })
+
+    $(document).on("click", "#confirm-archive-btn", function ()
+    {
+        const id = $(this).data("id")
+
+        $.ajax({
+            type: "POST",
+            url: config.archive,
+            data: {
+                id: id
+            },
+            success: function () {
+                location.reload()
+            },
+            error: function () {
+                alert("Something went wrong, please contact me :))))))))))")
+                $("#confirm-archive-modal").modal("hide")
+            }
+        })
+
+    })
 
     modal.on('shown.bs.modal', function () 
     {

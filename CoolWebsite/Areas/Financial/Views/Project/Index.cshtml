@@ -37,28 +37,48 @@
     </div>
     
     <div class="modal" tabindex="-1" role="dialog" id="confirm-pay-transaction-modal">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Pay transaction</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-              <div class="form-group has-danger">
-                  <label class="col-form-label" for="transaction-amount">Amount</label>
-                  <input type="text" class="form-control " placeholder="Default input" id="transaction-amount" >
-                  <div class="invalid-feedback" id="transaction-amount-feedback">Sorry, that username's taken. Try another?</div>
-              </div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Pay transaction</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group has-danger">
+                        <label class="col-form-label" for="transaction-amount">Amount</label>
+                        <input type="text" class="form-control " placeholder="Default input" id="transaction-amount" >
+                        <div class="invalid-feedback" id="transaction-amount-feedback">Sorry, that username's taken. Try another?</div>
+                    </div>
 
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-success" id="btn-transaction-confirm">Pay</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-          </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="btn-transaction-confirm">Pay</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
+    
+    <div class="modal fade" id="confirm-archive-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Confirm Archive</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                
+                <div class="modal-body text-white">
+                    <h5>You are about to archive a receipt, you can undo this under the archive tab.</h5>
+                </div>
+                    
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-danger btn-ok" id="confirm-archive-btn">Delete</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <a class="btn btn-block btn-primary" asp-action="CreateReceipt" asp-area="Financial" asp-controller="Project" asp-route-id="@Model.Id">

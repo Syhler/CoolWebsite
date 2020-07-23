@@ -6,43 +6,7 @@
     $("#datepicker").datepicker().datepicker("setDate", new Date());
 
 
-    const config = {
-        archive: "/Financial/Home/ArchiveProject"
-    }
-    
-    
-    /*******************/
-    /*    ARCHIVE      */
-    /********************/
-    
-    $(document).on("click", ".archive-project", function () {
-        const id = $(this).data("id")
-
-        $("#confirm-archive-btn").attr("data-id", id)
-        $("#confirm-archive-modal").modal("show")
-    })
-    
-    $(document).on("click", "#confirm-archive-btn", function () 
-    {
-        const id = $(this).data("id")
-
-        $.ajax({
-            type: "POST",
-            url: config.archive,
-            data: {
-                id: id
-            },
-            success: function () {
-                location.reload()
-            },
-            error: function () {
-                alert("Something went wrong, please contact me :))))))))))")
-                $("#confirm-archive-modal").modal("hide")
-            }
-        })
-        
-    })
-  
+   
     
     
    

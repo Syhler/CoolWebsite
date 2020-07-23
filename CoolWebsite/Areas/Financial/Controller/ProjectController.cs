@@ -169,7 +169,8 @@ namespace CoolWebsite.Areas.Financial.Controller
             return Json(new {result = "Redirect", url = Url.Action("Index", "Project", new {id = model.FinancialProjectId})});
         }
 
-        public async Task<IActionResult> DeleteReceipt(string id, string projectId)
+        [HttpPost]
+        public async Task ArchiveReceipt(string id)
         {
             var command = new DeleteReceiptCommand
             {
@@ -177,9 +178,6 @@ namespace CoolWebsite.Areas.Financial.Controller
             };
 
             await Mediator.Send(command);
-
-
-            return RedirectToAction("Index", "Project", new {id = projectId});
         }
         
         

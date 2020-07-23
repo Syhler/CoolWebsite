@@ -5,13 +5,54 @@ $(document).ready(function () {
         getReceiptItemPartialView: "/Financial/Project/GetReceiptItemPartialView",
         createReceipt: "/Financial/Project/CreateReceiptPost",
         editReceipt: "/Financial/Project/EditReceiptPost",
-        payTransaction: "/Financial/Project/PayTransaction"
+        payTransaction: "/Financial/Project/PayTransaction",
+        archive: "/Financial/Project/ArchiveReceipt"
     }
 
 
     const modal = $("#create-receipt-item-modal");
     const usersOptions = $("#users-dropdown option");
 
+    /*******************/
+    /*    ARCHIVE      */
+    /********************/
+
+    $(document).on("click", ".archive-receipt",function () {
+
+        console.log("Going to delete it!")
+        
+        const receiptId = $(this).data("id");
+        
+       
+        
+        const confirmBtn = $("#confirm-archive-btn")
+        
+        $("#confirm-archive-modal").modal("show")
+        confirmBtn.attr("data-id", receiptId)
+
+    })
+    
+    $(document).on("click", "#confirm-archive-btn", function () {
+
+        const receiptId = $(this).data("id");
+        
+        $.ajax({
+            type: "POST",
+            url: config.archive,
+            data: {
+                id: receiptId,
+            },
+            success: function () {
+                location.reload()
+            },
+            error: function () {
+                alert("Something went wrong, please contact me :))))))))))")
+                $("#confirm-archive-modal").modal("hide")
+            }
+        })
+    })
+    
+    
     modal.on("shown.bs.modal", function () {
         reActivateUsers()
     })

@@ -79,14 +79,9 @@
                         Edit
                     </a>
                     
-                    <a class="btn btn-danger btn-sm" type="button"
-                       asp-action="DeleteReceipt"
-                       asp-controller="Project"
-                       asp-route-id="@Model.Id"
-                       asp-area="Financial"
-                       asp-route-projectId="@Context.GetRouteData().Values["id"]">
-                        Delete
-                    </a>
+                    <button class="btn btn-danger btn-sm archive-receipt" type="button" data-id="@Model.Id">
+                        Archive
+                    </button>
                 }
                
             </div>
