@@ -159,7 +159,7 @@ namespace CoolWebsite.Areas.Financial.Controller
                     ItemGroup = receiptItemModel.ItemGroup.Value,
                     ReceiptId = receiptId,
                     Price = receiptItemModel.Price,
-                    UsersId = receiptItemModel.Users.Select(x => x.Id).ToList()!
+                    UserIds = receiptItemModel.Users.Select(x => x.Id).ToList()!
                 };
 
                 await Mediator.Send(createReceiptItemCommand);

@@ -19,7 +19,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
         public double Price { get; set; }
         public int ItemGroup { get; set; }
         public string ReceiptId { get; set; } = null!;
-        public List<string> UsersId { get; set; } = null!;
+        public List<string> UserIds { get; set; } = null!;
     }
 
     public class CreateReceiptItemCommandHandler : IRequestHandler<CreateReceiptItemCommand, string>
@@ -48,7 +48,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
             var id = Guid.NewGuid().ToString();
 
 
-            var users = request.UsersId.Select(x => new ApplicationUserReceiptItem
+            var users = request.UserIds.Select(x => new ApplicationUserReceiptItem
                 {ApplicationUserId = x, ReceiptItemId = id}).ToList();
 
             var oweRecords = _context.OweRecords.Where(x =>
@@ -77,15 +77,15 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
 
         private void UpdateOweRecord(CreateReceiptItemCommand request, IQueryable<OweRecord> oweRecords)
         {
-            foreach (var user in request.UsersId)
+            foreach (var user in request.UserIds)
             {
                 var oweRecord = oweRecords.FirstOrDefault(x => x.UserId == user);
 
                 if (oweRecord == null) continue;
 
-                if (request.UsersId.Count > 1)
+                if (request.UserIds.Count > 1)
                 {
-                    oweRecord.Amount += Math.Round(request.Count * request.Price / request.UsersId.Count, 2);
+                    oweRecord.Amount += Math.Round(request.Count * request.Price / request.UserIds.Count, 2);
                 }
                 else
                 {

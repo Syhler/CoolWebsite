@@ -89,7 +89,6 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.De
             else
             {
                 record.Amount -= receiptItem.Count * receiptItem.Price;
-
             }
         }
         

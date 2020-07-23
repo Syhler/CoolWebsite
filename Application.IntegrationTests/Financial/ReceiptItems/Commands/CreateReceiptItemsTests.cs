@@ -32,7 +32,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Name = "test",
                 ItemGroup = (int)ItemGroup.Essentials,
                 ReceiptId = receiptId,
-                UsersId = new List<string>
+                UserIds = new List<string>
                 {
                     SecondUser.Id
                 }
@@ -76,7 +76,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Name = "",
                 ItemGroup = (int)ItemGroup.Essentials,
                 ReceiptId = "asdsa",
-                UsersId = new List<string>{User.Id}
+                UserIds = new List<string>{User.Id}
             };
             
             FluentActions.Awaiting(() => SendAsync(create)).Should().Throw<ValidationException>();
@@ -92,7 +92,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Name = "sds",
                 ItemGroup = (int)ItemGroup.Essentials,
                 ReceiptId = "asdsa",
-                UsersId = new List<string>{User.Id}
+                UserIds = new List<string>{User.Id}
             };
             
             FluentActions.Awaiting(() => SendAsync(create)).Should().Throw<ValidationException>();
@@ -108,7 +108,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Name = "sds",
                 ItemGroup = (int)ItemGroup.Essentials,
                 ReceiptId = "asdsa",
-                UsersId = new List<string>{User.Id}
+                UserIds = new List<string>{User.Id}
             };
             
             FluentActions.Awaiting(() => SendAsync(create)).Should().Throw<ValidationException>();
@@ -123,7 +123,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Price = 2,
                 Name = "sds",
                 ReceiptId = "asdsa",
-                UsersId = new List<string>{User.Id},
+                UserIds = new List<string>{User.Id},
                 ItemGroup = -5
             };
             
@@ -141,7 +141,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Name = "sds",
                 ReceiptId = "",
                 ItemGroup = (int)ItemGroup.Essentials,
-                UsersId = new List<string>{User.Id}
+                UserIds = new List<string>{User.Id}
                 
             };
             
@@ -158,7 +158,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Name = "sds",
                 ReceiptId = "asdsa",
                 ItemGroup = (int)ItemGroup.Essentials,
-                UsersId = new List<string>{User.Id}
+                UserIds = new List<string>{User.Id}
             };
 
             FluentActions.Awaiting(() => SendAsync(create)).Should().Throw<ParentObjectNotFoundException>();
@@ -189,7 +189,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Name = "sds",
                 ReceiptId = "asdsa",
                 ItemGroup = (int)ItemGroup.Essentials,
-                UsersId = new List<string>()
+                UserIds = new List<string>()
             };
 
             FluentActions.Awaiting(() => SendAsync(create)).Should().Throw<ValidationException>();

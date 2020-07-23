@@ -26,7 +26,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
                 .NotEmpty()
                 .NotNull();
 
-            RuleFor(x => x.UsersId)
+            RuleFor(x => x.UserIds)
                 .NotNull()
                 .NotEmpty();
         }

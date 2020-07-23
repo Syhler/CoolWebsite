@@ -56,7 +56,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
                 Name = "test",
                 ItemGroup = (int) ItemGroup.Essentials,
                 ReceiptId = receiptId,
-                UsersId = new List<string> {SecondUser.Id}
+                UserIds = new List<string> {SecondUser.Id}
             };
 
             var receiptItemId = await SendAsync(receiptItemCommand);

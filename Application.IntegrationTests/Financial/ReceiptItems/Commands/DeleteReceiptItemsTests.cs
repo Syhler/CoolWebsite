@@ -27,7 +27,7 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 ItemGroup = (int)ItemGroup.Essentials,
                 Count = 22,
                 Name = "das",
-                UsersId = new List<string>
+                UserIds = new List<string>
                 {
                     User.Id
                 }

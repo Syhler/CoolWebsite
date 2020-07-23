@@ -22,7 +22,9 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
     {
 
         [Test]
-        public async Task Handle_ValidFields_ShouldUpdate()
+        [TestCase(1)]
+        [TestCase(2)]
+        public async Task Handle_ValidFields_ShouldUpdate(int userAmount)
         {
             var projectId = await CreateFinancialProject();
             var id = await CreateReceipt(projectId);
@@ -34,10 +36,14 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
                 Price = 1000,
                 ItemGroup = 0,
                 ReceiptId = id,
-                UsersId = new List<string>
-                {
-                    SecondUser.Id
-                }
+               
+            };
+            
+            itemCommand.UserIds = userAmount switch
+            {
+                1 => new List<string> {SecondUser.Id},
+                2 => new List<string> {User.Id, SecondUser.Id},
+                _ => itemCommand.UserIds
             };
 
             var receiptItemId = await SendAsync(itemCommand);
@@ -49,7 +55,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
             var oweRecord = context.OweRecords.FirstOrDefault(x => x.OwedUserId == User.Id && x.UserId == SecondUser.Id && x.FinancialProjectId == projectId);
 
             oweRecord.Should().NotBeNull();
-            oweRecord.Amount.Should().Be(itemCommand.Count * itemCommand.Price);
+            oweRecord.Amount.Should().Be(itemCommand.Count * itemCommand.Price / itemCommand.UserIds.Count);
 
             var editedItem = new ReceiptItemDto
             {
@@ -110,6 +116,79 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
             entity.LastModifiedBy.Should().Be(User.Id);
             entity.DateVisited.Should().BeCloseTo(DateTime.Now, 1000);
             entity.Location.Should().Be(command.Location);
+        }
+
+        [Test]
+        public async Task Handle_RemoveReceiptItem_ShouldRemoveReceiptItem()
+        {
+            var projectId = await CreateFinancialProject();
+            var id = await CreateReceipt(projectId);
+
+            var itemCommand = new CreateReceiptItemCommand
+            {
+                Name = "Receipt",
+                Count = 10,
+                Price = 1000,
+                ItemGroup = 0,
+                ReceiptId = id,
+                UserIds = new List<string> {User.Id, SecondUser.Id}
+               
+            };
+            /*
+            itemCommand.UserIds = userAmount switch
+            {
+                1 => new List<string> {SecondUser.Id},
+                2 => new List<string> {User.Id, SecondUser.Id},
+                _ => itemCommand.UserIds
+            };
+            */
+
+            var receiptItemId = await SendAsync(itemCommand);
+            
+            var item = GetReceiptItem(5);
+            
+
+            
+            var editedItem = new ReceiptItemDto
+            {
+                ItemGroup = new ItemGroupDto {Value = itemCommand.ItemGroup},
+                Count = 1,
+                Id = receiptItemId,
+                Price = 100,
+                Users = new List<UserDto> {new UserDto {Id = SecondUser.Id}}
+            };
+            
+            var command = new UpdateReceiptCommand
+            {
+                Id = id,
+                Location = "Netto",
+                DateVisited = DateTime.Now,
+                Note = "meh",
+                ItemDtos = new List<ReceiptItemDto>
+                {
+                    item
+                }
+            };
+            
+            await SendAsync(command);
+
+            var context = CreateContext();
+
+            var entity = context.Receipts
+                .Include(x => x.Items)
+                .FirstOrDefault(x => x.Id == command.Id);
+
+            
+            entity.Should().NotBeNull();
+            entity.Note.Should().Be(command.Note);
+            entity.Items.FirstOrDefault(x => x.Id == item.Id).Should().NotBeNull();
+            entity.Items.Count.Should().Be(command.ItemDtos.Count);
+            
+            var editedItemEntity = entity.Items.FirstOrDefault(x => x.Id == editedItem.Id);
+            editedItemEntity.Should().BeNull();
+
+            var newItem = entity.Items.FirstOrDefault(x => x.Id == item.Id);
+            newItem.Should().NotBeNull();
         }
 
         [Test]

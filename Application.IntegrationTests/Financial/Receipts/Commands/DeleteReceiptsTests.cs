@@ -19,7 +19,9 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
     {
 
         [Test]
-        public async Task Handle_ValidID_ShouldDelete()
+        [TestCase(1)]
+        [TestCase(2)]
+        public async Task Handle_ValidID_ShouldDeleteAndUpdateOweRecord(int userAmount)
         {
             
             
@@ -35,15 +37,17 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
                 Name = "test",
                 Price = 10,
                 ReceiptId = id,
-                UsersId = new List<string>
-                {
-                    SecondUser.Id
-                }
             };
 
-           var receiptItemId= await SendAsync(createReceiptItemCommand);
-            
+            createReceiptItemCommand.UserIds = userAmount switch
+            {
+                1 => new List<string> {SecondUser.Id},
+                2 => new List<string> {User.Id, SecondUser.Id},
+                _ => createReceiptItemCommand.UserIds
+            };
 
+            await SendAsync(createReceiptItemCommand);
+          
             var command = new DeleteReceiptCommand
             {
                 Id = id
@@ -55,7 +59,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
                 x.OwedUserId == User.Id && x.UserId == SecondUser.Id && x.FinancialProjectId == projectId);
 
             oweRecord.Should().NotBeNull();
-            oweRecord.Amount.Should().Be(createReceiptItemCommand.Count * createReceiptItemCommand.Price);
+            oweRecord.Amount.Should().Be(createReceiptItemCommand.Count * createReceiptItemCommand.Price / createReceiptItemCommand.UserIds.Count);
             
             var notDeleted = await FindAsync<Receipt>(command.Id);
 
@@ -75,6 +79,8 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
             updatedOweRecord.Amount.Should().Be(0);
 
         }
+
+      
 
         [Test]
         public void Handle_Invalid_ShouldThrowNotFoundException()

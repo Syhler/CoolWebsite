@@ -39,7 +39,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Queries
                 Price = 1000,
                 ItemGroup = 0,
                 ReceiptId = receiptId,
-                UsersId = new List<string>
+                UserIds = new List<string>
                 {
                     User.Id,
                     SecondUser.Id
@@ -73,7 +73,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Queries
             item.Count.Should().Be(receiptItemCommand.Count);
             item.Price.Should().Be(receiptItemCommand.Price);
             item.ItemGroup.Value.Should().Be(receiptItemCommand.ItemGroup);
-            item.Users.Count.Should().Be(receiptItemCommand.UsersId.Count);
+            item.Users.Count.Should().Be(receiptItemCommand.UserIds.Count);
 
 
         }
