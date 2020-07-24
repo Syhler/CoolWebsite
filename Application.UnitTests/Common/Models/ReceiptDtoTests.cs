@@ -72,6 +72,18 @@ namespace Application.UnitTests.Common.Models
             dto.DaysSinceLastVisit.Should().Be(5);
         }
         
+        [Test]
+        public void HandleDaysDaysSinceDeleted_ValidDate_ShouldReturnCorrectNumberOfDays()
+        {
+            var dto = new ReceiptDto
+            {
+                Deleted = DateTime.Now.AddDays(-5)
+            };
+
+            dto.Deleted.Should().BeCloseTo(dto.Deleted.GetValueOrDefault(), 10000);
+            
+            dto.DaysSinceDeleted.Should().Be(5);
+        }
         
     }
 }

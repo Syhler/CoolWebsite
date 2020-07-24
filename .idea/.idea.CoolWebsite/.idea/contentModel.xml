@@ -30,6 +30,7 @@
             </e>
             <e p="Queries" t="Include">
               <e p="GetAllFinancialProjectsTests.cs" t="Include" />
+              <e p="GetArchiveFinancialProjectsByUserQueryTests.cs" t="Include" />
               <e p="GetFinancialProjectByIdQueryTests.cs" t="Include" />
               <e p="GetFinancialProjectsByUserIdTests.cs" t="Include" />
               <e p="GetUsersFromFinancialProjectQueryTests.cs" t="Include" />
@@ -52,6 +53,7 @@
               <e p="UpdateReceiptsTests.cs" t="Include" />
             </e>
             <e p="Queries" t="Include">
+              <e p="GetArchiveReceiptsByUserQueryTests.cs" t="Include" />
               <e p="GetReceiptByIdQueryTests.cs" t="Include" />
             </e>
           </e>
@@ -103,11 +105,13 @@
               <e p="SelectListHandler.cs" t="Include" />
             </e>
             <e p="Controller" t="Include">
+              <e p="ArchiveController.cs" t="Include" />
               <e p="HomeController.cs" t="Include" />
               <e p="ProjectController.cs" t="Include" />
             </e>
             <e p="Models" t="Include">
               <e p="AddUserModel.cs" t="Include" />
+              <e p="ArchiveVm.cs" t="Include" />
               <e p="CreateFinancialProjectModel.cs" t="Include" />
               <e p="CreateReceiptItemVm.cs" t="Include" />
               <e p="CreateReceiptModel.cs" t="Include" />
@@ -116,6 +120,13 @@
             </e>
             <e p="Views" t="Include">
               <e p="_ViewImports.cshtml" t="Include" />
+              <e p="Archive" t="Include">
+                <e p="Index.cshtml" t="Include" />
+                <e p="Partial" t="Include">
+                  <e p="FinancialArchiveProjectCard.cshtml" t="Include" />
+                  <e p="ReceiptArchiveCard.cshtml" t="Include" />
+                </e>
+              </e>
               <e p="Home" t="Include">
                 <e p="Index.cshtml" t="Include" />
                 <e p="Partial" t="Include">
@@ -2159,6 +2170,9 @@
                 </e>
               </e>
               <e p="Queries" t="Include">
+                <e p="GetArchiveFinancialProjects" t="Include">
+                  <e p="GetArchiveFinancialProjectsByUserQuery.cs" t="Include" />
+                </e>
                 <e p="GetFinancialProjects" t="Include">
                   <e p="GetAllFinancialProjectQuery.cs" t="Include" />
                   <e p="GEtFinancialProjectByIdQuery.cs" t="Include" />
@@ -2215,9 +2229,12 @@
                 </e>
               </e>
               <e p="Queries" t="Include">
+                <e p="GetArchiveReceiptsByUserQuery.cs" t="Include" />
                 <e p="GetReceiptByIdQuery.cs" t="Include" />
                 <e p="GetReceiptByIdQueryValidator.cs" t="Include" />
-                <e p="ReceiptVm.cs" t="Include" />
+                <e p="Models" t="Include">
+                  <e p="ReceiptVm.cs" t="Include" />
+                </e>
               </e>
             </e>
           </e>

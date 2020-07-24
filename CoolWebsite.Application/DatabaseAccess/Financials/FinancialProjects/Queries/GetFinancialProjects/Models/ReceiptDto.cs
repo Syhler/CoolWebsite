@@ -16,6 +16,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 
         public IList<ReceiptItemDto> Items{ get; set; } = null!;
 
+        public FinancialProjectDto FinancialProject { get; set; } = null!;
         public DateTime? Deleted { get; set; }
 
         public string CreatedByUserId { get; set; } = null!;
@@ -42,11 +43,15 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 
         public int DaysSinceLastVisit => (DateTime.Now - DateVisited).Days;
 
+        public int DaysSinceDeleted => (DateTime.Now - Deleted.GetValueOrDefault()).Days;
+
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Receipt, ReceiptDto>()
                 .ForMember(x => x.Items,
                     opt => opt.MapFrom(x => x.Items))
+                .ForMember(x => x.FinancialProject,
+                    opt => opt.MapFrom(x => x.FinancialProject))
                 .ForMember(x => x.CreatedByDto, 
                     opt => opt.MapFrom(x => x.CreatedByUser));
         }

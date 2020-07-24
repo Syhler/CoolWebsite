@@ -1,0 +1,44 @@
+﻿@model CoolWebsite.Areas.Financial.Models.ArchiveVm
+@{
+    ViewBag.Title = "Archive";
+    Layout = "_Layout";
+}
+
+<h1>Projects</h1>
+
+<div id="project-cards">
+    @{
+        if (Model.FinancialProjects != null)
+        {
+            foreach (var financialProject in @Model.FinancialProjects)
+            {
+                @await Html.PartialAsync("Partial/FinancialArchiveProjectCard", financialProject)
+            }
+        }
+    }
+</div>
+<h1>Receitps</h1>
+
+<div id="project-cards container">
+
+    @if (Model.Receipts != null)
+    {
+        @for (var index = 0; index < Model.Receipts.Count;)
+        {
+            <div class="row mt-5">
+
+                @for (int i = 0; i < 3; i++)
+                {
+                    <div class="col-sm">
+                        @if (index < Model.Receipts.Count)
+                        {
+                            @await Html.PartialAsync("Partial/ReceiptArchiveCard", @Model.Receipts[index])
+                        }
+                    </div>
+
+                    index++;
+                }
+            </div>
+        }
+    }
+</div>

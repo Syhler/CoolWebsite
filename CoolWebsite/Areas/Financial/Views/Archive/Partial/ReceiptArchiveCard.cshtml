@@ -12,6 +12,10 @@
                     @Model.CreatedByDto.Initial
                 </div>
             </h5>
+            
+            <h5>
+                Project: @Model.FinancialProject.Title
+            </h5>
 
         </div>
         <div class="card-body">
@@ -67,21 +71,17 @@
             <div>
                 
 
-                @if (User.GetUserId() == @Model.CreatedByUserId)
-                {
-                    <a class="btn btn-success btn-sm mr-2" type="button"
-                       asp-action="EditReceipt"
-                       asp-controller="Project"
-                       asp-area="Financial"
-                       asp-route-id="@Model.Id"
-                       asp-route-financialProjectId="@Context.GetRouteData().Values["id"]">
-                        Edit
-                    </a>
-                    
-                    <button class="btn btn-danger btn-sm archive-receipt" type="button" data-id="@Model.Id">
-                        Archive
-                    </button>
-                }
+               
+                <a class="btn btn-success btn-sm mr-2" type="button"
+                   asp-action=""
+                   asp-controller=""
+                   asp-area=""
+                   asp-route-id="@Model.Id"
+                   asp-route-financialProjectId="@Context.GetRouteData().Values["id"]">
+                    Activate
+                </a>
+                
+               
                
             </div>
         </div>
@@ -90,15 +90,15 @@
                 var days = @Model.DaysSinceLastVisit;
                 if (days == 0)
                 {
-                    <text><span class="text-muted">Today</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
+                    <text><span class="text-muted">Today</span> : Deleted @Model.Deleted.GetValueOrDefault().ToShortDateString()</text>
                 }
                 else if (days == 1)
                 {
-                    <text><span class="text-muted">Yesterday</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
+                    <text><span class="text-muted">Yesterday</span> : Deleted @Model.Deleted.GetValueOrDefault().ToShortDateString()</text>
                 }
                 else
                 {
-                    <text><span class="text-muted">@days days ago</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
+                    <text><span class="text-muted">@days days ago</span> : Deleted @Model.Deleted.GetValueOrDefault().ToShortDateString()</text>
                 }
             }
         </div>

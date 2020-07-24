@@ -17,6 +17,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 
         public DateTime? LastModified { get; set; }
 
+        public DateTime? Deleted { get; set; }
+
         public DateTime Created { get; set; }
 
         public string CreatedBy { get; set; } = null!;

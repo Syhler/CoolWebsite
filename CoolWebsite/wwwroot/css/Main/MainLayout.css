@@ -61,7 +61,7 @@ colors
 }
 
 .green{
-    color: #04bd04;
+    color: #04bd04 !important;
 }
 
 .yellow

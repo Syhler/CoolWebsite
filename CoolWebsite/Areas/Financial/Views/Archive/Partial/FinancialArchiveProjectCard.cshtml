@@ -1,0 +1,22 @@
+﻿@using CoolWebsite.Services
+@model CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models.FinancialProjectDto
+
+<div class="card mt-2">
+    <div class="card-body">
+        <h4 class="card-title">@Model.Title</h4>
+        <h6>users: @Model.Users.Count | Receipts @Model.Receipts.Count</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        
+        <a class="card-link green enable-hover archive-project" data-id="@Model.Id">Activate</a>
+        
+        
+        @{
+            if (Model.Deleted.HasValue)
+            {
+                <span class="card-link text-white">Deleted: @Model.Deleted</span>
+            }
+           
+        }
+
+    </div>
+</div>
