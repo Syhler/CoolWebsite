@@ -280,7 +280,7 @@ namespace CoolWebsite.Infrastructure.Identity
             return result.ToApplicationResult();
         }
 
-        public async Task<ApplicationUser> GetUserById(string id)
+        public async Task<ApplicationUser> GetUserById(string? id)
         {
             if (_userManager == null)
             {
@@ -321,6 +321,7 @@ namespace CoolWebsite.Infrastructure.Identity
             user.LastName = updateApplicationUser.LastName;
             user.Email = updateApplicationUser.Email;
             user.UserName = updateApplicationUser.Email;
+            user.PhoneNumber = updateApplicationUser.PhoneNumber;
 
             if (!string.IsNullOrWhiteSpace(updateApplicationUser.Password))
             {

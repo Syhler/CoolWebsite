@@ -49,12 +49,16 @@
                     <div class="form-group has-danger">
                         <label class="col-form-label" for="transaction-amount">Amount</label>
                         <input type="text" class="form-control " placeholder="Default input" id="transaction-amount" >
-                        <div class="invalid-feedback" id="transaction-amount-feedback">Sorry, that username's taken. Try another?</div>
+                        <div class="invalid-feedback" id="transaction-amount-feedback">ErrorMessage</div>
+                    </div>
+                    <div class="form-group">
+                        <p>(If you choose to pay with mobilepay you will be redircted to mobilepays own site. Where you will be promted the amount you owe. Works best on mobile)</p>
                     </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" id="btn-transaction-confirm">Pay</button>
+                    <button type="button" class="btn btn-info" id="btn-transaction-mobilepay-confirm">Pay With Mobilepay</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                 </div>
             </div>

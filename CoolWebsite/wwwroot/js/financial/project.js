@@ -6,6 +6,7 @@ $(document).ready(function () {
         createReceipt: "/Financial/Project/CreateReceiptPost",
         editReceipt: "/Financial/Project/EditReceiptPost",
         payTransaction: "/Financial/Project/PayTransaction",
+        payTransactionMobilePay: "/Financial/Project/PayTransactionMobilePay",
         archive: "/Financial/Project/ArchiveReceipt"
     }
 
@@ -473,7 +474,17 @@ $(document).ready(function () {
     })
     
     $(document).on("click", "#btn-transaction-confirm", function () {
-        sendPayTransaction()
+        sendPayTransaction(config.payTransaction, function () {
+            location.reload();
+        })
+    })
+    
+    $(document).on("click", "#btn-transaction-mobilepay-confirm", function () {
+
+        sendPayTransaction(config.payTransactionMobilePay, function (data) {
+            window.open(data, '_blank');
+            location.reload()
+        })
     })
     
     $(document).on("click",".btn-request", function () {
@@ -490,7 +501,7 @@ $(document).ready(function () {
         $("#transaction-amount").addClass("is-invalid");
     }
     
-    function sendPayTransaction()
+    function sendPayTransaction(url, callback)
     {
         const input = $("#transaction-amount");
         const amount = input.val()
@@ -529,7 +540,7 @@ $(document).ready(function () {
         
         $.ajax({
             type : "POST",
-            url: config.payTransaction,
+            url: url,
             data: {
                 model : {
                     ToUserId : toUserId,
@@ -537,22 +548,8 @@ $(document).ready(function () {
                     FinancialProjectId : financialProjectId
                 }
             },
-            success: function () {
-                $("#confirm-pay-transaction-modal").modal("hide")
-
-                location.reload();
-                
-                /*
-                
-                const currentAmountElem = $("[data-id="+toUserId+"]").parent().find(".amount-owed");
-                
-                const newAmount = parseFloat(currentAmountElem.text()) - parseFloat(amount);
-
-                currentAmountElem.text(newAmount)
-                
-                 */
-                
-                
+            success: function (data) {
+                callback(data)
             },
             error: function () {
 

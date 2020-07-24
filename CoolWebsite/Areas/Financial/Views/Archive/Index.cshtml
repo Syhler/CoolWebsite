@@ -14,7 +14,12 @@
             {
                 @await Html.PartialAsync("Partial/FinancialArchiveProjectCard", financialProject)
             }
+            if (Model.FinancialProjects.Count == 0)
+            {
+                <h4>No archived projects found</h4>
+            }
         }
+       
     }
 </div>
 <h1>Receitps</h1>
@@ -39,6 +44,11 @@
                     index++;
                 }
             </div>
+        }
+        if (Model.Receipts.Count == 0)
+        {
+            <h4>No archived receipts found</h4>
+
         }
     }
 </div>

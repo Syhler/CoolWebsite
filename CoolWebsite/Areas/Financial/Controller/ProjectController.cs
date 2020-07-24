@@ -29,10 +29,12 @@ namespace CoolWebsite.Areas.Financial.Controller
     public class ProjectController : MediatorController
     {
         private readonly ICurrentUserService _currentUserService;
+        private readonly IIdentityService _identityService;
 
-        public ProjectController(ICurrentUserService currentUserService)
+        public ProjectController(ICurrentUserService currentUserService, IIdentityService identityService)
         {
             _currentUserService = currentUserService;
+            _identityService = identityService;
         }
 
         // GET
@@ -60,8 +62,25 @@ namespace CoolWebsite.Areas.Financial.Controller
 
             await Mediator.Send(command);
         }
-        
-        
+
+        [HttpPost]
+        public async Task<string> PayTransactionMobilePay(PayTransaction model)
+        {
+            var command = new CreateTransactionCommand
+            {
+                TransactionType = TransactionType.FinancialReceiptsMobilePay,
+                ToUserId = model.ToUserId,
+                Amount = model.Amount,
+                FinancialProjectId = model.FinancialProjectId
+            };
+
+            await Mediator.Send(command);
+
+            
+            var user = await _identityService.GetUserById(model.ToUserId);
+            
+            return MobilePayDeepLink.GenerateUrl(user, model.Amount);
+        }
 
         [HttpGet]
         public async Task<IActionResult> CreateReceipt(string id)

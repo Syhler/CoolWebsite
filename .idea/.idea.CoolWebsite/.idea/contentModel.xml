@@ -207,6 +207,7 @@
             <e p="VMMappingProfile.cs" t="Include" />
           </e>
           <e p="MediatorController.cs" t="Include" />
+          <e p="MobilePayDeepLink.cs" t="Include" />
           <e p="UserExtension.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
@@ -2257,6 +2258,7 @@
             </e>
           </e>
         </e>
+        <e p="Services" t="Include" />
       </e>
       <e p="CoolWebsite.Domain" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
