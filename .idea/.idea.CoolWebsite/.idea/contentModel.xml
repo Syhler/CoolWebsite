@@ -24,6 +24,7 @@
         <e p="Financial" t="Include">
           <e p="FinancialProject" t="Include">
             <e p="Commands" t="Include">
+              <e p="ActivateFinancialProjectTests.cs" t="Include" />
               <e p="CreateFinancialProjectTests.cs" t="Include" />
               <e p="DeleteFinancialProjectTests.cs" t="Include" />
               <e p="UpdateFinancialProjectTests.cs" t="Include" />
@@ -2156,6 +2157,10 @@
           <e p="Financials" t="Include">
             <e p="FinancialProjects" t="Include">
               <e p="Commands" t="Include">
+                <e p="ActivateFinancialProject" t="Include">
+                  <e p="ActivateFinancialProjectCommand.cs" t="Include" />
+                  <e p="ActivateFinancialProjectCommandValidator.cs" t="Include" />
+                </e>
                 <e p="CreateFinancialProject" t="Include">
                   <e p="CreateFinancialProjectCommand.cs" t="Include" />
                   <e p="CreateFinancialProjectCommandValidator.cs" t="Include" />
