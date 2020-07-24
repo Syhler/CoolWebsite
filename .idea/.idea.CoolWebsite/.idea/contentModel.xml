@@ -49,6 +49,7 @@
           </e>
           <e p="Receipts" t="Include">
             <e p="Commands" t="Include">
+              <e p="ActivateReceiptTests.cs" t="Include" />
               <e p="CreateReceiptsTests.cs" t="Include" />
               <e p="DeleteReceiptsTests.cs" t="Include" />
               <e p="UpdateReceiptsTests.cs" t="Include" />
@@ -2220,6 +2221,10 @@
             </e>
             <e p="Receipts" t="Include">
               <e p="Commands" t="Include">
+                <e p="ActivateReceipts" t="Include">
+                  <e p="ActivateReceiptCommand.cs" t="Include" />
+                  <e p="ActivateReceiptCommandValidator.cs" t="Include" />
+                </e>
                 <e p="CreateReceipts" t="Include">
                   <e p="CreateReceiptCommand.cs" t="Include" />
                   <e p="CreateReceiptCommandValidator.cs" t="Include" />
