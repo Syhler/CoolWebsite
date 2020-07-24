@@ -7,7 +7,7 @@
         <h6>users: @Model.Users.Count | Receipts @Model.Receipts.Count</h6>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         
-        <a class="card-link green enable-hover archive-project" data-id="@Model.Id">Activate</a>
+        <a class="card-link green enable-hover archive-project" asp-action="ActivateFinancialProject" asp-controller="Archive" asp-area="Financial" asp-route-id="@Model.Id" >Activate</a>
         
         
         @{

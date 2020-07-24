@@ -20,11 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/ActivateReceiptTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/ActivateReceipts/ActivateReceiptCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/ActivateReceipts/ActivateReceiptCommandValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ArchiveController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ArchiveController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Partial/FinancialArchiveProjectCard.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Partial/FinancialArchiveProjectCard.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Partial/ReceiptArchiveCard.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Partial/ReceiptArchiveCard.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -348,24 +347,24 @@
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/GetArchiveReceiptsByUserQuery.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/FinancialProjectDto.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/ArchiveVm.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ArchiveController.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/ReceiptCard.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetArchiveFinancialProjects/GetArchiveFinancialProjectsByUserQuery.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetArchiveFinancialProjectsByUserQueryTests.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Index.cshtml" />
         <option value="$PROJECT_DIR$/Application.UnitTests/Common/Models/ReceiptDtoTests.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Index.cshtml" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Partial/FinancialArchiveProjectCard.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/MainLayout.css" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/ReceiptDto.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Queries/GetArchiveReceiptsByUserQueryTests.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Partial/ReceiptArchiveCard.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/ActivateFinancialProject/ActivateFinancialProjectCommandValidator.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/ActivateFinancialProject/ActivateFinancialProjectCommand.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Commands/ActivateFinancialProjectTests.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/ActivateReceipts/ActivateReceiptCommandValidator.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/ActivateReceipts/ActivateReceiptCommand.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/ActivateReceiptTests.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ArchiveController.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Partial/ReceiptArchiveCard.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Partial/FinancialArchiveProjectCard.cshtml" />
       </list>
     </option>
   </component>
@@ -531,7 +530,7 @@
       <workItem from="1595426324064" duration="7096000" />
       <workItem from="1595495882000" duration="10362000" />
       <workItem from="1595529068867" duration="6175000" />
-      <workItem from="1595579923047" duration="11588000" />
+      <workItem from="1595579923047" duration="12416000" />
     </task>
     <servers />
   </component>
@@ -809,12 +808,12 @@
     </state>
     <state x="936" y="330" key="run.anything.popup/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1590939200407" />
     <state x="936" y="330" width="672" height="677" key="run.anything.popup/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1593985597042" />
-    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup" timestamp="1595601397944">
+    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup" timestamp="1595603789362">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1591022876078" />
     <state x="943" y="315" width="672" height="676" key="search.everywhere.popup/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588345088296" />
-    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595601397944" />
+    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595603789362" />
     <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595583868126" />
     <state x="3503" y="1764" width="672" height="696" key="search.everywhere.popup/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588456983205" />
   </component>

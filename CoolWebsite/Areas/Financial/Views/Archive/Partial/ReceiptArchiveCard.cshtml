@@ -73,11 +73,10 @@
 
                
                 <a class="btn btn-success btn-sm mr-2" type="button"
-                   asp-action=""
-                   asp-controller=""
-                   asp-area=""
-                   asp-route-id="@Model.Id"
-                   asp-route-financialProjectId="@Context.GetRouteData().Values["id"]">
+                   asp-action="ActivateReceipt"
+                   asp-controller="Archive"
+                   asp-area="Financial"
+                   asp-route-id="@Model.Id">
                     Activate
                 </a>
                 
