@@ -71,6 +71,7 @@
         <e p="Transaction" t="Include">
           <e p="Commands" t="Include">
             <e p="CreateTransactionTests.cs" t="Include" />
+            <e p="DeleteTransactionTests.cs" t="Include" />
           </e>
           <e p="Queries" t="Include">
             <e p="GetPayedTransactionByProjectTests.cs" t="Include" />
@@ -2171,6 +2172,10 @@
                 <e p="CreateTransaction" t="Include">
                   <e p="CreateTransactionCommand.cs" t="Include" />
                   <e p="CreateTransactionCommandValidator.cs" t="Include" />
+                </e>
+                <e p="DeleteTransactions" t="Include">
+                  <e p="DeleteTransactionCommand.cs" t="Include" />
+                  <e p="DeleteTransactionCommandValidator.cs" t="Include" />
                 </e>
               </e>
               <e p="Queries" t="Include">
