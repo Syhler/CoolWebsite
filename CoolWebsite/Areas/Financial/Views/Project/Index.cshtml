@@ -5,11 +5,12 @@
     Layout = "_Layout";
 }
 
-
 <div>
+
     <div>
         <h1 class="mb-3 text-center">@Model.Title</h1>
     </div>
+
     <div>
         <div class="container mb-2 pb-3 pt-3" style="border: 1px solid rgba(0,0,0,0.6); background-color: #32383e">
             <div class="row">
@@ -35,6 +36,7 @@
             </div>
         </div>
     </div>
+
     
     <div class="modal" tabindex="-1" role="dialog" id="confirm-pay-transaction-modal">
         <div class="modal-dialog" role="document">
@@ -102,7 +104,7 @@
 
             <div class="row mt-5">
 
-                @for (int i = 0; i < 3; i++)
+                @for (int i = 0; i < 4; i++)
                 {
                     <div class="col-sm">
                         @if (index < Model.Receipts.Count)

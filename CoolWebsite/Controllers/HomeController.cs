@@ -22,17 +22,30 @@ namespace CoolWebsite.Controllers
     public class HomeController : MediatorController
     {
         private readonly IIdentityService _identityService;
+        private readonly ICurrentUserService _currentUserService;
 
         
-        public HomeController(IIdentityService identityService)
+        public HomeController(IIdentityService identityService, ICurrentUserService currentUserService)
         {
             _identityService = identityService;
+            _currentUserService = currentUserService;
         }
 
         [AllowAnonymous]
         public IActionResult Index()
         {
+            if (_currentUserService.UserId != null && User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home", new {area = "Financial"});
+            }
+            
             return View();
+        }
+
+        [AllowAnonymous]
+        public IActionResult HomePage()
+        {
+            return View("Index");
         }
 
         [HttpPost]
