@@ -7,7 +7,7 @@
             <h5 class="text-center mt-2 mb-2">
                 @if (@Model.TransactionPartialModel != null)
                 {
-                    <span id="payed-total">@Model.TransactionPartialModel.PayedTotal</span>
+                    <span id="payed-total">@Model.TransactionPartialModel.PayedTotal.ToString("N2")</span>
                 }
                 else
                 {
@@ -22,7 +22,7 @@
             <h5 class="text-center mt-2 mb-2">
                 @if (Model.TransactionPartialModel != null)
                 {
-                    <span id="received-total">@Model.TransactionPartialModel.ReceivedTotal</span>
+                    <span id="received-total">@Model.TransactionPartialModel.ReceivedTotal.ToString("N2")</span>
                 }
                 else
                 {

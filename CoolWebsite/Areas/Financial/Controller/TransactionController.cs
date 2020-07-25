@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using CoolWebsite.Application.DatabaseAccess.Common.Transaction.Commands.DeleteTransactions;
 using CoolWebsite.Application.DatabaseAccess.Common.Transaction.Queries;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects;
 using CoolWebsite.Areas.Financial.Models;
@@ -15,6 +16,7 @@ namespace CoolWebsite.Areas.Financial.Controller
     [Authorize(Roles = "Financial, Admin")]
     public class TransactionController : MediatorController
     {
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var projects = await Mediator.Send(new GetFinancialProjectQuery());
@@ -32,6 +34,18 @@ namespace CoolWebsite.Areas.Financial.Controller
             return View(model);
         }
 
+        [HttpPost]
+        public async Task DeleteTransaction(string id)
+        {
+            var deleteCommand = new DeleteTransactionCommand
+            {
+                Id = id
+            };
+
+            await Mediator.Send(deleteCommand);
+        }
+            
+        [HttpGet]
         public async Task<IActionResult> TransactionPartial()
         {
             var projects = await Mediator.Send(new GetFinancialProjectQuery());
@@ -50,6 +64,7 @@ namespace CoolWebsite.Areas.Financial.Controller
             return PartialView("Partial/IndexPartial", model);
         }
         
+        [HttpGet]
         public async Task<IActionResult> TransactionPartialByProject(string id)
         {
             var projects = await Mediator.Send(new GetFinancialProjectQuery());

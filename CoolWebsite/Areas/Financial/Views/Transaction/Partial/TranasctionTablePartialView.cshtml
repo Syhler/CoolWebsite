@@ -35,7 +35,7 @@
                         <td>@transaction.ToUser.Name</td>
                         <td>@transaction.Amount.ToString("N2") kr.</td>
                         <td>
-                            <button type="button" class="btn btn-danger btn-sm">
+                            <button type="button" class="btn btn-danger btn-sm delete-transaction" data-id="@transaction.Id" data-amount="@transaction.Amount">
                                 <i class="far fa-trash-alt"></i>
                                 Delete
                             </button>

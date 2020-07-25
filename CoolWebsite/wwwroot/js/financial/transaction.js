@@ -2,8 +2,37 @@
 
     const config = {
         getAllTransactions: "/Financial/Transaction/TransactionPartial",
-        getTransactionsById: "/Financial/Transaction/TransactionPartialByProject"
+        getTransactionsById: "/Financial/Transaction/TransactionPartialByProject",
+        deleteTransaction: "/Financial/Transaction/DeleteTransaction"
     }
+    
+    $(document).on("click", ".delete-transaction",function () {
+        const btn = $(this);
+        const id = btn.data("id");
+        const amount = parseFloat(btn.data("amount").toString().replace(',', '.'));
+
+        
+        
+        $.ajax({
+            type: "POST",
+            url: config.deleteTransaction,
+            data: {
+                id: id
+            },
+            success: function () {
+                btn.parent().parent().remove()
+                const payedTotal =$("#payed-total");
+                const totalAmount = parseFloat(payedTotal.text().replace(/\./g,'').replace(',', '.'));
+
+                const newTotal = totalAmount - amount;
+
+                payedTotal.text(newTotal.toLocaleString("da-DK", {minimumFractionDigits: 2}))
+            },
+            error: function () {
+                alert("ARGHHHHHHHH SOMETHING WENT WRONG ARGHHHHHHHHHHH")
+            }
+        })
+    })
     
     $(document).on("change", "#dropdown-project", function() {
         
