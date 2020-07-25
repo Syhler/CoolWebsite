@@ -1,9 +1,11 @@
 ﻿using System;
 using AutoMapper;
 using CoolWebsite.Application.Common.Mapping;
+using CoolWebsite.Application.DatabaseAccess.Common.Transaction.Queries.Models;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
 using CoolWebsite.Domain.Entities.Financial;
 using CoolWebsite.Domain.Entities.Identity;
+using CoolWebsite.Domain.Enums;
 using NUnit.Framework;
 
 namespace Application.UnitTests.Common.Mappings
@@ -29,6 +31,8 @@ namespace Application.UnitTests.Common.Mappings
         [TestCase(typeof(Receipt), typeof(ReceiptDto))]
         [TestCase(typeof(ReceiptItem), typeof(ReceiptItemDto))]
         [TestCase(typeof(ApplicationUser), typeof(UserDto))]
+        [TestCase(typeof(Transaction), typeof(TransactionDto))]
+        [TestCase(typeof(TransactionType), typeof(TransactionTypeDto))]
 
         public void Handle_SupportMapping_ShouldMapFromSourceToDestination(Type source, Type destination)
         {
@@ -36,5 +40,7 @@ namespace Application.UnitTests.Common.Mappings
 
             _mapper.Map(instance, source, destination);
         }
+
+       
     }
 }

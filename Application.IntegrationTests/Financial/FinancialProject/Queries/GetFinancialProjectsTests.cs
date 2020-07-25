@@ -14,7 +14,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
 {
     using static Testing;
     
-    public class GetAllFinancialProjectsTests : FinancialTestBase
+    public class GetFinancialProjectsTests : FinancialTestBase
     {
         [Test]
         public async Task Handle_ValidUserId_ShouldReturnProject()
@@ -40,7 +40,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Queries
 
             var receiptId = await SendAsync(createReceipt);
 
-            var query = new GetAllFinancialProjectQuery();
+            var query = new GetFinancialProjectQuery();
 
             var model = await SendAsync(query);
 

@@ -13,18 +13,18 @@ using Microsoft.EntityFrameworkCore.Internal;
 
 namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects
 {
-    public class GetAllFinancialProjectQuery : IRequest<FinancialProjectsVm>
+    public class GetFinancialProjectQuery : IRequest<FinancialProjectsVm>
     {
         
     }
 
-    public class GetAllFinancialProjectQueryHandler : IRequestHandler<GetAllFinancialProjectQuery,FinancialProjectsVm>
+    public class GetFinancialProjectQueryHandler : IRequestHandler<GetFinancialProjectQuery,FinancialProjectsVm>
     {
         private readonly IMapper _mapper;
         private readonly IApplicationDbContext _context;
         private readonly ICurrentUserService _currentUser;
 
-        public GetAllFinancialProjectQueryHandler(IApplicationDbContext context, IMapper mapper,
+        public GetFinancialProjectQueryHandler(IApplicationDbContext context, IMapper mapper,
             ICurrentUserService currentUserService, ICurrentUserService currentUser)
         {
             _context = context;
@@ -33,7 +33,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
             _context.UserId = currentUserService.UserId;
         }
 
-        public Task<FinancialProjectsVm> Handle(GetAllFinancialProjectQuery request, CancellationToken cancellationToken)
+        public Task<FinancialProjectsVm> Handle(GetFinancialProjectQuery request, CancellationToken cancellationToken)
         {
             var entity = _context.FinancialProjects
                 .Include(x => x.FinancialProjectApplicationUsers)

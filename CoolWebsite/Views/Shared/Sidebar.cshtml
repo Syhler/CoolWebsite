@@ -108,10 +108,18 @@
           </li>
           <li>
             <a asp-action="Index" asp-controller="Home" asp-area="Financial">
-              <i class="fa fa-tachometer-alt"></i>
+              <i class="fa fa-folder"></i>
               <span>Projects</span>
               @*<span class="badge badge-pill badge-warning">New</span>*@
             </a>
+          </li>
+          <li>
+            <a asp-action="Index" asp-controller="Transaction" asp-area="Financial">
+              <i class="fa fa-money-check-alt"></i>
+              <span>Transactions</span>
+              @*<span class="badge badge-pill badge-warning">New</span>*@
+            </a>
+            
           </li>
           <li>
             <a asp-action="Index" asp-controller="Archive" asp-area="Financial">
@@ -121,7 +129,7 @@
             </a>
             
           </li>
-        @*
+          @*
           <li class="sidebar-dropdown">
             <a href="#">
               <i class="fa fa-shopping-cart"></i>

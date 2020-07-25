@@ -30,10 +30,10 @@
               <e p="UpdateFinancialProjectTests.cs" t="Include" />
             </e>
             <e p="Queries" t="Include">
-              <e p="GetAllFinancialProjectsTests.cs" t="Include" />
               <e p="GetArchiveFinancialProjectsByUserQueryTests.cs" t="Include" />
               <e p="GetFinancialProjectByIdQueryTests.cs" t="Include" />
               <e p="GetFinancialProjectsByUserIdTests.cs" t="Include" />
+              <e p="GetFinancialProjectsTests.cs" t="Include" />
               <e p="GetUsersFromFinancialProjectQueryTests.cs" t="Include" />
             </e>
           </e>
@@ -69,7 +69,15 @@
         </e>
         <e p="Testing.cs" t="Include" />
         <e p="Transaction" t="Include">
-          <e p="CreateTransactionTests.cs" t="Include" />
+          <e p="Commands" t="Include">
+            <e p="CreateTransactionTests.cs" t="Include" />
+          </e>
+          <e p="Queries" t="Include">
+            <e p="GetPayedTransactionByProjectTests.cs" t="Include" />
+            <e p="GetPayedTransactionTests.cs" t="Include" />
+            <e p="GetReceivedTransactionByProjectTests.cs" t="Include" />
+            <e p="GetReceivedTransactionTests.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="Application.UnitTests" t="IncludeRecursive">
@@ -110,6 +118,7 @@
               <e p="ArchiveController.cs" t="Include" />
               <e p="HomeController.cs" t="Include" />
               <e p="ProjectController.cs" t="Include" />
+              <e p="TransactionController.cs" t="Include" />
             </e>
             <e p="Models" t="Include">
               <e p="AddUserModel.cs" t="Include" />
@@ -119,6 +128,7 @@
               <e p="CreateReceiptModel.cs" t="Include" />
               <e p="PayTransaction.cs" t="Include" />
               <e p="ReceiptItemVm.cs" t="Include" />
+              <e p="TransactionVm.cs" t="Include" />
             </e>
             <e p="Views" t="Include">
               <e p="_ViewImports.cshtml" t="Include" />
@@ -149,6 +159,9 @@
               </e>
               <e p="Shared" t="Include">
                 <e p="AddUserPartialView.cshtml" t="Include" />
+              </e>
+              <e p="Transaction" t="Include">
+                <e p="Index.cshtml" t="Include" />
               </e>
             </e>
           </e>
@@ -2154,6 +2167,20 @@
                   <e p="CreateTransactionCommandValidator.cs" t="Include" />
                 </e>
               </e>
+              <e p="Queries" t="Include">
+                <e p="GetPayedTransactionByProjectQuery.cs" t="Include" />
+                <e p="GetPayedTransactionQuery.cs" t="Include" />
+                <e p="GetReceivedTransactionByProjectQuery.cs" t="Include" />
+                <e p="GetReceivedTransactionQuery.cs" t="Include" />
+                <e p="Models" t="Include">
+                  <e p="TransactionDto.cs" t="Include" />
+                  <e p="TransactionTypeDto.cs" t="Include" />
+                </e>
+                <e p="Validations" t="Include">
+                  <e p="GetPayedTransactionByProjectQueryValidation.cs" t="Include" />
+                  <e p="GetReceivedTransactionByProjectQueryValidation.cs" t="Include" />
+                </e>
+              </e>
             </e>
           </e>
           <e p="Financials" t="Include">
@@ -2181,10 +2208,10 @@
                   <e p="GetArchiveFinancialProjectsByUserQuery.cs" t="Include" />
                 </e>
                 <e p="GetFinancialProjects" t="Include">
-                  <e p="GetAllFinancialProjectQuery.cs" t="Include" />
                   <e p="GEtFinancialProjectByIdQuery.cs" t="Include" />
                   <e p="GetFinancialProjectByIdQueryValidator.cs" t="Include" />
                   <e p="GetFinancialProjectByUserIdQueryValidator.cs" t="Include" />
+                  <e p="GetFinancialProjectQuery.cs" t="Include" />
                   <e p="GetFinancialProjectsByUserQueryVm.cs" t="Include" />
                   <e p="GetUsersFromFinancialProjectQuery.cs" t="Include" />
                   <e p="GetUsersFromFinancialProjectQueryValidator.cs" t="Include" />

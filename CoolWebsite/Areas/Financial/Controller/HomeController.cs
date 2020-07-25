@@ -35,7 +35,7 @@ namespace CoolWebsite.Areas.Financial.Controller
         // GET
         public async Task<ViewResult> Index()
         {
-            var model = await Mediator.Send(new GetAllFinancialProjectQuery());
+            var model = await Mediator.Send(new GetFinancialProjectQuery());
             
             return View(model);
         }

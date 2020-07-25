@@ -1,0 +1,142 @@
+﻿@model CoolWebsite.Areas.Financial.Models.TransactionVm
+
+@{
+    ViewBag.Title = "Transaction";
+    Layout = "_Layout";
+}
+
+<h2>Transactions</h2>
+
+<div class="form-group">
+    <select class="custom-select">
+        <option selected="" value="All">All</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <h3 style="width: 343px;">Payed</h3>
+    </div>
+    @*
+    <div class="col-md-4 d-flex justify-content-end align-self-start">
+        <i class="fas fa-search d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+        <input type="search" class="border rounded d-xl-flex justify-content-xl-center align-items-xl-center search-field" id="search-field" style="background-color: #eaeaea;width: 80%;height: 38px;padding: 0px;margin-left: 17px;"
+               name="search"/>
+    </div>
+    *@
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>Project</th>
+                <th>To</th>
+                <th>Amount</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Odense</td>
+                <td>Morten</td>
+                <td>100 kr.</td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm">
+                        <i class="far fa-trash-alt"></i>
+                        Delete
+                    </button>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Odense</td>
+                <td>Morten</td>
+                <td>100 kr.</td>
+
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm">
+                        <i class="far fa-trash-alt"></i>
+                        Delete
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Odense</td>
+                <td>Lucas</td>
+                <td>100 kr.</td>
+
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm">
+                        <i class="fa fa-trash-alt"></i>
+                        Delete
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Odense</td>
+                <td>Niklas</td>
+                <td>100 kr.</td>
+
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm">
+                        <i class="far fa-trash-alt"></i>
+                        Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <h3 >Received</h3>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table id="example" class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>Project</th>
+                <th>From</th>
+                <th>Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Odense</td>
+                <td>Morten</td>
+                <td>500 Kr.</td>
+
+            </tr>
+            <tr>
+                <td>Odense</td>
+                <td>Morten</td>
+                <td>500 Kr.</td>
+
+            </tr>
+            <tr>
+                <td>Odense</td>
+                <td>Lucas</td>
+                <td>500 Kr.</td>
+
+            </tr>
+            <tr>
+                <td>Odense</td>
+                <td>Niklas</td>
+                <td>500 Kr.</td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

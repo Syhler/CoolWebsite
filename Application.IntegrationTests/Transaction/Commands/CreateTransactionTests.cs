@@ -3,13 +3,11 @@ using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.DatabaseAccess.Common.Transaction.Commands.CreateTransaction;
-using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts;
-using CoolWebsite.Domain.Entities.Financial;
 using CoolWebsite.Domain.Enums;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace Application.IntegrationTests.Transaction
+namespace Application.IntegrationTests.Transaction.Commands
 {
     using static Testing;
     
