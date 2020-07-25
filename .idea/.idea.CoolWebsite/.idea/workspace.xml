@@ -21,6 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/CreateReceipt.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/CreateReceipt.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/EditReceipt.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/EditReceipt.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Views/Shared/_HomePageLayout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Views/Shared/_HomePageLayout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/js/homepage/coolWebsiteProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/js/homepage/coolWebsiteProject.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -333,12 +339,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Index.cshtml" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Views/Shared/Sidebar.cshtml" />
-        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" />
-        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/MainLayout.css" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/Models/TransactionTypeDto.cs" />
-        <option value="$PROJECT_DIR$/Application.UnitTests/Common/Mappings/MappingTests.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/GetRecivedTransactionByUserId.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/GetReceivedTransactionByUserId.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Commands/CreateTransactionTests.cs" />
@@ -384,6 +384,12 @@
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Transaction/Partial/IndexPartial.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/TransactionController.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/js/financial/transaction.js" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Home/Index.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/EditReceipt.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/CreateReceipt.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Index.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Views/Shared/_HomePageLayout.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/js/homepage/coolWebsiteProject.js" />
       </list>
     </option>
   </component>
@@ -552,7 +558,7 @@
       <workItem from="1595579923047" duration="16633000" />
       <workItem from="1595619744100" duration="3789000" />
       <workItem from="1595663777100" duration="20780000" />
-      <workItem from="1595708228129" duration="427000" />
+      <workItem from="1595708228129" duration="1104000" />
     </task>
     <servers />
   </component>

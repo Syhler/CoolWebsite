@@ -1,5 +1,18 @@
 ﻿$(document).ready(function () {
 
+    $("#cool-website-project").click(function () {
+
+        $(".cool-website-image")[0].scrollIntoView({behavior: 'smooth', block: 'center'})
+        setAllNavLinkInactive()
+        $(this).addClass("active")
+    })
+    
+    $("#cool-website-features").click(function () {
+        $(".cool-website-features")[0].scrollIntoView({behavior: 'smooth', block: 'center'})
+        setAllNavLinkInactive()
+        $(this).addClass("active")
+    })
+    
     const observerCoolWebsite = new IntersectionObserver(function (entries) {
         if (entries[0].isIntersecting === true)
         {
