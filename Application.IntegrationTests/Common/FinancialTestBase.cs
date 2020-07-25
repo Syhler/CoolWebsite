@@ -15,7 +15,7 @@ namespace Application.IntegrationTests.Common
     using static Testing;
     public abstract class FinancialTestBase : TestBase
     {
-        private string _projectName = "Create";
+        protected readonly string ProjectName = "Create";
 
         protected ApplicationUser User;
         protected ApplicationUser SecondUser;
@@ -32,7 +32,7 @@ namespace Application.IntegrationTests.Common
             
             var createCommand = new CreateFinancialProjectCommand
             {
-                Title = _projectName,
+                Title = ProjectName,
                 Users = new List<ApplicationUser>
                 {
                     User,

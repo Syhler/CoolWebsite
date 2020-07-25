@@ -1,0 +1,71 @@
+﻿@model CoolWebsite.Areas.Financial.Models.TransactionVm
+
+<div class="jumbotron pt-3 pb-3">
+    <div class="row">
+        <div class="col-sm">
+            <h4 class="text-center">Payed:</h4>
+            <h5 class="text-center mt-2 mb-2">
+                @if (@Model.TransactionPartialModel != null)
+                {
+                    <span id="payed-total">@Model.TransactionPartialModel.PayedTotal</span>
+                }
+                else
+                {
+                    <span id="payed-total">NaN</span>
+                }
+
+                Kr.
+            </h5>
+        </div>
+        <div class="col-sm">
+            <h4 class="text-center">Received:</h4>
+            <h5 class="text-center mt-2 mb-2">
+                @if (Model.TransactionPartialModel != null)
+                {
+                    <span id="received-total">@Model.TransactionPartialModel.ReceivedTotal</span>
+                }
+                else
+                {
+                    <span id="received-total">NaN</span>
+                }
+
+                Kr.
+            </h5>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <select class="custom-select" id="dropdown-project">
+
+        @if (!string.IsNullOrWhiteSpace(Model.SelectedProject))
+        {
+            <option selected="" value="All">All</option>
+        }
+        else
+        {
+            <option value="All">All</option>
+        }
+
+        @if (Model.Projects != null)
+        {
+            @foreach (var project in Model.Projects)
+            {
+                if (Model.SelectedProject == project.Id)
+                {
+                    <option value="@project.Id" selected="">@project.Title</option>
+                }
+                else
+                {
+                    <option value="@project.Id">@project.Title</option>
+                }
+            }
+        }
+    </select>
+</div>
+
+
+<div id="transaction-tables">
+    @await Html.PartialAsync("Partial/TranasctionTablePartialView", @Model.TransactionPartialModel)
+</div>

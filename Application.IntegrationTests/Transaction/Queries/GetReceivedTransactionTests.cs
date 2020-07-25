@@ -39,6 +39,7 @@ namespace Application.IntegrationTests.Transaction.Queries
             entity.First().Amount.Should().Be(createTransaction.Amount);
             entity.First().Id.Should().Be(id);
             entity.First().ToUser.Id.Should().Be(User.Id);
+            entity.First().ProjectTitle.Should().Be(ProjectName);
             entity.First().FromUser.Id.Should().Be(User.Id);
             entity.First().TransactionTypeDto.Name.Should().Be(createTransaction.TransactionType.ToString());
             entity.First().TransactionTypeDto.Value.Should().Be((int)createTransaction.TransactionType);

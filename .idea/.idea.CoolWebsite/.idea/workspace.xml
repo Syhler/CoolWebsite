@@ -20,32 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetPayedTransactionByProjectTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetPayedTransactionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetReceivedTransactionByProjectTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetReceivedTransactionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/GetPayedTransactionByProjectQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/GetPayedTransactionQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/GetReceivedTransactionByProjectQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/GetReceivedTransactionQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/Models/TransactionDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/Models/TransactionTypeDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/Validations/GetPayedTransactionByProjectQueryValidation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/Validations/GetReceivedTransactionByProjectQueryValidation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/TransactionController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/TransactionVm.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Transaction/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/TransactionPartialModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Transaction/Partial/IndexPartial.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Transaction/Partial/TranasctionTablePartialView.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/js/financial/transaction.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetAllFinancialProjectsTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetFinancialProjectsTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Transaction/CreateTransactionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Commands/CreateTransactionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application.UnitTests/Common/Mappings/MappingTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.UnitTests/Common/Mappings/MappingTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetAllFinancialProjectQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Common/FinancialTestBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Common/FinancialTestBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetPayedTransactionByProjectTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetPayedTransactionByProjectTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetPayedTransactionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetPayedTransactionTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetReceivedTransactionByProjectTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetReceivedTransactionByProjectTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetReceivedTransactionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetReceivedTransactionTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/Models/TransactionDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/Models/TransactionDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/TransactionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/TransactionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/TransactionVm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/TransactionVm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Transaction/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Transaction/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Views/Shared/Sidebar.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Views/Shared/Sidebar.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/MainLayout.css" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/MainLayout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,8 +82,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -211,7 +201,10 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200629144912_AddedSoftDeleteForFinancialProject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/LoggingBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200629145314_MadeDeletedForFinancialProjectNullable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Transaction/Partial/IndexPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Common/FinancialTestBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Transaction/Partial/TranasctionTablePartialView.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/TransactionPartialModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/45E4BA85-4831-4E7F-B061-C83565CA368E/C/IdentityResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Startup.cs" root0="FORCE_HIGHLIGHTING" />
@@ -352,25 +345,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IIdentityService.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Index.cshtml" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Services/MobilePayDeepLink.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/js/financial/project.js" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Models/CreateUpdateUserViewModel.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/UpdateUser.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite.Domain/Entities/Identity/UpdateApplicationUser.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityService.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ProjectController.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Index.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/Views/Shared/Sidebar.cshtml" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/TransactionController.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" />
         <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/MainLayout.css" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/TransactionVm.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Transaction/Index.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/Models/TransactionTypeDto.cs" />
         <option value="$PROJECT_DIR$/Application.UnitTests/Common/Mappings/MappingTests.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/Models/TransactionDto.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/GetRecivedTransactionByUserId.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/GetReceivedTransactionByUserId.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Commands/CreateTransactionTests.cs" />
@@ -399,10 +382,20 @@
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/GetPayedTransactionByProjectQuery.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/Validations/GetReceivedTransactionByProjectQueryValidation.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/Validations/GetPayedTransactionByProjectQueryValidation.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/TransactionPartialVm.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/Models/TransactionDto.cs" />
+        <option value="$PROJECT_DIR$/Application.IntegrationTests/Common/FinancialTestBase.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetReceivedTransactionTests.cs" />
+        <option value="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetReceivedTransactionByProjectTests.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetPayedTransactionTests.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetPayedTransactionByProjectTests.cs" />
-        <option value="$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetReceivedTransactionByProjectTests.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Transaction/Partial/TranasctionTablePartialView.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/TransactionPartialModel.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/TransactionVm.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Transaction/Partial/IndexPartial.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Transaction/Index.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/TransactionController.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/js/financial/transaction.js" />
       </list>
     </option>
   </component>
@@ -570,7 +563,7 @@
       <workItem from="1595529068867" duration="6175000" />
       <workItem from="1595579923047" duration="16633000" />
       <workItem from="1595619744100" duration="3789000" />
-      <workItem from="1595663777100" duration="5462000" />
+      <workItem from="1595663777100" duration="14512000" />
     </task>
     <servers />
   </component>
@@ -639,37 +632,37 @@
     </state>
     <state x="1008" y="619" key="GitCloneDialog/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1588951357667" />
     <state x="1008" y="619" width="554" height="161" key="GitCloneDialog/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588275934269" />
-    <state width="2517" height="288" key="GridCell.Tab.0.bottom" timestamp="1595665361719">
+    <state width="2517" height="268" key="GridCell.Tab.0.bottom" timestamp="1595687729543">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="267" key="GridCell.Tab.0.bottom/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1591023522289" />
     <state width="2517" height="359" key="GridCell.Tab.0.bottom/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683548" />
     <state width="2517" height="288" key="GridCell.Tab.0.bottom/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217714" />
-    <state width="2517" height="288" key="GridCell.Tab.0.bottom/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595665361719" />
+    <state width="2517" height="268" key="GridCell.Tab.0.bottom/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595687729543" />
     <state width="2514" height="520" key="GridCell.Tab.0.bottom/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
-    <state width="2517" height="288" key="GridCell.Tab.0.center" timestamp="1595665361719">
+    <state width="2517" height="268" key="GridCell.Tab.0.center" timestamp="1595687729543">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="267" key="GridCell.Tab.0.center/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1591023522289" />
     <state width="2517" height="359" key="GridCell.Tab.0.center/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683548" />
     <state width="2517" height="288" key="GridCell.Tab.0.center/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217714" />
-    <state width="2517" height="288" key="GridCell.Tab.0.center/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595665361719" />
+    <state width="2517" height="268" key="GridCell.Tab.0.center/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595687729543" />
     <state width="2514" height="520" key="GridCell.Tab.0.center/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
-    <state width="2517" height="288" key="GridCell.Tab.0.left" timestamp="1595665361719">
+    <state width="2517" height="268" key="GridCell.Tab.0.left" timestamp="1595687729543">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="267" key="GridCell.Tab.0.left/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1591023522289" />
     <state width="2517" height="359" key="GridCell.Tab.0.left/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683548" />
     <state width="2517" height="288" key="GridCell.Tab.0.left/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217714" />
-    <state width="2517" height="288" key="GridCell.Tab.0.left/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595665361719" />
+    <state width="2517" height="268" key="GridCell.Tab.0.left/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595687729543" />
     <state width="2514" height="520" key="GridCell.Tab.0.left/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524399" />
-    <state width="2517" height="288" key="GridCell.Tab.0.right" timestamp="1595665361719">
+    <state width="2517" height="268" key="GridCell.Tab.0.right" timestamp="1595687729543">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="267" key="GridCell.Tab.0.right/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1591023522289" />
     <state width="2517" height="359" key="GridCell.Tab.0.right/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588365683548" />
     <state width="2517" height="288" key="GridCell.Tab.0.right/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217714" />
-    <state width="2517" height="288" key="GridCell.Tab.0.right/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595665361719" />
+    <state width="2517" height="268" key="GridCell.Tab.0.right/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595687729543" />
     <state width="2514" height="520" key="GridCell.Tab.0.right/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.1.bottom" timestamp="1595665361720">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -832,11 +825,11 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1127" y="615" key="VCS.ChangelistChooser/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588280164641" />
-    <state x="92" y="92" width="2376" height="1216" key="VCS.FileHistoryDialog" timestamp="1595500401664">
+    <state x="92" y="92" width="2376" height="1216" key="VCS.FileHistoryDialog" timestamp="1595687233603">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="92" y="92" width="2376" height="1216" key="VCS.FileHistoryDialog/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1589404136948" />
-    <state x="92" y="92" width="2376" height="1216" key="VCS.FileHistoryDialog/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595500401664" />
+    <state x="92" y="92" width="2376" height="1216" key="VCS.FileHistoryDialog/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595687233603" />
     <state width="1288" height="708" key="XDebugger.FullValuePopup" timestamp="1595340186673">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -866,13 +859,13 @@
     </state>
     <state x="936" y="330" key="run.anything.popup/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1590939200407" />
     <state x="936" y="330" width="672" height="677" key="run.anything.popup/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595665763460" />
-    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup" timestamp="1595672346586">
+    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup" timestamp="1595676299660">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1591022876078" />
     <state x="943" y="315" width="672" height="676" key="search.everywhere.popup/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588345088296" />
     <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595620366157" />
-    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595672346586" />
+    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595676299660" />
     <state x="3503" y="1764" width="672" height="696" key="search.everywhere.popup/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588456983205" />
   </component>
   <component name="XDebuggerManager">

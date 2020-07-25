@@ -6,15 +6,17 @@ namespace CoolWebsite.Application.DatabaseAccess.Common.Transaction.Queries.Mode
 {
     public class TransactionDto : IMapFrom<Domain.Entities.Financial.Transaction>
     {
-        public string Id { get; set; }
+        public string Id { get; set; } = null!;
 
-        public UserDto FromUser { get; set; }
+        public UserDto FromUser { get; set; } = null!;
 
-        public UserDto ToUser { get; set; }
+        public UserDto ToUser { get; set; } = null!;
 
         public double Amount { get; set; }
 
-        public TransactionTypeDto TransactionTypeDto { get; set; }
+        public TransactionTypeDto TransactionTypeDto { get; set; } = null!;
+
+        public string ProjectTitle { get; set; } = null!;
         
         public void Mapping(Profile profile)
         {
@@ -24,7 +26,9 @@ namespace CoolWebsite.Application.DatabaseAccess.Common.Transaction.Queries.Mode
                 .ForMember(x => x.ToUser,
                     opt => opt.MapFrom(x => x.ToUser))
                 .ForMember(x => x.TransactionTypeDto,
-                    opt => opt.MapFrom(x => x.TransactionType));
+                    opt => opt.MapFrom(x => x.TransactionType))
+                .ForMember(x => x.ProjectTitle,
+                    opt => opt.MapFrom(x => x.FinancialProject.Title));
             
         }
     }
