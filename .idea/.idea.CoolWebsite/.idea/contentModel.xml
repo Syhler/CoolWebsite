@@ -2345,6 +2345,8 @@
           <e p="MysqlServer" t="Include">
             <e p="20200706122556_Initial.cs" t="Include" />
             <e p="20200706122556_Initial.Designer.cs" t="Include" />
+            <e p="20200726190802_addedDeletedBy.cs" t="Include" />
+            <e p="20200726190802_addedDeletedBy.Designer.cs" t="Include" />
             <e p="MySqlApplicationDbContextModelSnapshot.cs" t="Include" />
           </e>
           <e p="SQLServer" t="Include">
