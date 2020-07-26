@@ -20,9 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/sidebarNew.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -557,7 +556,7 @@
       <workItem from="1595663777100" duration="20780000" />
       <workItem from="1595708228129" duration="5732000" />
       <workItem from="1595749308558" duration="11096000" />
-      <workItem from="1595779309845" duration="2812000" />
+      <workItem from="1595779309845" duration="3081000" />
     </task>
     <servers />
   </component>
