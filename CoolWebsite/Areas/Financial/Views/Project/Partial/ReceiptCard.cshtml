@@ -3,110 +3,108 @@
 @model CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models.ReceiptDto
 
 
-<div class="card ">
-    <div class="card">
-        <div class="card-header">
-            <h5 class="text-light mb-0">
-                Receipt : Created by
-                <div class="small-collaborator-image">
-                    @Model.CreatedByDto.Initial
-                </div>
-            </h5>
-
-        </div>
-        <div class="card-body">
-            <h4 class="text-light card-title">@Model.Location</h4>
-            @if (!string.IsNullOrWhiteSpace(Model.Note))
-            {
-                <p>@Model.Note</p>
-            }
-            <ul class="list-group mb-4">
-                @{
-                    var dic = new Dictionary<string, List<string>>();
-                    var grouped = Model.Items.GroupBy(x => x.ItemGroup.Name);
-                    foreach (var item in grouped)
-                    {
-                        var sum = item.Sum(x => x.Price * x.Count);
-
-                        if (!dic.ContainsKey(item.Key))
-                        {
-                            dic.Add(item.Key, new List<string>());
-                        }
-                        
-                        <li class="list-group-item">
-                            <span class="text-white">@item.Key</span>
-                            <span class="badge badge-light ml-2" style="float: right;">Cost: @sum.ToString("N2") kr</span>
-                            <div>
-                                @foreach (var user in item.SelectMany(x => x.Users))
-                                {
-                                    var value = dic.GetValueOrDefault(@item.Key);
-
-                                    if (value != null && user.Id != null) 
-                                    {
-                                        if (!value.Contains(user.Id))
-                                        {
-                                            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="EY FEAUTRE MANGLER, MEN NÅR DEN ER HER KAN DU SE HVOR MEGET DU SKYLDER">
-                                                <div class="small-collaborator-image idk">
-                                                    <span>@user.Initial</span>
-                                                </div>
-                                            </span>
-                                            
-                                            value.Add(user.Id);
-                                        }
-                                    }
-                                   
-                                }
-                            </div>
-
-                        </li>
-                    }
-                }
-
-            </ul>
-            <ul class="list-group mb-4">
-                <li class="list-group-item">
-                    <span class="text-white">Total</span><span class="badge badge-light" style="float: right;">@Model.Total.ToString("N2") Kr</span>
-                </li>
-            </ul>
-            <div></div>
-            <div>
-                
-
-                @if (User.GetUserId() == @Model.CreatedByUserId)
-                {
-                    <a class="btn btn-success btn-sm mr-2" type="button"
-                       asp-action="EditReceipt"
-                       asp-controller="Project"
-                       asp-area="Financial"
-                       asp-route-id="@Model.Id"
-                       asp-route-financialProjectId="@Context.GetRouteData().Values["id"]">
-                        Edit
-                    </a>
-                    
-                    <button class="btn btn-danger btn-sm archive-receipt" type="button" data-id="@Model.Id">
-                        Archive
-                    </button>
-                }
-               
+<div class="card custom-receipt-card">
+    <div class="card-header" >
+        <h5 class="text-light mb-0">
+            Receipt : Created by
+            <div class="small-collaborator-image">
+                @Model.CreatedByDto.Initial
             </div>
-        </div>
-        <div class="card-footer">
+        </h5>
+
+    </div>
+    <div class="card-body">
+        <h4 class="text-light card-title">@Model.Location</h4>
+        @if (!string.IsNullOrWhiteSpace(Model.Note))
+        {
+            <p>@Model.Note</p>
+        }
+        <ul class="list-group mb-4">
             @{
-                var days = @Model.DaysSinceLastVisit;
-                if (days == 0)
+                var dic = new Dictionary<string, List<string>>();
+                var grouped = Model.Items.GroupBy(x => x.ItemGroup.Name);
+                foreach (var item in grouped)
                 {
-                    <text><span class="text-muted">Today</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
-                }
-                else if (days == 1)
-                {
-                    <text><span class="text-muted">Yesterday</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
-                }
-                else
-                {
-                    <text><span class="text-muted">@days days ago</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
+                    var sum = item.Sum(x => x.Price * x.Count);
+
+                    if (!dic.ContainsKey(item.Key))
+                    {
+                        dic.Add(item.Key, new List<string>());
+                    }
+
+                    <li class="list-group-item">
+                        <span class="text-white">@item.Key</span>
+                        <span class="badge badge-light ml-2" style="float: right;">Cost: @sum.ToString("N2") kr</span>
+                        <div>
+                            @foreach (var user in item.SelectMany(x => x.Users))
+                            {
+                                var value = dic.GetValueOrDefault(@item.Key);
+
+                                if (value != null && user.Id != null)
+                                {
+                                    if (!value.Contains(user.Id))
+                                    {
+                                        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="EY FEAUTRE MANGLER, MEN NÅR DEN ER HER KAN DU SE HVOR MEGET DU SKYLDER">
+                                            <div class="small-collaborator-image idk">
+                                                <span>@user.Initial</span>
+                                            </div>
+                                        </span>
+
+                                        value.Add(user.Id);
+                                    }
+                                }
+                            }
+                        </div>
+
+                    </li>
                 }
             }
+
+        </ul>
+        <ul class="list-group mb-4">
+            <li class="list-group-item">
+                <span class="text-white">Total</span><span class="badge badge-light" style="float: right;">@Model.Total.ToString("N2") Kr</span>
+            </li>
+        </ul>
+        <div class="mb-3">
+            <h6>You owe: @Model.CurrentUserOwed.ToString("N2") Kr.</h6>
+        </div>
+        <div>
+
+
+            @if (User.GetUserId() == @Model.CreatedByUserId)
+            {
+                <a class="btn btn-success btn-sm mr-2" type="button"
+                   asp-action="EditReceipt"
+                   asp-controller="Project"
+                   asp-area="Financial"
+                   asp-route-id="@Model.Id"
+                   asp-route-financialProjectId="@Context.GetRouteData().Values["id"]">
+                    Edit
+                </a>
+
+                <button class="btn btn-danger btn-sm archive-receipt" type="button" data-id="@Model.Id">
+                    Archive
+                </button>
+            }
+
         </div>
     </div>
+    <div class="card-footer">
+        @{
+            var days = @Model.DaysSinceLastVisit;
+            if (days == 0)
+            {
+                <text><span class="text-muted">Today</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
+            }
+            else if (days == 1)
+            {
+                <text><span class="text-muted">Yesterday</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
+            }
+            else
+            {
+                <text><span class="text-muted">@days days ago</span> : Datevisited @Model.DateVisited.ToShortDateString()</text>
+            }
+        }
+    </div>
 </div>
-

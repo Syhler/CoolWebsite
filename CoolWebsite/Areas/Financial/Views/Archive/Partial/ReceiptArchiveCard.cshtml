@@ -3,8 +3,7 @@
 @model CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models.ReceiptDto
 
 
-<div class="card ">
-    <div class="card">
+    <div class="card custom-receipt-card">
         <div class="card-header">
             <h5 class="text-light mb-0">
                 Receipt : Created by
@@ -67,7 +66,10 @@
                     <span class="text-white">Total</span><span class="badge badge-light" style="float: right;">@Model.Total.ToString("N2") Kr</span>
                 </li>
             </ul>
-            <div></div>
+            <div class="mb-3">
+            <h6>You owe: @Model.CurrentUserOwed.ToString("N2") Kr.</h6>
+        </div>
+        
             <div>
                 
 
@@ -102,5 +104,3 @@
             }
         </div>
     </div>
-</div>
-

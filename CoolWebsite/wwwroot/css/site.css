@@ -99,8 +99,33 @@ body {
 
 
 
+/******************/
 
+.custom-receipt-card
+{
+  background-color: #31353D
+}
 
+.custom-receipt-card .small-collaborator-image
+{
+  background-color: #4a515c;
+}
+
+.custom-receipt-card .card-header
+{
+  background-color: #3a3f48
+}
+
+.custom-receipt-card .card-footer
+{
+  background-color: #4a515c;
+}
+
+.custom-receipt-card li 
+{
+  background-color: #31353D;
+  border: 1px solid rgb(81 89 96);
+}
 
 
 

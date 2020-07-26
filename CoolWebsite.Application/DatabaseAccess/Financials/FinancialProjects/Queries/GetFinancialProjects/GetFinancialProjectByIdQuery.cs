@@ -63,6 +63,14 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
             
             var currentUserRecords = entity.First().OweRecords.Where(x => x.UserId == _currentUserService.UserId && x.FinancialProjectId == mapped.Id).ToList();
 
+            foreach (var mappedReceipt in mapped.Receipts)
+            {
+                if (_currentUserService.UserId != null)
+                {
+                    mappedReceipt.CurrentUserId = _currentUserService.UserId;
+                }
+            }
+            
             foreach (var mappedUser in mapped.Users)
             {
                 if (mappedUser.Id == _currentUserService.UserId) continue;

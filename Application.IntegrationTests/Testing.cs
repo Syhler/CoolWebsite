@@ -29,7 +29,7 @@ namespace Application.IntegrationTests
         private static IConfigurationRoot _configuration;
         private static IServiceScopeFactory _scopeFactory;
         private static Checkpoint _checkpoint;
-        private static string _currentUserId;
+        public static string CurrentUserId;
 
         [OneTimeSetUp]
         public void RunBeforeAnyTests()
@@ -61,7 +61,7 @@ namespace Application.IntegrationTests
 
             services.Remove(currentUserServicesDescriptor);
 
-            services.AddTransient(x => Mock.Of<ICurrentUserService>(s => s.UserId == _currentUserId));
+            services.AddTransient(x => Mock.Of<ICurrentUserService>(s => s.UserId == CurrentUserId));
 
             _scopeFactory = services.BuildServiceProvider().GetService<IServiceScopeFactory>();
             
@@ -114,7 +114,7 @@ namespace Application.IntegrationTests
 
             var user = await CreateUser(username, password);
 
-            _currentUserId = user.Id;
+            CurrentUserId = user.Id;
 
             return user;
         }

@@ -36,6 +36,14 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries
 
             var mapped = entities.ProjectTo<ReceiptDto>(_mapper.ConfigurationProvider).ToList();
 
+            foreach (var receiptDto in mapped)
+            {
+                if (_currentUserService.UserId != null)
+                {
+                    receiptDto.CurrentUserId = _currentUserService.UserId;
+                }
+            }
+
             return Task.FromResult(mapped);
         }
     }

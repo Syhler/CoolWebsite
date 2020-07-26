@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
+using CoolWebsite.Application.DatabaseAccess.Common.Transaction.Commands.CreateTransaction;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.ActivateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.DeleteReceipts;
+using CoolWebsite.Domain.Enums;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -26,7 +28,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
         {
             var receiptId = await CreateReceipt();
 
-            var item = GetReceiptItem(100);
+            var item = GetReceiptItem(new Random().Next(10,100000));
             
             var command = new CreateReceiptItemCommand
             {
@@ -48,10 +50,10 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
             await SendAsync(command);
 
             var context = CreateContext();
-            
+            //create
             var firstOweRecord = context.OweRecords.FirstOrDefault(x => x.UserId == SecondUser.Id && x.OwedUserId == User.Id);
             firstOweRecord.Should().NotBeNull();
-            firstOweRecord!.Amount.Should().Be(command.Count * command.Price / command.UserIds.Count);
+            firstOweRecord!.Amount.Should().Be(command.Count * command.Price / command.UserIds.Count); //10k
 
             var deleteCommand = new DeleteReceiptCommand {Id = receiptId};
 
@@ -59,6 +61,7 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
 
             context = CreateContext();
 
+            //delete
             var deletedEntity = context.Receipts.FirstOrDefault(x => x.Id == receiptId);
             deletedEntity.Should().NotBeNull();
             deletedEntity!.Deleted.Should().BeCloseTo(DateTime.Now, 1000);
@@ -66,8 +69,10 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
              
             var secondOweRecord = context.OweRecords.FirstOrDefault(x => x.UserId == SecondUser.Id && x.OwedUserId == User.Id);
             secondOweRecord.Should().NotBeNull();
-            secondOweRecord!.Amount.Should().Be(0);
+            secondOweRecord!.Amount.Should().Be(0); //0
 
+            
+            //activate
             var reactivateCommand = new ActivateReceiptCommand{ReceiptId = receiptId};
 
             await SendAsync(reactivateCommand);
@@ -77,6 +82,92 @@ namespace Application.IntegrationTests.Financial.Receipts.Commands
             var thirdOweRecord = context.OweRecords.FirstOrDefault(x => x.UserId == SecondUser.Id && x.OwedUserId == User.Id);
             thirdOweRecord.Should().NotBeNull();
             thirdOweRecord!.Amount.Should().Be(command.Count * command.Price / command.UserIds.Count);
+
+            var activatedEntity = context.Receipts.FirstOrDefault(x => x.Id == receiptId);
+            activatedEntity.Should().NotBeNull();
+            activatedEntity!.Deleted.Should().BeNull();
+            activatedEntity!.DeletedByUserId.Should().BeNull();
+
+        }
+        
+        
+         [Test]
+        [TestCase(1)]
+        [TestCase(2)]
+        public async Task Handle_ValidIdBLA_ShouldActivateReceipt(int amount)
+        {
+            var projectId = await CreateFinancialProject();
+            
+            var receiptId = await CreateReceipt(projectId);
+
+            var item = GetReceiptItem(new Random().Next(10,100000));
+            
+            var command = new CreateReceiptItemCommand
+            {
+                Name = "dd",
+                ItemGroup = item.ItemGroup.Value,
+                Price = item.Price,
+                Count = item.Count,
+                ReceiptId = receiptId
+               
+            };
+
+            command.UserIds = amount switch
+            {
+                1 => new List<string> {SecondUser.Id},
+                2 => new List<string> {SecondUser.Id, User.Id},
+                _ => command.UserIds
+            };
+
+            await SendAsync(command);
+
+            var context = CreateContext();
+            //create
+            var firstOweRecord = context.OweRecords.FirstOrDefault(x => x.UserId == SecondUser.Id && x.OwedUserId == User.Id);
+            firstOweRecord.Should().NotBeNull();
+            firstOweRecord!.Amount.Should().Be(command.Count * command.Price / command.UserIds.Count); //100
+
+            CurrentUserId = SecondUser.Id;
+            
+            var transaction = new CreateTransactionCommand
+            {
+                Amount = command.Count * command.Price / command.UserIds.Count,
+                FinancialProjectId = projectId,
+                ToUserId = User.Id,
+                TransactionType = TransactionType.FinancialReceipts
+            };
+
+            await SendAsync(transaction);
+
+            CurrentUserId = User.Id;
+            
+            var deleteCommand = new DeleteReceiptCommand {Id = receiptId};
+
+            await SendAsync(deleteCommand);
+
+            context = CreateContext();
+
+            //delete
+            var deletedEntity = context.Receipts.FirstOrDefault(x => x.Id == receiptId);
+            deletedEntity.Should().NotBeNull();
+            deletedEntity!.Deleted.Should().BeCloseTo(DateTime.Now, 1000);
+            deletedEntity!.DeletedByUserId.Should().Be(User.Id);
+             
+            var secondOweRecord = context.OweRecords.FirstOrDefault(x => x.UserId == SecondUser.Id && x.OwedUserId == User.Id);
+            secondOweRecord.Should().NotBeNull();
+            secondOweRecord!.Amount.Should().Be(command.Count * command.Price / command.UserIds.Count * -1); //-100
+
+            
+            //activate
+            var reactivateCommand = new ActivateReceiptCommand{ReceiptId = receiptId};
+
+            await SendAsync(reactivateCommand);
+
+            context = CreateContext();
+            
+            var thirdOweRecord = context.OweRecords.FirstOrDefault(x => x.UserId == SecondUser.Id && x.OwedUserId == User.Id);
+            thirdOweRecord.Should().NotBeNull();
+            thirdOweRecord!.Amount.Should().Be(0);
 
             var activatedEntity = context.Receipts.FirstOrDefault(x => x.Id == receiptId);
             activatedEntity.Should().NotBeNull();

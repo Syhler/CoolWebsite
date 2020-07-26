@@ -12,7 +12,7 @@
     </div>
 
     <div>
-        <div class="container mb-2 pb-3 pt-3" style="border: 1px solid rgba(0,0,0,0.6); background-color: #32383e">
+        <div class="container mb-2 pb-3 pt-3" style="border: 1px solid rgba(0,0,0,0.6); background-color: #31353D">
             <div class="row">
                 @foreach (var user in @Model.Users)
                 {
@@ -22,8 +22,9 @@
                             @if (@user.Owed <= 0)
                             {
                                 <span class="green amount-owed">@user.Owed.ToString("N2")</span>
+                                                                @*
                                 <button class="btn btn-success btn-request" data-id="@user.Id">Request</button>
-
+                                *@
                             }
                             else
                             {
@@ -106,7 +107,7 @@
 
             <div class="row mt-5">
 
-                @for (int i = 0; i < 4; i++)
+                @for (int i = 0; i < 3; i++)
                 {
                     <div class="col-sm">
                         @if (index < Model.Receipts.Count)

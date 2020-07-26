@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
 using FluentAssertions;
 using NUnit.Framework;
@@ -83,6 +84,57 @@ namespace Application.UnitTests.Common.Models
             dto.Deleted.Should().BeCloseTo(dto.Deleted.GetValueOrDefault(), 10000);
             
             dto.DaysSinceDeleted.Should().Be(5);
+        }
+
+        [Test]
+        public void HandleCurrentUserSum_ValidFields_ShouldReturnCorrectNumber()
+        {
+            var dto = new ReceiptDto
+            {
+                CurrentUserId = "detmig",
+                Items = new List<ReceiptItemDto>
+                {
+                    new ReceiptItemDto
+                    {
+                        Count = 100,
+                        Price = 100,
+                        Users = new List<UserDto>
+                        {
+                            new UserDto
+                            {
+                                Id = "detmig"
+                            },
+                            new UserDto
+                            {
+                                Id = "nah"
+                            }
+                        }
+                    }
+                }
+            };
+
+            dto.Items.Should().NotBeNull();
+            dto.CurrentUserOwed.Should().Be(dto.Total / dto.Items.First().Users.Count);
+        }
+
+        [Test]
+        public void HandleCurrentUserSum_UsersNull_ShouldReturnZero()
+        {
+            var dto = new ReceiptDto
+            {
+                CurrentUserId = "detmig",
+                Items = new List<ReceiptItemDto>
+                {
+                    new ReceiptItemDto
+                    {
+                        Count = 100,
+                        Price = 100,
+                    }
+                }
+            };
+
+            dto.Items.Should().NotBeNull();
+            dto.CurrentUserOwed.Should().Be(0);
         }
         
     }

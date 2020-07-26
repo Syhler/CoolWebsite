@@ -46,7 +46,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Ac
 
                 foreach (var receiptItem in entity.Items)
                 {
-                    AddOweAmount(oweRecords, receiptItem);
+                    AddOweAmount(oweRecords, receiptItem, entity.FinancialProjectId);
 
                 }
 
@@ -61,7 +61,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Ac
             return Unit.Value;
         }
 
-        private void AddOweAmount(IQueryable<OweRecord> oweRecords, ReceiptItem receiptItem)
+        private void AddOweAmount(IQueryable<OweRecord> oweRecords, ReceiptItem receiptItem, string projectId)
         {
             foreach (var user in receiptItem.Users)
             {
@@ -69,6 +69,9 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Ac
 
                 if (oweRecord == null) continue;
 
+                var transactions = _context.Transactions.Where(x => x.FinancialProjectId == projectId && x.FromUserId == user.ApplicationUserId && x.ToUserId == _currentUserService.UserId);
+
+                
                 if (receiptItem.Users.Count > 1)
                 {
                     UpdateRecordAmountMultiplesUsers(oweRecord, receiptItem);
@@ -77,19 +80,32 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Ac
                 {
                     UpdateRecordAmount(oweRecord, receiptItem);
                 }
+
+                if (!transactions.Any())
+                {
+                    oweRecord.Amount *= -1;
+                }
+
             }
         }
+
+        /*
+        private double SubtractTransaction(string financialProjectId)
+        {
+            var transactions = 
+        }
+        */
         
         private void UpdateRecordAmount(OweRecord record, ReceiptItem receiptItem)
         {
             if (record.Amount < 0)
             {
-                record.Amount -= receiptItem.Count * receiptItem.Price;
+                record.Amount += receiptItem.Count * receiptItem.Price;
 
             }
             else
             {
-                record.Amount += receiptItem.Count * receiptItem.Price;
+                record.Amount -= receiptItem.Count * receiptItem.Price;
             }
         }
         
@@ -97,12 +113,12 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Ac
         {
             if (record.Amount < 0)
             {
-                record.Amount -= (receiptItem.Count * receiptItem.Price)/receiptItem.Users.Count;
+                record.Amount += (receiptItem.Count * receiptItem.Price)/receiptItem.Users.Count;
 
             }
             else
             {
-                record.Amount += (receiptItem.Count * receiptItem.Price)/receiptItem.Users.Count;
+                record.Amount -= (receiptItem.Count * receiptItem.Price)/receiptItem.Users.Count;
 
             }
         }

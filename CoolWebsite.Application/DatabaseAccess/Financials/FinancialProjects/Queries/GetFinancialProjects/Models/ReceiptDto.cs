@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using CoolWebsite.Application.Common.Mapping;
 using CoolWebsite.Domain.Entities.Financial;
@@ -22,16 +23,38 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         public string CreatedByUserId { get; set; } = null!;
 
         public UserDto CreatedByDto { get; set; } = null!;
+
+        public string CurrentUserId = null!;
         
+        public double CurrentUserOwed
+        {
+            get
+            {
+                double sum = 0;
+                foreach (var receiptItemDto in Items)
+                {
+                    if (receiptItemDto.Users == null) {
+                        continue;
+                    }
+                    
+                    if (receiptItemDto.Users.Any(x => x.Id == CurrentUserId))
+                    {
+                        sum += receiptItemDto.Total / receiptItemDto.Users.Count;
+                    }
+                }
+
+                return sum;
+            }
+        }
+
         public double Total
         {
             get
             {
                 double total = 0;
-                if (Items == null)
-                {
-                    return total;
-                }
+
+                if (Items == null) return total;
+                
                 foreach (var item in Items)
                 {
                     total += item.Price * item.Count;
