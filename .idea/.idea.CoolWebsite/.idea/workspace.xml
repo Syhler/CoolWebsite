@@ -21,20 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/ActivateReceiptTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/ActivateReceiptTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Testing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Testing.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application.UnitTests/Common/Models/ReceiptDtoTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.UnitTests/Common/Models/ReceiptDtoTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectByIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectByIdQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/ReceiptDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/ReceiptDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/ActivateReceipts/ActivateReceiptCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/ActivateReceipts/ActivateReceiptCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/GetArchiveReceiptsByUserQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/GetArchiveReceiptsByUserQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Partial/ReceiptArchiveCard.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Partial/ReceiptArchiveCard.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/ReceiptCard.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/ReceiptCard.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Transaction/Partial/IndexPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Transaction/Partial/IndexPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/Sidebar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -347,8 +337,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/Validations/GetReceivedTransactionByProjectAndUserIdQueryValidation.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetAllFinancialProjectQuery.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectQuery.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/FinancialProject/Queries/GetFinancialProjectsTests.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/GetReceivedTransactionQuery.cs" />
@@ -388,16 +376,18 @@
         <option value="$PROJECT_DIR$/Application.UnitTests/Common/Models/ReceiptDtoTests.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/Main/Sidebar.css" />
         <option value="$PROJECT_DIR$/CoolWebsite/Views/Shared/_Layout.cshtml" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/ReceiptCard.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/css/site.css" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Transaction/Partial/IndexPartial.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Queries/GetArchiveReceiptsByUserQuery.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Partial/ReceiptArchiveCard.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Index.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/ReceiptDto.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Testing.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/ActivateReceipts/ActivateReceiptCommand.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/ActivateReceiptTests.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/ReceiptCard.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Partial/ReceiptArchiveCard.cshtml" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Program.cs" />
       </list>
     </option>
   </component>
@@ -568,6 +558,7 @@
       <workItem from="1595663777100" duration="20780000" />
       <workItem from="1595708228129" duration="5732000" />
       <workItem from="1595749308558" duration="11096000" />
+      <workItem from="1595779309845" duration="901000" />
     </task>
     <servers />
   </component>
@@ -844,32 +835,32 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="841" y="435" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588276259049" />
-    <state x="2584" y="-26" width="2009" height="1130" maximized="true" key="dock-window-1" timestamp="1595749342260">
+    <state x="2584" y="-26" width="2009" height="1130" maximized="true" key="dock-window-1" timestamp="1595779346840">
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
     <state x="-1162" y="0" width="947" height="1447" key="dock-window-1/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1591022758708" />
     <state x="2615" y="14" width="1110" height="1388" key="dock-window-1/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588343484599" />
     <state x="2584" y="-26" width="2009" height="1130" maximized="true" key="dock-window-1/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595619905487" />
-    <state x="2748" y="101" width="2009" height="1130" maximized="true" key="dock-window-1/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595749342260" />
-    <state x="-1448" y="-1134" width="2589" height="618" maximized="true" key="dock-window-2" timestamp="1595749342260">
+    <state x="2748" y="101" width="2009" height="1130" maximized="true" key="dock-window-1/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595779346840" />
+    <state x="-1448" y="-1134" width="2589" height="618" maximized="true" key="dock-window-2" timestamp="1595779346840">
       <screen x="-1440" y="-1126" width="1440" height="2560" />
     </state>
     <state x="2580" y="8" width="1950" height="1387" key="dock-window-2/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1591022758708" />
     <state x="-1176" y="0" width="1192" height="1388" key="dock-window-2/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588343484599" />
     <state x="-1448" y="-1134" width="2589" height="618" maximized="true" key="dock-window-2/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595623067798" />
-    <state x="-1440" y="-96" width="1456" height="1130" maximized="true" key="dock-window-2/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595749342260" />
+    <state x="-1440" y="-96" width="1456" height="1130" maximized="true" key="dock-window-2/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595779346840" />
     <state x="936" y="330" width="672" height="677" key="run.anything.popup" timestamp="1595665763460">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="936" y="330" key="run.anything.popup/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1590939200407" />
     <state x="936" y="330" width="672" height="677" key="run.anything.popup/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595665763460" />
-    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup" timestamp="1595766342863">
+    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup" timestamp="1595789984229">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1591022876078" />
     <state x="943" y="315" width="672" height="676" key="search.everywhere.popup/0.0.2560.1400/-529.-1440.3440.1440/-2560.0.2560.1440/2560.0.2560.1440@0.0.2560.1400" timestamp="1588345088296" />
     <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595620366157" />
-    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595766342863" />
+    <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595789984229" />
     <state x="3503" y="1764" width="672" height="696" key="search.everywhere.popup/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588456983205" />
   </component>
   <component name="XDebuggerManager">
