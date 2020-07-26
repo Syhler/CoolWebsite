@@ -484,9 +484,20 @@ $(document).ready(function () {
     
     $(document).on("click", "#btn-transaction-mobilepay-confirm", function () {
 
-        sendPayTransaction(config.payTransactionMobilePay, function (data) {
-            window.open(data, '_blank');
-            location.reload()
+        sendPayTransaction(config.payTransactionMobilePay, function (data)
+        {
+            if (data.response === "Succeed")
+            {
+                window.open(data.result, '_blank');
+                location.reload()
+            }
+            else
+            {
+                $("#mobilepay-not-available").text(data.result);
+                $("#whoknow").addClass("is-invalid");
+            }
+            
+           
         })
     })
     

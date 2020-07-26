@@ -64,8 +64,14 @@ namespace CoolWebsite.Areas.Financial.Controller
         }
 
         [HttpPost]
-        public async Task<string> PayTransactionMobilePay(PayTransaction model)
+        public async Task<IActionResult> PayTransactionMobilePay(PayTransaction model)
         {
+            var user = await _identityService.GetUserById(model.ToUserId);
+            if (string.IsNullOrWhiteSpace(user.PhoneNumber))
+            {
+                return Json(new {respone = "Error", result = user.FirstName + " " + user.LastName + " have not registered a phone number"});
+            }
+            
             var command = new CreateTransactionCommand
             {
                 TransactionType = TransactionType.FinancialReceiptsMobilePay,
@@ -76,10 +82,10 @@ namespace CoolWebsite.Areas.Financial.Controller
 
             await Mediator.Send(command);
 
+
+            var mobilePayDeepLink = MobilePayDeepLink.GenerateUrl(user, model.Amount);
             
-            var user = await _identityService.GetUserById(model.ToUserId);
-            
-            return MobilePayDeepLink.GenerateUrl(user, model.Amount);
+            return Json(new { response = "Succeed", result = mobilePayDeepLink });
         }
 
         [HttpGet]
