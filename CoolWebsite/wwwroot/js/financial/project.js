@@ -9,7 +9,8 @@ $(document).ready(function () {
         payTransactionMobilePay: "/Financial/Project/PayTransactionMobilePay",
         archive: "/Financial/Project/ArchiveReceipt"
     }
-
+    
+    $('[data-toggle="tooltip"]').tooltip()
 
     const modal = $("#create-receipt-item-modal");
     const usersOptions = $("#users-dropdown option");
@@ -32,6 +33,8 @@ $(document).ready(function () {
         confirmBtn.attr("data-id", receiptId)
 
     })
+    
+  
     
     $(document).on("click", "#confirm-archive-btn", function () {
 

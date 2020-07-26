@@ -2128,6 +2128,7 @@
             </e>
             <e p="js" t="Include">
               <e p="moment.js" t="Include" />
+              <e p="popper.min.js" t="Include" />
               <e p="smoothproducts.min.js" t="Include" />
               <e p="theme.js" t="Include" />
             </e>
