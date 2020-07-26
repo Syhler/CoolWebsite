@@ -253,7 +253,7 @@
               <e p="homepage.css" t="Include" />
               <e p="MainLayout.css" t="Include" />
               <e p="navbar-fixed-left.min.css" t="Include" />
-              <e p="Sidebar.css" t="Include" />
+              <e p="sidebarNew.css" t="Include" />
             </e>
             <e p="site.css" t="Include" />
           </e>
