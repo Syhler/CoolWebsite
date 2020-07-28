@@ -15,6 +15,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         public IList<UserDto> Users { get; set; } = null!;
         public IList<ReceiptDto> Receipts { get; set; } = null!;
 
+        public string? Description { get; set; } 
+
         public DateTime? LastModified { get; set; }
 
         public DateTime? Deleted { get; set; }

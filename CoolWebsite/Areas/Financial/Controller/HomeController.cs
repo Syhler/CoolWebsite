@@ -47,7 +47,8 @@ namespace CoolWebsite.Areas.Financial.Controller
             var command = new CreateFinancialProjectCommand
             {
                 Title = model.Name,
-                Users = await _identity.GetUsersByIds(model.Users)
+                Users = await _identity.GetUsersByIds(model.Users),
+                Description = model.Description
             };
 
             var project = await Mediator.Send(command);

@@ -61,7 +61,7 @@
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.0" t="Include">
               <e p="Application.IntegrationTests.AssemblyInfo.cs" t="Include" />
             </e>
@@ -99,7 +99,7 @@
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.0" t="Include">
               <e p="Application.UnitTests.AssemblyInfo.cs" t="Include" />
             </e>
@@ -209,7 +209,7 @@
           <e p="LoginViewModel.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.0" t="Include">
               <e p="CoolWebsite.AssemblyInfo.cs" t="Include" />
               <e p="CoolWebsite.RazorAssemblyInfo.cs" t="Include" />
@@ -2291,7 +2291,7 @@
         </e>
         <e p="DependencyInjection.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.0" t="Include">
               <e p="CoolWebsite.Application.AssemblyInfo.cs" t="Include" />
             </e>
@@ -2326,7 +2326,7 @@
           <e p="TransactionType.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.0" t="Include">
               <e p="CoolWebsite.Domain.AssemblyInfo.cs" t="Include" />
             </e>
@@ -2384,7 +2384,7 @@
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.0" t="Include">
               <e p="CoolWebsite.Infrastructure.AssemblyInfo.cs" t="Include" />
             </e>

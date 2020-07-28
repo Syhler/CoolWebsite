@@ -71,6 +71,10 @@
                     required: true,
                     maxlength: 100,
                     minlength: 2
+                },
+                financial_description: {
+                    required: true,
+                    maxlength: 255
                 }
             },
             messages: {
@@ -95,7 +99,8 @@
             data: {
                 model:{
                     Name: $("#financial_project_name").val(),
-                    Users: getUsers()
+                    Users: getUsers(),
+                    Description: $("#financial_description").val()
                 }
             },
             success : function (data) {

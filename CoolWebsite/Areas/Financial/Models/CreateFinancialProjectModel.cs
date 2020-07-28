@@ -7,6 +7,7 @@ namespace CoolWebsite.Areas.Financial.Models
     public class CreateFinancialProjectModel
     {
         public string Name { get; set; } = null!;
+        public string Description { get; set; } = null!;
         public List<string> Users { get; set; } = null!;
 
         public AddUserModel AddUserModel { get; set; } = null!;

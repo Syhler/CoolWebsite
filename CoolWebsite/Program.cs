@@ -27,7 +27,7 @@ namespace CoolWebsite
 
                 try
                 {
-                    var context = services.GetRequiredService<MySqlApplicationDbContext>();
+                    var context = services.GetRequiredService<SqlApplicationDbContext>();
 
                     await context.Database.MigrateAsync();
 

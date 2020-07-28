@@ -65,7 +65,8 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
                 {
                     User,
                     SecondUser
-                }
+                },
+                Description = "heyy"
             };
 
             var project = await SendAsync(command);
@@ -93,6 +94,7 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             record.Amount.Should().Be(0);
             record.FinancialProjectId.Should().Be(project.Id);
             entity.CreatedBy.Should().Be(User.Id);
+            entity.Description.Should().Be(command.Description);
             entity.Created.Should().BeCloseTo(DateTime.Now, 10000);
             entity.FinancialProjectApplicationUsers.First().FinancialProjectId.Should().Be(project.Id);
         }
