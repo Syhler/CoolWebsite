@@ -19,7 +19,8 @@ $(document).ready(function () {
     //     });
     //     $(this).addClass("active")
     // });
-    
+
+ 
     
     
     $(".nav-dropdown-activator").click(function () {
@@ -40,6 +41,17 @@ $(document).ready(function () {
         return value === "" || value.length <= len;
     });
 
+    $(".page-content").click(function () {
+
+        if (screen.width <  768 ||
+            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            $(".page-wrapper").removeClass("toggled");
+
+        }
+    })
+   
+   
+   
 
     $(".sidebar-dropdown > a").click(function() {
         $(".sidebar-submenu").slideUp(200);
@@ -66,7 +78,10 @@ $(document).ready(function () {
     $("#close-sidebar").click(function() {
         $(".page-wrapper").removeClass("toggled");
     });
+    
     $("#show-sidebar").click(function() {
         $(".page-wrapper").addClass("toggled");
     });
+    
+    
 });
