@@ -127,6 +127,7 @@
               <e p="CreateFinancialProjectModel.cs" t="Include" />
               <e p="CreateReceiptItemVm.cs" t="Include" />
               <e p="CreateReceiptModel.cs" t="Include" />
+              <e p="EditFinancialProjectModel.cs" t="Include" />
               <e p="PayTransaction.cs" t="Include" />
               <e p="ReceiptItemVm.cs" t="Include" />
               <e p="TransactionPartialModel.cs" t="Include" />
@@ -145,6 +146,7 @@
                 <e p="Index.cshtml" t="Include" />
                 <e p="Partial" t="Include">
                   <e p="CreateFinancialProjectModal.cshtml" t="Include" />
+                  <e p="EditFinancialProjectModal.cshtml" t="Include" />
                   <e p="FinancialProjectCard.cshtml" t="Include" />
                 </e>
               </e>

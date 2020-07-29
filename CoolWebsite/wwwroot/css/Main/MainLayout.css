@@ -65,6 +65,11 @@ colors
     color: #d4d421  !important;
 }
 
+.btn-yellow {
+    background-color: #d4d421 !important;
+    color: white;
+}
+
 .blue
 {
     color: #26acc2;

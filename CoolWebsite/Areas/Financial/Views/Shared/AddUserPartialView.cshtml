@@ -39,6 +39,23 @@
                     <td class="disabled grey">Remove</td>
                 </tr>
             }
+            @if (@Model.ExistingUsers != null)
+            {
+                foreach (var existingUser in Model.ExistingUsers)
+                {
+                    if (existingUser.Id == @Model.CurrentUserId)
+                    {
+                        continue;
+                    }
+                    <tr class="table-dark" data-id="@existingUser.Id">
+                        <th>@existingUser.Name</th>
+                        <td class="remove-user">
+                            <a href="#" class="red">Remove</a>
+                        </td>
+                    </tr>
+                }
+                
+            }
             
             </tbody>
         </table>

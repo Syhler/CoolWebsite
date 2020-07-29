@@ -20,17 +20,13 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
         [Test]
         public async Task Handle_ValidFields_ShouldUpdate()
         {
-
-
-            var firstUser = await CreateNewUser("CoolUser", "Not cool");
             
             var createCommand = new CreateFinancialProjectCommand
             {
                 Title = "First",
                 Users = new List<ApplicationUser>
                 {
-                    User,
-                    firstUser
+                    User
                 }
             };
 
@@ -43,10 +39,15 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             {
                 Id = project.Id,
                 Name = "Second",
-                Users = new List<ApplicationUser>
+                Users = new List<string>
                 {
-                    newlyCreatedUser
-                }
+                    User.Id,
+                    newlyCreatedUser.Id,
+                    SecondUser.Id,
+                    CreateNewUser("bla","bla123").Result.Id,
+                    CreateNewUser("blaa", "nahhh").Result.Id
+                },
+                Description = "heyy"
             };
 
             await SendAsync(updateCommand);
@@ -61,11 +62,65 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             
             entity.Should().NotBeNull();
             entity.Title.Should().Be(updateCommand.Name);
+            entity.FinancialProjectApplicationUsers.Count.Should().Be(5);
             entity.FinancialProjectApplicationUsers.FirstOrDefault(x => x.UserId == newlyCreatedUser.Id).Should().NotBeNull();
+            entity.OweRecords.Count.Should().Be(20);
+            entity.Description.Should().Be(updateCommand.Description);
             var recordFrom = entity.OweRecords.FirstOrDefault(x => x.UserId == newlyCreatedUser.Id);
             var recordTo = entity.OweRecords.FirstOrDefault(x => x.OwedUserId == newlyCreatedUser.Id);
             recordFrom.Should().NotBeNull();
             recordTo.Should().NotBeNull();
+            entity.LastModified.Should().NotBeNull();
+            entity.LastModified.Should().BeCloseTo(DateTime.Now, 10000);
+            entity.LastModifiedBy.Should().NotBeNull();
+            entity.LastModifiedBy.Should().Be(User.Id);
+        }
+
+        [Test]
+        public async Task Handle_RemoveUser_ShouldUpdate()
+        {
+            var createCommand = new CreateFinancialProjectCommand
+            {
+                Title = "First",
+                Users = new List<ApplicationUser>
+                {
+                    User,
+                    SecondUser
+                }
+            };
+
+            var project = await SendAsync(createCommand);
+            
+            var updateCommand = new UpdateFinancialProjectCommand
+            {
+                Id = project.Id,
+                Name = "Second",
+                Users = new List<string>
+                {
+                    User.Id,
+                },
+                Description = "nahhh"
+            };
+
+            await SendAsync(updateCommand);
+
+            var context = CreateContext();
+
+            var entity = context.FinancialProjects
+                .Include(x => x.FinancialProjectApplicationUsers)
+                .Include(x => x.OweRecords)
+                .First(x => x.Id == project.Id);
+            
+            entity.Should().NotBeNull();
+            entity.Title.Should().Be(updateCommand.Name);
+            entity.FinancialProjectApplicationUsers.Count.Should().Be(1);
+            entity.FinancialProjectApplicationUsers.FirstOrDefault(x => x.UserId == SecondUser.Id).Should().BeNull();
+            entity.OweRecords.Count.Should().Be(0);
+            entity.Description.Should().Be(updateCommand.Description);
+            var recordFrom = entity.OweRecords.FirstOrDefault(x => x.UserId == SecondUser.Id);
+            var recordTo = entity.OweRecords.FirstOrDefault(x => x.OwedUserId == SecondUser.Id);
+            recordFrom.Should().BeNull();
+            recordTo.Should().BeNull();
             entity.LastModified.Should().NotBeNull();
             entity.LastModified.Should().BeCloseTo(DateTime.Now, 10000);
             entity.LastModifiedBy.Should().NotBeNull();
@@ -82,9 +137,9 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             {
                 Name = "",
                 Id = id,
-                Users = new List<ApplicationUser>
+                Users = new List<string>
                 {
-                    await RunAsDefaultUserAsync()
+                    SecondUser.Id
                 }
             };
 
@@ -99,9 +154,9 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             var command = new UpdateFinancialProjectCommand()
             {
                 Name = "asdflhsdofghsodufjhsdoijfsdoijfiosdjfiodsjoifjdfgdfgdfdfgdfgækdfjgkædkfælgfdkogådfkopgkfdpogopdfkgpodfkpgkpogdfgdosdfoijsdoifjosdjofisd",
-                Users = new List<ApplicationUser>
+                Users = new List<string>
                 {
-                    await RunAsDefaultUserAsync()
+                    SecondUser.Id
                 },
                 Id = id
             };
@@ -126,9 +181,9 @@ namespace Application.IntegrationTests.Financial.FinancialProject.Commands
             {
                 Id = "asdasdsa",
                 Name = "hey",
-                Users = new List<ApplicationUser>
+                Users = new List<string>
                 {
-                    await RunAsDefaultUserAsync()
+                    SecondUser.Id
                 }
             };
 

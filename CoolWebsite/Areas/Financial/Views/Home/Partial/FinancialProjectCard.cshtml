@@ -10,7 +10,7 @@
         
         @if (User.GetUserId() == @Model.CreatedBy)
         {
-            <a class="card-link yellow enable-hover">Edit</a>
+            <a class="card-link yellow enable-hover" id="open-edit-financial-project-modal" data-id="@Model.Id">Edit</a>
             <a class="card-link red enable-hover archive-project" data-id="@Model.Id">Archive</a>
         }
         

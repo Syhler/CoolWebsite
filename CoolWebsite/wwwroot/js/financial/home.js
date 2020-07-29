@@ -3,15 +3,18 @@
     const config = {
         createFinancialProjectURL: "/Financial/Home/CreateProject",
         getModal: "/Financial/Home/GetModal",
-        archive: "/Financial/Home/ArchiveProject"
+        getEditModal: "/Financial/Home/GetEditModal",
+        archive: "/Financial/Home/ArchiveProject",
+        updateFinancialProject: "/Financial/Home/UpdateFinancialProject"
     };
-    
+
     const modal = $('#create-financial-project-modal')
+    const editModal = $("#edit-financial-project-modal")
 
 
     /*******************/
     /*    ARCHIVE      */
-    /********************/ 
+    /********************/
     $(document).on("click", ".archive-project", function () {
         const id = $(this).data("id")
 
@@ -19,8 +22,7 @@
         $("#confirm-archive-modal").modal("show")
     })
 
-    $(document).on("click", "#confirm-archive-btn", function ()
-    {
+    $(document).on("click", "#confirm-archive-btn", function () {
         const id = $(this).data("id")
 
         $.ajax({
@@ -40,13 +42,88 @@
 
     })
 
-    modal.on('shown.bs.modal', function () 
-    {
+
+    /*******************/
+    /*    Edit      */
+    /********************/
+
+
+    $(document).on("click", "#open-edit-financial-project-modal", function () {
+
+        const id = $(this).data("id")
+        console.log("modal")
+        $.ajax({
+            type: "GET",
+            url: config.getEditModal,
+            data: {
+                id: id
+            },
+            success: function (data) {
+                editModal.empty()
+                editModal.append(data)
+                editModal.modal("show")
+
+            },
+            error: function () {
+                alert("OMG SOMETHING WENT WRONG. PANICCCCCCCCCCCCCCCCCCCCCCCCCCCC")
+            }
+        })
+
+    })
+
+    $(document).on("click", "#edit-financial-project", function () {
+        
+        const element = $(this)
+        
+        $("#edit-financial-project-modal-form").validate({
+            rules: {
+                financial_project_name: {
+                    required: true,
+                    maxlength: 100,
+                    minlength: 2
+                },
+            },
+            submitHandler: function () {
+                updateProject(element)
+            }
+        })
+    })
+
+    function updateProject(element) {
+        const title = $("#financial_project_name").val();
+        const users = getUsers()
+        const description = $("#financial_description").val()
+        const id = element.data("id")
+
+        $.ajax({
+            type: "POST",
+            url: config.updateFinancialProject,
+            data: {
+                model: {
+                    Id: id,
+                    Name: title,
+                    Users: users,
+                    Description: description
+                }
+            },
+            success: function () {
+                location.reload()
+            },
+            error: function () {
+                alert("WORLDS ENDING ERROR ERROR ERROR ERROR")
+            }
+        })
+    }
+
+
+    /*******************/
+    /*    Create      */
+    /********************/
+    modal.on('shown.bs.modal', function () {
         $.ajax({
             type: "GET",
             url: config.getModal,
-            success: function (data) 
-            {
+            success: function (data) {
                 modal.append(data)
                 $('#financial_project_name').trigger('focus')
             },
@@ -56,14 +133,11 @@
         })
     })
 
-    modal.on('hidden.bs.modal', function(e)
-    {
+    modal.on('hidden.bs.modal', function (e) {
         $(this).children(".modal-dialog").remove()
-    }) ;
-    
-    
-   
-    
+    });
+
+
     $(document).on("click", "#create-financial-project", function () {
         $("#create-financial-project-modal-form").validate({
             rules: {
@@ -89,41 +163,37 @@
             }
         })
     })
-  
-    
+
+
     function createFinancialProject() {
 
         $.ajax({
             type: "POST",
             url: config.createFinancialProjectURL,
             data: {
-                model:{
+                model: {
                     Name: $("#financial_project_name").val(),
                     Users: getUsers(),
                     Description: $("#financial_description").val()
                 }
             },
-            success : function (data) {
+            success: function (data) {
                 $("#create-financial-project-modal").modal("hide")
                 $("#project-cards").prepend(data)
-                
+
             },
             error: function (jqxhr, status, exception) {
                 alert('Exception: ' + exception);
             }
-            
+
         })
     }
 
-    function getUsers()
-    {
+    function getUsers() {
         return $("#user-table-body tr").map(function () {
             return $(this).data("id");
         }).get();
     }
-    
-    
-    
-    
-    
+
+
 })
