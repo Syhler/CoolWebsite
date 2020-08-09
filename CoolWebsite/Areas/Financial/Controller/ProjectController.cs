@@ -137,7 +137,6 @@ namespace CoolWebsite.Areas.Financial.Controller
         public async Task<IActionResult> EditReceiptPost(CreateReceiptModel model)
         {
             //update receipt
-
             var command = new UpdateReceiptCommand
             {
                 Id = model.ReceiptDto.Id,
@@ -149,7 +148,6 @@ namespace CoolWebsite.Areas.Financial.Controller
             await Mediator.Send(command);
 
             //get already existing receipt items
-            //figure out if item need to be updated or not
             var itemQuery = new GetReceiptItemByReceiptIdQuery
             {
                 ReceiptId = model.ReceiptDto.Id
@@ -157,12 +155,15 @@ namespace CoolWebsite.Areas.Financial.Controller
 
             var alreadyExistingItems = await Mediator.Send(itemQuery);
 
+            #region Delete
+
             //delete receipt item - own request
+
             var receiptItemsToDelete = alreadyExistingItems
                 .Where(x => model.ReceiptDto.Items
                     .All(y => y.Id != x.Id))
                 .ToList();
-            
+
             foreach (var itemDto in receiptItemsToDelete)
             {
                 var deleteCommand = new DeleteReceiptItemCommand
@@ -173,13 +174,17 @@ namespace CoolWebsite.Areas.Financial.Controller
 
                 await Mediator.Send(deleteCommand);
             }
-            
+
+            #endregion
+
+            #region Create
+
             //Create receipt item
             var receiptItemToBeCreated = model.ReceiptDto.Items
                 .Where(x => alreadyExistingItems
                     .All(y => y.Id != x.Id))
                 .ToList();
-            
+
             foreach (var receiptItemDto in receiptItemToBeCreated)
             {
                 var createCommand = new CreateReceiptItemCommand
@@ -191,17 +196,21 @@ namespace CoolWebsite.Areas.Financial.Controller
                     ReceiptId = model.ReceiptDto.Id,
                     UserIds = receiptItemDto.Users.Select(x => x.Id).ToList()!
                 };
-                
+
                 await Mediator.Send(createCommand);
             }
+
+            #endregion
+
+            #region Update
 
             //update receipt item - own request
             var receiptItemsToUpdate = model.ReceiptDto.Items
                 .Where(x => receiptItemsToDelete
-                    .All(y => y.Id != x.Id) &&
+                                .All(y => y.Id != x.Id) &&
                             receiptItemToBeCreated.All(q => q.Id != x.Id))
                 .ToList();
-            
+
             foreach (var receiptItemDto in receiptItemsToUpdate)
             {
                 var updateCommand = new UpdateReceiptItemCommand
@@ -215,15 +224,14 @@ namespace CoolWebsite.Areas.Financial.Controller
                 };
                 await Mediator.Send(updateCommand);
             }
-           
 
+            #endregion
 
-            return Json(
-                new
-                {
-                    result = "Redirect",
-                    url = Url.Action("Index", "Project", new {id = model.FinancialProjectId})
-                });
+            return Json(new
+            {
+                result = "Redirect",
+                url = Url.Action("Index", "Project", new {id = model.FinancialProjectId})
+            });
         }
 
 

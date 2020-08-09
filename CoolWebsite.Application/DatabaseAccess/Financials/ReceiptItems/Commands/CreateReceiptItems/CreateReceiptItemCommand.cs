@@ -52,10 +52,12 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
             var users = request.UserIds.Select(x => new ApplicationUserReceiptItem
                 {ApplicationUserId = x, ReceiptItemId = id}).ToList();
 
-            var oweRecords = _context.OweRecords.Where(x =>
-                x.OwedUserId == receipt.CreatedBy && x.FinancialProjectId == receipt.FinancialProjectId);
+            var oweRecords = _context.OweRecords
+                .Where(x => x.OwedUserId == receipt.CreatedBy 
+                            && x.FinancialProjectId == receipt.FinancialProjectId)
+                .ToList();
 
-            UpdateOweRecord(request, oweRecords);
+            oweRecords.AddReceiptItemCost(request.UserIds, request.Price, request.Count);
 
 
             var entity = new ReceiptItem
@@ -74,19 +76,6 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
             await _context.SaveChangesAsync(cancellationToken);
 
             return entity.Id;
-        }
-
-        private void UpdateOweRecord(CreateReceiptItemCommand request, IQueryable<OweRecord> oweRecords)
-        {
-            foreach (var user in request.UserIds)
-            {
-                var oweRecord = oweRecords.FirstOrDefault(x => x.UserId == user);
-
-                if (oweRecord == null) continue;
-                
-                oweRecord.Amount += Math.Round(request.Count * request.Price / request.UserIds.Count, 2);
-                
-            }
         }
     }
 }

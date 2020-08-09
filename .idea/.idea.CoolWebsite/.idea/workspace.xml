@@ -21,10 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="You can now edit a financialproject">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/UpdateReceiptsTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/UpdateReceiptsTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/CreateReceiptItems/CreateReceiptItemCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/CreateReceiptItems/CreateReceiptItemCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/ActivateReceipts/ActivateReceiptCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/ActivateReceipts/ActivateReceiptCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/DeleteReceipts/DeleteReceiptCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/DeleteReceipts/DeleteReceiptCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/UpdateReceipts/UpdateReceiptCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/UpdateReceipts/UpdateReceiptCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/UpdateReceipts/UpdateReceiptCommandValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/UpdateReceipts/UpdateReceiptCommandValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/Services/OweRecordExtenstion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/Services/OweRecordExtenstion.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ProjectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ProjectController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -346,9 +346,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Application.IntegrationTests/Testing.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/ActivateReceipts/ActivateReceiptCommand.cs" />
-        <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/ActivateReceiptTests.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/ReceiptCard.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Archive/Partial/ReceiptArchiveCard.cshtml" />
         <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" />
@@ -375,7 +372,6 @@
         <option value="$PROJECT_DIR$/CoolWebsite/wwwroot/js/site.js" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Services/OweRecordCreator.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Services/OweRecordMultiplier.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/CreateReceiptItems/CreateReceiptItemCommand.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/ReceiptItemDto.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Services/OweRecordHelper.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Services/OweRecordUpdater.cs" />
@@ -395,8 +391,12 @@
         <option value="$PROJECT_DIR$/CoolWebsite.Application/Services/OweRecordExtenstion.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/UpdateReceipts/UpdateReceiptCommandValidator.cs" />
         <option value="$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/UpdateReceiptsTests.cs" />
-        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ProjectController.cs" />
         <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/UpdateReceipts/UpdateReceiptCommand.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Common/UpdateReceiptItemsHandler.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ProjectController.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/CreateReceiptItems/CreateReceiptItemCommand.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/ActivateReceipts/ActivateReceiptCommand.cs" />
+        <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/DeleteReceipts/DeleteReceiptCommand.cs" />
       </list>
     </option>
   </component>
@@ -571,7 +571,7 @@
       <workItem from="1596008381595" duration="3089000" />
       <workItem from="1596539041902" duration="5797000" />
       <workItem from="1596962149948" duration="14912000" />
-      <workItem from="1597009202704" duration="1063000" />
+      <workItem from="1597009202704" duration="1917000" />
     </task>
     <task id="LOCAL-00001" summary="Added the option to add a description when creating a FinancialProject">
       <created>1595957262030</created>

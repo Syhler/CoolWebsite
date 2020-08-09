@@ -61,7 +61,5 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
 
             return Unit.Value;
         }
-
-       
     }
 }
