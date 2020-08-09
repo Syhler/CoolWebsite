@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
 using CoolWebsite.Domain.Entities.Financial;
 
 namespace CoolWebsite.Application.Services
 {
     public static class OweRecordExtenstion
     {
+        //TODO CREATE UNIT TEST FOR THIS KEKW
 
         public static void AddReceiptItemCost(this ICollection<OweRecord> records, List<string> userIds, double price,
             double count)

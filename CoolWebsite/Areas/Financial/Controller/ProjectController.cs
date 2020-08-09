@@ -142,12 +142,11 @@ namespace CoolWebsite.Areas.Financial.Controller
             {
                 Id = model.ReceiptDto.Id,
                 Location = model.ReceiptDto.Location,
-                ItemDtos = model.ReceiptDto.Items, //maybe handle it with a updateReceiptItem call - problem how do we know if a item have been added?
                 DateVisited = model.ReceiptDto.DateVisited,
                 Note = model.ReceiptDto.Note
             };
 
-            //await Mediator.Send(command);
+            await Mediator.Send(command);
 
             //get already existing receipt items
             //figure out if item need to be updated or not
