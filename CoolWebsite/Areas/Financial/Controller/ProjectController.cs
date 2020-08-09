@@ -7,6 +7,7 @@ using CoolWebsite.Application.DatabaseAccess.Common.Transaction.Commands.CreateT
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems;
+using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.DeleteReceiptItems;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.UpdateReceiptItems;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts;
@@ -163,13 +164,23 @@ namespace CoolWebsite.Areas.Financial.Controller
                     .All(y => y.Id != x.Id))
                 .ToList();
             
-            
+            foreach (var itemDto in receiptItemsToDelete)
+            {
+                var deleteCommand = new DeleteReceiptItemCommand
+                {
+                    Id = itemDto.Id!,
+                    FinancialProjectId = model.FinancialProjectId
+                };
 
+                await Mediator.Send(deleteCommand);
+            }
+            
             //Create receipt item
             var receiptItemToBeCreated = model.ReceiptDto.Items
                 .Where(x => alreadyExistingItems
                     .All(y => y.Id != x.Id))
                 .ToList();
+            
             foreach (var receiptItemDto in receiptItemToBeCreated)
             {
                 var createCommand = new CreateReceiptItemCommand
@@ -182,13 +193,14 @@ namespace CoolWebsite.Areas.Financial.Controller
                     UserIds = receiptItemDto.Users.Select(x => x.Id).ToList()!
                 };
                 
-                //await Mediator.Send(createCommand);
+                await Mediator.Send(createCommand);
             }
 
             //update receipt item - own request
-            var receiptItemsToUpdate = alreadyExistingItems
+            var receiptItemsToUpdate = model.ReceiptDto.Items
                 .Where(x => receiptItemsToDelete
-                    .All(y => y.Id != x.Id))
+                    .All(y => y.Id != x.Id) &&
+                            receiptItemToBeCreated.All(q => q.Id != x.Id))
                 .ToList();
             
             foreach (var receiptItemDto in receiptItemsToUpdate)
@@ -202,7 +214,7 @@ namespace CoolWebsite.Areas.Financial.Controller
                     UserDtos = receiptItemDto.Users.ToList(),
                     FinancialProjectId = model.FinancialProjectId
                 };
-                //await Mediator.Send(updateCommand);
+                await Mediator.Send(updateCommand);
             }
            
 

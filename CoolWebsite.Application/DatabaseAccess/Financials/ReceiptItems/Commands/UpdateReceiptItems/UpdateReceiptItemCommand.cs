@@ -67,6 +67,11 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
                 .ToList();
             
             records.SubtractReceiptItemCost(usersToRemoveStringList, entity.Price, entity.Count, entity.Users.Count);
+
+            var sameUsers = entity.Users.Select(x => x.ApplicationUserId).ToList()
+                .Intersect(request.UserDtos.Select(x => x.Id)).ToList();
+            
+            records.SubtractReceiptItemCost(sameUsers, entity.Price, entity.Count, entity.Users.Count);
             
             
             await CheckAndAddUsers(entity, request.Id, request.UserDtos);

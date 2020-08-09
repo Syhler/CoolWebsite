@@ -11,11 +11,11 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
 
             RuleFor(x => x.Price)
                 .GreaterThanOrEqualTo(0);
-
+            
             RuleFor(x => x.ItemGroup)
-                .NotNull()
-                .NotEmpty();
+                .GreaterThanOrEqualTo(0);
 
+            
             RuleFor(x => x.Id)
                 .NotEmpty();
 

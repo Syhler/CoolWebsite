@@ -87,10 +87,11 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             newOweRecord.Amount.Should().Be(
                 updateCommand.Price * updateCommand.Count / updateCommand.UserDtos.Count);
 
+            
             var oldOweRecord = context.OweRecords
                 .FirstOrDefault(x => x.UserId == newUser.Id && x.OwedUserId == User.Id);
             oldOweRecord.Amount.Should().Be(0);
-
+            
 
         }
         [Test]
