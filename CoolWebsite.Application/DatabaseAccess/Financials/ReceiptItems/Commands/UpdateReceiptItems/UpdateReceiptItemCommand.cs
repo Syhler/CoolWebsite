@@ -24,7 +24,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
         public List<UserDto> UserDtos { get; set; } = null!;
         public string FinancialProjectId { get; set; } = null!;
     }
-    
+
     public class UpdateReceiptItemCommandHandler : IRequestHandler<UpdateReceiptItemCommand>
     {
         private readonly IApplicationDbContext _context;
@@ -38,7 +38,6 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
 
         public async Task<Unit> Handle(UpdateReceiptItemCommand request, CancellationToken cancellationToken)
         {
-
             var entity = await _context.ReceiptItems
                 .Include(x => x.Users)
                 .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
@@ -54,46 +53,67 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
                 .ToList();
 
 
-            var users = request.UserDtos
-                .Select(x => x.Id)
-                .ToList();
-            
-            records.AddReceiptItemCost(users! ,request.Price, request.Count);
-            
+            //Add Receipt Item Cost for all users from request
+            AddReceiptItemCostForRequestUsers(records, request);
+
             var usersToRemove = GetUserToRemove(entity, request.UserDtos);
 
-            var usersToRemoveStringList = usersToRemove
-                .Select(x => x.ApplicationUserId)
-                .ToList();
-            
-            records.SubtractReceiptItemCost(usersToRemoveStringList, entity.Price, entity.Count, entity.Users.Count);
 
-            var sameUsers = entity.Users.Select(x => x.ApplicationUserId).ToList()
-                .Intersect(request.UserDtos.Select(x => x.Id)).ToList();
-            
-            records.SubtractReceiptItemCost(sameUsers, entity.Price, entity.Count, entity.Users.Count);
-            
-            
+            //Subtract Receipt Item Cost for removed users
+            SubtractReceiptItemCostForRemovedUsers(usersToRemove, records, entity);
+
+            //Subtract Receipt Item Cost for same users
+            SubtractReceiptItemCostForSameUsers(records, entity, request);
+
             await CheckAndAddUsers(entity, request.Id, request.UserDtos);
 
             entity.Count = request.Count;
             entity.Price = request.Price;
-            entity.ItemGroup = (ItemGroup)request.ItemGroup;
-            
-            if (usersToRemove.Any()) {
+            entity.ItemGroup = (ItemGroup) request.ItemGroup;
+
+            if (usersToRemove.Any())
+            {
                 _context.ApplicationUserReceiptItems.RemoveRange(usersToRemove);
             }
-            
+
             await _context.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;
+        }
+
+        private void SubtractReceiptItemCostForSameUsers(List<OweRecord> records, ReceiptItem entity,
+            UpdateReceiptItemCommand request)
+        {
+            var sameUsers = entity.Users.Select(x => x.ApplicationUserId).ToList()
+                .Intersect(request.UserDtos.Select(x => x.Id)).ToList();
+
+            records.SubtractReceiptItemCost(sameUsers!, entity.Price, entity.Count, entity.Users.Count);
+        }
+
+        private void SubtractReceiptItemCostForRemovedUsers(List<ApplicationUserReceiptItem> usersToRemove,
+            List<OweRecord> records, ReceiptItem entity)
+        {
+            var usersToRemoveStringList = usersToRemove
+                .Select(x => x.ApplicationUserId)
+                .ToList();
+
+            records.SubtractReceiptItemCost(usersToRemoveStringList, entity.Price, entity.Count, entity.Users.Count);
+        }
+
+        private void AddReceiptItemCostForRequestUsers(List<OweRecord> records, UpdateReceiptItemCommand request)
+        {
+            var users = request.UserDtos
+                .Select(x => x.Id)
+                .ToList();
+
+            records.AddReceiptItemCost(users!, request.Price, request.Count);
         }
 
         private async Task CheckAndAddUsers(ReceiptItem entity, string receiptId, List<UserDto> userDtos)
         {
             var newUsers = userDtos
                 .Where(x => entity.Users.All(y => y.ApplicationUserId != x.Id))
-                .Select(x => new ApplicationUserReceiptItem 
+                .Select(x => new ApplicationUserReceiptItem
                 {
                     ApplicationUserId = x.Id,
                     ReceiptItemId = receiptId
@@ -105,7 +125,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
                 await _context.ApplicationUserReceiptItems.AddRangeAsync(newUsers);
             }
         }
-        
+
         private List<ApplicationUserReceiptItem> GetUserToRemove(ReceiptItem entity, List<UserDto> userDtos)
         {
             var usersToRemove = entity.Users

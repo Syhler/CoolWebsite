@@ -157,13 +157,14 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
         
        
         [Test]
-        public void Handle_ItemGroupNull_ShouldThrowValidationException()
+        public void Handle_ItemGroupLessThanZero_ShouldThrowValidationException()
         {
             var updateCommand = new UpdateReceiptItemCommand
             {
                 Count = 1235,
                 Price = 231.32321,
                 Id = "dont even matter lmao",
+                ItemGroup = -1,
                 UserDtos = new List<UserDto>
                 {
                     new UserDto{Id = User.Id}
