@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
+using CoolWebsite.Application.Services;
 using CoolWebsite.Domain.Entities.Financial;
 using CoolWebsite.Domain.Entities.Identity;
 using CoolWebsite.Domain.Enums;
@@ -82,15 +83,9 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
                 var oweRecord = oweRecords.FirstOrDefault(x => x.UserId == user);
 
                 if (oweRecord == null) continue;
-
-                if (request.UserIds.Count > 1)
-                {
-                    oweRecord.Amount += Math.Round(request.Count * request.Price / request.UserIds.Count, 2);
-                }
-                else
-                {
-                    oweRecord.Amount += Math.Round(request.Count * request.Price, 2);
-                }
+                
+                oweRecord.Amount += Math.Round(request.Count * request.Price / request.UserIds.Count, 2);
+                
             }
         }
     }

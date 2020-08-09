@@ -51,9 +51,10 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
             {
                 throw new NotFoundException(nameof(Receipt), request.Id);
             }
-
+ 
             var records = _context.OweRecords.Where(x =>
-                x.OwedUserId == entity.CreatedBy && x.FinancialProjectId == entity.FinancialProjectId).ToList();
+                x.OwedUserId == entity.CreatedBy 
+                && x.FinancialProjectId == entity.FinancialProjectId).ToList();
 
 
             entity.Location = request.Location;
@@ -67,11 +68,13 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
 
 
             //Remove items
-            var receiptItemsToRemove = entity.Items.Where(x => request.ItemDtos.All(y => y.Id != x.Id)).ToList();
-            
+            var receiptItemsToRemove = entity.Items
+                .Where(x => request.ItemDtos.All(y => y.Id != x.Id)).ToList();
+
             RemoveReceiptItemFromOweRecord(receiptItemsToRemove, records);
 
             _context.ReceiptItems.RemoveRange(receiptItemsToRemove);
+
             
             //Add new items
             if (request.ItemDtos != null)
@@ -84,7 +87,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
             return Unit.Value;
         }
 
-        private async Task ModifiesReceiptItem(IList<ReceiptItemDto> receiptItemDtos, Receipt receiptItem, ICollection<OweRecord> records)
+        private async Task ModifiesReceiptItem(IList<ReceiptItemDto> receiptItemDtos, Receipt receiptItem,
+            ICollection<OweRecord> records)
         {
             foreach (var itemDto in receiptItemDtos)
             {
@@ -92,9 +96,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
 
                 if (existingReceiptItem != null)
                 {
-                    
                     await UpdateReceiptItem(existingReceiptItem, itemDto, records);
-
                 }
                 else
                 {
@@ -102,32 +104,26 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
                 }
             }
         }
-        
-        
+
+
         private void RemoveReceiptItemFromOweRecord(List<ReceiptItem> receiptItems, List<OweRecord> oweRecords)
         {
+            //HERE OWERECROD
             foreach (var receiptItem in receiptItems)
             {
                 foreach (var receiptItemUser in receiptItem.Users)
                 {
-                    var record = oweRecords.FirstOrDefault(x => x.UserId == receiptItemUser.ApplicationUserId);
+                    var record = oweRecords
+                        .FirstOrDefault(x => x.UserId == receiptItemUser.ApplicationUserId);
 
                     if (record == null) continue;
-                    
-                    if (receiptItem.Users.Count > 1)
-                    {
-                        record.Amount -= Math.Round(receiptItem.Count * receiptItem.Price / receiptItem.Users.Count, 2);
-                    }
-                    else
-                    {
-                        record.Amount -= Math.Round(receiptItem.Count * receiptItem.Price, 2);
-                    }
 
+
+                    record.Amount -= Math.Round(receiptItem.Count * receiptItem.Price / receiptItem.Users.Count, 2);
                 }
-                
             }
         }
-        
+
         private async Task CreateReceiptItems(string receiptId, ICollection<OweRecord> records, ReceiptItemDto newItem)
         {
             var receiptItemId = string.IsNullOrWhiteSpace(newItem.Id) ? Guid.NewGuid().ToString() : newItem.Id;
@@ -146,26 +142,30 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
                 Users = users,
                 Name = "Receipt"
             };
-        
+
             UpdateOweRecords(receiptItem, records);
 
 
             await _context.ReceiptItems.AddAsync(receiptItem);
         }
 
-        private async Task UpdateReceiptItem(ReceiptItem receiptItem, ReceiptItemDto receiptItemDto, ICollection<OweRecord> records)
+        private async Task UpdateReceiptItem(ReceiptItem receiptItem, ReceiptItemDto receiptItemDto,
+            ICollection<OweRecord> records)
         {
             UpdateOweRecords(receiptItem, receiptItemDto, records);
-            
+
             receiptItem.Count = receiptItemDto.Count;
             receiptItem.Price = receiptItemDto.Price;
-            receiptItem.ItemGroup = receiptItemDto.ItemGroup != null ? (ItemGroup) receiptItemDto.ItemGroup.Value : ItemGroup.Unknown;
+            receiptItem.ItemGroup = receiptItemDto.ItemGroup != null
+                ? (ItemGroup) receiptItemDto.ItemGroup.Value
+                : ItemGroup.Unknown;
 
             var newUsers =
                 CreateUserReceiptItemsListWithSkips(receiptItemDto.Users, receiptItemDto.Id, receiptItem.Users);
 
             //Gets all users there isn't on the receiptItem anymore
-            var usersToRemove = receiptItem.Users.Where(x => receiptItemDto.Users.All(y => y.Id != x.ApplicationUserId))
+            var usersToRemove = receiptItem.Users
+                .Where(x => receiptItemDto.Users.All(y => y.Id != x.ApplicationUserId))
                 .ToList();
 
             if (usersToRemove.Any())
@@ -184,70 +184,56 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
 
         private void UpdateOweRecords(ReceiptItem oldItem, ReceiptItemDto newItem, ICollection<OweRecord> records)
         {
-           
             RemoveOweAmountFromOldItems(oldItem, records);
 
-            
+
             AddOweAmountForNewItem(newItem, records);
-          
         }
 
         private void AddOweAmountForNewItem(ReceiptItemDto newItem, ICollection<OweRecord> records)
         {
+            //owerecord add
             foreach (var itemUser in newItem.Users)
             {
                 var record = records.FirstOrDefault(x => x.UserId == itemUser.Id);
 
                 if (record == null) continue;
 
-                if (newItem.Users.Count > 1)
-                {
-                    record.Amount += Math.Round(newItem.Count * newItem.Price / newItem.Users.Count, 2);
-                }
-                else
-                {
-                    record.Amount += Math.Round(newItem.Count * newItem.Price, 2);
-                }
+
+                record.Amount += Math.Round(newItem.Count * newItem.Price / newItem.Users.Count, 2);
             }
         }
-
-        private void RemoveOweAmountFromOldItems(ReceiptItem oldItem, ICollection<OweRecord> records)
-        {
-            foreach (var oldItemUser in oldItem.Users)
-            {
-                var record = records.FirstOrDefault(x => x.UserId == oldItemUser.ApplicationUserId);
-                if (record == null) continue;
-
-                if (oldItem.Users.Count > 1)
-                {
-                    record.Amount -= Math.Round(oldItem.Count * oldItem.Price / oldItem.Users.Count, 2);
-                }
-                else
-                {
-                    record.Amount -= Math.Round(oldItem.Count * oldItem.Price, 2);
-                }
-            }
-        }
-
 
         private void UpdateOweRecords(ReceiptItem request, ICollection<OweRecord> records)
         {
+            //HERE OWERECORD 
             foreach (var user in request.Users)
             {
                 var record = records.FirstOrDefault(x => x.UserId == user.ApplicationUserId);
 
                 if (record == null) continue;
 
-                if (request.Users.Count > 1)
-                {
-                    record.Amount += Math.Round(request.Count * request.Price / request.Users.Count, 2);
-                }
-                else
-                {
-                    record.Amount += Math.Round(request.Count * request.Price, 2);
-                }
+
+                record.Amount += Math.Round(request.Count * request.Price / request.Users.Count, 2);
             }
         }
+        
+        private void RemoveOweAmountFromOldItems(ReceiptItem oldItem, ICollection<OweRecord> records)
+        {
+            //owerecord remove
+            foreach (var oldItemUser in oldItem.Users)
+            {
+                var record = records
+                    .FirstOrDefault(x => x.UserId == oldItemUser.ApplicationUserId);
+                if (record == null) continue;
+
+
+                record.Amount -= Math.Round(oldItem.Count * oldItem.Price / oldItem.Users.Count, 2);
+            }
+        }
+
+
+       
 
         private List<ApplicationUserReceiptItem> CreateUserReceiptItemsList(
             ICollection<UserDto>? userDtos,
@@ -256,7 +242,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
             var users = new List<ApplicationUserReceiptItem>();
 
             if (userDtos == null) return users;
-            
+
             foreach (var user in userDtos)
             {
                 users.Add(new ApplicationUserReceiptItem
@@ -275,7 +261,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
             var users = new List<ApplicationUserReceiptItem>();
 
             if (userDtos == null) return users;
-            
+
             foreach (var user in userDtos)
             {
                 if (skips.Any(x => x.ApplicationUserId == user.Id))
