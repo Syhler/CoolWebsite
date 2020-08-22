@@ -19,14 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="You can now edit a financialproject">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/CreateReceiptItems/CreateReceiptItemCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/CreateReceiptItems/CreateReceiptItemCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/ActivateReceipts/ActivateReceiptCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/ActivateReceipts/ActivateReceiptCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/DeleteReceipts/DeleteReceiptCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/DeleteReceipts/DeleteReceiptCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/UpdateReceipts/UpdateReceiptCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/UpdateReceipts/UpdateReceiptCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ProjectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ProjectController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="You can now edit a financialproject" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,11 +162,7 @@
     <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Transaction/Commands/DeleteTransactionTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Commands/DeleteTransactions/DeleteTransactionCommandValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Commands/DeleteTransactions/DeleteTransactionCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Services/OweRecordExtenstion.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Queries/GetReceiptItemByReceiptIdQueryValidator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Financial/ReceiptItems/Queries/GetReceiptItemsByReceiptIdQueryTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectsByUserQueryVm.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Queries/GetReceiptItemByReceiptIdQuery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/FinancialProjectsVm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200519163419_AddedConfigurationToFinancial.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/FinancialProjectDto.cs" root0="FORCE_HIGHLIGHTING" />
@@ -322,13 +311,18 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Home/Partial/EditFinancialProjectModal.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Models/EditFinancialProjectModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Domain/Entities/Identity/ApplicationRole.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/10120FE5-3BEC-4C8D-9823-61DAC0F79754/F/RazorPageOfT.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Financial/Receipts/Commands/ActivateReceiptTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Services/Mapping/VMMappingProfile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Views/Project/Partial/ReceiptCard.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/647CCDFF-6E85-4DCE-AE9F-7CB0FE40D3E0/df/a8dae67b/RequestHandlerDelegate`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Services/OweRecordExtenstion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/ActivateReceipts/ActivateReceiptCommandValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/Receipts/Commands/ActivateReceipts/ActivateReceiptCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Queries/GetReceiptItemByReceiptIdQuery.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Financial/ReceiptItems/Queries/GetReceiptItemsByReceiptIdQueryTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Queries/GetReceiptItemByReceiptIdQueryValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ProjectController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Views/Users/Users.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -649,42 +643,34 @@
     <state width="891" height="679" key="DebuggerActiveHint/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595620149385" />
     <state width="891" height="679" key="DebuggerActiveHint/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596985639203" />
     <state width="891" height="679" key="DebuggerActiveHint/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595978676603" />
-    <state x="1008" y="619" width="554" height="161" key="GitCloneDialog" timestamp="1588951357667">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1008" y="619" key="GitCloneDialog/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1588951357667" />
-    <state width="2517" height="268" key="GridCell.Tab.0.bottom" timestamp="1597009946137">
+    <state width="2517" height="263" key="GridCell.Tab.0.bottom" timestamp="1598097525690">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="267" key="GridCell.Tab.0.bottom/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1591023522289" />
     <state width="2517" height="288" key="GridCell.Tab.0.bottom/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217714" />
-    <state width="2517" height="268" key="GridCell.Tab.0.bottom/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1597009946137" />
+    <state width="2517" height="263" key="GridCell.Tab.0.bottom/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1598097525690" />
     <state width="2517" height="288" key="GridCell.Tab.0.bottom/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898251" />
-    <state width="2514" height="520" key="GridCell.Tab.0.bottom/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
-    <state width="2517" height="268" key="GridCell.Tab.0.center" timestamp="1597009946137">
+    <state width="2517" height="263" key="GridCell.Tab.0.center" timestamp="1598097525690">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="267" key="GridCell.Tab.0.center/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1591023522289" />
     <state width="2517" height="288" key="GridCell.Tab.0.center/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217714" />
-    <state width="2517" height="268" key="GridCell.Tab.0.center/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1597009946137" />
+    <state width="2517" height="263" key="GridCell.Tab.0.center/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1598097525690" />
     <state width="2517" height="288" key="GridCell.Tab.0.center/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898250" />
-    <state width="2514" height="520" key="GridCell.Tab.0.center/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
-    <state width="2517" height="268" key="GridCell.Tab.0.left" timestamp="1597009946136">
+    <state width="2517" height="263" key="GridCell.Tab.0.left" timestamp="1598097525690">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="267" key="GridCell.Tab.0.left/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1591023522289" />
     <state width="2517" height="288" key="GridCell.Tab.0.left/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217714" />
-    <state width="2517" height="268" key="GridCell.Tab.0.left/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1597009946136" />
+    <state width="2517" height="263" key="GridCell.Tab.0.left/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1598097525690" />
     <state width="2517" height="288" key="GridCell.Tab.0.left/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898250" />
-    <state width="2514" height="520" key="GridCell.Tab.0.left/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524399" />
-    <state width="2517" height="268" key="GridCell.Tab.0.right" timestamp="1597009946137">
+    <state width="2517" height="263" key="GridCell.Tab.0.right" timestamp="1598097525690">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="267" key="GridCell.Tab.0.right/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1591023522289" />
     <state width="2517" height="288" key="GridCell.Tab.0.right/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217714" />
-    <state width="2517" height="268" key="GridCell.Tab.0.right/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1597009946137" />
+    <state width="2517" height="263" key="GridCell.Tab.0.right/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1598097525690" />
     <state width="2517" height="288" key="GridCell.Tab.0.right/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898251" />
-    <state width="2514" height="520" key="GridCell.Tab.0.right/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.1.bottom" timestamp="1596986171275">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -692,7 +678,6 @@
     <state width="2517" height="288" key="GridCell.Tab.1.bottom/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217715" />
     <state width="2517" height="288" key="GridCell.Tab.1.bottom/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171275" />
     <state width="2517" height="288" key="GridCell.Tab.1.bottom/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898251" />
-    <state width="2514" height="520" key="GridCell.Tab.1.bottom/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.1.center" timestamp="1596986171275">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -700,7 +685,6 @@
     <state width="2517" height="288" key="GridCell.Tab.1.center/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217715" />
     <state width="2517" height="288" key="GridCell.Tab.1.center/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171275" />
     <state width="2517" height="288" key="GridCell.Tab.1.center/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898251" />
-    <state width="2514" height="520" key="GridCell.Tab.1.center/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.1.left" timestamp="1596986171275">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -708,7 +692,6 @@
     <state width="2517" height="288" key="GridCell.Tab.1.left/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217715" />
     <state width="2517" height="288" key="GridCell.Tab.1.left/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171275" />
     <state width="2517" height="288" key="GridCell.Tab.1.left/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898251" />
-    <state width="2514" height="520" key="GridCell.Tab.1.left/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.1.right" timestamp="1596986171275">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -716,7 +699,6 @@
     <state width="2517" height="288" key="GridCell.Tab.1.right/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217715" />
     <state width="2517" height="288" key="GridCell.Tab.1.right/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171275" />
     <state width="2517" height="288" key="GridCell.Tab.1.right/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898251" />
-    <state width="2514" height="520" key="GridCell.Tab.1.right/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.2.bottom" timestamp="1596986171276">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -724,7 +706,6 @@
     <state width="2517" height="288" key="GridCell.Tab.2.bottom/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217715" />
     <state width="2517" height="288" key="GridCell.Tab.2.bottom/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171276" />
     <state width="2517" height="288" key="GridCell.Tab.2.bottom/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898251" />
-    <state width="2514" height="520" key="GridCell.Tab.2.bottom/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.2.center" timestamp="1596986171276">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -732,7 +713,6 @@
     <state width="2517" height="288" key="GridCell.Tab.2.center/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217715" />
     <state width="2517" height="288" key="GridCell.Tab.2.center/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171276" />
     <state width="2517" height="288" key="GridCell.Tab.2.center/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898251" />
-    <state width="2514" height="520" key="GridCell.Tab.2.center/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.2.left" timestamp="1596986171275">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -740,7 +720,6 @@
     <state width="2517" height="288" key="GridCell.Tab.2.left/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217715" />
     <state width="2517" height="288" key="GridCell.Tab.2.left/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171275" />
     <state width="2517" height="288" key="GridCell.Tab.2.left/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898251" />
-    <state width="2514" height="520" key="GridCell.Tab.2.left/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.2.right" timestamp="1596986171276">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -748,7 +727,6 @@
     <state width="2517" height="288" key="GridCell.Tab.2.right/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217715" />
     <state width="2517" height="288" key="GridCell.Tab.2.right/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171276" />
     <state width="2517" height="288" key="GridCell.Tab.2.right/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898251" />
-    <state width="2514" height="520" key="GridCell.Tab.2.right/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.3.bottom" timestamp="1596986171276">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -756,7 +734,6 @@
     <state width="2517" height="288" key="GridCell.Tab.3.bottom/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217715" />
     <state width="2517" height="288" key="GridCell.Tab.3.bottom/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171276" />
     <state width="2517" height="288" key="GridCell.Tab.3.bottom/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898252" />
-    <state width="2514" height="520" key="GridCell.Tab.3.bottom/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.3.center" timestamp="1596986171276">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -764,7 +741,6 @@
     <state width="2517" height="288" key="GridCell.Tab.3.center/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217715" />
     <state width="2517" height="288" key="GridCell.Tab.3.center/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171276" />
     <state width="2517" height="288" key="GridCell.Tab.3.center/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898252" />
-    <state width="2514" height="520" key="GridCell.Tab.3.center/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.3.left" timestamp="1596986171276">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -772,7 +748,6 @@
     <state width="2517" height="288" key="GridCell.Tab.3.left/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217715" />
     <state width="2517" height="288" key="GridCell.Tab.3.left/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171276" />
     <state width="2517" height="288" key="GridCell.Tab.3.left/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898252" />
-    <state width="2514" height="520" key="GridCell.Tab.3.left/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.3.right" timestamp="1596986171276">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -780,7 +755,6 @@
     <state width="2517" height="288" key="GridCell.Tab.3.right/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217715" />
     <state width="2517" height="288" key="GridCell.Tab.3.right/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171276" />
     <state width="2517" height="288" key="GridCell.Tab.3.right/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898252" />
-    <state width="2514" height="520" key="GridCell.Tab.3.right/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.4.bottom" timestamp="1596986171277">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -788,7 +762,6 @@
     <state width="2517" height="288" key="GridCell.Tab.4.bottom/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217716" />
     <state width="2517" height="288" key="GridCell.Tab.4.bottom/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171277" />
     <state width="2517" height="288" key="GridCell.Tab.4.bottom/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898252" />
-    <state width="2514" height="520" key="GridCell.Tab.4.bottom/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524401" />
     <state width="2517" height="288" key="GridCell.Tab.4.center" timestamp="1596986171277">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -796,7 +769,6 @@
     <state width="2517" height="288" key="GridCell.Tab.4.center/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217715" />
     <state width="2517" height="288" key="GridCell.Tab.4.center/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171277" />
     <state width="2517" height="288" key="GridCell.Tab.4.center/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898252" />
-    <state width="2514" height="520" key="GridCell.Tab.4.center/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.4.left" timestamp="1596986171276">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -804,7 +776,6 @@
     <state width="2517" height="288" key="GridCell.Tab.4.left/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217715" />
     <state width="2517" height="288" key="GridCell.Tab.4.left/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171276" />
     <state width="2517" height="288" key="GridCell.Tab.4.left/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898252" />
-    <state width="2514" height="520" key="GridCell.Tab.4.left/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524400" />
     <state width="2517" height="288" key="GridCell.Tab.4.right" timestamp="1596986171277">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -812,30 +783,22 @@
     <state width="2517" height="288" key="GridCell.Tab.4.right/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595625217715" />
     <state width="2517" height="288" key="GridCell.Tab.4.right/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1596986171277" />
     <state width="2517" height="288" key="GridCell.Tab.4.right/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596014898252" />
-    <state width="2514" height="520" key="GridCell.Tab.4.right/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588457524401" />
     <state x="766" y="431" key="Rider.ProjectTemplateDialog.Size" timestamp="1595357174288">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="766" y="431" key="Rider.ProjectTemplateDialog.Size/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1589015141869" />
     <state x="766" y="431" key="Rider.ProjectTemplateDialog.Size/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595357174288" />
     <state x="990" y="378" key="RiderGenerateDialog" timestamp="1595688107257">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="990" y="378" key="RiderGenerateDialog/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595595286092" />
     <state x="990" y="378" key="RiderGenerateDialog/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595688107257" />
-    <state x="1067" y="410" key="RollbackChangesDialog" timestamp="1588985059219">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1067" y="410" key="RollbackChangesDialog/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1588985059219" />
     <state x="781" y="342" width="1007" height="732" key="SettingsEditor" timestamp="1595973652563">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="781" y="342" key="SettingsEditor/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595973652563" />
-    <state x="3341" y="1792" width="1007" height="732" key="SettingsEditor/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588456260891" />
     <state x="92" y="92" width="2376" height="1216" key="VCS.FileHistoryDialog" timestamp="1597009555732">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="92" y="92" width="2376" height="1216" key="VCS.FileHistoryDialog/0.0.2560.1400/-437.-1440.3440.1440/2560.0.2560.1440/-2560.0.2560.1440@0.0.2560.1400" timestamp="1589404136948" />
     <state x="92" y="92" width="2376" height="1216" key="VCS.FileHistoryDialog/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1597009555732" />
     <state x="92" y="92" width="2376" height="1216" key="VCS.FileHistoryDialog/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1595766866699" />
     <state width="1288" height="708" key="XDebugger.FullValuePopup" timestamp="1596983007714">
@@ -870,7 +833,6 @@
     <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/0.-1440.3440.1440/-1440.-1126.1440.2560/2560.0.2560.1440@0.0.2560.1400" timestamp="1595620366157" />
     <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1121.1440.2560@0.0.2560.1400" timestamp="1597009830645" />
     <state x="943" y="315" width="672" height="677" key="search.everywhere.popup/0.0.2560.1400/0.-1440.3440.1440/2560.0.2560.1440/-1440.-1126.1440.2560@0.0.2560.1400" timestamp="1596009856429" />
-    <state x="3503" y="1764" width="672" height="696" key="search.everywhere.popup/2560.1440.2560.1440/0.1440.2560.1440/1963.0.3440.1440/5120.1440.2560.1440@2560.1440.2560.1440" timestamp="1588456983205" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -894,6 +856,7 @@
       <pinned-members>
         <PinnedItemInfo typeName="CoolWebsite.Domain.Entities.Financial.ReceiptItem" fieldName="Users" />
         <PinnedItemInfo typeName="CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models.UserDto" fieldName="Id" />
+        <PinnedItemInfo typeName="CoolWebsite.Application.Services.Models.PdfReceiptItemDto" fieldName="IsDiscount" />
         <PinnedItemInfo typeName="CoolWebsite.Domain.Entities.Financial.FinancialProject" fieldName="Receipts" />
       </pinned-members>
     </pin-to-top-manager>
