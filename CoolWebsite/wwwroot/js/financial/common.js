@@ -3,7 +3,8 @@
     $('#datepicker').datepicker({
         dateFormat: "dd-M-yy"
     });
-    $("#datepicker").datepicker().datepicker("setDate", new Date());
+    
+    //$("#datepicker").datepicker().datepicker("setDate", new Date());
 
 
    

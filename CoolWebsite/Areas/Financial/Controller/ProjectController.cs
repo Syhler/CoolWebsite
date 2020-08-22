@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.DatabaseAccess.Common.Transaction.Commands.CreateTransaction;
@@ -9,18 +8,19 @@ using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Querie
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries;
-using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries.Models;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.DeleteReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.UpdateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries;
+using CoolWebsite.Application.Services;
+using CoolWebsite.Application.Services.Models;
 using CoolWebsite.Areas.Financial.Common;
 using CoolWebsite.Areas.Financial.Models;
 using CoolWebsite.Domain.Enums;
 using CoolWebsite.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace CoolWebsite.Areas.Financial.Controller
 {
@@ -102,8 +102,61 @@ namespace CoolWebsite.Areas.Financial.Controller
                 CreateReceiptItemVm = await CreateReceiptItemVm(userDtos)
             };
             
+            return View("CreateReceipt",model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> CreateReceiptFromPdf(string id, PdfReceiptDto pdfReceiptDto)
+        {
+            var financialQuery = new GetUsersFromFinancialProjectQuery() {FinancialProjectId = id};
+
+            var userDtos = await Mediator.Send(financialQuery);
+          
+            var createReceiptModel = new CreateReceiptModel
+            {
+                FinancialProjectId = id,
+                CreateReceiptItemVm = await CreateReceiptItemVm(userDtos)
+            };
+            
+            
+            var model = new PdfReceiptVm
+            {
+                CreateReceiptModel = createReceiptModel,
+                PdfReceiptDto = pdfReceiptDto
+            };
             return View(model);
         }
+        
+        [HttpPost]
+        public async Task<IActionResult> UploadPdfReceipt(string id, IFormFile file)
+        {
+            PdfReceiptReader pdfReceiptReader = new PdfReceiptReader(file);
+            var receipt = pdfReceiptReader.GetReceipt();
+            
+            var financialQuery = new GetUsersFromFinancialProjectQuery() {FinancialProjectId = id};
+
+            var userDtos = await Mediator.Send(financialQuery);
+          
+            var createReceiptModel = new CreateReceiptModel
+            {
+                FinancialProjectId = id,
+                CreateReceiptItemVm = await CreateReceiptItemVm(userDtos),
+                ReceiptDto = new ReceiptDto()
+            };
+
+            createReceiptModel.ReceiptDto.Location = receipt.Location;
+            createReceiptModel.ReceiptDto.DateVisited = receipt.DateVisited;
+            
+            
+            var model = new PdfReceiptVm
+            {
+                CreateReceiptModel = createReceiptModel,
+                PdfReceiptDto = receipt
+            };
+            
+            return View("CreateReceiptFromPdf",model);
+        }
+        
 
         [HttpGet]
         public async Task<IActionResult> EditReceipt(string id, string financialProjectId)
@@ -161,6 +214,8 @@ namespace CoolWebsite.Areas.Financial.Controller
             return PartialView("Partial/ReceiptItemPartialView", vm);
         }
 
+        
+        
         [HttpPost]
         public async Task<IActionResult> CreateReceiptPost(CreateReceiptModel model)
         {

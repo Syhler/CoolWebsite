@@ -13,6 +13,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         public string? Id { get; set; }
         public int Count { get; set; }
         public double Price { get; set; }
+
+        public string? Name { get; set; }
         
         public ItemGroupDto ItemGroup { get; set; } = null!;
         public ICollection<UserDto> Users { get; set; } = null!;

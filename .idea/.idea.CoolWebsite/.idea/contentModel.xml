@@ -129,6 +129,7 @@
               <e p="CreateReceiptModel.cs" t="Include" />
               <e p="EditFinancialProjectModel.cs" t="Include" />
               <e p="PayTransaction.cs" t="Include" />
+              <e p="PdfReceiptVm.cs" t="Include" />
               <e p="ReceiptItemVm.cs" t="Include" />
               <e p="TransactionPartialModel.cs" t="Include" />
               <e p="TransactionVm.cs" t="Include" />
@@ -152,10 +153,12 @@
               </e>
               <e p="Project" t="Include">
                 <e p="CreateReceipt.cshtml" t="Include" />
+                <e p="CreateReceiptFromPdf.cshtml" t="Include" />
                 <e p="EditReceipt.cshtml" t="Include" />
                 <e p="Index.cshtml" t="Include" />
                 <e p="Partial" t="Include">
                   <e p="CreateReceiptItemModal.cshtml" t="Include" />
+                  <e p="PdfReceiptItemPartialView.cshtml" t="Include" />
                   <e p="ReceiptCard.cshtml" t="Include" />
                   <e p="ReceiptFields.cshtml" t="Include" />
                   <e p="ReceiptItemPartialView.cshtml" t="Include" />
@@ -303,6 +306,7 @@
             <e p="Financial" t="Include">
               <e p="common.js" t="Include" />
               <e p="home.js" t="Include" />
+              <e p="PdfReceipt.js" t="Include" />
               <e p="project.js" t="Include" />
               <e p="transaction.js" t="Include" />
             </e>
@@ -2299,7 +2303,13 @@
             </e>
           </e>
         </e>
-        <e p="Services" t="Include" />
+        <e p="Services" t="Include">
+          <e p="Models" t="Include">
+            <e p="PdfReceiptDto.cs" t="Include" />
+            <e p="PdfReceiptItemDto.cs" t="Include" />
+          </e>
+          <e p="PDFReceiptReader.cs" t="Include" />
+        </e>
       </e>
       <e p="CoolWebsite.Domain" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />

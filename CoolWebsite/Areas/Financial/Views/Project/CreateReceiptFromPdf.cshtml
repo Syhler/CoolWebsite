@@ -1,0 +1,72 @@
+﻿@using CoolWebsite.Areas.Financial.Models
+@using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models
+@using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries.Models
+@model PdfReceiptVm
+
+@{
+    ViewBag.Title = "Create - Receipt";
+    Layout = "_Layout";
+}
+
+<div class="mt-5">
+    <h2>Here will you be avaible to create a receipt</h2>
+    <form id="receipt-form">
+       
+        @{
+            await Html.RenderPartialAsync("Partial/ReceiptFields", @Model.CreateReceiptModel);
+        }
+        
+        <div class="mt-5">
+                    
+            <button class="btn btn-success" type="button" id="add-pdf-receipt-item"
+                    data-target="#create-receipt-item-modalNOPE"
+                    data-toggle="modal">
+                Add Item
+            </button>
+                    
+            <div id="receipt-item-pdf-cards" class="mt-4">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-header">
+                        Receipt Items : <br/>
+                        You have to manullay combine any discount before adding the item. <em>Note that only one discount can be applied </em>
+                        <small class="form-text text-muted"> </small>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group receipt-pdf-item-body">
+                            @{
+                                foreach (var item in Model.PdfReceiptDto.PdfReceiptItems)
+                                {
+                                    await Html.RenderPartialAsync("Partial/PdfReceiptItemPartialView", item);
+
+                                }
+                            }
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <label id='receipt-item-none-error' class="red" style="display: none">You must add at least one receipt item</label>
+                        <span class="badge badge-primary badge-pill float-right">Total: <span id="all-receipt-items-total-price">0</span> Kr</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a type="button" class="btn btn-danger" asp-action="Index" asp-controller="Project" asp-route-id="@Model.CreateReceiptModel.FinancialProjectId">Back</a>
+        <button type="submit" class="btn btn-success" id="create-receipt-button">Create</button> @*FORM get sumbitted via ajax /Financial/project.js*@
+    </form>
+
+</div>
+
+<div class="modal" id="create-receipt-item-modal">
+    @*Partial view gets called*@
+    @{
+        await Html.RenderPartialAsync("Partial/CreateReceiptItemModal", @Model.CreateReceiptModel.CreateReceiptItemVm);
+    }
+</div>
+
+
+@section Scripts
+{
+    <script src="~/js/financial/common.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="~/js/financial/project.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="~/js/financial/pdfReceipt.js" type="text/javascript" asp-append-version="true"></script>
+}

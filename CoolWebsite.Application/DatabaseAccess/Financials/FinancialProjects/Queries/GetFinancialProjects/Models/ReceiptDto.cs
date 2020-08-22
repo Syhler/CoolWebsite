@@ -15,7 +15,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 
         public string? Note { get; set; }
 
-        public IList<ReceiptItemDto> Items{ get; set; } = null!;
+        public IList<ReceiptItemDto>? Items{ get; set; }
 
         public FinancialProjectDto FinancialProject { get; set; } = null!;
         public DateTime? Deleted { get; set; }
