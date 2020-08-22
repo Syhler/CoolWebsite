@@ -66,21 +66,6 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             firstOrDefault?.Amount.Should().Be(create.Count * create.Price);
         }
 
-        [Test]
-        public void Handle_NameEmpty_ThrowValidationException()
-        {
-            var create = new CreateReceiptItemCommand
-            {
-                Count = 5,
-                Price = 2,
-                Name = "",
-                ItemGroup = (int)ItemGroup.Essentials,
-                ReceiptId = "asdsa",
-                UserIds = new List<string>{User.Id}
-            };
-            
-            FluentActions.Awaiting(() => SendAsync(create)).Should().Throw<ValidationException>();
-        }
 
         [Test]
         public void Handle_PriceBelowZero_ThrowValidationException()

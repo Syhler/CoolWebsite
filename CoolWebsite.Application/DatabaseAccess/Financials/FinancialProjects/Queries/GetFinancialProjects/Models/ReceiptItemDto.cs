@@ -15,7 +15,6 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         public double Price { get; set; }
 
         public string? Name { get; set; }
-        
         public ItemGroupDto ItemGroup { get; set; } = null!;
         public ICollection<UserDto> Users { get; set; } = null!;
 
@@ -25,8 +24,9 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
         {
             profile.CreateMap<ReceiptItem, ReceiptItemDto>()
                 .ForMember(x => x.Users,
-                    opt => opt.MapFrom(x => x.Users.Select(y => y.ApplicationUser)))
-                .ForMember(x => x.ItemGroup, opt => 
+                    opt =>
+                        opt.MapFrom(x => x.Users.Select(y => y.ApplicationUser)))
+                .ForMember(x => x.ItemGroup, opt =>
                     opt.MapFrom(y => new ItemGroupDto {Value = (int) y.ItemGroup, Name = y.ItemGroup.ToString()}));
         }
     }

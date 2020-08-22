@@ -45,6 +45,7 @@
             </e>
             <e p="Queries" t="Include">
               <e p="GetItemGroupQueryTests.cs" t="Include" />
+              <e p="GetReceiptItemsByReceiptIdQueryTests.cs" t="Include" />
             </e>
           </e>
           <e p="Receipts" t="Include">
@@ -2260,6 +2261,8 @@
               </e>
               <e p="Queries" t="Include">
                 <e p="GetItemGroupQuery.cs" t="Include" />
+                <e p="GetReceiptItemByReceiptIdQuery.cs" t="Include" />
+                <e p="GetReceiptItemByReceiptIdQueryValidator.cs" t="Include" />
                 <e p="Models" t="Include">
                   <e p="ItemGroupDto.cs" t="Include" />
                 </e>
@@ -2308,6 +2311,7 @@
             <e p="PdfReceiptDto.cs" t="Include" />
             <e p="PdfReceiptItemDto.cs" t="Include" />
           </e>
+          <e p="OweRecordExtenstion.cs" t="Include" />
           <e p="PDFReceiptReader.cs" t="Include" />
         </e>
       </e>

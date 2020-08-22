@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
@@ -18,7 +19,8 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
         [Test]
         public async Task Handle_ValidId_ShouldDeleteEntity()
         {
-            var receiptId = await CreateReceipt();
+            var project = await CreateFinancialProject();
+            var receiptId = await CreateReceipt(project);
             
             var createCommand = new CreateReceiptItemCommand
             {
@@ -29,7 +31,8 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
                 Name = "das",
                 UserIds = new List<string>
                 {
-                    User.Id
+                    User.Id,
+                    SecondUser.Id
                 }
             };
 
@@ -41,14 +44,25 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             
             var deleteCommand = new DeleteReceiptItemCommand
             {
-                ReceiptId = id
+                Id = id,
+                FinancialProjectId = project
             };
-
+            var context = CreateContext();
+            
+            var oweRecordBeforeDeleted = context.OweRecords.First(x => x.UserId == SecondUser.Id && x.OwedUserId == User.Id);
+            oweRecordBeforeDeleted.Amount.Should()
+                .Be(createCommand.Price * createCommand.Count / createCommand.UserIds.Count);
+            
             await SendAsync(deleteCommand);
-
+            
+            context = CreateContext();
+            
             var entity = await FindAsync<ReceiptItem>(id);
 
             entity.Should().BeNull();
+
+            var oweRecord = context.OweRecords.First(x => x.UserId == SecondUser.Id && x.OwedUserId == User.Id);
+            oweRecord.Amount.Should().Be(0);
 
         }
 
@@ -57,7 +71,9 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
         {
             var command = new DeleteReceiptItemCommand
             {
-                ReceiptId = "nah"
+                Id = "nah",
+                FinancialProjectId = "ada"
+
             };
 
             FluentActions.Awaiting(() => SendAsync(command)).Should().Throw<NotFoundException>();
@@ -68,10 +84,38 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
         {
             var command = new DeleteReceiptItemCommand
             {
-                ReceiptId = ""
+                Id = "",
+                FinancialProjectId = "ada"
             };
 
             FluentActions.Awaiting(() => SendAsync(command)).Should().Throw<ValidationException>();
         }
+        
+        [Test]
+        public void Handle_FinancialProjectIdEmpty_ShouldThrowValidationException()
+        {
+            var command = new DeleteReceiptItemCommand
+            {
+                Id = "asdas",
+                FinancialProjectId = ""
+            };
+
+            FluentActions.Awaiting(() => SendAsync(command)).Should().Throw<ValidationException>();
+        }
+        
+        [Test]
+        public void Handle_FinancialProjectIdNull_ShouldThrowValidationException()
+        {
+            var command = new DeleteReceiptItemCommand
+            {
+                Id = "asdas",
+                FinancialProjectId = null!
+            };
+
+            FluentActions.Awaiting(() => SendAsync(command)).Should().Throw<ValidationException>();
+        }
+
+        
+        
     }
 }

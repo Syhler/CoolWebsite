@@ -18,11 +18,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Up
 
             RuleFor(x => x.DateVisited)
                 .NotEmpty().WithMessage("BoughtAt is required");
-
-            RuleFor(x => x.ItemDtos)
-                .NotNull()
-                .NotEmpty();
-
+            
         }
         
     }

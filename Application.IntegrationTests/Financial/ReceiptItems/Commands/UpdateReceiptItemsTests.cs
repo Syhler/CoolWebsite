@@ -1,64 +1,97 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Application.IntegrationTests.Common;
 using CoolWebsite.Application.Common.Exceptions;
+using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.UpdateReceiptItems;
-using CoolWebsite.Domain.Entities.Financial;
 using CoolWebsite.Domain.Enums;
 using FluentAssertions;
+using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
 namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
 {
     using static Testing;
     
+    
     public class UpdateReceiptItemsTests : FinancialTestBase
     {
         
         [Test]
-        public async Task Handle_ValidId_ShouldUpdateEntity()
+        [TestCase(100, 200)]
+        [TestCase(200, 100)]
+        public async Task Handle_ValidId_ShouldUpdateEntity(int price, int updatedPrice)
         {
-            var receiptId = await CreateReceipt();
+
+            var newUser = await CreateNewUser("kekw", "kekw");
+
+            var project = await CreateFinancialProject(newUser);
+            var receiptId = await CreateReceipt(project);
 
             
             var createCommand = new CreateReceiptItemCommand
             {
                 ReceiptId = receiptId,
-                Price = 2,
+                Price = price,
                 ItemGroup = (int)ItemGroup.Essentials,
-                Count = 22,
+                Count = 2,
                 Name = "das",
                 UserIds = new List<string>
                 {
-                    User.Id
+                    User.Id,
+                    newUser.Id
                 }
             };
 
-            var id = await SendAsync(createCommand);
-            
+            var itemId = await SendAsync(createCommand);
+
             
             var updateCommand = new UpdateReceiptItemCommand
             {
-                Count = 1235,
                 ItemGroup = (int)ItemGroup.Miscellaneous,
-                Name = "not even a name lmao",
-                Price = 231.32321,
-                ReceiptItemId = id
+                Price = updatedPrice,
+                Count = 2,
+                Id = itemId,
+                UserDtos = new List<UserDto>
+                {
+                    new UserDto{Id = User.Id},
+                    new UserDto{Id = SecondUser.Id}
+                },
+                FinancialProjectId = project
             };
 
             await SendAsync(updateCommand);
 
-            var entity = await FindAsync<ReceiptItem>(id);
+            var context = CreateContext();
 
+            var entity = await context.ReceiptItems
+                .Include(x => x.Users)
+                .FirstOrDefaultAsync(x => x.Id == itemId);
+                
             entity.Should().NotBeNull();
             entity.Count.Should().Be(updateCommand.Count);
             entity.ItemGroup.Should().Be(updateCommand.ItemGroup);
-            entity.Name.Should().Be(updateCommand.Name);
             entity.Price.Should().Be(updateCommand.Price);
+            entity.Users.Count.Should().Be(2);
+            entity.Users.Any(x => x.ApplicationUserId == User.Id).Should().Be(true);
+            entity.Users.Any(x => x.ApplicationUserId == SecondUser.Id).Should().Be(true);
             entity.LastModified.Should().BeCloseTo(DateTime.Now, 1000);
             entity.LastModifiedBy.Should().Be(User.Id);
+            
+            //owerecord
+            var newOweRecord = context.OweRecords
+                .FirstOrDefault(x => x.UserId == SecondUser.Id && x.OwedUserId == User.Id);
+            newOweRecord.Amount.Should().Be(
+                updateCommand.Price * updateCommand.Count / updateCommand.UserDtos.Count);
+
+            
+            var oldOweRecord = context.OweRecords
+                .FirstOrDefault(x => x.UserId == newUser.Id && x.OwedUserId == User.Id);
+            oldOweRecord.Amount.Should().Be(0);
+            
 
         }
         [Test]
@@ -68,9 +101,13 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             {
                 Count = 1235,
                 ItemGroup = (int)ItemGroup.Essentials,
-                Name = "not even a name lmao",
                 Price = 231.32321,
-                ReceiptItemId = "asdasdas"
+                Id = "asdasdas",
+                UserDtos = new List<UserDto>
+                {
+                    new UserDto{Id = User.Id}
+                },
+                FinancialProjectId = "asd"
             };
 
             FluentActions.Awaiting(() => SendAsync(updateCommand)).Should().Throw<NotFoundException>();
@@ -84,28 +121,18 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             {
                 Count = -1235,
                 ItemGroup = (int)ItemGroup.Essentials,
-                Name = "not even a name lmao",
                 Price = 231.32321,
-                ReceiptItemId = "dont even matter lmao"
+                Id = "dont even matter lmao",
+                UserDtos = new List<UserDto>
+                {
+                    new UserDto{Id = User.Id}
+                },
+                FinancialProjectId = "asd"
             };
 
             FluentActions.Awaiting(() => SendAsync(updateCommand)).Should().Throw<ValidationException>();
         }
         
-        [Test]
-        public void Handle_NameEmpty_ShouldThrowValidationException()
-        {
-            var updateCommand = new UpdateReceiptItemCommand
-            {
-                Count = 1235,
-                ItemGroup = (int)ItemGroup.Essentials,
-                Name = "",
-                Price = 231.32321,
-                ReceiptItemId = "dont even matter lmao"
-            };
-
-            FluentActions.Awaiting(() => SendAsync(updateCommand)).Should().Throw<ValidationException>();
-        }
         
        
         [Test]
@@ -115,9 +142,14 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             {
                 Count = 1235,
                 ItemGroup = (int)ItemGroup.Essentials,
-                Name = "asd",
                 Price = -231.32321,
-                ReceiptItemId = "dont even matter lmao"
+                Id = "dont even matter lmao",
+                UserDtos = new List<UserDto>
+                {
+                    new UserDto{Id = User.Id}
+                },
+                FinancialProjectId = "asd"
+                
             };
 
             FluentActions.Awaiting(() => SendAsync(updateCommand)).Should().Throw<ValidationException>();
@@ -125,14 +157,19 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
         
        
         [Test]
-        public void Handle_ItemGroupNull_ShouldThrowValidationException()
+        public void Handle_ItemGroupLessThanZero_ShouldThrowValidationException()
         {
             var updateCommand = new UpdateReceiptItemCommand
             {
                 Count = 1235,
-                Name = "asd",
                 Price = 231.32321,
-                ReceiptItemId = "dont even matter lmao"
+                Id = "dont even matter lmao",
+                ItemGroup = -1,
+                UserDtos = new List<UserDto>
+                {
+                    new UserDto{Id = User.Id}
+                },
+                FinancialProjectId = "asd"
             };
 
             FluentActions.Awaiting(() => SendAsync(updateCommand)).Should().Throw<ValidationException>();
@@ -146,11 +183,94 @@ namespace Application.IntegrationTests.Financial.ReceiptItems.Commands
             {
                 Count = 1235,
                 ItemGroup = (int)ItemGroup.Essentials,
-                Name = "asd",
-                Price = 231.32321
+                Price = 231.32321,
+                UserDtos = new List<UserDto>
+                {
+                    new UserDto{Id = User.Id}
+                },
+                FinancialProjectId = "asd"
             };
 
             FluentActions.Awaiting(() => SendAsync(updateCommand)).Should().Throw<ValidationException>();
         }
+        
+        //emptyUsers
+        [Test]
+        public void Handle_UsersIsEmpty_ShouldThrowValidationException()
+        {
+            var updateCommand = new UpdateReceiptItemCommand
+            {
+                Count = 1235,
+                ItemGroup = (int)ItemGroup.Essentials,
+                Price = 231.32321,
+                Id = "asdasdasd",
+                UserDtos = new List<UserDto>
+                {
+                },
+                FinancialProjectId = "asd"
+            };
+
+            FluentActions.Awaiting(() => SendAsync(updateCommand)).Should().Throw<ValidationException>();
+        }
+        //nullUsers
+        [Test]
+        public void Handle_UsersIsNull_ShouldThrowValidationException()
+        {
+            var updateCommand = new UpdateReceiptItemCommand
+            {
+                Count = 1235,
+                ItemGroup = (int)ItemGroup.Essentials,
+                Price = 231.32321,
+                Id = "asdasdasd",
+                UserDtos = null!,
+                FinancialProjectId = "asd"
+            };
+
+            FluentActions.Awaiting(() => SendAsync(updateCommand)).Should().Throw<ValidationException>();
+        }
+        
+        
+        //Null FinancialId
+        [Test]
+        public void Handle_FinancialProjectIdIsNull_ShouldThrowValidationException()
+        {
+            var updateCommand = new UpdateReceiptItemCommand
+            {
+                Count = 1235,
+                ItemGroup = (int)ItemGroup.Essentials,
+                Price = 231.32321,
+                Id = "asdasdasd",
+                UserDtos = new List<UserDto>
+                {
+                    new UserDto{Id = User.Id}
+                },
+                FinancialProjectId = null!
+            };
+
+            FluentActions.Awaiting(() => SendAsync(updateCommand)).Should().Throw<ValidationException>();
+        }
+        
+        
+        //Empty FinancialId
+        [Test]
+        public void Handle_FinancialProjectIdIsEmpty_ShouldThrowValidationException()
+        {
+            var updateCommand = new UpdateReceiptItemCommand
+            {
+                Count = 1235,
+                ItemGroup = (int)ItemGroup.Essentials,
+                Price = 231.32321,
+                Id = "asdasdasd",
+                UserDtos = new List<UserDto>
+                {
+                    new UserDto{Id = User.Id}
+                },
+                FinancialProjectId = ""
+            };
+
+            FluentActions.Awaiting(() => SendAsync(updateCommand)).Should().Throw<ValidationException>();
+        }
+        
+        
     }
 }

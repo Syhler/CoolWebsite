@@ -10,10 +10,6 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
             RuleFor(x => x.Count)
                 .GreaterThanOrEqualTo(0);
 
-            RuleFor(x => x.Name)
-                .NotEmpty()
-                .NotNull();
-
             RuleFor(x => x.Price)
                 .GreaterThanOrEqualTo(0);
 
