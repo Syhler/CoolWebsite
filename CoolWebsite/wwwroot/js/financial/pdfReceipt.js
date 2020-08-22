@@ -4,8 +4,8 @@
     let addedPdfItemCount = 0;
 
 
-  
-
+    
+    
     $("#add-pdf-receipt-item").click(function () {
         const checkedCheckBoxes = $('.pdf-receipt-checkbox:checkbox:checked').parent().parent();
         if (checkedCheckBoxes.length === 0) {
@@ -56,6 +56,7 @@
 
         //when clicked on "create" remove the pdf-receipt-item from the list below
 
+        $("#create-receipt-item-close").show();
         $("#edit-receipt-item-button").hide()
         $("#create-receipt-item").hide()
 

@@ -644,17 +644,17 @@ $(document).ready(function () {
 
         numbers.each(function () {
 
-            const priceFromReceiptItem = parseFloat($(this).text().replace(".", ""));
+            console.log($(this).text())
+            const priceFromReceiptItem = parseFloat($(this).text().replace(",", "."));
             //const priceFromReceiptItem = parseFloat($(this, $(data)).text().replace(',','.').replace(' ',''))
             total += priceFromReceiptItem;
 
         })
 
-
         //const total = receiptTotal.text().replace(',','.').replace(' ','')
 
         //const newPrice = (parseFloat(total) + parseFloat(priceFromReceiptItem))
-
+      
         receiptTotal.text(total.toFixed(2).toString().replace('.', ',').replace(' ', ''))
     }
 

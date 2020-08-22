@@ -92,16 +92,24 @@ namespace CoolWebsite.Application.Services
                                 break;
                             case 2:
                                 //antal
-                                pdfReceiptItem.Count = (int)double.Parse(currentText);
-                                num++;
+                                var countParsed = double.TryParse(currentText, out double count);
+
+                                if (countParsed)
+                                {
+                                    pdfReceiptItem.Count = (int) count;
+                                    num++;
+                                }
+
                                 break;
                             case 3:
-                                pdfReceiptItem.Price = double.Parse(currentText);
+                                var priceParsed =  double.TryParse(currentText, out double price);
 
-                                _pdfReceiptItems.Add(pdfReceiptItem);
-
-                                pdfReceiptItem = new PdfReceiptItemDto();
-
+                                if (priceParsed)
+                                {
+                                    pdfReceiptItem.Price = price;
+                                    _pdfReceiptItems.Add(pdfReceiptItem);
+                                    pdfReceiptItem = new PdfReceiptItemDto();
+                                }
                                 num = 1;
                                 break;
                         }
