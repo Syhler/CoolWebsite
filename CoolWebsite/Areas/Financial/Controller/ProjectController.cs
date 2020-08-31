@@ -1,26 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.DatabaseAccess.Common.Transaction.Commands.CreateTransaction;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.CreateReceiptItems;
+using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.DeleteReceiptItems;
+using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Commands.UpdateReceiptItems;
 using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries;
-using CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Queries.Models;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.CreateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.DeleteReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.UpdateReceipts;
 using CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Queries;
+using CoolWebsite.Application.Services;
+using CoolWebsite.Application.Services.Models;
 using CoolWebsite.Areas.Financial.Common;
 using CoolWebsite.Areas.Financial.Models;
 using CoolWebsite.Domain.Enums;
 using CoolWebsite.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace CoolWebsite.Areas.Financial.Controller
 {
@@ -69,9 +71,13 @@ namespace CoolWebsite.Areas.Financial.Controller
             var user = await _identityService.GetUserById(model.ToUserId);
             if (string.IsNullOrWhiteSpace(user.PhoneNumber))
             {
-                return Json(new {respone = "Error", result = user.FirstName + " " + user.LastName + " have not registered a phone number"});
+                return Json(new
+                {
+                    respone = "Error",
+                    result = user.FirstName + " " + user.LastName + " have not registered a phone number"
+                });
             }
-            
+
             var command = new CreateTransactionCommand
             {
                 TransactionType = TransactionType.FinancialReceiptsMobilePay,
@@ -84,26 +90,78 @@ namespace CoolWebsite.Areas.Financial.Controller
 
 
             var mobilePayDeepLink = MobilePayDeepLink.GenerateUrl(user, model.Amount);
-            
-            return Json(new { response = "Succeed", result = mobilePayDeepLink });
+
+            return Json(new {response = "Succeed", result = mobilePayDeepLink});
         }
 
         [HttpGet]
         public async Task<IActionResult> CreateReceipt(string id)
         {
-
             var financialQuery = new GetUsersFromFinancialProjectQuery() {FinancialProjectId = id};
 
             var userDtos = await Mediator.Send(financialQuery);
-          
+
             var model = new CreateReceiptModel
             {
                 FinancialProjectId = id,
                 CreateReceiptItemVm = await CreateReceiptItemVm(userDtos)
             };
             
+            return View("CreateReceipt",model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> CreateReceiptFromPdf(string id, PdfReceiptDto pdfReceiptDto)
+        {
+            var financialQuery = new GetUsersFromFinancialProjectQuery() {FinancialProjectId = id};
+
+            var userDtos = await Mediator.Send(financialQuery);
+          
+            var createReceiptModel = new CreateReceiptModel
+            {
+                FinancialProjectId = id,
+                CreateReceiptItemVm = await CreateReceiptItemVm(userDtos)
+            };
+            
+            
+            var model = new PdfReceiptVm
+            {
+                CreateReceiptModel = createReceiptModel,
+                PdfReceiptDto = pdfReceiptDto
+            };
             return View(model);
         }
+        
+        [HttpPost]
+        public async Task<IActionResult> UploadPdfReceipt(string id, IFormFile file)
+        {
+            PdfReceiptReader pdfReceiptReader = new PdfReceiptReader(file);
+            var receipt = pdfReceiptReader.GetReceipt();
+            
+            var financialQuery = new GetUsersFromFinancialProjectQuery() {FinancialProjectId = id};
+
+            var userDtos = await Mediator.Send(financialQuery);
+          
+            var createReceiptModel = new CreateReceiptModel
+            {
+                FinancialProjectId = id,
+                CreateReceiptItemVm = await CreateReceiptItemVm(userDtos),
+                ReceiptDto = new ReceiptDto()
+            };
+
+            createReceiptModel.ReceiptDto.Location = receipt.Location;
+            createReceiptModel.ReceiptDto.DateVisited = receipt.DateVisited;
+            
+            
+            var model = new PdfReceiptVm
+            {
+                CreateReceiptModel = createReceiptModel,
+                PdfReceiptDto = receipt
+            };
+            
+            return View("CreateReceiptFromPdf",model);
+        }
+        
 
         [HttpGet]
         public async Task<IActionResult> EditReceipt(string id, string financialProjectId)
@@ -115,56 +173,141 @@ namespace CoolWebsite.Areas.Financial.Controller
 
             var receiptDto = await Mediator.Send(query);
 
-            var usersQuery = new GetUsersFromFinancialProjectQuery{ FinancialProjectId = financialProjectId};
+            var usersQuery = new GetUsersFromFinancialProjectQuery {FinancialProjectId = financialProjectId};
 
             var userDtos = await Mediator.Send(usersQuery);
-            
+
             var model = new CreateReceiptModel
             {
-                ReceiptDto =  receiptDto,
+                ReceiptDto = receiptDto,
                 FinancialProjectId = financialProjectId,
                 CreateReceiptItemVm = await CreateReceiptItemVm(userDtos)
             };
-            
-            
+
+
             return View(model);
         }
 
         [HttpPost]
         public async Task<IActionResult> EditReceiptPost(CreateReceiptModel model)
         {
-
+            //update receipt
             var command = new UpdateReceiptCommand
             {
                 Id = model.ReceiptDto.Id,
                 Location = model.ReceiptDto.Location,
-                ItemDtos = model.ReceiptDto.Items,
                 DateVisited = model.ReceiptDto.DateVisited,
                 Note = model.ReceiptDto.Note
             };
 
             await Mediator.Send(command);
 
-            return Json(new {result = "Redirect", url = Url.Action("Index", "Project", new {id = model.FinancialProjectId})});
+            //get already existing receipt items
+            var itemQuery = new GetReceiptItemByReceiptIdQuery
+            {
+                ReceiptId = model.ReceiptDto.Id
+            };
+
+            var alreadyExistingItems = await Mediator.Send(itemQuery);
+
+            #region Delete
+
+            //delete receipt item - own request
+
+            var receiptItemsToDelete = alreadyExistingItems
+                .Where(x => model.ReceiptDto.Items
+                    .All(y => y.Id != x.Id))
+                .ToList();
+
+            foreach (var itemDto in receiptItemsToDelete)
+            {
+                var deleteCommand = new DeleteReceiptItemCommand
+                {
+                    Id = itemDto.Id!,
+                    FinancialProjectId = model.FinancialProjectId
+                };
+
+                await Mediator.Send(deleteCommand);
+            }
+
+            #endregion
+
+            #region Create
+
+            //Create receipt item
+            var receiptItemToBeCreated = model.ReceiptDto.Items
+                .Where(x => alreadyExistingItems
+                    .All(y => y.Id != x.Id))
+                .ToList();
+
+            foreach (var receiptItemDto in receiptItemToBeCreated)
+            {
+                var createCommand = new CreateReceiptItemCommand
+                {
+                    Name = "",
+                    Count = receiptItemDto.Count,
+                    Price = receiptItemDto.Price,
+                    ItemGroup = receiptItemDto.ItemGroup.Value,
+                    ReceiptId = model.ReceiptDto.Id,
+                    UserIds = receiptItemDto.Users.Select(x => x.Id).ToList()!
+                };
+
+                await Mediator.Send(createCommand);
+            }
+
+            #endregion
+
+            #region Update
+
+            //update receipt item - own request
+            var receiptItemsToUpdate = model.ReceiptDto.Items
+                .Where(x => receiptItemsToDelete
+                                .All(y => y.Id != x.Id) &&
+                            receiptItemToBeCreated.All(q => q.Id != x.Id))
+                .ToList();
+
+            foreach (var receiptItemDto in receiptItemsToUpdate)
+            {
+                var updateCommand = new UpdateReceiptItemCommand
+                {
+                    Id = receiptItemDto.Id ?? "",
+                    Count = receiptItemDto.Count,
+                    ItemGroup = receiptItemDto.ItemGroup.Value,
+                    Price = receiptItemDto.Price,
+                    UserDtos = receiptItemDto.Users.ToList(),
+                    FinancialProjectId = model.FinancialProjectId
+                };
+                await Mediator.Send(updateCommand);
+            }
+
+            #endregion
+
+            return Json(new
+            {
+                result = "Redirect",
+                url = Url.Action("Index", "Project", new {id = model.FinancialProjectId})
+            });
         }
-        
-        
+
 
         [HttpPost]
         public IActionResult GetReceiptItemPartialView(ReceiptItemVm vm)
         {
-            vm.UniqueIdentifier = string.IsNullOrWhiteSpace(vm.ReceiptItem.Id) ? Guid.NewGuid() : Guid.Parse(vm.ReceiptItem.Id);
-            
-            
+            vm.UniqueIdentifier = string.IsNullOrWhiteSpace(vm.ReceiptItem.Id)
+                ? Guid.NewGuid()
+                : Guid.Parse(vm.ReceiptItem.Id);
+
+
             vm.ReceiptItem.Price = Math.Round(vm.ReceiptItem.Price, 2);
-            
+
             return PartialView("Partial/ReceiptItemPartialView", vm);
         }
 
+        
+        
         [HttpPost]
         public async Task<IActionResult> CreateReceiptPost(CreateReceiptModel model)
         {
-            
             var command = new CreateReceiptCommand
             {
                 DateVisited = model.ReceiptDto.DateVisited,
@@ -189,9 +332,10 @@ namespace CoolWebsite.Areas.Financial.Controller
 
                 await Mediator.Send(createReceiptItemCommand);
             }
-            
+
             //redirect to index
-            return Json(new {result = "Redirect", url = Url.Action("Index", "Project", new {id = model.FinancialProjectId})});
+            return Json(new
+                {result = "Redirect", url = Url.Action("Index", "Project", new {id = model.FinancialProjectId})});
         }
 
         [HttpPost]
@@ -204,23 +348,22 @@ namespace CoolWebsite.Areas.Financial.Controller
 
             await Mediator.Send(command);
         }
-        
-        
+
+
         [HttpGet]
         public IActionResult CreateReceiptItemModal(string financialProjectId)
         {
             return View("Partial/CreateReceiptItemModal", null);
         }
-        
-      
+
 
         private async Task<CreateReceiptItemVm> CreateReceiptItemVm(IList<UserDto> users)
         {
             var itemGroupQuery = new GetItemGroupQuery();
 
             var itemGroups = await Mediator.Send(itemGroupQuery);
-            
-            return  new CreateReceiptItemVm
+
+            return new CreateReceiptItemVm
             {
                 AddUserModel = new AddUserModel
                 {

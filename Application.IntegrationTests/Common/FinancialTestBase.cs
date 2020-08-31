@@ -44,6 +44,25 @@ namespace Application.IntegrationTests.Common
             
             return result.Id;
         }
+        
+        protected async Task<string> CreateFinancialProject(ApplicationUser user)
+        {
+            
+            var createCommand = new CreateFinancialProjectCommand
+            {
+                Title = ProjectName,
+                Users = new List<ApplicationUser>
+                {
+                    User,
+                    SecondUser,
+                    user
+                }
+            };
+
+            var result = await SendAsync(createCommand);
+            
+            return result.Id;
+        }
 
         protected async Task<string> CreateReceipt(string projectId)
         {

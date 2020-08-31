@@ -39,8 +39,15 @@
                                 <button type="button" class="btn btn-info btn-block count-button">4</button>
                             </div>
                         </div>
+                        <div class="row mt-2">
+                                <label asp-for="Count">Count Input</label>
+                            <div class="col-lg" >
+                                <input asp-for="Count" id="count-input" style="width: 100%" type="text" value="" placeholder="Number of item"/>
+                            </div>
+                        </div>
+                        
                         <label id='receipt-item-count-error' class="red" style="display: none">You must choose a button</label>
-
+                        
                     </div>
 
                 </div>

@@ -32,7 +32,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Ac
             var entity = _context.Receipts
                 .Include(x => x.Items)
                 .ThenInclude(x => x.Users)
-                .FirstOrDefault(x => x.Id == request.ReceiptId && x.DeletedByUserId == _currentUserService.UserId);
+                .FirstOrDefault(x => x.Id == request.ReceiptId
+                                     && x.DeletedByUserId == _currentUserService.UserId);
 
             if (entity == null)
             {
@@ -42,22 +43,20 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Ac
 
             if (entity.Items != null)
             {
-                var oweRecords = _context.OweRecords.Where(x => x.FinancialProjectId == entity.FinancialProjectId);
+                var oweRecords = _context.OweRecords
+                    .Where(x => x.FinancialProjectId == entity.FinancialProjectId);
 
                 foreach (var receiptItem in entity.Items)
                 {
                     AddOweAmount(oweRecords, receiptItem, entity.FinancialProjectId);
-
                 }
-
             }
-            
+
             entity.Deleted = null;
             entity.DeletedByUserId = null;
 
-
             await _context.SaveChangesAsync(cancellationToken);
-            
+
             return Unit.Value;
         }
 
@@ -65,61 +64,34 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.Ac
         {
             foreach (var user in receiptItem.Users)
             {
-                var oweRecord = oweRecords.FirstOrDefault(x => x.UserId == user.ApplicationUserId && x.OwedUserId == _currentUserService.UserId);
+                var oweRecord = oweRecords
+                    .FirstOrDefault(x => x.UserId == user.ApplicationUserId
+                                         && x.OwedUserId == _currentUserService.UserId);
 
                 if (oweRecord == null) continue;
 
-                var transactions = _context.Transactions.Where(x => x.FinancialProjectId == projectId && x.FromUserId == user.ApplicationUserId && x.ToUserId == _currentUserService.UserId);
+                var transactions = _context.Transactions.Where(x => x.FinancialProjectId == projectId
+                                                                    && x.FromUserId == user.ApplicationUserId
+                                                                    && x.ToUserId == _currentUserService.UserId);
 
+                AddOweRecordAmount(oweRecord, receiptItem);
                 
-                if (receiptItem.Users.Count > 1)
-                {
-                    UpdateRecordAmountMultiplesUsers(oweRecord, receiptItem);
-                }
-                else
-                {
-                    UpdateRecordAmount(oweRecord, receiptItem);
-                }
-
                 if (!transactions.Any())
                 {
                     oweRecord.Amount *= -1;
                 }
-
             }
         }
 
-        /*
-        private double SubtractTransaction(string financialProjectId)
-        {
-            var transactions = 
-        }
-        */
-        
-        private void UpdateRecordAmount(OweRecord record, ReceiptItem receiptItem)
+        private void AddOweRecordAmount(OweRecord record, ReceiptItem receiptItem)
         {
             if (record.Amount < 0)
             {
-                record.Amount += receiptItem.Count * receiptItem.Price;
-
+                record.Amount += (receiptItem.Count * receiptItem.Price) / receiptItem.Users.Count;
             }
             else
             {
-                record.Amount -= receiptItem.Count * receiptItem.Price;
-            }
-        }
-        
-        private void UpdateRecordAmountMultiplesUsers(OweRecord record, ReceiptItem receiptItem)
-        {
-            if (record.Amount < 0)
-            {
-                record.Amount += (receiptItem.Count * receiptItem.Price)/receiptItem.Users.Count;
-
-            }
-            else
-            {
-                record.Amount -= (receiptItem.Count * receiptItem.Price)/receiptItem.Users.Count;
-
+                record.Amount -= (receiptItem.Count * receiptItem.Price) / receiptItem.Users.Count;
             }
         }
     }

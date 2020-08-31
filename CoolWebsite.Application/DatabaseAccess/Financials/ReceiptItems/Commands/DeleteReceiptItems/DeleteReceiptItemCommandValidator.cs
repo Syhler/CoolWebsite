@@ -6,8 +6,13 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.ReceiptItems.Command
     {
         public DeleteReceiptItemCommandValidator()
         {
-            RuleFor(x => x.ReceiptId)
-                .NotEmpty();
+            RuleFor(x => x.Id)
+                .NotEmpty()
+                .NotNull();
+
+            RuleFor(x => x.FinancialProjectId)
+                .NotEmpty()
+                .NotNull();
         }
     }
 }

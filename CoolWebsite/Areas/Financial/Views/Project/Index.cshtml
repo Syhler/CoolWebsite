@@ -1,4 +1,5 @@
-﻿@model CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models.FinancialProjectDto
+﻿@using Microsoft.AspNetCore.Routing
+@model CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models.FinancialProjectDto
 
 @{
     ViewBag.Title = "Project - " + @Model.Title;
@@ -11,6 +12,7 @@
         <h1 class="mb-3 text-center">@Model.Title</h1>
     </div>
 
+
     <div>
         <div class="container mb-2 pb-3 pt-3" style="border: 1px solid rgba(0,0,0,0.6); background-color: #31353D">
             <div class="row">
@@ -18,7 +20,8 @@
                 {
                     <div class="col-sm">
                         <div class="collaborator-image">@user.Initial</div>
-                        <p class="text-center mt-2 mb-2">Owed: 
+                        <p class="text-center mt-2 mb-2">
+                            Owed:
                             @if (@user.Owed <= 0)
                             {
                                 <span class="green amount-owed">@user.Owed.ToString("N2")</span>
@@ -38,7 +41,7 @@
         </div>
     </div>
 
-    
+
     <div class="modal" tabindex="-1" role="dialog" id="confirm-pay-transaction-modal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -51,7 +54,7 @@
                 <div class="modal-body">
                     <div class="form-group has-danger">
                         <label class="col-form-label" for="transaction-amount">Amount</label>
-                        <input type="text" class="form-control " placeholder="Default input" id="transaction-amount" >
+                        <input type="text" class="form-control " placeholder="Default input" id="transaction-amount">
                         <div class="invalid-feedback" id="transaction-amount-feedback">ErrorMessage</div>
                     </div>
                     <div class="form-group has-danger">
@@ -69,7 +72,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="modal fade" id="confirm-archive-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -77,11 +80,11 @@
                     <h4 class="modal-title" id="myModalLabel">Confirm Archive</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
-                
+
                 <div class="modal-body text-white">
                     <h5>You are about to archive a receipt, you can undo this under the archive tab.</h5>
                 </div>
-                    
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                     <button class="btn btn-danger btn-ok" id="confirm-archive-btn">Delete</button>
@@ -93,6 +96,28 @@
     <a class="btn btn-block btn-primary" asp-action="CreateReceipt" asp-area="Financial" asp-controller="Project" asp-route-id="@Model.Id">
         CREATE RECEIPT
     </a>
+
+    <form asp-action="UploadPdfReceipt"
+          asp-area="Financial"
+          asp-controller="Project"
+          asp-route-id="@Context.GetRouteData().Values["id"]"
+          enctype="multipart/form-data">
+
+        <div>
+            <label for="file" class="btn btn-secondary mt-1 search-file-btn">
+                <input type="file" id="file" name="file" style="display: none"/>
+                <span>
+                    <i class="fas fa-upload"></i>
+                    select pdf
+                </span>
+            </label>
+            <span>No File Selected</span>
+
+            <button type="submit" class="btn btn-primary" id="upload-pdf-receipt">Upload Receipt</button>
+            <span>(Storebox pdf file) -> export it from mobilepay</span>
+        </div>
+    </form>
+
     <div id="project-cards container">
 
 
@@ -122,8 +147,6 @@
         }
     </div>
 </div>
-
-
 
 
 @section Scripts

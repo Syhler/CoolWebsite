@@ -21,7 +21,7 @@ namespace CoolWebsite.Infrastructure
             IConfiguration configuration)
         {
 
-            SetupDatabase<MySqlApplicationDbContext>(services, configuration);
+            SetupDatabase<SqlApplicationDbContext>(services, configuration);
            
             
             services.AddTransient<IDateTime, DateTimeService>();

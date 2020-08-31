@@ -43,7 +43,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.De
             //remove from OwedRecords
             if (entity.Items != null)
             {
-                var records = _context.OweRecords.Where(x => x.FinancialProjectId == entity.FinancialProjectId);
+                var records = _context.OweRecords
+                    .Where(x => x.FinancialProjectId == entity.FinancialProjectId);
 
                 foreach (var receiptItem in entity.Items)
                 {
@@ -63,47 +64,24 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.Receipts.Commands.De
         {
             foreach (var user in receiptItem.Users)
             {
-                var record = oweRecords.FirstOrDefault(x => x.UserId == user.ApplicationUserId && x.OwedUserId == _currentUserService.UserId);
+                var record = oweRecords
+                    .FirstOrDefault(x => x.UserId == user.ApplicationUserId 
+                                         && x.OwedUserId == _currentUserService.UserId);
 
                 if (record == null) continue;
                         
-                if (receiptItem.Users.Count > 1)
-                {
-                    UpdateRecordAmountMultiplesUsers(record, receiptItem);
-
-                }
-                else
-                {
-                    UpdateRecordAmount(record,receiptItem);
-                }
-            }
-
-        }
-        
-        private void UpdateRecordAmount(OweRecord record, ReceiptItem receiptItem)
-        {
-            if (record.Amount < 0)
-            {
-                record.Amount += receiptItem.Count * receiptItem.Price;
-
-            }
-            else
-            {
-                record.Amount -= receiptItem.Count * receiptItem.Price;
+               
+                UpdateRecordAmountMultiplesUsers(record, receiptItem);
             }
         }
         
         private void UpdateRecordAmountMultiplesUsers(OweRecord record, ReceiptItem receiptItem)
         {
-            if (record.Amount < 0)
-            {
+            if (record.Amount < 0) {
                 record.Amount += (receiptItem.Count * receiptItem.Price)/receiptItem.Users.Count;
-
             }
-            else
-            {
+            else {
                 record.Amount -= (receiptItem.Count * receiptItem.Price)/receiptItem.Users.Count;
-
             }
         }
     }

@@ -7,39 +7,96 @@ $(document).ready(function () {
         editReceipt: "/Financial/Project/EditReceiptPost",
         payTransaction: "/Financial/Project/PayTransaction",
         payTransactionMobilePay: "/Financial/Project/PayTransactionMobilePay",
-        archive: "/Financial/Project/ArchiveReceipt"
+        archive: "/Financial/Project/ArchiveReceipt",
+        uploadPdfReceipt: "/Financial/Project/UploadPdfReceipt"
     }
-    
+
     $('[data-toggle="tooltip"]').tooltip()
 
     const modal = $("#create-receipt-item-modal");
     const usersOptions = $("#users-dropdown option");
 
+
+    /*******************/
+    /*    UPLOAD PDF   */
+    /********************/
+
+    $(".search-file-btn").children("input").change(function () {
+        console.log("Hello")
+        const fileName = $(this).val().split("\\").slice(-1)[0];
+        $(this).parent().next("span").html(fileName);
+    })
+    
+    $(document).on("click", "#upload-pdf-receipt", function () {
+
+        return;
+        const fileToUpload = $('#pdf-file').prop('files')[0];
+        if (fileToUpload === undefined) alert("YOU NEED TO SELECT A FILE KEKW")
+
+        console.log(fileToUpload)
+
+        const extension = (/[.]/.exec(fileToUpload.name)) ? /[^.]+$/.exec(fileToUpload.name) : undefined;
+
+        if (extension[0] !== "pdf") alert("THAT'S NOT A PDF FILE MONKAS")
+
+        const baseUrl = (window.location).href;
+        const financialProjectId = baseUrl.substring(baseUrl.lastIndexOf('/') + 1);
+        const jform = new FormData();
+
+        jform.append("file", fileToUpload)
+
+        jform.append("id", financialProjectId)
+
+        $.ajax({
+            url: config.uploadPdfReceipt,
+            type: "POST",
+            data: jform,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+
+                console.log(data)
+                /*
+                if (data.result === "Redirect")
+                {
+                    window.location = data.url;
+                }
+
+                 */
+            },
+            error: function (jqXHR, status, error) {
+                alert("nope monkaS")
+                console.log(jqXHR);
+                console.log(status);
+                console.log(error);
+            }
+        })
+    })
+
+
     /*******************/
     /*    ARCHIVE      */
     /********************/
 
-    $(document).on("click", ".archive-receipt",function () {
+    $(document).on("click", ".archive-receipt", function () {
 
         console.log("Going to delete it!")
-        
+
         const receiptId = $(this).data("id");
-        
-       
-        
+
+
         const confirmBtn = $("#confirm-archive-btn")
-        
+
         $("#confirm-archive-modal").modal("show")
         confirmBtn.attr("data-id", receiptId)
 
     })
-    
-  
-    
+
+
     $(document).on("click", "#confirm-archive-btn", function () {
 
         const receiptId = $(this).data("id");
-        
+
         $.ajax({
             type: "POST",
             url: config.archive,
@@ -55,20 +112,19 @@ $(document).ready(function () {
             }
         })
     })
-    
-    
+
+
     modal.on("shown.bs.modal", function () {
         reActivateUsers()
     })
-    
+
     modal.on("hide.bs.modal", function () {
 
-        if ($("#edit-receipt-item-button").is(":visible"))
-        {
+        if ($("#edit-receipt-item-button").is(":visible")) {
             emptyModal();
         }
-        
-        
+
+
     })
 
     $(document).on("click", ".remove-receipt-item", function () {
@@ -96,7 +152,12 @@ $(document).ready(function () {
                 $(this).removeClass("active")
             }
         })
-
+        
+        if (count > 4)
+        {
+            $("#count-input").val(count)
+        }
+        
         $(".count-button").each(function () {
             if ($(this).text() === count) {
                 $(this).addClass("active")
@@ -104,6 +165,7 @@ $(document).ready(function () {
                 $(this).removeClass("active")
             }
         })
+     
 
 
         const table = $("#user-table-body")
@@ -131,7 +193,7 @@ $(document).ready(function () {
     $("#add-receipt-item").click(function () {
 
         //Make it add thingy
-        
+
         $("#edit-receipt-item-button").hide()
         $("#create-receipt-item").show()
         $("#create-receipt-item-close").show()
@@ -139,11 +201,12 @@ $(document).ready(function () {
     })
 
     //TODO(CREATE OWN VALIDATION LIBARY)
-    function validateModalForm()
-    {
+    function validateModalForm() {
         let validationStatus = true;
-        
-        if (!countButtonChosen()) {
+
+        if (!countValueSelected()) 
+        {
+            console.log("Im validating")
             $("#receipt-item-count-error").show();
             validationStatus = false;
         }
@@ -153,16 +216,15 @@ $(document).ready(function () {
             validationStatus = false;
         }
         return validationStatus;
-  
+
     }
-    
-    $(document).on("click", "#edit-receipt-item-button", function ()
-    {
-        
+
+    $(document).on("click", "#edit-receipt-item-button", function () {
+
         const validated = validateModalForm();
-        
+
         if (!validated) return;
-        
+
 
         createReceiptModel(function (data) {
 
@@ -170,18 +232,15 @@ $(document).ready(function () {
             const dataId = $("#edit-receipt-item-button").data("id");
 
 
-            
-
             $(".receipt-item").each(function () {
 
-                if ($(this).data("id") === dataId)
-                {
+                if ($(this).data("id") === dataId) {
                     $(this).remove();
                     return true;
                 }
             })
 
-            $(".list-group").prepend(data);
+            $(".receipt-item-card-body").prepend(data);
 
             $("#receipt-item-none-error").hide()
             $("#create-receipt-item-modal").modal("hide")
@@ -190,11 +249,11 @@ $(document).ready(function () {
             $("#edit-receipt-item-button").removeData("id");
 
         })
-        
-       
-        
+
+
     })
-    
+
+
     $(document).on("click", "#create-receipt-item", function () {
 
         const validated = validateModalForm();
@@ -204,7 +263,7 @@ $(document).ready(function () {
         createReceiptModel(function (data) {
 
 
-            $(".list-group").prepend(data)
+            $(".receipt-item-card-body").prepend(data)
             $("#receipt-item-none-error").hide()
             //Update price
             calculateTotalReceiptCost(data)
@@ -213,7 +272,7 @@ $(document).ready(function () {
         })
     })
 
-    $(document).on("click","#create-receipt-item-close", function () {
+    $(document).on("click", "#create-receipt-item-close", function () {
         //Validate
 
         const validated = validateModalForm();
@@ -223,7 +282,7 @@ $(document).ready(function () {
         createReceiptModel(function (data) {
 
 
-            $(".list-group").prepend(data)
+            $(".receipt-item-card-body").prepend(data)
             $("#receipt-item-none-error").hide()
             $("#create-receipt-item-modal").modal("hide")
             //Update price
@@ -231,8 +290,8 @@ $(document).ready(function () {
             //clear modal
             emptyModal();
         })
-                    
-       
+
+
     })
 
     function getRow(name, value) {
@@ -242,33 +301,38 @@ $(document).ready(function () {
             "</tr>"
     }
 
-   
 
     function createReceiptModel(callback) {
 
-        
+
         const name = $("#receipt-item-name").val();
-        const count = $(".count-button.active").text()
+        let count = $(".count-button.active").text()
+
+        if (count === "") {
+            count = $("#count-input").val()
+        }
+        
+
         const type = $(".type-button.active").data("id")
         const typeName = $(".type-button.active").text()
         const price = $("#receipt-item-price").val()
         const usersId = getUsersId();
         const usersName = getUsersName();
         const id = $("#edit-receipt-item-button").data("id");
-    
+
         if (usersName.length !== usersId.length) {
             return;
         }
-    
+
         let users = []
-    
+
         for (let i = 0; i < usersName.length; i++) {
             users[i] = {
                 Id: usersId[i],
                 Name: usersName[i]
             }
         }
-    
+
         //make ajax call
         $.ajax({
             type: "POST",
@@ -290,17 +354,16 @@ $(document).ready(function () {
             },
             success: function (data) {
                 callback(data)
-    
-    
+
+
             },
             error: function (jqxhr, status, exception) {
                 alert('Exception: ' + exception);
             }
         })
-        
+
     }
 
-   
 
     function emptyModal() {
         $("#receipt-item-price").val("");
@@ -313,50 +376,58 @@ $(document).ready(function () {
 
         $(".count-button").each(function () {
 
-            if ($(this).text() === "1"){
+            if ($(this).text() === "1") {
                 $(this).addClass("active")
-                
-            }
-            else
-            {
+
+            } else {
                 $(this).removeClass("active")
 
             }
 
 
         })
+        
+        $("#count-input").val("")
 
         const table = $("#user-table-body")
         table.empty();
-        
+
         reActivateUsers()
     }
-    
+
     //TODO REIMPLEMENT
-    function reActivateUsers()
-    {
+    function reActivateUsers() {
         const dropdown = $("#users-dropdown")
         dropdown.empty()
         dropdown.append(usersOptions);
-        
+
         const options = $("#users-dropdown option");
         const users = getUsersId();
-        
-        
+
+
         options.each(function () {
             const selected = $(this);
             const userId = selected.val()
-            
-            if (users.includes(userId))
-            {
+
+            if (users.includes(userId)) {
                 selected.remove()
             }
         })
 
-        
+
     }
 
+    /******************/
+    /* COUNT CHANGE   */
+    /******************/
+    
+    $(document).on("input","#count-input",function () {
 
+        $(".count-button").each(function () {
+            $(this).removeClass("active")
+        })
+    })
+    
     $(document).on("click", ".count-button", function () {
 
         $(".count-button").each(function () {
@@ -365,6 +436,7 @@ $(document).ready(function () {
 
         $(this).addClass("active")
         $("#receipt-item-count-error").hide()
+        $("#count-input").val("")
     })
 
     $(document).on("click", ".type-button", function () {
@@ -386,7 +458,7 @@ $(document).ready(function () {
             const financialProjectId = $("#financial-project-id").val()
 
             const dataset = {
-                ReceiptDto : {
+                ReceiptDto: {
                     Location: location,
                     Note: note,
                     DateVisited: date,
@@ -409,7 +481,7 @@ $(document).ready(function () {
             })
         })
     })
-    
+
     $(document).on("click", "#edit-receipt-button", function () {
 
         validateReceiptForm(function () {
@@ -418,13 +490,12 @@ $(document).ready(function () {
             const date = $("#datepicker").val()
             const financialProjectId = $("#financial-project-id").val()
 
-            const baseUrl = (window.location).href; 
+            const baseUrl = (window.location).href;
             const id = baseUrl.substring(baseUrl.lastIndexOf('/') + 1, baseUrl.lastIndexOf('?'))
 
-            
-            
+
             const dataset = {
-                ReceiptDto : {
+                ReceiptDto: {
                     Location: location,
                     Note: note,
                     DateVisited: date,
@@ -447,14 +518,14 @@ $(document).ready(function () {
                 }
             })
         })
-        
+
     })
 
     $("#receipt-form").submit(function (e) {
         e.preventDefault();
     });
-    
-    $("#create-receipt-item-modal-form").on("submit",function (e) {
+
+    $("#create-receipt-item-modal-form").on("submit", function (e) {
         e.preventDefault();
     })
 
@@ -463,103 +534,91 @@ $(document).ready(function () {
         const amount = $(this).parent().find(".amount-owed").text()
         const toUserId = $(this).data("id");
 
-        
+
         const inputBox = $("#transaction-amount");
 
         inputBox.attr("data-max-amount", amount)
         inputBox.val(amount)
         $("#confirm-pay-transaction-modal").modal("show");
         inputBox.focus();
-        
+
         $("#btn-transaction-confirm").attr("data-id", toUserId)
-        
-        
+
+
     })
-    
+
     $(document).on("click", "#btn-transaction-confirm", function () {
         sendPayTransaction(config.payTransaction, function () {
             location.reload();
         })
     })
-    
+
     $(document).on("click", "#btn-transaction-mobilepay-confirm", function () {
 
-        sendPayTransaction(config.payTransactionMobilePay, function (data)
-        {
-            if (data.response === "Succeed")
-            {
+        sendPayTransaction(config.payTransactionMobilePay, function (data) {
+            if (data.response === "Succeed") {
                 window.open(data.result, '_blank');
                 location.reload()
-            }
-            else
-            {
+            } else {
                 $("#mobilepay-not-available").text(data.result);
                 $("#whoknow").addClass("is-invalid");
             }
-            
-           
+
+
         })
     })
-    
-    $(document).on("click",".btn-request", function () {
+
+    $(document).on("click", ".btn-request", function () {
 
         const amount = $(this).parent().find(".amount-owed").text()
         const toUserId = $(this).data("id");
-        
-        
+
+
     })
-    
+
     function showTransactionErrorMessage(message) {
 
         $("#transaction-amount-feedback").text(message);
         $("#transaction-amount").addClass("is-invalid");
     }
-    
-    function sendPayTransaction(url, callback)
-    {
+
+    function sendPayTransaction(url, callback) {
         const input = $("#transaction-amount");
         const amount = input.val()
         const maxAmount = input.data("max-amount")
 
         //validation
-        
-        if (isNaN(parseFloat(amount)))
-        {
+
+        if (isNaN(parseFloat(amount))) {
             showTransactionErrorMessage("It has to be a number")
             return;
-        }
-        else if (!/\S/.test(amount))
-        {
+        } else if (!/\S/.test(amount)) {
             showTransactionErrorMessage("The input must not be empty")
             return;
-        }
-        else
-        {
-            if (parseFloat(amount) > parseFloat(maxAmount))
-            {
+        } else {
+            if (parseFloat(amount) > parseFloat(maxAmount)) {
                 showTransactionErrorMessage("The number has to be lower or equal to " + maxAmount)
                 return;
-            } else if (parseFloat(amount) <= 0)
-            {
+            } else if (parseFloat(amount) <= 0) {
                 showTransactionErrorMessage("The number has to be larger than 0")
                 return;
             }
         }
-        
+
         const toUserId = $("#btn-transaction-confirm").data("id");
 
 
         const baseUrl = (window.location).href;
         const financialProjectId = baseUrl.substring(baseUrl.lastIndexOf('/') + 1);
-        
+
         $.ajax({
-            type : "POST",
+            type: "POST",
             url: url,
             data: {
-                model : {
-                    ToUserId : toUserId,
-                    Amount : amount,
-                    FinancialProjectId : financialProjectId
+                model: {
+                    ToUserId: toUserId,
+                    Amount: amount,
+                    FinancialProjectId: financialProjectId
                 }
             },
             success: function (data) {
@@ -571,9 +630,7 @@ $(document).ready(function () {
 
         })
     }
-    
-    
-    
+
 
     /*************************/
     /*          NUMBERS     */
@@ -582,35 +639,24 @@ $(document).ready(function () {
         const receiptTotal = $("#all-receipt-items-total-price")
 
         const numbers = $(".badge-receipt-item-total")
-        
+
         let total = 0.0
-        
+
         numbers.each(function () {
 
-            const priceFromReceiptItem = parseFloat($(this).text().replace(".", ""));
+            console.log($(this).text())
+            const priceFromReceiptItem = parseFloat($(this).text().replace(",", "."));
             //const priceFromReceiptItem = parseFloat($(this, $(data)).text().replace(',','.').replace(' ',''))
             total += priceFromReceiptItem;
-            
+
         })
-        
-       
 
         //const total = receiptTotal.text().replace(',','.').replace(' ','')
-        
+
         //const newPrice = (parseFloat(total) + parseFloat(priceFromReceiptItem))
-        
-        receiptTotal.text(total.toFixed(2).toString().replace('.',',').replace(' ',''))
+      
+        receiptTotal.text(total.toFixed(2).toString().replace('.', ',').replace(' ', ''))
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
 
     function validateReceiptForm(callback) {
@@ -640,12 +686,6 @@ $(document).ready(function () {
         })
 
     }
-
-    function validateReceiptItemModal() {
-
-        
-    }
-
     
 
     function getUsersFromReceiptItem(element) {
@@ -706,18 +746,29 @@ $(document).ready(function () {
 
     }
 
-    function countButtonChosen() {
+    function countValueSelected() {
 
-        let foundButton = false
+        let foundCountValue = false
 
         $(".count-button").each(function () {
             if ($(this).hasClass("active")) {
-                foundButton = true;
+                foundCountValue = true;
                 return true;
             }
         })
 
-        return foundButton;
+        if (foundCountValue === false) {
+            //check for input
+            const value = $("#count-input").val();
+            
+            if (!isNaN(value)) {
+                foundCountValue = true;
+            } 
+            
+        }
+
+
+        return foundCountValue;
     }
 
     function getUsersName() {
@@ -731,7 +782,7 @@ $(document).ready(function () {
             return $(this).data("id");
         }).get();
     }
-    
+
 
 })
 

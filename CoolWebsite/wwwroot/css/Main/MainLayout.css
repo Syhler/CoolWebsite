@@ -62,7 +62,12 @@ colors
 
 .yellow
 {
-    color: yellow;
+    color: #d4d421  !important;
+}
+
+.btn-yellow {
+    background-color: #d4d421 !important;
+    color: white;
 }
 
 .blue

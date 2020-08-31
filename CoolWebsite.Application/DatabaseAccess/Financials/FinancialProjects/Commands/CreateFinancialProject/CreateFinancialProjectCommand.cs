@@ -17,6 +17,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
     {
         public string Title { get; set; } = null!;
         public IList<ApplicationUser> Users { get; set; } = null!;
+
+        public string? Description { get; set; }
     }
     
     public class CreateFinancialProjectCommandHandler : IRequestHandler<CreateFinancialProjectCommand, FinancialProjectDto>
@@ -36,7 +38,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Co
             var entity = new FinancialProject
             {
                 Id = Guid.NewGuid().ToString(),
-                Title = request.Title
+                Title = request.Title,
+                Description = request.Description
             };
             
             var users = new List<FinancialProjectApplicationUser>();

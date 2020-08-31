@@ -1,0 +1,38 @@
+﻿@model CoolWebsite.Areas.Financial.Models.EditFinancialProjectModel
+
+
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title">Create new Financial Project</h5>
+        <button type="button" class="close red" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form role="form" id="edit-financial-project-modal-form">
+        <div class="modal-body">
+            <div class="form-group">
+                <label asp-for="Name">Project Name</label>
+                <input class="form-control" name="financial_project_name" 
+                       id="financial_project_name" asp-for="Name" placeholder="Enter Project Name">
+                <small class="form-text text-muted">A name of the project.</small>
+                <br/>
+                <label asp-for="Description">Description</label>
+                <input class="form-control" name="financial_description"
+                       placeholder="Enter a description" id="financial_description" asp-for="Description"/>
+                <small class="form-text text-muted">A small description of the project</small>
+                <br/>
+            </div>
+
+
+            @await Html.PartialAsync("AddUserPartialView", @Model.AddUserModel)
+
+        </div>
+            
+        <div class="modal-footer">
+            <button type="submit" id="edit-financial-project" class="btn btn-success" data-id="@Model.Id">Edit</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+    </form>
+</div>
+</div>

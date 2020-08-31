@@ -6,6 +6,7 @@ using CoolWebsite.Application.Common.Exceptions;
 using CoolWebsite.Application.Common.Interfaces;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.CreateFinancialProject;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.DeleteFinancialProject;
+using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.UpdateFinancialProject;
 using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects;
 using CoolWebsite.Areas.Financial.Common;
 using CoolWebsite.Areas.Financial.Models;
@@ -47,7 +48,8 @@ namespace CoolWebsite.Areas.Financial.Controller
             var command = new CreateFinancialProjectCommand
             {
                 Title = model.Name,
-                Users = await _identity.GetUsersByIds(model.Users)
+                Users = await _identity.GetUsersByIds(model.Users),
+                Description = model.Description
             };
 
             var project = await Mediator.Send(command);
@@ -55,6 +57,54 @@ namespace CoolWebsite.Areas.Financial.Controller
 
         }
 
+        
+        [HttpGet]
+        public async Task<IActionResult> GetEditModal(string id)
+        {
+            var query = new GetFinancialProjectByIdQuery
+            {
+                ProjectId = id
+            };
+
+            var project = await Mediator.Send(query);
+            
+            
+            var model = new EditFinancialProjectModel
+            {
+                Name = project.Title,
+                Description = project.Description,
+                AddUserModel = await GetAddUserModel(),
+                Id = id
+            };
+            model.AddUserModel.ExistingUsers = project.Users;
+
+            foreach (var projectUser in project.Users)
+            {
+                var duplicate = model.AddUserModel.UserSelectListItems.FirstOrDefault(x => x.Value == projectUser.Id);
+
+                if (duplicate != null)
+                {
+                    model.AddUserModel.UserSelectListItems?.Remove(duplicate);
+                }
+            }
+
+            return PartialView("Partial/EditFinancialProjectModal", model);
+        }
+
+        [HttpPost]
+        public async Task UpdateFinancialProject(EditFinancialProjectModel model)
+        {
+            var command = new UpdateFinancialProjectCommand
+            {
+                Users = model.Users,
+                Name = model.Name,
+                Id = model.Id ?? "",
+                Description = model.Description
+            };
+
+            await Mediator.Send(command);
+        }
+        
         [HttpGet]
         public async Task<IActionResult> GetModal()
         {
@@ -64,12 +114,7 @@ namespace CoolWebsite.Areas.Financial.Controller
             
             var model = new CreateFinancialProjectModel
             {
-                AddUserModel = new AddUserModel
-                {
-                    UserSelectListItems = SelectListHandler.CreateFromUsers(_identity.GetUsers().ToList(), _currentUserService.UserId),
-                    CurrentUserName = await _identity.GetUserNameAsync(_currentUserService.UserId),
-                    CurrentUserId = _currentUserService.UserId
-                }
+                AddUserModel = await GetAddUserModel()
             };
             
             return PartialView("Partial/CreateFinancialProjectModal", model);
@@ -92,6 +137,17 @@ namespace CoolWebsite.Areas.Financial.Controller
                 Console.WriteLine(e);
                 throw;
             }
+        }
+
+        private async Task<AddUserModel> GetAddUserModel()
+        {
+            return new AddUserModel
+            {
+                UserSelectListItems =
+                    SelectListHandler.CreateFromUsers(_identity.GetUsers().ToList(), _currentUserService.UserId),
+                CurrentUserName = await _identity.GetUserNameAsync(_currentUserService.UserId),
+                CurrentUserId = _currentUserService.UserId
+            };
         }
         
         

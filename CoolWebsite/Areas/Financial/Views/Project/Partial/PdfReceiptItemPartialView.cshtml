@@ -1,0 +1,71 @@
+﻿@using System.Globalization
+@model CoolWebsite.Application.Services.Models.PdfReceiptItemDto
+
+
+<li class="list-group-item d-flex justify-content-between align-items-center pdf-receipt-item">
+
+    <div style="pointer-events: none;">
+    <input class="pdf-receipt-checkbox" data-isDiscount="@Model.IsDiscount" type="checkbox" value="" style="width: 20px; height: 20px; margin-left: 1px;">
+    </div>
+
+
+    <div style="width: 100%">
+        @if (Model.Name == "Rabat")
+        {
+            <span class="badge badge-success badge-pill" style="margin-left: 40px">
+                <span data-id="@Model.Name" class="pdf-badge-receipt-item-name">@Model.Name</span>
+            </span>
+        }
+        else
+        {
+            <span class="badge badge-primary badge-pill" style="margin-left: 40px">
+                <span data-id="@Model.Name" class="pdf-badge-receipt-item-name">@Model.Name</span>
+            </span>
+        }
+
+
+        <div class="float-right">
+
+            @if (Model.Total > 0)
+            {
+                <span class="badge badge-danger badge-pill">
+                    <span class="pdf-badge-receipt-item-price">@Model.Price.ToString("N2")</span> Kr Pr.
+                </span>
+
+
+                <span class="badge badge-danger badge-pill">
+                    <span class="pdf-badge-receipt-item-count">@Model.Count</span> items
+                </span>
+
+
+                <span class="badge badge-danger badge-pill">
+                    Total:
+                    <span class="pdf-badge-receipt-item-total">@Model.Total.ToString("N2").ToString(CultureInfo.CurrentCulture)</span>
+                    Kr
+                </span>
+            }
+            else
+            {
+                <span class="badge badge-success badge-pill">
+                    <span class="pdf-badge-receipt-item-price">@Model.Price.ToString("N2")</span> Kr Pr.
+                </span>
+
+
+                <span class="badge badge-success badge-pill">
+                    <span class="pdf-badge-receipt-item-count">@Model.Count</span> items
+                </span>
+
+                <span class="badge badge-success badge-pill">
+                    Total:
+
+                    <span class="pdf-badge-receipt-item-total">@Model.Total.ToString("N2").ToString(CultureInfo.CurrentCulture)</span>
+
+                    Kr
+                </span>
+            }
+
+
+        </div>
+
+    </div>
+</li>
