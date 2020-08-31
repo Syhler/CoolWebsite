@@ -7,12 +7,12 @@
     <e p="C:\Users\morte\.nuget\packages\nunit3testadapter\3.13.0\build\netcoreapp1.0\nunit.engine.netstandard.dll" t="Include" />
     <e p="C:\Users\morte\.nuget\packages\nunit3testadapter\3.13.0\build\netcoreapp1.0\NUnit3.TestAdapter.dll" t="Include" />
     <e p="C:\Users\morte\.nuget\packages\nunit3testadapter\3.13.0\build\netcoreapp1.0\NUnit3.TestAdapter.pdb" t="Include" />
-    <e p="C:\Users\morte\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\morte\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_CoolWebsite.609162593.00" t="ExcludeRecursive" />
-    <e p="C:\Users\morte\AppData\Roaming\JetBrains\Rider2020.1\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_baguettebox.js_1.10.0_baguetteBox.css" t="IncludeRecursive" />
-    <e p="C:\Users\morte\AppData\Roaming\JetBrains\Rider2020.1\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_baguettebox.js_1.10.0_baguetteBox.js" t="IncludeRecursive" />
-    <e p="C:\Users\morte\AppData\Roaming\JetBrains\Rider2020.1\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_bootstrap-datepicker_1.9.0_css_bootstrap-datepicker.css" t="IncludeRecursive" />
-    <e p="C:\Users\morte\AppData\Roaming\JetBrains\Rider2020.1\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_bootstrap-datepicker_1.9.0_js_bootstrap-datepicker.js" t="IncludeRecursive" />
+    <e p="C:\Users\morte\AppData\local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\morte\AppData\local\JetBrains\Rider2020.2\resharper-host\local\Transient\Rider\v202\SolutionCaches\_CoolWebsite.609162593.00" t="ExcludeRecursive" />
+    <e p="C:\Users\morte\AppData\Roaming\JetBrains\Rider2020.2\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_baguettebox.js_1.10.0_baguetteBox.css" t="IncludeRecursive" />
+    <e p="C:\Users\morte\AppData\Roaming\JetBrains\Rider2020.2\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_baguettebox.js_1.10.0_baguetteBox.js" t="IncludeRecursive" />
+    <e p="C:\Users\morte\AppData\Roaming\JetBrains\Rider2020.2\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_bootstrap-datepicker_1.9.0_css_bootstrap-datepicker.css" t="IncludeRecursive" />
+    <e p="C:\Users\morte\AppData\Roaming\JetBrains\Rider2020.2\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_bootstrap-datepicker_1.9.0_js_bootstrap-datepicker.js" t="IncludeRecursive" />
     <e p="C:\Users\morte\Documents\GitHub\C#_Project\CoolWebsite" t="IncludeFlat">
       <e p="Application.IntegrationTests" t="IncludeRecursive">
         <e p="Application.IntegrationTests.csproj" t="IncludeRecursive" />
