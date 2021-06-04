@@ -21,7 +21,7 @@ namespace CoolWebsite.Infrastructure
             IConfiguration configuration)
         {
 
-            SetupDatabase<SqlApplicationDbContext>(services, configuration);
+            SetupDatabase<MySqlApplicationDbContext>(services, configuration);
            
             
             services.AddTransient<IDateTime, DateTimeService>();
@@ -41,9 +41,11 @@ namespace CoolWebsite.Infrastructure
         {
             if (typeof(T) == typeof(MySqlApplicationDbContext))
             {
+                
+                var mysqlConnectionString = configuration.GetConnectionString("DefaultConnectionMySQL");
                 services.AddDbContext<T>(builder =>
                 {
-                    builder.UseMySql(configuration.GetConnectionString("DefaultConnectionMySQL"));
+                    builder.UseMySql(mysqlConnectionString, ServerVersion.AutoDetect(mysqlConnectionString));
                 });
             }
             else if (typeof(T) == typeof(SqlApplicationDbContext))

@@ -23,7 +23,7 @@ namespace CoolWebsite.Application.Common.Behaviours
         {
             if (!_validators.Any()) return next();
             
-            var context = new ValidationContext(request);
+            var context = new ValidationContext<TRequest>(request);
 
             var failures = _validators
                 .Select(v => v.Validate(context))

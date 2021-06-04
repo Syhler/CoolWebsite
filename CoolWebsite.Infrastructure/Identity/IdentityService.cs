@@ -39,19 +39,12 @@ namespace CoolWebsite.Infrastructure.Identity
             _currentUserService = currentUserService;
             _logger = logger;
 
-            if (httpContextAccessor == null) return;
-            
             _ip = httpContextAccessor.HttpContext?.Connection?.RemoteIpAddress.ToString();
             _userAgent = httpContextAccessor.HttpContext?.Request?.Headers["User-Agent"].ToString();
         }
         
         public async Task<string> GetUserNameAsync(string userId)
         {
-            if (_userManager == null)
-            {
-                throw new IdentityObjectNotInitialized("UserManager");;
-            }
-
             var result = await _userManager.FindByIdAsync(userId);
 
             if (result == null) {
@@ -70,12 +63,6 @@ namespace CoolWebsite.Infrastructure.Identity
 
         public async Task<(Result result, string userId)> CreateUserAsync(ApplicationUser user, string password)
         {
-            if (_userManager == null)
-            {
-                throw new IdentityObjectNotInitialized("UserManager");;
-            }
-            
-           
             var result = await _userManager.CreateAsync(user, password);
 
             if (result.Succeeded)
@@ -227,14 +214,14 @@ namespace CoolWebsite.Infrastructure.Identity
 
         }
 
-        public async Task<IList<string>> GetRolesByUser(string userID)
+        public async Task<IList<string>> GetRolesByUser(string userId)
         {
             if (_userManager == null)
             {
                 throw new IdentityObjectNotInitialized("UserManager");
             }
 
-            var user = await _userManager.FindByIdAsync(userID);
+            var user = await _userManager.FindByIdAsync(userId);
 
             var rolesAsync = await _userManager.GetRolesAsync(user);
 

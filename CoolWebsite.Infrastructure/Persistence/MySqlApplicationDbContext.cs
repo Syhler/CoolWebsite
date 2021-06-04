@@ -80,7 +80,7 @@ namespace CoolWebsite.Infrastructure.Persistence
             base.OnModelCreating(builder);
         }
 
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             foreach (var entry in ChangeTracker.Entries<AudibleEntity>())
             {
