@@ -1,0 +1,27 @@
+﻿@page "/counter"
+
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<AuthorizeView>
+    <Authorized>
+        <h1>You should see this message if you're logged in</h1>
+    </Authorized>
+    <NotAuthorized>
+        <h1>You're not logged in dude.</h1>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+}

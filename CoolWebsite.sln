@@ -14,6 +14,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.IntegrationTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.UnitTests", "Application.UnitTests\Application.UnitTests.csproj", "{4C6B6C1D-DDAD-4FFC-9F7B-A2F00F1DDEB4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{6811AD64-DDEB-4F89-BBD9-89C35ACF24DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorServerWithAuth", "BlazorServerWithAuth\BlazorServerWithAuth.csproj", "{4E47F8BD-D8F7-4918-BBEF-E82F1EDE1A26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,9 +48,15 @@ Global
 		{4C6B6C1D-DDAD-4FFC-9F7B-A2F00F1DDEB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C6B6C1D-DDAD-4FFC-9F7B-A2F00F1DDEB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C6B6C1D-DDAD-4FFC-9F7B-A2F00F1DDEB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E47F8BD-D8F7-4918-BBEF-E82F1EDE1A26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E47F8BD-D8F7-4918-BBEF-E82F1EDE1A26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E47F8BD-D8F7-4918-BBEF-E82F1EDE1A26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E47F8BD-D8F7-4918-BBEF-E82F1EDE1A26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B761F57B-5D44-4CCD-9C48-9669A4824A4A} = {3F0FE538-7AD8-4F6F-998C-4EF256D6A2D7}
 		{4C6B6C1D-DDAD-4FFC-9F7B-A2F00F1DDEB4} = {3F0FE538-7AD8-4F6F-998C-4EF256D6A2D7}
+		{7BC7F4AD-0ABC-4B37-B727-BD117DDEFF27} = {6811AD64-DDEB-4F89-BBD9-89C35ACF24DA}
+		{4E47F8BD-D8F7-4918-BBEF-E82F1EDE1A26} = {6811AD64-DDEB-4F89-BBD9-89C35ACF24DA}
 	EndGlobalSection
 EndGlobal

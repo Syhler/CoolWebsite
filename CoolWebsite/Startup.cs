@@ -55,8 +55,6 @@ namespace CoolWebsite
                 options.IncludeSubDomains = true;
                 options.MaxAge = TimeSpan.FromDays(60);
                 
-                //options.ExcludedHosts.Add("example.com");
-                //options.ExcludedHosts.Add("www.example.com");
             });
             
             services.AddApplication();
@@ -89,6 +87,7 @@ namespace CoolWebsite
                     options.Filters.Add(new AuthorizeFilter(policy));
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            
             
             if (!_environment.IsDevelopment())
             {

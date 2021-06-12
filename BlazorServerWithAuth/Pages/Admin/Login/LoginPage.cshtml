@@ -1,0 +1,31 @@
+﻿@page "/admin/login"
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model BlazorServerWithAuth.Pages.Admin.Login.LoginPage
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    <h3>LoginPage</h3>
+
+    <label>Username</label>
+    <form method="post">
+        <input type="text" asp-for="Username" name="username"/>
+
+        <label>Password</label>
+        <input type="text" asp-for="Password" name="password">
+
+        <button type="submit" asp-page-handler="Login">Login</button>
+    </form>
+
+</div>
+</body>
+</html>

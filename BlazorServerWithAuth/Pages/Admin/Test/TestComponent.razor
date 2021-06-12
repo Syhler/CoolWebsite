@@ -1,0 +1,97 @@
+﻿@page "/admin/test"
+@layout AdminLayout
+@using MediatR
+@using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.CreateFinancialProject
+@using CoolWebsite.Domain.Entities.Identity
+@using CoolWebsite.Application.Common.Interfaces
+@using BlazorServerWithAuth.Pages.Admin.Shared
+@using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects
+@using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models
+
+@inject IMediator _mediator
+@inject IIdentityService _identityService
+
+<h3>TestComponent</h3>
+<label>Description</label>
+<input type="text" @bind="_description"/>
+<label>Title</label>
+<input type="text" @bind="_title"/>
+
+<br>
+
+<select @bind="_selectedUserId">
+    @foreach (var user in _displayApplicationUsers)
+    {
+        <option value="@user.Id">
+            @user.FirstName @user.LastName
+        </option>
+    }
+</select>
+<button class="btn btn-primary" type="button" @onclick="AddUser">Add User</button>
+
+<div>
+    <h3>Selected Users:</h3>
+    <ul>
+    @foreach (var user in _selectedUsers)
+    {
+        <li>ID : @user</li>
+    }
+    </ul>
+</div>
+
+<button class="btn btn-primary" type="button" @onclick="CreateProject">Create</button>
+
+<div>
+    <h3>Projects:</h3>
+    <ul>
+        @foreach (var project in _financialProjectDtos)
+        {
+            <li>ID : @project.Title : @project.Description</li>
+        }
+    </ul>
+    
+</div>
+
+@code {
+
+    private string _description;
+    private string _title;
+
+    private string _selectedUserId;
+    private readonly List<string> _selectedUsers = new();
+
+    private List<ApplicationUser> _displayApplicationUsers;
+
+    private List<FinancialProjectDto> _financialProjectDtos;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        _displayApplicationUsers = _identityService.GetUsers().ToList();
+        var projectCommand = new GetFinancialProjectQuery();
+
+        var result = await _mediator.Send(projectCommand);
+        _financialProjectDtos = (result?.FinancialProjects ?? new List<FinancialProjectDto>()).ToList();
+        base.OnInitialized();
+    }
+
+    public void AddUser()
+    {
+        _selectedUsers.Add(_selectedUserId);
+    }
+
+    public async Task CreateProject()
+    {
+        var command = new CreateFinancialProjectCommand
+        {
+            Description = _description,
+            Title = _title,
+            Users = await _identityService.GetUsersByIds(_selectedUsers)
+        };
+
+        var createResult = await _mediator.Send(command);
+
+        _financialProjectDtos.Add(createResult);
+        
+    }
+    
+}

@@ -1,0 +1,10 @@
+﻿<h3>LoginRedirect</h3>
+
+@inject NavigationManager _uriHelper
+@code {
+     protected override void OnInitialized()
+     {
+         _uriHelper.NavigateTo("/admin/login");
+     }
+ } 
+
