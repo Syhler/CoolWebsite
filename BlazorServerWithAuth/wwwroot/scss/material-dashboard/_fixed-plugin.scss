@@ -19,6 +19,32 @@
             }
         }
     }
+
+    .btn {
+      position: relative;
+      padding: 12px 30px;
+      margin: .6rem 1px;
+      font-size: .75rem; //  12px
+      border-radius: $border-radius-sm;
+      transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: box-shadow, transform;
+
+      @include bmd-raised-button-color();
+      @include undo-bs-tab-focus();
+
+      &.btn-round {
+        border-radius: $border-radius-extreme;
+      }
+    }
+
+    .button-container .btn:not(.btn-facebook):not(.btn-twitter) {
+      display: block;
+    }
+
+    .button-container.github-star{
+      margin-left: 100px;
+    }
+
 }
 
 .fixed-plugin li > a,
@@ -34,7 +60,7 @@
     right: 0;
     width: 64px;
     background: rgba(0,0,0,.3);
-    z-index: 3;
+    z-index: 1031;
     border-radius: 8px 0 0 8px;
     text-align: center;
 }
@@ -125,6 +151,9 @@
 .fixed-plugin .badge-rose{
   background-color: #e91e63;
 }
+.fixed-plugin .badge-red{
+  background-color: #f44336;
+}
 
 .fixed-plugin h5{
     font-size: 14px;
@@ -150,33 +179,6 @@
 }
 .fixed-plugin li.button-container div{
     margin-bottom: 5px;
-}
-
-.fixed-plugin {
-  .btn {
-    position: relative;
-    padding: 12px 30px;
-    margin: $bmd-btn-margin-bottom 1px;
-    font-size: .75rem; //  12px
-    border-radius: $border-radius-sm;
-    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: box-shadow, transform;
-
-    @include bmd-raised-button-color();
-    @include undo-bs-tab-focus();
-
-    &.btn-round {
-      border-radius: $border-radius-extreme;
-    }
-  }
-
-  .button-container .btn:not(.btn-facebook):not(.btn-twitter) {
-    display: block;
-  }
-
-  .button-container.github-star{
-    margin-left: 78px;
-  }
 }
 
 .fixed-plugin #sharrreTitle{

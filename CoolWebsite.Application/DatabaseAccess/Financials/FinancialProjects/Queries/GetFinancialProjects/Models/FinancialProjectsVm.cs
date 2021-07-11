@@ -4,7 +4,12 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
 {
     public class FinancialProjectsVm
     {
-        public IList<FinancialProjectDto>? FinancialProjects { get; set; }
+        public FinancialProjectsVm()
+        {
+            FinancialProjects = new List<FinancialProjectDto>();
+        }
+        
+        public IList<FinancialProjectDto> FinancialProjects { get; set; }
 
     }
 }

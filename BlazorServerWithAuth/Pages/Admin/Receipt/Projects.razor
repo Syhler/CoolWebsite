@@ -1,0 +1,123 @@
+﻿@page "/admin/projects"
+@using BlazorServerWithAuth.Pages.Admin.Shared
+@using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects
+@using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models
+@using MediatR
+
+@layout AdminLayout
+
+@inject IMediator _mediator
+@inject IJSRuntime _js
+
+<div class="container">
+
+    @foreach (var project in _projectVm.FinancialProjects!)
+    {
+        <div class="card card-nav-tabs text-center mt-5">
+            <div class="card-header card-header-primary">
+                <!--<img src="https://picsum.photos/1000/500">-->
+                Project
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">@project.Title</h4>
+                <p class="card-text">@project.Description</p>
+                <a href="admin/projectView/@project.Id" class="btn btn-primary">Go To Project</a>
+                <a href="" class="btn btn-warning">Edit Project</a>
+                <a href="" class="btn btn-danger">Archive Project</a>
+
+                <div class="card-stats">
+                    <div class="author">
+                        @foreach (var user in project.Users)
+                        {
+                            <a href="javascript:;" class="mr-3">
+
+                                <img src="https://picsum.photos/200" rel="nofollow" alt="..." class="avatar img-raised">
+                            </a>
+                        }
+                    </div>
+                    <div class="stats ml-auto">
+                        <i class="material-icons">receipt</i> @project.Receipts.Count &#xB7;
+
+                        <i class="material-icons">
+                            account_circle
+                        </i>
+                        @project.Users.Count
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                Created: @project.Created.ToShortDateString()
+            </div>
+        </div>
+    }
+
+    @for (int i = 0; i < _projectVm.FinancialProjects.Count; i++)
+    {
+        var project = _projectVm.FinancialProjects[i];
+
+        <div class="card @((i % 2 == 0) ? "bg-primary" : "bg-info")">
+            <div class="card-body">
+                <h5 class="card-category card-category-social">
+                    <i class="fa fa-tablet-rugged"></i> Financial Project
+                </h5>
+                <h4 class="card-title">
+                    <a href="javascript:;">@project.Title</a>
+                </h4>
+
+
+                <div class="card-stats">
+                    <div class="author">
+                        @foreach (var user in project.Users)
+                        {
+                            <a href="javascript:;" class="mr-3">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=334&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" rel="nofollow" alt="..." class="avatar img-raised">
+                                <span>@user.Initial</span>
+                            </a>
+                        }
+
+                    </div>
+                    <div class="stats ml-auto">
+                        <i class="material-icons">receipt</i> @project.Receipts.Count &#xB7;
+                        <i class="material-icons">account_circle</i> @project.Users.Count
+                    </div>
+                </div>
+
+
+                <div style="margin-top: 10px">
+                    <a href="admin/projectView/@project.Id" style="padding: .2rem .5rem;" class="btn-sm @((i % 2 == 0) ? "btn-info" : "btn-primary")">Go To Project</a>
+                    <a style="padding: .2rem .5rem; margin-left: 10px" class="btn-sm btn-warning clickable" @onclick="OnEditProject">Edit Project</a>
+                    <a style="padding: .2rem .5rem; margin-left: 10px" class="btn-sm btn-danger clickable" @onclick="OnArchiveProject">Archive Project</a>
+                </div>
+
+            </div>
+        </div>
+    }
+
+
+</div>
+
+@code {
+
+    private FinancialProjectsVm _projectVm;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _projectVm = new FinancialProjectsVm();
+
+        var query = new GetFinancialProjectQuery();
+
+        _projectVm = await _mediator.Send(query);
+    }
+
+    private async Task OnEditProject()
+    {
+        await _js.InvokeVoidAsync("swal", new {title = "Work in progress", buttonsStyling = false, text = "This feature isn't implemented yet", confirmButtonClass = "btn btn-info"});
+
+    }
+
+    private async Task OnArchiveProject()
+    {
+        await _js.InvokeVoidAsync("swal", new {title = "Work in progress", buttonsStyling = false, text = "This feature isn't implemented yet", confirmButtonClass = "btn btn-info"});
+    }
+
+}

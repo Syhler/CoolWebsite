@@ -31,7 +31,7 @@ a{
 
   &.text-info{
       &:hover, &:focus{
-          color: darken($brand-info, 5%);
+          color: darken($info, 5%);
       }
   }
 
@@ -127,7 +127,7 @@ label{
        padding: 3px 7px;
        font-size: 8px;
        line-height: 9px;
-       background-color: $brand-primary;
+       background-color: $primary;
      }
    }
  }
@@ -150,6 +150,13 @@ label{
   .wrapper-full-page {
     .page-header {
       padding: 15vh 0 !important;
+    }
+
+    &.long-content {
+      .page-header {
+        height: auto !important;
+        max-height: initial !important;
+      }
     }
   }
 }

@@ -1,0 +1,101 @@
+﻿@page "/admin/projectView/{ProjectId}"
+@using BlazorServerWithAuth.Pages.Admin.Shared
+@using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Queries.GetFinancialProjects.Models
+@using BlazorServerWithAuth.Pages.Admin.Receipt.Services.Interface
+
+@inject IProjectViewService _projectViewService;
+
+@layout AdminLayout
+
+<div class="container">
+
+    @if (_project == null)
+    {
+        <p>
+            <em>Loading...</em>
+        </p>
+    }
+    else
+    {
+        <div class="card ">
+        <div class="card-header ">
+            <h4 class="card-title">
+                @_project.Title
+            </h4>
+        </div>
+        <div class="card-body ">
+            <ul class="nav nav-pills nav-pills-warning" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist">
+                        Pay
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#link2" role="tablist">
+                        Storebox
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#link3" role="tablist">
+                        Information
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-success btn-round btn-custom-link">create<div class="ripple-container"></div></button>
+                </li>
+            </ul>
+            <div class="tab-content tab-space">
+                <div class="tab-pane active" id="link1">
+                    Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits.
+                    <br/>
+                    <br/> Dramatically visualize customer directed convergence without revolutionary ROI. Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits.
+                    <br/>
+                    <br/> This is very nice.
+                </div>
+                <div class="tab-pane" id="link2">
+                    Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
+                    <br/>
+                    <br/>Dramatically maintain clicks-and-mortar solutions without functional solutions.
+                </div>
+                <div class="tab-pane" id="link3">
+                   @_project.Description
+                   <br/>
+                   Last modifed: @_project.LastModified
+                   <br/>
+                   Created: @_project.Created
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+
+    
+
+</div>
+
+
+
+@code {
+
+    [Parameter]
+    public string ProjectId { get; set; }
+
+    private FinancialProjectDto _project;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Console.WriteLine(ProjectId);
+        _project = await _projectViewService.GetProject(ProjectId);
+    }
+
+
+}
+
+<style>
+.btn-custom-link
+{
+    margin: 0;
+    padding: 14px 30px;
+}
+    
+</style>

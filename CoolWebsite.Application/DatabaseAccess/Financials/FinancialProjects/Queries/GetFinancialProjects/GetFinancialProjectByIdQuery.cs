@@ -36,32 +36,36 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
             _currentUserService = userService;
         }
 
-        public Task<FinancialProjectDto> Handle(GetFinancialProjectByIdQuery request, CancellationToken cancellationToken)
+        public async Task<FinancialProjectDto> Handle(GetFinancialProjectByIdQuery request, CancellationToken cancellationToken)
         {
 
-            var entity = _context.FinancialProjects
+            var entity = await _context.FinancialProjects
                 .Include(x => x.FinancialProjectApplicationUsers)
+                .ThenInclude(x => x.User)
                 .Include(x => x.Receipts)
                 .Include(x => x.OweRecords)
-                .Where(x => x.Id == request.ProjectId);
+                .FirstOrDefaultAsync(x => x.Id == request.ProjectId, cancellationToken);
 
-            if (entity.ToList().Count == 0)
+            if (entity == null)
             {
                 throw new NotFoundException(nameof(FinancialProject), request.ProjectId);
             }
 
-            var mapped = entity.ProjectTo<FinancialProjectDto>(_mapper.ConfigurationProvider).FirstOrDefault();
-
+            var mapped = _mapper.Map<FinancialProjectDto>(entity);
+            
             if (mapped == null)
             {
                 throw new NullReferenceException("Mapped object was returned as null");
             }
             
-            mapped.Receipts = mapped.Receipts.Where(x => x.Deleted == null).ToList(); //Removes deleted receipts from the mapped project
+            mapped.Receipts = mapped.Receipts
+                .Where(x => x.Deleted == null) //Removes deleted receipts from the mapped project
+                .OrderByDescending(x => x.DateVisited)
+                .ToList(); 
 
-            mapped.Receipts = mapped.Receipts.OrderByDescending(x => x.DateVisited).ToList();
-            
-            var currentUserRecords = entity.First().OweRecords.Where(x => x.UserId == _currentUserService.UserId && x.FinancialProjectId == mapped.Id).ToList();
+            var currentUserRecords = entity.OweRecords
+                .Where(x => x.UserId == _currentUserService.UserId && x.FinancialProjectId == mapped.Id)
+                .ToList();
 
             foreach (var mappedReceipt in mapped.Receipts)
             {
@@ -79,7 +83,7 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
                 var affectedRecord = currentUserRecords.FirstOrDefault(x => x.OwedUserId == mappedUser.Id);
 
                 //Gets records where mapped owe currentUsers money
-                var records = entity.First().OweRecords.FirstOrDefault(x => x.UserId == mappedUser.Id && x.OwedUserId == _currentUserService.UserId);
+                var records = entity.OweRecords.FirstOrDefault(x => x.UserId == mappedUser.Id && x.OwedUserId == _currentUserService.UserId);
 
                 if (records == null) continue;
                 
@@ -88,7 +92,8 @@ namespace CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Qu
                     : Math.Round(-records.Amount,2);
             }
             
-            return Task.FromResult(mapped);
+            
+            return mapped;
             
         }
     }

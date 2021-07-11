@@ -29,41 +29,45 @@
     }
 
     &.alert-danger{
-        @include shadow-alert-color($brand-danger);
-        @include alert-icon-color($brand-danger);
+        @include shadow-alert-color($danger);
+        @include alert-icon-color($danger);
     }
     &.alert-warning{
-        @include shadow-alert-color($brand-warning);
-        @include alert-icon-color($brand-warning);
+        @include shadow-alert-color($warning);
+        @include alert-icon-color($warning);
     }
     &.alert-success{
-        @include shadow-alert-color($brand-success);
-        @include alert-icon-color($brand-success);
+        @include shadow-alert-color($success);
+        @include alert-icon-color($success);
     }
     &.alert-info{
-        @include shadow-alert-color($brand-info);
-        @include alert-icon-color($brand-info);
+        @include shadow-alert-color($info);
+        @include alert-icon-color($info);
     }
     &.alert-primary{
-        @include shadow-alert-color($brand-primary);
-        @include alert-icon-color($brand-primary);
+        @include shadow-alert-color($primary);
+        @include alert-icon-color($primary);
     }
     &.alert-rose{
-        @include shadow-alert-color($brand-rose);
-        @include alert-icon-color($brand-rose);
+        @include shadow-alert-color($rose);
+        @include alert-icon-color($rose);
     }
 
     &.alert-with-icon{
+      margin-top: 43px;
       padding-left: 66px;
 
       i[data-notify="icon"] {
-        font-size: 30px;
-        display: block;
-        left: 15px;
-        position: absolute;
-        top: 50%;
-        margin-top: -15px;
-        color: #fff;
+          display: block;
+          left: 15px;
+          position: absolute;
+          margin-top: -39px;
+          font-size: 20px;
+          background-color: $white-color;
+          padding: 9px;
+          border-radius: 50%;
+          max-width: 38px;
+          @include shadow-big();
       }
     }
 
@@ -73,6 +77,9 @@
           color: $white-color;
           font-size: 11px;
         }
+      &:focus {
+        outline: none;
+      }
     }
 
     i[data-notify="icon"]{

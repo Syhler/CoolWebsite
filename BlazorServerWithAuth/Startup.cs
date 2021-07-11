@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlazorServerWithAuth.Pages.Admin.Receipt.Services;
+using BlazorServerWithAuth.Pages.Admin.Receipt.Services.Interface;
 using BlazorServerWithAuth.Services;
+using BlazorServerWithAuth.Services.Common.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -37,7 +40,9 @@ namespace BlazorServerWithAuth
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
- 
+
+            services.AddScoped<IIdentityFacade, IdentityFacade>();
+            services.AddScoped<IProjectViewService, ProjectViewService>();
        
             
             services.AddApplication();
@@ -61,6 +66,7 @@ namespace BlazorServerWithAuth
             }
 
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();

@@ -1,0 +1,212 @@
+﻿@page "/admin/createproject"
+@using BlazorServerWithAuth.Pages.Admin.Shared
+@using BlazorServerWithAuth.Services.Common.Interface
+@using CoolWebsite.Application.Common.Interfaces
+@using CoolWebsite.Application.DatabaseAccess.Financials.FinancialProjects.Commands.CreateFinancialProject
+@using CoolWebsite.Domain.Entities.Identity
+@using MediatR
+@layout AdminLayout
+
+@inject IJSRuntime _js
+@inject IIdentityFacade _identityFacade;
+@inject ICurrentUserService _currentUserService;
+@inject IMediator _mediator;
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+
+                <div class="card-header card-header-rose card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">receipt</i>
+                    </div>
+                    <h4 class="card-title">Create Project</h4>
+                </div>
+
+
+                <div class="card-body">
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Title</label>
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Title" @bind="_title">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Description</label>
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <textarea class="form-control" rows="3" @bind="_description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Select Users</label>
+                        <div class="col-sm-8">
+                            <select class="custom-select" @bind="_selectedUserId">
+                                @foreach (var user in _applicationUsers)
+                                {
+                                    <option value="@user.Id">@user.FirstName @user.LastName</option>
+                                }
+
+                            </select>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <button class="btn btn-primary @(_disableButton ? "disabled" : "")" @onclick="AddUser">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card-header card-header-rose card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">person</i>
+                    </div>
+                    <h4 class="card-title">Selected Users</h4>
+                </div>
+
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th class="text-right">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @for (int i = 0; i < _selectedUsers.Count; i++)
+                            {
+                                var number = i;
+
+                                <tr>
+                                    <td class="text-center">@(i + 1)</td>
+                                    <td>@_selectedUsers[i].FirstName</td>
+                                    <td>@_selectedUsers[i].LastName</td>
+                                    <td class="td-actions text-right">
+
+                                        <button type="button" rel="tooltip" class="btn btn-danger btn-link" @onclick="() => RemoveUserFromList(number)">
+                                            <i class="material-icons">close</i>
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                            <tr>
+                                <td colspan="2"></td>
+                                <td colspan="2" class="text-right">
+                                    <button type="button" class="btn btn-success btn-round" @onclick="OnCreateProject">
+                                        Create Project <i class="material-icons">keyboard_arrow_right</i>
+                                        <div class="ripple-container"></div>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+<div class="col-md-3">
+    <div class="card ">
+        <div class="card-body text-center">
+            <h5 class="card-text">A title with a text under</h5>
+            <button class="btn btn-rose btn-fill" @onclick="Test">Try me!</button>
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+    //demo.showSwal('title-and-text')
+
+    private string _title;
+    private string _description;
+    private List<ApplicationUser> _selectedUsers;
+    private List<ApplicationUser> _applicationUsers;
+    private string _selectedUserId;
+
+    private bool _disableButton;
+
+    protected override void OnInitialized()
+    {
+        _selectedUsers = new List<ApplicationUser>();
+        _applicationUsers = _identityFacade.GetAllUsers();
+        
+        _selectedUserId = _applicationUsers.First().Id;
+
+
+        var currentApplicationUser = _applicationUsers.FirstOrDefault(x => x.Id == _currentUserService.UserId); 
+        
+        _selectedUsers.Add(currentApplicationUser);
+        _applicationUsers.Remove(currentApplicationUser);
+    }
+
+    private async Task Test()
+    {
+        await _js.InvokeVoidAsync("swal", new {title = "Test", buttonsStyling = false, text = "Text test", confirmButtonClass = "btn btn-info"});
+    }
+
+    private async Task OnCreateProject()
+    {
+        var createProjectCommand = new CreateFinancialProjectCommand
+        {
+            Description = this._description,
+            Title = this._title,
+            Users = _selectedUsers
+        };
+        
+        await _mediator.Send(createProjectCommand);
+        
+    }
+    
+    private async Task AddUser()
+    {
+        var user = await _identityFacade.GetUserById(_selectedUserId);
+        _selectedUsers.Add(user);
+
+        _applicationUsers.RemoveAll(x => x.Id == user.Id);
+
+        _selectedUserId = _applicationUsers.FirstOrDefault()?.Id;
+
+        _disableButton = _selectedUserId == null;
+    }
+
+    private void RemoveUserFromList(int index)
+    {
+        var id = _selectedUsers[index].Id;
+
+        var user = _selectedUsers.FirstOrDefault(x => x.Id == id);
+
+        if (user != null)
+        {
+            _selectedUsers.Remove(user);
+        }
+
+        _applicationUsers.Add(user);
+
+        if (_selectedUserId != null) return;
+
+        _selectedUserId = id;
+        _disableButton = false;
+    }
+
+
+}

@@ -13,12 +13,28 @@
   }
 }
 
+.login-page {
+  .card-login {
+    .card-header {
+      margin-top: -40px !important;
+      margin-bottom: 20px;
+    }
+
+    .social-line {
+      padding: 0;
+      margin-top: 15px;
+    }
+
+    .card-title {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+  }
+}
+
 .signup-page {
     .page-header {
-        min-height: 100vh;
-        height: auto;
-        display: inherit;
-
         .container{
             padding-top: 20vh;
         }
@@ -52,4 +68,19 @@
             color: $white-color;
         }
     }
+}
+
+.register-page {
+  .page-header{
+    background-position: top center;
+  }
+}
+
+@media all and (max-width: 991px) {
+  .page-header {
+    &.pricing-page,
+    &.register-page{
+      min-height: fit-content !important;
+    }
+  }
 }

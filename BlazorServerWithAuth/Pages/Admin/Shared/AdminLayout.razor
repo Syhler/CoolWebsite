@@ -1,9 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
-<link href="css/material-dashboard.min.css" type="text/css" rel="stylesheet"/>
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
-<link href="css/blazor-error-css.css" rel="stylesheet" type="text/css"/>
+
 
 <AuthorizeView>
 
@@ -11,15 +8,17 @@
 
         <div class="wrapper ">
 
-            <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+            <div class="sidebar" data-color="purple" data-background-color="black" style="background-image: url(img/sidebar-1.jpg);">
 
-                <_Navbar/>
+                <_NavSidebar/>
 
             </div>
             <div class="main-panel">
-                @Body
+                <_Navbar/>
+                <div class="content">
+                    @Body
+                </div>
             </div>
-
         </div>
     </Authorized>
 
@@ -28,3 +27,6 @@
         <h1>Sorry this page require login</h1>
     </NotAuthorized>
 </AuthorizeView>
+
+
+

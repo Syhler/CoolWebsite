@@ -5,6 +5,7 @@
     <projectFile>Application.UnitTests/Application.UnitTests.csproj</projectFile>
     <projectFile>BlazorServer/BlazorServer.csproj</projectFile>
     <projectFile>BlazorServerWithAuth/BlazorServerWithAuth.csproj</projectFile>
+    <projectFile>BlazorTestApp/BlazorTestApp.csproj</projectFile>
   </component>
   <component name="BranchesTreeState">
     <expand>
@@ -26,303 +27,148 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/BlazorServer/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/App.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/BlazorServer.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Data/WeatherForecast.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Data/WeatherForecastService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Pages/Counter.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Pages/Error.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Pages/Error.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Pages/FetchData.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Pages/Index.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Pages/Todo.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Pages/_Host.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Shared/MainLayout.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Shared/MainLayout.razor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Shared/NavMenu.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Shared/NavMenu.razor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Shared/SurveyPrompt.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/Startup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/_Imports.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/appsettings.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/wwwroot/css/bootstrap/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/wwwroot/css/bootstrap/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/wwwroot/css/open-iconic/FONT-LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/wwwroot/css/open-iconic/ICON-LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/wwwroot/css/open-iconic/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/wwwroot/css/open-iconic/font/fonts/open-iconic.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/wwwroot/css/open-iconic/font/fonts/open-iconic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/wwwroot/css/open-iconic/font/fonts/open-iconic.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/wwwroot/css/open-iconic/font/fonts/open-iconic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/wwwroot/css/site.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServer/wwwroot/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/App.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Areas/Identity/Pages/Account/LogOut.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Areas/Identity/Pages/Shared/_LoginPartial.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Areas/Identity/RevalidatingIdentityAuthenticationStateProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/BlazorServerWithAuth.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Controller/AccountController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/CurrentUserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Account/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Dashboard/Index.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Login/LoginPage.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Shared/AdminLayout.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Shared/_Layout.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Shared/_Navbar.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Test/TestComponent.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Counter.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Error.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Error.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Index.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/LoginRedirect.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/_Host.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Shared/LoginDisplay.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Shared/MainLayout.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Shared/MainLayout.razor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Shared/NavMenu.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Shared/NavMenu.razor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Shared/SurveyPrompt.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Startup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/_Imports.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/appsettings.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/blazor-error-css.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/bootstrap/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/bootstrap/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/material-dashboard-rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/material-dashboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/material-dashboard.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/material-dashboard.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/open-iconic/FONT-LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/open-iconic/ICON-LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/open-iconic/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/open-iconic/font/fonts/open-iconic.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/open-iconic/font/fonts/open-iconic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/open-iconic/font/fonts/open-iconic.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/open-iconic/font/fonts/open-iconic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/site.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/apple-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/bg2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/city-profile.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/city.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/cover.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/faces/avatar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/faces/card-profile1-square.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/faces/card-profile2-square.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/faces/marc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/mask.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/new_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/sidebar-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/sidebar-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/sidebar-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/sidebar-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/core/bootstrap-material-design.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/core/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/core/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/material-dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/material-dashboard.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/material-dashboard.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/arrive.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/bootstrap-datetimepicker.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/bootstrap-notify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/bootstrap-selectpicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/bootstrap-tagsinput.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/chartist.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/fullcalendar.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/jasny-bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/jquery-jvectormap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/jquery.bootstrap-wizard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/jquery.dataTables.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/jquery.tagsinput.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/jquery.validate.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/moment.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/nouislider.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/perfect-scrollbar.jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/sweetalert2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_alerts.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_cards.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_checkboxes.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_core-bootstrap.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_example-pages.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_fixed-plugin.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_footers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_headers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_images.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_info-areas.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_input-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_misc.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_navbar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_popover.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_popups.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_radios.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_responsive.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_ripples.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_sidebar-and-main-panel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_social-buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_tables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_tabs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_togglebutton.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_tooltip.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_type.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_alert.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_badge.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_breadcrumb.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_button-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_card.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_carousel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_close.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_code.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_custom-forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_functions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_images.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_input-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_jumbotron.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_list-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_media.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_modal.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_nav.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_navbar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_pagination.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_popover.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_print.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_progress.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_reboot.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_root.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_tables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_tooltip.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_transitions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_type.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_utilities.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/bootstrap-grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/bootstrap-reboot.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/bootstrap.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_alert.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_background-variant.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_badge.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_border-radius.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_box-shadow.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_breakpoints.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_caret.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_clearfix.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_float.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_gradients.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_grid-framework.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_hover.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_image.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_list-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_lists.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_nav-divider.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_navbar-align.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_pagination.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_reset-text.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_resize.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_screen-reader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_size.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_table-row.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_text-emphasis.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_text-hide.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_text-truncate.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_transition.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/mixins/_visibility.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/utilities/_align.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/utilities/_background.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/utilities/_borders.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/utilities/_clearfix.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/utilities/_display.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/utilities/_embed.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/utilities/_flex.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/utilities/_float.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/utilities/_position.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/utilities/_screenreaders.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/utilities/_sizing.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/utilities/_spacing.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/utilities/_text.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/bootstrap/scss/utilities/_visibility.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-plain.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-profile.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-stats.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_alert.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_animations.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_breakpoints.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_chartist.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_colored-shadows.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_drawer.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_hover.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_layout.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_navbar-colors.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_navs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_sidebar-color.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_transparency.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_type.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_utilities.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_vendor-prefixes.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_animate.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_chartist.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_perfect-scrollbar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_body.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_bootstrap-material-design-base.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_bootstrap-material-design.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_brand.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_card.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_code.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_colors-map.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_colors.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_custom-forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_drawer.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_layout.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_list-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_menu.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_modals.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_nav.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_pagination.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_shadow.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_snackbar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_spacing.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_state.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_tables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_tooltip.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_type.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoolWebsite.Application/Common/Dto/ApplicationUserDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Receipt/CreateProject.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Receipt/ProjectView.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Receipt/Projects.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Receipt/Services/Interface/IProjectViewService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Receipt/Services/ProjectViewService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Shared/_NavSidebar.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Test/EmptyLayout.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Test/Template.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Services/Common/Interface/IIdentityFacade.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Services/IdentityFacade.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/partials/dashboard/core/bootstrap/scss/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/partials/dashboard/core/bootstrap/scss/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/partials/dashboard/core/bootstrap/scss/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/partials/dashboard/core/bootstrap/scss/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/partials/dashboard/core/bootstrap/scss/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/partials/dashboard/core/bootstrap/scss/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/partials/kit/core/bootstrap/scss/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/partials/kit/core/bootstrap/scss/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/partials/kit/core/bootstrap/scss/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/partials/kit/core/bootstrap/scss/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/partials/kit/core/bootstrap/scss/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/partials/kit/core/bootstrap/scss/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/bg-pricing.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/bg3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/bg9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/card-1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/card-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/card-2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/card-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/card-3.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/card-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/clint-mckoy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/default-avatar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/flags/AU.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/flags/BR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/flags/DE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/flags/GB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/flags/RO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/flags/US.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/header-doc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/image_placeholder.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/lock.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/login.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/placeholder.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/product1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/product2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/product3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/register.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/perfect-scrollbar.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_badges.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_footers-extend.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_forms-extend.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_misc-extend.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_modal.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_pages.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_pagination.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_pills.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_progress.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_rtl.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_timeline.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-background.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-blog.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-collapse.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-contact.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-form-horizontal.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-plain-extend.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-pricing.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-product.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-rotate.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-signup.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-testimonials.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_social-buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_datatables.net.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_fullcalendar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_jquery.jvectormap.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_plugin-bootstrap-select.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_plugin-datetime-picker.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_plugin-fileupload.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_plugin-flexisel.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_plugin-nouislider.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_plugin-tagsinput.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_sweetalert2.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_wizard-card.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite.sln" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoolWebsite/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/App.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/App.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/BlazorServerWithAuth.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/BlazorServerWithAuth.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Dashboard/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Dashboard/Index.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Shared/AdminLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Shared/AdminLayout.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Shared/_Layout.razor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Shared/_Navbar.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Shared/_Navbar.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Index.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/_Host.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Pages/_Host.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/Shared/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Shared/MainLayout.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/Shared/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Shared/NavMenu.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/material-dashboard-rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/material-dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/material-dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/material-dashboard.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/material-dashboard.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/material-dashboard.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/material-dashboard.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/bg2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/city-profile.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/city.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/cover.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/sidebar-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/sidebar-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/sidebar-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/sidebar-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/sidebar-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/sidebar-3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/sidebar-4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/img/sidebar-4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/material-dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/material-dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/material-dashboard.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/material-dashboard.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/material-dashboard.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/material-dashboard.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/perfect-scrollbar.jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/sweetalert2.js" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/js/plugins/sweetalert2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_alerts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_alerts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_cards.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_cards.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_checkboxes.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_checkboxes.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_dropdown.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_dropdown.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_example-pages.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_example-pages.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_fixed-plugin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_fixed-plugin.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_forms.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_headers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_headers.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_info-areas.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_info-areas.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_misc.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_misc.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_sidebar-and-main-panel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_sidebar-and-main-panel.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_social-buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_social-buttons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_togglebutton.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_togglebutton.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_type.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/_type.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/cards/_card-profile.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_alert.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_alert.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_chartist.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_chartist.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_forms.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_utilities.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/mixins/_utilities.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_perfect-scrollbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/plugins/_perfect-scrollbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_bootstrap-material-design.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_bootstrap-material-design.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_brand.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_brand.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_buttons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_nav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_nav.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_state.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/scss/material-dashboard/variables/_state.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectByIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectByIdQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/FinancialProjectsVm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/FinancialProjectsVm.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -411,14 +257,15 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/ActivateFinancialProject/ActivateFinancialProjectCommandValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/ActivateFinancialProject/ActivateFinancialProjectCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/morte/Documents/GitHub/CoolWebsite/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/CreateFinancialProject/CreateFinancialProjectCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityResultExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3834795B-F41B-4E62-8161-509ECA0F5822/16/ISender.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Services/CurrentUserService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Services/DateTimeService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200701093234_AddedFinacialProjectIdToTransactions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200519162638_UpdatedFinancialDomainEntites.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200530101340_addedAuddbleToReceiptItem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3834795B-F41B-4E62-8161-509ECA0F5822/7d/94985961/ISender.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200519163419_AddedConfigurationToFinancial.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200701095916_AddedForeginKEyToTransactions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/SqlApplicationDbContextModelSnapshot.cs" root0="FORCE_HIGHLIGHTING" />
@@ -432,7 +279,6 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/SQLServer/20200723212218_AddedDeletedBy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/MysqlServer/MySqlApplicationDbContextModelSnapshot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Migrations/MysqlServer/20200706122556_Initial.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/morte/Documents/GitHub/CoolWebsite/CoolWebsite/Startup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/ApplicationDbContextSeed.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/SqlApplicationDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Persistence/MySqlApplicationDbContext.cs" root0="FORCE_HIGHLIGHTING" />
@@ -470,10 +316,7 @@
     <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Transaction/Queries/GetReceivedTransactionByProjectTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Transaction/Commands/DeleteTransactionTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application.IntegrationTests/Transaction/Commands/CreateTransactionTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/morte/Documents/GitHub/CoolWebsite/CoolWebsite.Infrastructure/Identity/IdentityService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/58107CE1-9A25-4C6B-B473-4161B3C2B5C9/20/IValidationContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/morte/Documents/GitHub/CoolWebsite/CoolWebsite/Areas/Financial/Common/SelectListHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/morte/Documents/GitHub/CoolWebsite/CoolWebsite.Application/Common/Interfaces/IIdentityService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5FFE8917-0314-4A7B-A075-2282CF0DB7D2/3/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/appsettings.json" root0="FORCE_HIGHLIGHTING" />
@@ -578,7 +421,6 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/PerformanceBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/LoggingBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/morte/Documents/GitHub/CoolWebsite/CoolWebsite/Services/MobilePayDeepLink.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/ValidationBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Exceptions/NotFoundException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E612C9FD-FEB4-4A0D-9F1F-5298FB0615E2/F/SignInManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -594,6 +436,8 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Services/OweRecordExtenstion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Services/Models/PdfReceiptDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Services/Models/PdfReceiptItemDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BlazorServerWithAuth/obj/Debug/net5.0/RazorDeclaration/Pages/Admin/Test/Template.razor.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17F524B5-7A6A-4534-ACB7-3FF20CF3FB56/12/af47a2a8/LayoutComponentBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/GetReceivedTransactionQuery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/GetPayedTransactionByProjectQuery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Common/Transaction/Queries/GetPayedTransactionQuery.cs" root0="FORCE_HIGHLIGHTING" />
@@ -623,8 +467,10 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Queries/GetReceiptItemByReceiptIdQuery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Queries/GetItemGroupQuery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Queries/Models/ItemGroupDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4251B32F-C94A-419D-9D53-21925894AD48/8/ComponentBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/CreateReceiptItems/CreateReceiptItemCommandValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/CreateReceiptItems/CreateReceiptItemCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AE604AFE-B657-4617-A94D-F2A743C6288E/22/Extensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/DeleteReceiptItems/DeleteReceiptItemCommandValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/DeleteReceiptItems/DeleteReceiptItemCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/ReceiptItems/Commands/UpdateReceiptItems/UpdateReceiptItemCommandValidation.cs" root0="FORCE_HIGHLIGHTING" />
@@ -636,57 +482,57 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" />
-      <option value="$PROJECT_DIR$/Application.IntegrationTests/Application.IntegrationTests.csproj" />
-      <option value="$PROJECT_DIR$/Application.UnitTests/Application.UnitTests.csproj" />
-      <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/ValidationBehavior.cs" />
-      <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" />
-      <option value="$PROJECT_DIR$/BlazorServer/Shared/NavMenu.razor" />
-      <option value="$PROJECT_DIR$/BlazorServer/Pages/TodoExample.cshtml" />
-      <option value="$PROJECT_DIR$/BlazorServer/Pages/Counter.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Areas/Admin/Pages/Shared/_Layout.cshtml" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Areas/Admin/Pages/Shared/_Layout.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Areas/Admin/Pages/Shared/_Navbar.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Counter.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Areas/Admin/Pages/Dashboard/Dashboard.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Areas/Admin/Pages/Dashboard/Index.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/_HostAdmin.cshtml" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/AdminLayout.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/_Host.cshtml" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Shared/_Navbar.razor" />
-      <option value="$PROJECT_DIR$/BlazorServer/Pages/Todo.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/BlazorServerWithAuth.csproj" />
-      <option value="$PROJECT_DIR$/CoolWebsite.Application/DependencyInjection.cs" />
-      <option value="$PROJECT_DIR$/CoolWebsite/Startup.cs" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/CurrentUserService.cs" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/appsettings.json" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Login/LoginPage.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Login/AccountController.cs" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Controller/AccountController.cs" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Account/Index.cshtml" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/_Imports.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Login/TEST.cshtml" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Login/LoginPage.cshtml" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Login/LoginPage.cshtml.cs" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Index.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/LoginRedirect.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Properties/launchSettings.json" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/App.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Dashboard/Index.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/site.css" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/blazor-error-css.css" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Shared/AdminLayout.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Shared/MainLayout.razor" />
-      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Test/TestComponent.razor" />
-      <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/Model/ApplicationUserDto.cs" />
-      <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Interfaces/IIdentityService.cs" />
-      <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityService.cs" />
-      <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Dto/ApplicationUserDto.cs" />
-      <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/CreateFinancialProject/CreateFinancialProjectCommand.cs" />
-      <option value="$PROJECT_DIR$/CoolWebsite/Areas/UserManagement/Controller/RolesController.cs" />
-      <option value="$PROJECT_DIR$/CoolWebsite/Areas/Financial/Common/SelectListHandler.cs" />
       <option value="$PROJECT_DIR$/CoolWebsite/Services/MobilePayDeepLink.cs" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Services/CurrentUserService.cs" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Shared/_Navbar.razor" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/index.html" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Shared/NavMenu.razor" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Test/EmptyLayout.razor" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/BlazorServerWithAuth.csproj" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Shared/AdminLayout.razor" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Dashboard/Index.razor" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Test/Template.razor" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Test/TestPage.cshtml" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Index.razor" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/App.razor" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Shared/MainLayout.razor" />
+      <option value="$PROJECT_DIR$/BlazorServer/Pages/_Host.cshtml" />
+      <option value="$PROJECT_DIR$/BlazorServer/Pages/Index.razor" />
+      <option value="$PROJECT_DIR$/BlazorServer/Shared/MainLayout.razor" />
+      <option value="$PROJECT_DIR$/BlazorServer/Startup.cs" />
+      <option value="$PROJECT_DIR$/BlazorServer/App.razor" />
+      <option value="$PROJECT_DIR$/BlazorTestApp/Shared/MainLayout.razor" />
+      <option value="$PROJECT_DIR$/BlazorTestApp/Pages/Admin/Test/TestComponent.razor" />
+      <option value="$PROJECT_DIR$/BlazorTestApp/Controller/AccountController.cs" />
+      <option value="$PROJECT_DIR$/BlazorTestApp/appsettings.Development.json" />
+      <option value="$PROJECT_DIR$/BlazorTestApp/Startup.cs" />
+      <option value="$PROJECT_DIR$/BlazorTestApp/Services/CurrentUserService.cs" />
+      <option value="$PROJECT_DIR$/BlazorTestApp/Properties/launchSettings.json" />
+      <option value="$PROJECT_DIR$/BlazorTestApp/App.razor" />
+      <option value="$PROJECT_DIR$/BlazorTestApp/Pages/Counter.razor" />
+      <option value="$PROJECT_DIR$/BlazorTestApp/Pages/Admin/Dashboard/Index.razor" />
+      <option value="$PROJECT_DIR$/BlazorTestApp/Pages/IndexNAH.razor" />
+      <option value="$PROJECT_DIR$/BlazorTestApp/Pages/Admin/Recipt/CreateProject.razor" />
+      <option value="$PROJECT_DIR$/BlazorTestApp/wwwroot/css/site.css" />
+      <option value="$PROJECT_DIR$/BlazorTestApp/Pages/_Host.cshtml" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Recipt/CreateProject.razor" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Services/IdentityService.cs" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Services/IdentityFacade.cs" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Services/Common/Interface/IIdentityFacade.cs" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Receipt/CreateProject.razor" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Shared/_NavSidebar.razor" />
+      <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/FinancialProjectsVm.cs" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/wwwroot/css/site.css" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/_Host.cshtml" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Receipt/Projects.razor" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Services/TestService.cs" />
+      <option value="$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectByIdQuery.cs" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Receipt/Services/Interface/IProjectView.cs" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Receipt/Services/Interface/IProjectViewService.cs" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Receipt/Services/ProjectViewServiceService.cs" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Receipt/Services/ProjectViewService.cs" />
       <option value="$PROJECT_DIR$/BlazorServerWithAuth/Startup.cs" />
+      <option value="$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Receipt/ProjectView.razor" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1Wzeo0oOjS62XT1zXs26JJsRcyR" />
@@ -702,7 +548,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3496732" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.3000594" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.58942366" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TWShift.4" value="true" />
@@ -803,6 +649,36 @@
     </configuration>
     <configuration name="BlazorServer: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/BlazorServer/BlazorServer.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net5.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="IIS Express" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="BlazorTestApp" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/BlazorTestApp/BlazorTestApp.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net5.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="BlazorTestApp" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="BlazorTestApp: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/BlazorTestApp/BlazorTestApp.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net5.0" />
       <option name="LAUNCH_PROFILE_NAME" value="IIS Express" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -972,7 +848,14 @@
       <workItem from="1623175241865" duration="3325000" />
       <workItem from="1623251990463" duration="4694000" />
       <workItem from="1623496468672" duration="6611000" />
-      <workItem from="1623530137499" duration="2537000" />
+      <workItem from="1623530137499" duration="7350000" />
+      <workItem from="1623568663806" duration="15915000" />
+      <workItem from="1623776977966" duration="2901000" />
+      <workItem from="1623864710273" duration="5098000" />
+      <workItem from="1624555890764" duration="1203000" />
+      <workItem from="1624712613518" duration="8893000" />
+      <workItem from="1624787176815" duration="3185000" />
+      <workItem from="1624901595664" duration="1543000" />
     </task>
     <task id="LOCAL-00001" summary="Added the option to add a description when creating a FinancialProject">
       <created>1595957262030</created>
@@ -995,7 +878,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622826090565</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Initial BlazorServerWithAuth.csproj commit">
+      <created>1623534292954</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1623534292954</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Missing files from init commit">
+      <created>1623534318986</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1623534318986</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1044,7 +941,9 @@
     <MESSAGE value="Added the option to add a description when creating a FinancialProject" />
     <MESSAGE value="You can now edit a financialproject" />
     <MESSAGE value="Updated to .Net 5.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated to .Net 5.0" />
+    <MESSAGE value="Initial BlazorServerWithAuth.csproj commit" />
+    <MESSAGE value="Missing files from init commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Missing files from init commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1062,33 +961,6 @@
           </properties>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BlazorServerWithAuth/Pages/Admin/Login/LoginPage.cshtml.cs</url>
-          <line>23</line>
-          <properties documentPath="C:\Users\morte\Documents\GitHub\CoolWebsite\BlazorServerWithAuth\Pages\Admin\Login\LoginPage.cshtml.cs" initialLine="23" containingFunctionPresentation="method 'OnGet'">
-            <startOffsets>
-              <option value="687" />
-            </startOffsets>
-            <endOffsets>
-              <option value="704" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BlazorServerWithAuth/Pages/LoginRedirect.razor</url>
-          <line>6</line>
-          <properties documentPath="C:\Users\morte\Documents\GitHub\CoolWebsite\BlazorServerWithAuth\Pages\LoginRedirect.razor" initialLine="6" isMultiMethodBreakpoint="true">
-            <option name="multiMethodBreakpoint" value="true" />
-            <startOffsets>
-              <option value="-1" />
-            </startOffsets>
-            <endOffsets>
-              <option value="-1" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
@@ -1099,6 +971,7 @@
     <watches-manager>
       <configuration name="LaunchSettings">
         <watch expression="@Model" language="Razor" />
+        <watch expression="entity.ToList()" language="C#" />
       </configuration>
       <configuration name="RiderUnitTests">
         <watch expression="context.FinancialProjects" language="C#" />

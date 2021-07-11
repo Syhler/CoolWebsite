@@ -356,22 +356,22 @@
 
 @mixin create-colored-tags(){
     &.tag-primary{
-        @include tag-color($brand-primary);
+        @include tag-color($primary);
     }
     &.tag-info {
-        @include tag-color($brand-info);
+        @include tag-color($info);
     }
     &.tag-success{
-        @include tag-color($brand-success);
+        @include tag-color($success);
     }
     &.tag-warning{
-        @include tag-color($brand-warning);
+        @include tag-color($warning);
     }
     &.tag-danger{
-        @include tag-color($brand-danger);
+        @include tag-color($danger);
     }
     &.tag-rose{
-      @include tag-color($brand-rose);
+      @include tag-color($rose);
     }
 }
 @mixin tag-color ($color){
