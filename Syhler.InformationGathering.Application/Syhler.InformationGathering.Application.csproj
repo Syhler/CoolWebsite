@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FluentValidation" Version="9.3.0" />
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="9.3.0" />
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\Syhler.InformationGathering.Domain\Syhler.InformationGathering.Domain.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="WebsiteInformationFeature\EventHandlers" />
+      <Folder Include="WebsiteInformationFeature\Queries" />
+    </ItemGroup>
+
+</Project>

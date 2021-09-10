@@ -1,0 +1,68 @@
+
+#Steps
+
+#1
+#Create Domain Models
+    #Information Models
+        #Common
+            Url -> for identifying what kind of webpage
+            Type -> To easy filter
+            Date -> To figure out when page was visited and to calculated how long that page have been used
+            IsCurrentPage -> Bool to see if url is the current page (open page)
+            IsInFocus -> To check if we actually are using that page actively.
+        #YoutubeVideo
+            IsMusic -> to know if video is music
+            Genre -> To display video genre -> Not sure where to get this information from
+            IsPlayingAndNotFocus -> To know if the video is playing without having chrome in focus
+            IsPlayingAndNotFocusNorCurrentPage -> To know if the video is playing without having it as focus or current page
+            Title -> To know the title
+            urlId -> To know the urlId
+            ChannelName -> To know the ChannelName
+            Volume -> Just for fun
+            VolumeComputer -> just for fun
+        #Youtube Music
+            Title -> 
+            Artist ->
+            Volume -> Just for fun
+            VolumeComputer -> just for fun
+            Genre -> Genre of music -> Im not sure where to get this information from
+        #Standard Website
+            Title ->
+            Type -> ???? idk about that one
+        #Comming soon -> next iteration
+            #Twitch
+                Title ->
+                Streamer ->
+            
+    
+    
+#Selects    
+    #YoutubeMusic
+        ListenToCount -> Based On Title
+        ListenToMinutes -> Based On Title
+        SongLength -> Based On Title 
+    #YoutubeVideo
+        WatchedCount -> Based On UniqueID / combination of title?
+        WatchedMinutes -> Based On UniqueID / combination of title?
+        VideoLength -> Based On UniqueID / combination of title?
+    #Website
+        TimesVisited ->
+        MinutesInFocus ->
+        
+            
+        
+
+
+#Flow
+    API -> CreateInformation -> Either Music || Youtube || Website -> Cache data if Music || Youtube -> save to database 
+    
+
+
+
+
+#Ideas
+
+    #Videos
+        If video is running while not in focus and aren't music -> that should count as we are watching it?
+        If video is running while not in focus/CurrentPage and aren't msuic -> That should count as we are listing to it?
+        
