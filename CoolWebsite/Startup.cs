@@ -21,6 +21,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using Syhler.InformationGathering.Infrastructure;
 
 namespace CoolWebsite
 {
@@ -98,7 +99,9 @@ namespace CoolWebsite
                     options.HttpsPort = 443;
                 });
             }
-            
+
+
+            services.AddInfrastructure();
         }
         
         //services.AddAutoMapper(typeof(VMMappingProfile), typeof(DTOMappingProfile));

@@ -56,7 +56,8 @@
 #Flow
     API -> CreateInformation -> Either Music || Youtube || Website -> Cache data if Music || Youtube -> save to database 
     
-
+#Events
+    Emit a event when updating stuff.
 
 
 

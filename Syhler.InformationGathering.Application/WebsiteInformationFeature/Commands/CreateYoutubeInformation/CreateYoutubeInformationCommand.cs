@@ -22,36 +22,38 @@ namespace Syhler.InformationGathering.Application.WebsiteInformationFeature.Comm
     {
         private readonly ICacheService _cacheService;
         private readonly IYoutubeInformationRepository _youtubeInformationRepository;
+        private readonly IYoutubeApiService _youtubeApiService;
 
-        public CreateYoutubeInformationCommandHandler(ICacheService cacheService, IYoutubeInformationRepository youtubeInformationRepository)
+        public CreateYoutubeInformationCommandHandler(ICacheService cacheService,
+            IYoutubeInformationRepository youtubeInformationRepository, 
+            IYoutubeApiService youtubeApiService)
         {
             _cacheService = cacheService;
             _youtubeInformationRepository = youtubeInformationRepository;
+            _youtubeApiService = youtubeApiService;
         }
 
         public async Task<bool> Handle(CreateYoutubeInformationCommand request, CancellationToken cancellationToken)
         {
-            var found = await _cacheService.TryAndGet<YoutubeResultModel>("DUMMYKEY", out var value);
+            var key = nameof(CreateYoutubeInformationCommand) + $"_{request.Url}";
+            
+            var found = await _cacheService.TryAndGet<YoutubeResultModel>(key, out var value);
 
             //Check if cached
             if (found)
             {
                 //Use result Model
-
-                return await _youtubeInformationRepository.Insert();
+                return await _youtubeInformationRepository.Insert(null);
             }
 
-
             //Call youtube api if not cached
-            var youtubeService = new YoutubeApiService();
-
-            var information = await youtubeService.RequestInformation(request.Url);
+            var information = await _youtubeApiService.RequestInformation(request.Url);
 
             //Cache result for an hour
-            await _cacheService.Save("DUMMYKEY", information);
+            await _cacheService.Save(key, information);
             
             //Insert database
-            return await _youtubeInformationRepository.Insert();
+            return await _youtubeInformationRepository.Insert(null);
         }
     }
 }

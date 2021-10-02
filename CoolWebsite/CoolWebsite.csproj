@@ -27,6 +27,8 @@
     <ItemGroup>
       <ProjectReference Include="..\CoolWebsite.Application\CoolWebsite.Application.csproj" />
       <ProjectReference Include="..\CoolWebsite.Infrastructure\CoolWebsite.Infrastructure.csproj" />
+      <ProjectReference Include="..\Syhler.InformationGathering.Application\Syhler.InformationGathering.Application.csproj" />
+      <ProjectReference Include="..\Syhler.InformationGathering.Infrastructure\Syhler.InformationGathering.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>

@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syhler.InformationGathering
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syhler.InformationGathering.Infrastructure", "Syhler.InformationGathering.Infrastructure\Syhler.InformationGathering.Infrastructure.csproj", "{6B91C195-F731-439C-B31B-F1AD1B46A5BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syhler.InformationGathering.Api", "Syhler.InformationGathering.Api\Syhler.InformationGathering.Api.csproj", "{48DCA9E7-78BA-46CC-A2B1-C6BCDD0AC125}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{6B91C195-F731-439C-B31B-F1AD1B46A5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B91C195-F731-439C-B31B-F1AD1B46A5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B91C195-F731-439C-B31B-F1AD1B46A5BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48DCA9E7-78BA-46CC-A2B1-C6BCDD0AC125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48DCA9E7-78BA-46CC-A2B1-C6BCDD0AC125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48DCA9E7-78BA-46CC-A2B1-C6BCDD0AC125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48DCA9E7-78BA-46CC-A2B1-C6BCDD0AC125}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B761F57B-5D44-4CCD-9C48-9669A4824A4A} = {3F0FE538-7AD8-4F6F-998C-4EF256D6A2D7}
@@ -77,5 +83,6 @@ Global
 		{D65C4989-66BD-4C48-B0B4-ED6C081F714F} = {EE1DB629-EBCE-49E7-B0C0-628F2E444A9A}
 		{25C35DF1-12F7-4EBB-BC48-10EFC13BDFAB} = {EE1DB629-EBCE-49E7-B0C0-628F2E444A9A}
 		{6B91C195-F731-439C-B31B-F1AD1B46A5BC} = {EE1DB629-EBCE-49E7-B0C0-628F2E444A9A}
+		{48DCA9E7-78BA-46CC-A2B1-C6BCDD0AC125} = {EE1DB629-EBCE-49E7-B0C0-628F2E444A9A}
 	EndGlobalSection
 EndGlobal

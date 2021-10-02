@@ -1,5 +1,4 @@
-﻿using System;
-using Syhler.InformationGathering.Domain.Common;
+﻿using Syhler.InformationGathering.Domain.Common;
 using Syhler.InformationGathering.Domain.Enums;
 
 namespace Syhler.InformationGathering.Domain.Entities

@@ -7,6 +7,7 @@
     <projectFile>BlazorServerWithAuth/BlazorServerWithAuth.csproj</projectFile>
     <projectFile>BlazorTestApp/BlazorTestApp.csproj</projectFile>
     <projectFile>Syhler.InformationGathering.Domain/Syhler.InformationGathering.Domain.csproj</projectFile>
+    <projectFile>Syhler.InfomationGathering.Api/Syhler.InfomationGathering.Api.csproj</projectFile>
   </component>
   <component name="BranchesTreeState">
     <expand>
@@ -28,32 +29,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5bed24c-2271-42f0-8f82-a8a3171e284d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/Common/Interface/ICacheService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/DependencyInjection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/Services/YoutubeApi/YoutubeApiService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/Services/YoutubeApi/YoutubeResultModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/Syhler.InformationGathering.Application.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformationFeature/Commands/CreateMusicInformation/CreateMusicInformationCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformationFeature/Commands/CreateWebsiteInformation/CreateWebsiteInformationCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformationFeature/Commands/CreateYoutubeInformation/CreateYoutubeInformationCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformationFeature/Common/IMusicInformationRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformationFeature/Common/IWebsiteInformationRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformationFeature/Common/IYoutubeInformationRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Common/AuditableEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/MusicInformation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/WebsiteInformation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/YoutubeInformation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Enums/WebsiteInformationType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Syhler.InformationGathering.Domain.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Domain/TODO.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Context/ApplicationDbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/DependencyInjection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Repository/MusicInformationRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Repository/WebsiteInformationRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Repository/YoutubeInformationRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Syhler.InformationGathering.Infrastructure.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoolWebsite/Api/IndexController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Api/Controllers/TestController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Api/Program.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Api/Properties/launchSettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Api/Startup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Api/Syhler.InformationGathering.Api.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Api/WeatherForecast.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Api/appsettings.Development.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Api/appsettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/Common/Interface/IHttpClientFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/Services/YoutubeApi/Enum/YoutubeCategory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Api/Common/HttpClientFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Api/Youtube/YoutubeApiService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/CacheService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoolWebsite/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoolWebsite.sln" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoolWebsite/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoolWebsite/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Syhler.InformationGathering.Application/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Syhler.InformationGathering.Application/Services/YoutubeApi/YoutubeApiService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/Services/YoutubeApi/IYoutubeApiService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Syhler.InformationGathering.Application/Services/YoutubeApi/YoutubeResultModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/Services/YoutubeApi/YoutubeResultModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformationFeature/Commands/CreateYoutubeInformation/CreateYoutubeInformationCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformationFeature/Commands/CreateYoutubeInformation/CreateYoutubeInformationCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/MusicInformation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/MusicInformation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/WebsiteInformation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/WebsiteInformation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/YoutubeInformation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/YoutubeInformation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Syhler.InformationGathering.Domain/TODO.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Domain/TODO.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Context/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Context/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Syhler.InformationGathering.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Syhler.InformationGathering.Infrastructure.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +112,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="development" />
+        <entry key="$PROJECT_DIR$" value="feature/blazor" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -124,6 +128,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetUsersFromFinancialProjectQueryValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectByIdQueryValidator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/39834944-BEBD-4EAD-AFD1-13D483329F4D/11/IMemoryCache.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectByIdQuery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/GetFinancialProjectByUserIdQueryValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/ReceiptItemDto.cs" root0="FORCE_HIGHLIGHTING" />
@@ -131,6 +136,7 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/FinancialProjectDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetFinancialProjects/Models/FinancialProjectsVm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BDD96C5F-630A-4529-8DAC-C07D80DEB23B/A/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Queries/GetArchiveFinancialProjects/GetArchiveFinancialProjectsByUserQuery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Areas/Financial/Controller/ProjectController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/CreateFinancialProject/CreateFinancialProjectCommandValidator.cs" root0="FORCE_HIGHLIGHTING" />
@@ -142,6 +148,7 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/ActivateFinancialProject/ActivateFinancialProjectCommandValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DatabaseAccess/Financials/FinancialProjects/Commands/ActivateFinancialProject/ActivateFinancialProjectCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B39811C3-9852-45C8-9949-22E3F9D69633/52/HttpClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityResultExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3834795B-F41B-4E62-8161-509ECA0F5822/16/ISender.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Infrastructure/Identity/IdentityService.cs" root0="FORCE_HIGHLIGHTING" />
@@ -282,6 +289,7 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Home/Privacy.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application.UnitTests/Common/Models/ReceiptItemDtoTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application.UnitTests/Common/Models/UserDtoTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Views/Home/CoolWebsiteProject.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -298,9 +306,11 @@
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Models/LoginViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite/Models/ErrorViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/DependencyInjection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Syhler.InformationGathering.Api/Controllers/TestController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F758DD2F-9E4C-41A0-B7A1-63138D66F75D/A/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D2D80D96-B478-4D3C-9D33-6A1C13A5EF3D/1/MvcServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Models/Result.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Syhler.InformationGathering.Api/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Mapping/IMapFrom.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Mapping/DTOMappingProfile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/PerformanceBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
@@ -367,34 +377,13 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/CoolWebsite/Program.cs" />
-      <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/CoolWebsite.Infrastructure.csproj" />
-      <option value="$PROJECT_DIR$/CoolWebsite.Domain/CoolWebsite.Domain.csproj" />
-      <option value="$PROJECT_DIR$/CoolWebsite.Application/CoolWebsite.Application.csproj" />
-      <option value="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" />
-      <option value="$PROJECT_DIR$/Application.IntegrationTests/Application.IntegrationTests.csproj" />
-      <option value="$PROJECT_DIR$/Application.UnitTests/Application.UnitTests.csproj" />
-      <option value="$PROJECT_DIR$/CoolWebsite.Application/Common/Behaviours/ValidationBehavior.cs" />
-      <option value="$PROJECT_DIR$/CoolWebsite.Infrastructure/DependencyInjection.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Class1.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/Class1.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Class1.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/Common/UrlEntity.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/ChromeInformation.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Enums/ChromeInformationType.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/CommonChromeInformation.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/ChromeWebsiteInformation.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/TODO.txt" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Common/AuditableEntity.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/WebsiteInformation.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/Syhler.InformationGathering.Application.csproj" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/DependencyInjection.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformation/Commands/CreateInformation.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformation/Commands/CreateInformation/CreateInformation.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformation/Commands/CreateInformation/CreateInformationCommand.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformation/Commands/CreateYoutubeMusicInformation/CreateYoutubeMusicInformation.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/MusicInformation.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/YoutubeInformation.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Enums/WebsiteInformationType.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformation/Commands/CreateYoutubeMusicInformation/CreateYoutubeMusicInformationCommand.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformation/Commands/CreateYoutubeInformation/CreateYoutubeInformationCommand.cs" />
@@ -405,19 +394,40 @@
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformation/Common/IWebsiteInformationRepository.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformations/Common/IWebsiteInformationRepository.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformationFeature/Common/IWebsiteInformationRepository.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Context/ApplicationDbContext.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Repository/MusicInformationRepository.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Repository/WebsiteInformationRepository.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Repository/YoutubeInformationRepository.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/DependencyInjection.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformationFeature/Commands/CreateInformation/CreateInformationCommand.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformationFeature/Commands/CreateWebsiteInformation/CreateInformationCommand.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformationFeature/Commands/CreateWebsiteInformation/CreateWebsiteInformationCommand.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformationFeature/Commands/CreateMusicInformation/CreateMusicInformationCommand.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/Services/YoutubeApi/YoutubeResultModel.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/Services/YoutubeApi/YoutubeApiService.cs" />
-      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformationFeature/Commands/CreateYoutubeInformation/CreateYoutubeInformationCommand.cs" />
       <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/Common/Interface/ICacheService.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/TODO.txt" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/Common/HttpClientFactory.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/Common/Interface/IHttpClientFactory.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/Services/YoutubeApi/Enum/YoutubeCategory.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Api/HttpClientFactory.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/Services/YoutubeApi/YoutubeApiService.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Api/Common/HttpClientFactory.cs" />
+      <option value="$PROJECT_DIR$/CoolWebsite/Startup.cs" />
+      <option value="$PROJECT_DIR$/CoolWebsite/Api/IndexController.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InfomationGathering.Api/Controllers/WeatherForecastController.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InfomationGathering.Api/Startup.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InfomationGathering.Api/Controllers/TestController.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Api/Properties/launchSettings.json" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/Services/YoutubeApi/YoutubeResultModel.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Api/Youtube/YoutubeApiService.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Api/Controllers/TestController.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/DependencyInjection.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Api/Startup.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Cache.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/DependencyInjection.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/CacheService.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Application/WebsiteInformationFeature/Commands/CreateYoutubeInformation/CreateYoutubeInformationCommand.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/Context/ApplicationDbContext.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/MusicInformation.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/WebsiteInformation.cs" />
+      <option value="$PROJECT_DIR$/Syhler.InformationGathering.Domain/Entities/YoutubeInformation.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1Wzeo0oOjS62XT1zXs26JJsRcyR" />
@@ -425,18 +435,20 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34955752" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30008045" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.181224" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TWShift.4" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.500821" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -449,7 +461,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.CoolWebsite">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Syhler.InfomationGathering.Api">
     <configuration name="Application.IntegrationTests" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -504,6 +516,36 @@
     <configuration name="CoolWebsite: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/CoolWebsite/CoolWebsite.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="IIS Express" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Syhler.InfomationGathering.Api" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Syhler.InformationGathering.Api/Syhler.InformationGathering.Api.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net5.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="Syhler.InfomationGathering.Api" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Syhler.InfomationGathering.Api: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Syhler.InformationGathering.Api/Syhler.InformationGathering.Api.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net5.0" />
       <option name="LAUNCH_PROFILE_NAME" value="IIS Express" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
@@ -671,6 +713,8 @@
       <workItem from="1629749895732" duration="2111000" />
       <workItem from="1629910092116" duration="2130000" />
       <workItem from="1630003046978" duration="4780000" />
+      <workItem from="1631441372121" duration="540000" />
+      <workItem from="1631442092488" duration="5956000" />
     </task>
     <task id="LOCAL-00001" summary="Added the option to add a description when creating a FinancialProject">
       <created>1595957262030</created>
@@ -745,6 +789,36 @@
     <option name="LAST_COMMIT_MESSAGE" value="WIP" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/CacheService.cs</url>
+          <line>17</line>
+          <properties documentPath="C:\Users\morte\Documents\GitHub\CoolWebsite\Syhler.InformationGathering.Infrastructure\CacheService.cs" initialLine="19" containingFunctionPresentation="method 'Save'">
+            <startOffsets>
+              <option value="542" />
+            </startOffsets>
+            <endOffsets>
+              <option value="542" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Syhler.InformationGathering.Infrastructure/CacheService.cs</url>
+          <line>37</line>
+          <properties documentPath="C:\Users\morte\Documents\GitHub\CoolWebsite\Syhler.InformationGathering.Infrastructure\CacheService.cs" initialLine="37" containingFunctionPresentation="method 'TryAndGet'">
+            <startOffsets>
+              <option value="1016" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1048" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo />
@@ -753,6 +827,7 @@
     <watches-manager>
       <configuration name="LaunchSettings">
         <watch expression="@Model" language="Razor" />
+        <watch expression="key" />
       </configuration>
       <configuration name="RiderUnitTests">
         <watch expression="context.FinancialProjects" language="C#" />
