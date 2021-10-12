@@ -41,7 +41,7 @@ namespace Syhler.InformationGathering.Infrastructure.Api.Youtube
                 PublishedAt = youtubeSnippet.PublishedAt,
                 Description = youtubeSnippet.Description,
                 ThumbnailUrl = youtubeSnippet.Thumbnails.High.Url,
-                CategoryId = youtubeSnippet.CategoryId,
+                CategoryId = Convert.ToInt32(youtubeSnippet.CategoryId),
                 Tags = youtubeSnippet.Tags,
                 ViewCount = Convert.ToInt64(youtubeItem.Statistics.ViewCount),
                 LikeCount = Convert.ToInt64(youtubeItem.Statistics.LikeCount),
@@ -60,68 +60,68 @@ namespace Syhler.InformationGathering.Infrastructure.Api.Youtube
         
  
    private  class Default
-    {
-        public string Url { get; set; }
+   {
+       public string Url { get; set; } = null!;
         public int Width { get; set; }
         public int Height { get; set; }
     }
 
     private  class Medium
     {
-        public string Url { get; set; }
+        public string Url { get; set; } = null!;
         public int Width { get; set; }
         public int Height { get; set; }
     }
 
     private  class High
     {
-        public string Url { get; set; }
+        public string Url { get; set; } = null!;
         public int Width { get; set; }
         public int Height { get; set; }
     }
 
     private  class Standard
     {
-        public string Url { get; set; }
+        public string Url { get; set; } = null!;
         public int Width { get; set; }
         public int Height { get; set; }
     }
 
     private  class Maxres
     {
-        public string Url { get; set; }
+        public string Url { get; set; } = null!;
         public int Width { get; set; }
         public int Height { get; set; }
     }
 
     private  class Thumbnails
     {
-        public Default Default { get; set; }
-        public Medium Medium { get; set; }
-        public High High { get; set; }
-        public Standard Standard { get; set; }
-        public Maxres Maxres { get; set; }
-    }
+        public Default Default { get; set; } = null!;
+        public Medium Medium { get; set; } = null!;
+        public High High { get; set; } = null!;
+        public Standard Standard { get; set; } = null!;
+        public Maxres Maxres { get; set; } = null!;
+    } 
 
     private  class Localized
     {
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public string Title { get; set; } = null!;
+        public string Description { get; set; } = null!;
     }
 
     private  class Snippet
     {
         public DateTime PublishedAt { get; set; }
-        public string ChannelId { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public Thumbnails Thumbnails { get; set; }
-        public string ChannelTitle { get; set; }
-        public List<string> Tags { get; set; }
-        public string CategoryId { get; set; }
-        public string LiveBroadcastContent { get; set; }
-        public Localized Localized { get; set; }
-        public string DefaultAudioLanguage { get; set; }
+        public string ChannelId { get; set; } = null!;
+        public string Title { get; set; } = null!;
+        public string Description { get; set; } = null!;
+        public Thumbnails Thumbnails { get; set; } = null!;
+        public string ChannelTitle { get; set; } = null!;
+        public List<string> Tags { get; set; } = null!;
+        public string CategoryId { get; set; } = null!;
+        public string LiveBroadcastContent { get; set; } = null!;
+        public Localized Localized { get; set; } = null!;
+        public string DefaultAudioLanguage { get; set; } = null!;
     }
 
     private  class ContentRating
@@ -130,20 +130,20 @@ namespace Syhler.InformationGathering.Infrastructure.Api.Youtube
 
     private  class ContentDetails
     {
-        public string Duration { get; set; }
-        public string Dimension { get; set; }
-        public string Definition { get; set; }
-        public string Caption { get; set; }
+        public string Duration { get; set; } = null!;
+        public string Dimension { get; set; } = null!;
+        public string Definition { get; set; } = null!;
+        public string Caption { get; set; } = null!;
         public bool LicensedContent { get; set; }
-        public ContentRating ContentRating { get; set; }
-        public string Projection { get; set; }
+        public ContentRating ContentRating { get; set; } = null!;
+        public string Projection { get; set; } = null!;
     }
 
     private  class Status
     {
-        public string UploadStatus { get; set; }
-        public string PrivacyStatus { get; set; }
-        public string License { get; set; }
+        public string UploadStatus { get; set; } = null!;
+        public string PrivacyStatus { get; set; } = null!;
+        public string License { get; set; } = null!;
         public bool Embeddable { get; set; }
         public bool PublicStatsViewable { get; set; }
         public bool MadeForKids { get; set; }
@@ -151,22 +151,22 @@ namespace Syhler.InformationGathering.Infrastructure.Api.Youtube
 
     private  class Statistics
     {
-        public string ViewCount { get; set; }
-        public string LikeCount { get; set; }
-        public string DislikeCount { get; set; }
-        public string FavoriteCount { get; set; }
-        public string CommentCount { get; set; }
+        public string ViewCount { get; set; } = null!;
+        public string LikeCount { get; set; } = null!;
+        public string DislikeCount { get; set; } = null!;
+        public string FavoriteCount { get; set; } = null!;
+        public string CommentCount { get; set; } = null!;
     }
 
     private  class Item
     {
-        public string Kind { get; set; }
-        public string Etag { get; set; }
-        public string Id { get; set; }
-        public Snippet Snippet { get; set; }
-        public ContentDetails ContentDetails { get; set; }
-        public Status Status { get; set; }
-        public Statistics Statistics { get; set; }
+        public string Kind { get; set; } = null!;
+        public string Etag { get; set; } = null!;
+        public string Id { get; set; } = null!;
+        public Snippet Snippet { get; set; } = null!;
+        public ContentDetails ContentDetails { get; set; } = null!;
+        public Status Status { get; set; } = null!;
+        public Statistics Statistics { get; set; } = null!;
     }
 
     private  class PageInfo
@@ -177,10 +177,10 @@ namespace Syhler.InformationGathering.Infrastructure.Api.Youtube
 
     private class YoutubeResponse
     {
-        public string Kind { get; set; }
-        public string Etag { get; set; }
-        public List<Item> Items { get; set; }
-        public PageInfo PageInfo { get; set; }
+        public string Kind { get; set; } = null!;
+        public string Etag { get; set; } = null!;
+        public List<Item> Items { get; set; } = null!;
+        public PageInfo PageInfo { get; set; } = null!;
     }
 
 

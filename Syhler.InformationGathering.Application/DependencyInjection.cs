@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Syhler.InformationGathering.Application.Services;
+using Syhler.InformationGathering.Application.Services.Interface;
 
 namespace Syhler.InformationGathering.Application
 {
@@ -10,6 +12,8 @@ namespace Syhler.InformationGathering.Application
         {
             serviceCollection.AddMediatR(Assembly.GetExecutingAssembly());
 
+            serviceCollection.AddScoped<IWebsiteTypeService, WebsiteTypeService>();
+            serviceCollection.AddScoped<ICurrentWebsiteService, CurrentWebsiteService>();
             
             
             return serviceCollection;

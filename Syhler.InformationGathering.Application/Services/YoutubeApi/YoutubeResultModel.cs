@@ -5,14 +5,14 @@ namespace Syhler.InformationGathering.Application.Services.YoutubeApi
 {
     public class YoutubeResultModel
     {
-        public string Title { get; set; }
-        public string ChannelId { get; set; }
-        public string ChannelTitle { get; set; }
+        public string Title { get; set; } = null!;
+        public string ChannelId { get; set; } = null!;
+        public string ChannelTitle { get; set; } = null!;
         public DateTime PublishedAt { get; set; }
-        public string Description { get; set; }
-        public string ThumbnailUrl { get; set; }
-        public string CategoryId { get; set; }
-        public List<string> Tags { get; set; }
+        public string Description { get; set; } = null!;
+        public string ThumbnailUrl { get; set; } = null!;
+        public int CategoryId { get; set; }
+        public List<string> Tags { get; set; } = null!;
         public long ViewCount { get; set; }
         public long LikeCount { get; set; }
         public long DislikeCount { get; set; }

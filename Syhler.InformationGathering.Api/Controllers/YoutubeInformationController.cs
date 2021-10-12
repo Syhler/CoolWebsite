@@ -8,16 +8,14 @@ using Syhler.InformationGathering.Application.WebsiteInformationFeature.Commands
 namespace Syhler.InformationGathering.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class TestController : ControllerBase
+    [Route("api/youtube-information")]
+    public class YoutubeInformationController : ControllerBase
     {
-        private readonly IYoutubeApiService _youtubeApiService;
         private readonly IMediator _mediator;
         
         
-        public TestController(IYoutubeApiService youtubeApiService, IMediator mediator)
+        public YoutubeInformationController(IMediator mediator)
         {
-            _youtubeApiService = youtubeApiService;
             _mediator = mediator;
         }
 
@@ -27,7 +25,7 @@ namespace Syhler.InformationGathering.Api.Controllers
 
             var result = await _mediator.Send(new CreateYoutubeInformationCommand
             {
-                DateTime = DateTime.Now,
+                TimeVisited = DateTime.Now,
                 IsCurrentPage = false,
                 IsInFocus = false,
                 IsPlayingAndNotFocus = true,
@@ -37,6 +35,8 @@ namespace Syhler.InformationGathering.Api.Controllers
 
             return Ok(result);
         }
+        
+        
 
       
     }

@@ -27,7 +27,7 @@ namespace Syhler.InformationGathering.Api
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "Syhler.InformationGathering.Api", Version = "v1"});
             });
 
-            services.AddInfrastructure();
+            services.AddInfrastructure(Configuration);
             services.AddApplication();
         }
 

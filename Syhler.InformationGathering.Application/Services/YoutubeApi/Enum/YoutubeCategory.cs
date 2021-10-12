@@ -4,40 +4,35 @@ namespace Syhler.InformationGathering.Application.Services.YoutubeApi.Enum
     {
         AutoVehicles = 2,
         FilmAndAnimation = 1,
-        Music = 10
-        /*
-    2 - Autos & Vehicles
-    1 -  Film & Animation
-    10 - Music
-    15 - Pets & Animals
-    17 - Sports
-    18 - Short Movies
-    19 - Travel & Events
-    20 - Gaming
-    21 - Videoblogging
-    22 - People & Blogs
-    23 - Comedy
-    24 - Entertainment
-    25 - News & Politics
-    26 - Howto & Style
-    27 - Education
-    28 - Science & Technology
-    29 - Nonprofits & Activism
-    30 - Movies
-    31 - Anime/Animation
-    32 - Action/Adventure
-    33 - Classics
-    34 - Comedy
-    35 - Documentary
-    36 - Drama
-    37 - Family
-    38 - Foreign
-    39 - Horror
-    40 - Sci-Fi/Fantasy
-    41 - Thriller
-    42 - Shorts
-    43 - Shows
-    44 - Trailers
-    */
+        Music = 10,
+        PetsAndAnimals = 15,
+        Sports = 17,
+        ShortMovies = 18,
+        TravelAndEvents = 19,
+        Gaming = 20,
+        Videoblogging = 21,
+        PeopleAndBlogs = 22,
+        Comedy = 23,
+        Entertainment = 24,
+        NewsAndPolitics = 25,
+        HowtoAndStyle = 26,
+        Education = 27,
+        ScienceAndTechnology = 28,
+        NonprofitsAndActivism = 29,
+        Movies = 30,
+        AnimeAndAnimation = 31,
+        ActionAndAdventure = 32,
+        Classics = 33,
+        Comedy2 = 34,
+        Documentary = 35,
+        Drama = 36,
+        Family = 37,
+        Foreign = 38,
+        Horror = 39,
+        SciFiAndFantasy =40,
+        Thriller = 41,
+        Shorts = 42,
+        Shows = 43,
+        Trailers = 44,
     }
 }

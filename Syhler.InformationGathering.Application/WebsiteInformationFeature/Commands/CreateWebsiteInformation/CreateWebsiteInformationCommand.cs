@@ -1,27 +1,29 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Syhler.InformationGathering.Application.WebsiteInformationFeature.Common;
 using Syhler.InformationGathering.Domain.Entities;
+using Syhler.InformationGathering.Domain.Enums;
+using Syhler.InformationGathering.Domain.ValueObject;
 
 namespace Syhler.InformationGathering.Application.WebsiteInformationFeature.Commands.CreateWebsiteInformation
 {
     public class CreateWebsiteInformationCommand : IRequest<bool>
     {
-        public CreateWebsiteInformationCommand(string url, DateTime dateTime, bool isInFocus, bool isCurrentPage)
+        public CreateWebsiteInformationCommand(string url, DateTime timeVisited, bool isInFocus, bool isCurrentPage)
         {
             Url = url;
-            DateTime = dateTime;
+            TimeVisited = timeVisited;
             IsInFocus = isInFocus;
             IsCurrentPage = isCurrentPage;
         }
 
         public string Url { get; private set; }
-        public DateTime DateTime { get; private set; }
+        public DateTime TimeVisited { get; private set; }
         public bool IsInFocus { get; private set; }
         public bool IsCurrentPage { get; private set; }
-        
         
     }
 
@@ -37,17 +39,18 @@ namespace Syhler.InformationGathering.Application.WebsiteInformationFeature.Comm
         public async Task<bool> Handle(CreateWebsiteInformationCommand request, CancellationToken cancellationToken)
         {
 
-            var model = new WebsiteInformation
-            {
-                Url = request.Url,
-                IsCurrentPage = request.IsCurrentPage,
-                IsInFocus = request.IsInFocus,
-                Created = request.DateTime,
-                CreatedBy = Guid.Empty.ToString() //Current user
-            };
+            //TODO check if website is productive or not
+            var model = new WebsiteInformation(
+                WebsiteId.NewId(),
+                request.Url,
+                request.IsCurrentPage,
+                request.IsInFocus,
+                WebsiteInformationType.UNKOWN,
+                request.TimeVisited);
+       
             
 
-            return await _websiteInformationRepository.Insert(model);
+            return await _websiteInformationRepository.InsertAsync(model);
         }
     }
 }

@@ -15,6 +15,8 @@ namespace Syhler.InformationGathering.Infrastructure
 
         public Task<bool> Save<T>(string key, T value)
         {
+            if (value == null) throw new ArgumentNullException(nameof(value));
+            
             _cache.Add(key, value, DateTimeOffset.Now.AddMinutes(10));
             
             return Task.FromResult(true);
